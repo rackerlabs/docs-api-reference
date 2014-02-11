@@ -5,6 +5,7 @@ API reference pages for Rackspace APIs
 
 Prerequisites
 =============
+
 To build the documentation, you must install `Apache Maven <http://maven.apache.org/>`
 
 To install Maven 3 for Ubuntu 12.04 and later or Debian wheezy and later:
@@ -22,6 +23,7 @@ The web pages are in the ``api-ref`` directory.
 Run the ``mvn`` command in that directory.
 
 cd api-ref
+
 mvn clean generate-sources
 
 The generated PDF documentation file is::

@@ -14,15 +14,19 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:db="http://docbook.org/ns/docbook" version="5.0"
     xml:id="docs.rackspace.com-preface">
-    <title>Rackspace API Complete Reference</title>
+    <title>Rackspace API Reference</title>
     <para>Use the Rackspace APIs and extensions in your Rackspace
         cloud.</para>
     <itemizedlist xml:id="service-list">
-       <!-- <listitem>
+      <listitem>
             <para><link xlink:href="api-ref-servers.html">Cloud
                 Servers API</link></para>
         </listitem>
         <listitem>
+            <para><link xlink:href="api-ref-servers-ext.html">Cloud
+                Servers API extensions</link></para>
+        </listitem>
+       <listitem>
             <para><link xlink:href="api-ref-files.html">Cloud Files
                 API</link></para>
         </listitem>
@@ -30,15 +34,15 @@
             <para><link xlink:href="api-ref-databases.html">Cloud
                 Databases API</link></para>
         </listitem>
-        <listitem>
+     <!--   <listitem>
             <para><link xlink:href="api-ref-load-balancers.html">Cloud
                 Load Balancers API</link></para>
-        </listitem>
+        </listitem>-->
         <listitem>
             <para><link xlink:href="api-ref-blockstorage.html">Cloud
                     Block Storage API</link></para>
         </listitem>
-        <listitem>
+       <!-- <listitem>
             <para><link xlink:href="api-ref-dns.html">Cloud DNS
                 API</link></para>
         </listitem>
@@ -58,11 +62,11 @@
             <para><link xlink:href="api-ref-identity.html">Cloud
                     Identity API</link></para>
         </listitem>
-     <!--   <listitem>
+       <listitem>
             <para><link xlink:href="api-ref-queues.html">Cloud Queues
                 API</link></para>
         </listitem>
-        <listitem>
+        <!-- <listitem>
             <para><link xlink:href="api-ref-auto-scale.html">Auto
                 Scale API</link></para>
         </listitem>

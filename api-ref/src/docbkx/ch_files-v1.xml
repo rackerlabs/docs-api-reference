@@ -5,8 +5,8 @@
     xmlns:linkend="http://www.w3.org/1999/linkend"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" xml:id="objectstorage-v1">
-    <title>Object Storage API v1</title>
+    version="5.0-extension RackBook-2.0" xml:id="files-v1">
+    <title>Cloud Files API v1</title>
     <para>Manages the accounts, containers, and objects in the Object
         Storage system.</para>
     <para>To run the cURL command examples for these requests, set
@@ -15,13 +15,13 @@
         <listitem>
             <para><code>publicURL</code>. The public URL that is the
                 HTTP endpoint from where you can access Object
-                Storage. It includes the Object Storage API version
+                Storage. It includes the Cloud Files API version
                 number and your account name. For example,
                     <code>https://23.253.72.207/v1/my_account</code>.</para>
         </listitem>
         <listitem>
             <para><code>token</code>. The authentication token for
-                Object Storage.</para>
+                Cloud Files.</para>
         </listitem>
     </itemizedlist>
     <para>To obtain these values, run the <command>swift stat
@@ -44,28 +44,28 @@ Accept-Ranges: bytes</programlisting>
         see <link
             xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14"
             >Header Field Definitions</link>.</para>
-    <section xml:id="storage_account_services">
+    <section xml:id="files_account_services">
         <title>Accounts</title>
         <para>Lists containers for a specified account. Creates,
             updates, and deletes account metadata. Shows account
             metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/object-api/src/os-object-api-1.0.wadl#account">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/object-api/src/os-object-api-1.0.wadl#account">
                 <wadl:method href="#showAccountDetails"/>
                 <wadl:method href="#updateAccountMeta"/>
                 <wadl:method href="#showAccountMeta"/>
             </wadl:resource>
         </wadl:resources>
     </section>
-    <section xml:id="storage_container_services">
+    <section xml:id="files_container_services">
         <title>Containers</title>
         <para>Lists objects in a specified container. Creates, shows
             details for, and deletes containers. Creates, updates,
             shows, and deletes container metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/object-api/src/os-object-api-1.0.wadl#container">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/object-api/src/os-object-api-1.0.wadl#container">
                 <wadl:method href="#showContainerDetails"/>
                 <wadl:method href="#createContainer"/>
                 <wadl:method href="#deleteContainer"/>
@@ -74,14 +74,14 @@ Accept-Ranges: bytes</programlisting>
             </wadl:resource>
         </wadl:resources>
     </section>
-    <section xml:id="storage_object_services">
+    <section xml:id="files_object_services">
         <title>Objects</title>
         <para>Creates, replaces, shows details for, and deletes
             objects. Copies objects with another object with a new or
             different name. Updates object metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/object-api/src/os-object-api-1.0.wadl#object">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/object-api/src/os-object-api-1.0.wadl#object">
                 <wadl:method href="#getObject"/>
                 <wadl:method href="#createOrReplaceObject"/>
                 <wadl:method href="#copyObject"/>
@@ -91,4 +91,22 @@ Accept-Ranges: bytes</programlisting>
             </wadl:resource>
         </wadl:resources>
     </section>
+    <section xml:id="files_cdn_containers">
+        <title>CDN-enabled containers</title>
+        <para>Manage CDN-enabled containers.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/cloud-files/raw/master/src/wadl/rax-cloudFilesCDN-api-v1.wadl#container"
+            />
+        </wadl:resources>
+    </section>
+    <!-- add back later - validation errors <section xml:id="files_cdn_objects">
+        <title>CDN-enabled objects</title>
+        <para>Manage CDN-enabled objects</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/cloud-files/raw/master/src/wadl/rax-cloudFilesCDN-api-v1.wadl#object"
+            />
+        </wadl:resources>
+    </section> -->
 </chapter>
