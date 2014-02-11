@@ -8,21 +8,21 @@
     version="5.0-extension RackBook-2.0" xml:id="blockstorage-v2">
     <title>Block Storage API v2.0</title>
     <para>Manages volumes and snapshots for use with the Block Storage
-        API, also known as cinder services.</para>
+        API.</para>
     <section xml:id="volumes">
         <title>Volumes</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#volumes">
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#volumes">
                 <wadl:method href="#createVolume"/>
                 <wadl:method href="#getVolumesSimple"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#detail">
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#detail">
                 <wadl:method href="#getVolumesDetail"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#volume_id">
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_id">
                 <wadl:method href="#getVolume"/>
                 <wadl:method href="#updateVolume"/>
                 <wadl:method href="#deleteVolume"/>
@@ -33,11 +33,11 @@
         <title>Volume types</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#types">
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_types">
                 <wadl:method href="#getVolumeTypes"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#volume_type_id">
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_type_id">
                 <wadl:method href="#getVolumeType"/>
             </wadl:resource>
         </wadl:resources>
@@ -46,16 +46,10 @@
         <title>Snapshots</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#snapshots">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/volume-api/src/v1/volume-api.wadl#snapshots">
                 <wadl:method href="#createSnapshot"/>
                 <wadl:method href="#getSnapshotsSimple"/>
-            </wadl:resource>
-            <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#detail-snapshot">
                 <wadl:method href="#getSnapshotsDetail"/>
-            </wadl:resource>
-            <wadl:resource
-                href="../wadls/volume-api/src/v2/volume-api.wadl#snapshot_id">
                 <wadl:method href="#getSnapshot"/>
                 <wadl:method href="#updateSnapshot"/>
                 <wadl:method href="#deleteSnapshot"/>

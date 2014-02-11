@@ -6,9 +6,9 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0"
-    xml:id="api.openstack.org-pdf">
+    xml:id="api.rackspace.com-pdf">
     <info>
-        <title>OpenStack API Reference</title>
+        <title>Rackspace API Reference</title>
         <titleabbrev>API Reference</titleabbrev>
         <author>
             <personname>
@@ -16,16 +16,16 @@
                 <surname/>
             </personname>
             <affiliation>
-                <orgname>OpenStack Foundation</orgname>
+                <orgname>Rackspace Cloud</orgname>
             </affiliation>
         </author>
         <copyright>
-            <year>2010-2013</year>
-            <holder>OpenStack Foundation</holder>
+            <year>2010-2014</year>
+            <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack</productname>
+        <productname>Rackspace</productname>
         <pubdate/>
-        <legalnotice role="cc-by">
+        <legalnotice role="rs-api">
             <annotation>
                 <remark>Copyright details are filled in by the
                     template.</remark>
@@ -34,8 +34,8 @@
     </info>
     <xi:include href="preface.xml"/>
     <xi:include href="ch_blockstorage-api.xml"/>
-    <xi:include href="ch_compute-core.xml"/>
-    <xi:include href="ch_compute-ext.xml"/>
+    <xi:include href="ch_servers.xml"/>
+    <xi:include href="ch_servers-ext.xml"/>
     <xi:include href="ch_identity-v3.xml"/>
     <xi:include href="ch_identity-v3-ext.xml"/>
     <xi:include href="ch_identity-v2.xml"/>
@@ -45,7 +45,7 @@
     <xi:include href="ch_images-v1.xml"/>
     <xi:include href="ch_netconn-v2.xml"/>
     <xi:include href="ch_netconn-ext-v2.xml"/>
-    <xi:include href="ch_objectstorage-v1.xml"/>
+    <xi:include href="ch_files-v1.xml"/>
     <xi:include href="ch_orchestration-v1.xml"/>
     <xi:include href="ch_telemetry-v2.xml"/>
 </book>

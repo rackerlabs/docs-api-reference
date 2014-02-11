@@ -6,9 +6,9 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0"
-    xml:id="api.openstack.org-compute-ext-pdf">
+    xml:id="api.rackspace.com-objectstorage-pdf">
     <info>
-        <title>OpenStack Compute API v2 Extensions Reference</title>
+        <title>Rackspace Cloud Files API v1 Reference</title>
         <titleabbrev>API Reference</titleabbrev>
         <author>
             <personname>
@@ -16,16 +16,16 @@
                 <surname/>
             </personname>
             <affiliation>
-                <orgname>OpenStack Foundation</orgname>
+                <orgname>Rackspace Cloud</orgname>
             </affiliation>
         </author>
         <copyright>
             <year>2010-2014</year>
-            <holder>OpenStack Foundation</holder>
+            <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack Compute</productname>
+        <productname>Rackspace Cloud Files</productname>
         <pubdate/>
-        <legalnotice role="cc-by">
+        <legalnotice role="rs-api">
             <annotation>
                 <remark>Copyright details are filled in by the
                     template.</remark>
@@ -33,6 +33,5 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_compute-ext.xml"/>
+    <xi:include href="ch_files-v1.xml"/>
 </book>
-

@@ -6,16 +6,16 @@
   xmlns:xref="http://www.w3.org/1999/xref"
   xmlns:wadl="http://wadl.dev.java.net/2009/02"
   version="5.0-extension RackBook-2.0"
-  xml:id="api.openstack.org-objectstorage">
+  xml:id="api.rackspace.com-databases">
   <info>
-    <title>OpenStack Object Storage API</title>
+    <title>Rackspace Cloud Databases APIs</title>
     <copyright>
       <year>2010-2014</year>
     </copyright>
-    <legalnotice role="apache2">
+    <legalnotice role="rs-api">
       <para/>
     </legalnotice>
   </info>
   <xi:include href="preface.xml"/>
- <xi:include href="ch_objectstorage-v1.xml"/>
+  <xi:include href="ch_databases-v1.xml"/>
 </book>

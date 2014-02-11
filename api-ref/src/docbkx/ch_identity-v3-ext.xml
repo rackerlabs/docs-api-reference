@@ -10,10 +10,10 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="identity-v3-ext"
     xlink:href="#identity-v3-ext">
-    <title>Identity Service API v3 extensions</title>
-    <para>Adds capabilities to the core Identity Service Admin API
+    <title>Identity API v3 extensions</title>
+    <para>Adds capabilities to the core Identity Admin API
         v3.</para>
-    <para>Query the Identity Service API to list available extensions
+    <para>Query the Identity API to list available extensions
         with a &GET; request to <code>v3/extensions</code>.</para>
     <section xml:id="identity_v3_OS-OAUTH1-ext">
         <title>OS-OAUTH1 extension</title>

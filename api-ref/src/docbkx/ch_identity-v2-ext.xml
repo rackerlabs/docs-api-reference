@@ -18,13 +18,13 @@
     <section xml:id="os-ksadm-admin-ext">
         <title>OS-KSADM admin extension</title>
         <wadl:resources
-            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/OS-KSADM-admin.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="os-kscatalog-ext">
         <title>OS-KSCATALOG admin extension</title>
         <wadl:resources
-            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/OS-KSCATALOG-admin.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSCATALOG-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="rax-auth-ext">
@@ -36,19 +36,19 @@
     <section xml:id="rax-ksgrp-admin-ext">
         <title>RAX-KSGRP admin extension</title>
         <wadl:resources
-            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-KSGRP-admin.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSGRP-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="rax-kskey-admin-ext">
         <title>RAX-KSKEY admin extension</title>
         <wadl:resources
-            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-KSKEY-admin.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSKEY-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="rax-ksqa-admin-ext">
         <title>RAX-KSQA admin extension</title>
         <wadl:resources
-            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-KSQA-admin.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSQA-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="rax-ratelimit-admin-ext">

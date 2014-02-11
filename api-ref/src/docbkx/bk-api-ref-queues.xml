@@ -6,9 +6,9 @@
   xmlns:xref="http://www.w3.org/1999/xref"
   xmlns:wadl="http://wadl.dev.java.net/2009/02"
   version="5.0-extension RackBook-2.0"
-  xml:id="api.rackspace.com-image">
+  xml:id="api.rackspace.com-queues">
   <info>
-    <title>Rackspace Cloud Databases APIs</title>
+    <title>Rackspace Cloud Queues APIs</title>
     <copyright>
       <year>2010-2014</year>
     </copyright>
@@ -17,5 +17,5 @@
     </legalnotice>
   </info>
   <xi:include href="preface.xml"/>
-  <xi:include href="ch_databases-v1.xml"/>
+  <xi:include href="ch_queues-v1.xml"/>
 </book>

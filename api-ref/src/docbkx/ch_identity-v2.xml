@@ -12,7 +12,7 @@
         Rackspace Cloud APIs.</para>
     <wadl:resources 
         xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <wadl:resource href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/identity-admin.wadl#tokens">
+        <wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tokens">
             <wadl:method href="#authenticate"/>
         </wadl:resource> 
     </wadl:resources>

@@ -19,7 +19,7 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0"
-    xml:id="api.openstack.org-blockstorage-pdf">
+    xml:id="api.rackspace.com-blockstorage-pdf">
     <info>
         <title>OpenStack Block Storage API v2.0 Reference</title>
         <titleabbrev>API Reference</titleabbrev>
@@ -29,16 +29,16 @@
                 <surname/>
             </personname>
             <affiliation>
-                <orgname>OpenStack Foundation</orgname>
+                <orgname>Rackspace Cloud</orgname>
             </affiliation>
         </author>
         <copyright>
             <year>2010-2013</year>
-            <holder>OpenStack Foundation</holder>
+            <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack Block Storage</productname>
+        <productname>Rackspace Block Storage</productname>
         <pubdate/>
-        <legalnotice role="cc-by">
+        <legalnotice role="rs-api">
             <annotation>
                 <remark>Copyright details are filled in by the
                     template.</remark>
