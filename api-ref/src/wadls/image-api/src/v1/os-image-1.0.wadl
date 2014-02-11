@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- (C) 2012-2013 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entites with xmllint          -->
+<!--                                                       -->
+<!--        xmllint -noent os-image-1.0.wadl               -->
+<!--*******************************************************-->
+<!DOCTYPE application [<!ENTITY % common  SYSTEM "common.ent">
+%common;]>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://wadl.dev.java.net/2009/02"
+    xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:imageapi="http://docs.openstack.org/image/api/v1.0"
+    xmlns:common="http://docs.openstack.org/common/api/v1.0"
+    xmlns:csapi="http://docs.openstack.org/image/api/v1.0">
+    <grammars>
+        <include href="../v2/xsd/api.xsd"/>
+        <include href="../v2/xsd/api-common.xsd"/>
+    </grammars>
+
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+
+    <resources base="https://glance.example.com/"
+        xml:id="os-image-v1.0">
+        <resource id="info" path="v1">
+            <resource id="Images" type="#ImageList" path="images">
+                <method href="#createImage"/>
+                <resource path="detail" type="#DetailImageList"
+                    id="detail"/>
+                <resource path="{image_id}" id="image_id">
+                    <param name="image_id" style="template"
+                        type="xsd:string">
+                        <wadl:doc
+                            xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN" title="Image ID">Image ID
+                            stored through the image API. Typically a
+                            UUID.</wadl:doc>
+                    </param>
+                    <method href="#getImage"/>
+                    <method href="#updateImage"/>
+                    <method href="#deleteImage"/>
+                    <resource id="members" path="members">
+                        <method href="#replaceMember"/>
+                        <resource path="{owner_id}" id="owner-id">
+                            <param name="owner_id" style="template"
+                                type="xsd:string">
+                                <wadl:doc
+                                   xmlns="http://www.w3.org/1999/xhtml"
+                                   xml:lang="EN" title="Owner ID"
+                                   >Owner ID, which is the tenant
+                                   ID.</wadl:doc>
+                            </param>
+                            <method href="#addMember"/>
+                            <method href="#removeMember"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource id="shared-images" path="shared-images">
+                <resource path="{owner}" id="owner-2">
+                    <param name="owner" style="plain" required="true"
+                        type="csapi:uuid">
+                        <wadl:doc
+                            xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN" title="Image ID">
+                            <para>Owner ID. The owner ID is the tenant
+                                ID.</para>
+                        </wadl:doc>
+                    </param>
+                    <method href="#getSharedImages"/>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+
+    <!--*******************************************************-->
+    <!--               Resource Types                          -->
+    <!--*******************************************************-->
+
+    <resource_type id="ImageList">
+        <method href="#listImage"/>
+    </resource_type>
+    <resource_type id="DetailImageList">
+        <method href="#listDetailImage"/>
+    </resource_type>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+
+    <method name="POST" id="createImage">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Create image">
+            <para role="shortdesc">Registers a virtual machine (VM)
+                image.</para>
+        </wadl:doc>
+        <request>
+            <param name="name" style="plain" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="Images name">
+                    <para>Name for the image. Note that the name of an
+                        image is not unique to a Glance node. The API
+                        cannot expect users to know the names of
+                        images owned by others.</para>
+                </wadl:doc>
+            </param>
+            <param name="disk_format" style="plain" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="Image disk format">
+                    <para>Valid values are: aki, ari, ami, raw, iso,
+                        vhd, vdi, qcow2, or vmdk.</para>
+                    <para>The disk format of a VM image is the format
+                        of the underlying disk image. Virtual
+                        appliance vendors have different formats for
+                        laying out the information contained in a VM
+                        disk image.</para>
+                    <para>You can set the container format for your
+                        image to one of the following values:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                <strong>raw</strong>
+                            </para>
+                            <para>Unstructured disk image
+                                format.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>vhd</strong>
+                            </para>
+                            <para>VHD disk format, a common disk
+                                format used by VM monitors from
+                                VMWare, Xen, Microsoft, VirtualBox,
+                                and others.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>vmdk</strong>
+                            </para>
+                            <para>A common disk format that supported
+                                by many VM monitors.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>vdi</strong>
+                            </para>
+                            <para>Supported by VirtualBox VM monitor
+                                and the QEMU emulator.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>iso</strong>
+                            </para>
+                            <para>An archive format for the data
+                                contents of an optical disc, such as
+                                CDROM.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>qcow2</strong>
+                            </para>
+                            <para>Supported by the QEMU emulator that
+                                can expand dynamically and supports
+                                Copy on Write.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>aki</strong>
+                            </para>
+                            <para>An Amazon kernel image.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>ari</strong>
+                            </para>
+                            <para>An Amazon ramdisk image.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>ami</strong>
+                            </para>
+                            <para>An Amazon machine image.</para>
+                        </listitem>
+                    </itemizedlist>
+                </wadl:doc>
+            </param>
+            <param name="container_format" style="plain"
+                type="xsd:string" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="Container Formats">
+                    <para>The container format refers to whether the
+                        VM image is in a file format that also
+                        contains metadata about the actual VM.</para>
+                    <para>Container formats include: OVF and Amazon’s
+                        AMI. In addition, a VM image might not have a
+                        container format – instead, the image is just
+                        a blob of unstructured data.</para>
+                    <para>You can set the container format to one of
+                        the following:</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                <strong>ovf</strong></para>
+                            <para>OVF container format.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>bare</strong></para>
+                            <para>No container or metadata envelope
+                                for the image.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>aki</strong></para>
+                            <para>Amazon kernel image.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>ari</strong></para>
+                            <para>Amazon ramdisk image.</para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <strong>ami</strong></para>
+                            <para>Amazon machine image.</para>
+                        </listitem>
+                    </itemizedlist>
+                </wadl:doc>
+            </param>
+            <param name="createImage" type="ImageForCreate"
+                path="/images"/>
+            <representation mediaType="application/json"
+                element="image"> </representation>
+        </request>
+        <response status="202">
+            <param name="location" style="plain" type="xsd:anyURI"
+                required="true"
+                path="/common:version/atom:link[@rel='self']/@href">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="Image Location">
+                    <para>A location for the image identified by a
+                        URI.</para>
+                </wadl:doc>
+                <link resource_type="#createImage" rel="self"/>
+            </param>
+            <representation mediaType="application/xml"
+                element="common:version"/>
+            <representation mediaType="application/json"/>
+        </response>
+    </method>
+    <method name="PUT" id="updateImage">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Update image">
+            <para role="shortdesc">Updates an image, uploads an image
+                file, or updates metadata for an image.</para>
+        </wadl:doc>
+        <response status="200">
+            <representation mediaType="application/xml"
+                element="common:version">
+                <param name="location" style="plain" type="xsd:anyURI"
+                    required="true"
+                    path="/common:version/atom:link[@rel='self']/@href">
+                    <link resource_type="#createImage" rel="self"/>
+                </param>
+            </representation>
+            <representation mediaType="application/json"/>
+        </response>
+    </method>
+    <method name="GET" id="getImage">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Get image details">
+            <para role="shortdesc">Shows details for the specified
+                image.</para>
+        </wadl:doc>
+        <response status="200">
+            <representation mediaType="application/xml"
+                element="imageapi:image"/>
+            <representation mediaType="application/json">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <xsdxt:code href="samples/imagedetails.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+    <method name="DELETE" id="deleteImage">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Delete image">
+            <para role="shortdesc">Deletes the specified image.</para>
+        </wadl:doc>
+        <response status="204"/>
+    </method>
+
+    <method name="GET" id="getSharedImages">
+        <wadl:doc xml:lang="EN" xmlns="http://docbook.org/ns/docbook"
+            title="List shared images">
+            <para role="shortdesc">Lists the VM images shared with a
+                specified owner. The owner ID is the tenant ID.</para>
+        </wadl:doc>
+        <response status="200">
+            <param name="image_id" style="plain" type="xsd:anyURI"
+                required="true"
+                path="/common:version/atom:link[@rel='self']/@href">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="Image ID">
+                    <para>The ID of the image that is shared with the
+                        specified owner. The owner ID is the tenant
+                        ID.</para>
+                </wadl:doc>
+                <link resource_type="#getSharedImages" rel="self"/>
+            </param>
+            <param name="can_share" style="plain" type="xsd:anyURI"
+                required="true"
+                path="/common:version/atom:link[@rel='self']/@href">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="Can Share Flag">
+                    <para>If the owner is authorized to further share
+                        the image, the can_share field is set to true.
+                        The owner ID is the tenant ID.</para>
+                </wadl:doc>
+                <link resource_type="#getSharedImages" rel="self"/>
+            </param>
+            <representation mediaType="application/xml"
+                element="imageapi:images"> </representation>
+            <representation mediaType="application/json"
+                element="imageapi:images">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <xsdxt:code href="samples/shared-images.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+    <method name="GET" id="listImage">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="List image">
+            <para role="shortdesc">Lists public VM images.</para>
+        </wadl:doc>
+        <request>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="name" style="query" required="false"
+                type="xsd:string">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Name of the image as a string.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="container_format" style="query" required="false"
+                type="imageapi:ImageStatus">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the container format, such as ovf,
+                        bare, aki, ari, or ami.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="disk_format" style="query" required="false"
+                type="imageapi:UUID">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the disk format.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="status" style="query" required="false"
+                type="xsd:int">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Filters on the status of the image, such as
+                        queued, saving, active, killed, deleted, and
+                        pending_delete.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="size_min" style="query" required="false"
+                type="xsd:string" default="ALL">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the minimum size of the image in
+                        bytes.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="size_min" style="query" required="false"
+                type="xsd:string" default="ALL">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the maximum size of the image in
+                        bytes.</para>
+                </wadl:doc>
+            </param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml"
+                element="imageapi:images"/>
+            <representation mediaType="application/json">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <xsdxt:code href="samples/imagelist.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+
+    <method name="GET" id="listDetailImage">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="List image details">
+            <para role="shortdesc">Lists details for available
+                images.</para>
+        </wadl:doc>
+        <request>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="name" style="query" required="false"
+                type="xsd:string">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Name of the image as a string.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="container_format" style="query" required="false"
+                type="imageapi:ImageStatus">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the container format, such as ovf,
+                        bare, aki, ari, or ami.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="disk_format" style="query" required="false"
+                type="imageapi:UUID">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the disk format.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="status" style="query" required="false"
+                type="xsd:int">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Filter on the status of the image, such as
+                        queued, saving, active, killed, deleted, and
+                        pending_delete.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="size_min" style="query" required="false"
+                type="xsd:string" default="ALL">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the minimum size of the image in
+                        bytes.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+                name="size_min" style="query" required="false"
+                type="xsd:string" default="ALL">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN">
+                    <para>Value of the maximum size of the image in
+                        bytes.</para>
+                </wadl:doc>
+            </param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml"
+                element="imageapi:images">
+                <param name="next" style="plain" type="xsd:anyURI"
+                    path="/imageapi:images/atom:link[@rel='next']/@href">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN" title="Next">
+                        <para>Show the next item in the list.</para>
+                    </wadl:doc>
+                    <link resource_type="#DetailImageList" rel="next"
+                    />
+                </param>
+                <param name="previous" style="plain" type="xsd:anyURI"
+                    path="/imageapi:images/atom:link[@rel='previous']/@href">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN" title="Previous">
+                        <para>Show the previous item in the
+                            list.</para>
+                    </wadl:doc>
+                    <link resource_type="#DetailImageList"
+                        rel="previous"/>
+                </param>
+            </representation>
+            <representation mediaType="application/json"/>
+        </response>
+    </method>
+    <method name="PUT" id="addMember">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Add member">
+            <para role="shortdesc">Adds a member to an image.</para>
+            <para>If you omit the request body from this call, this
+                request adds the membership to the image, leaves the
+                existing memberships unmodified, and defaults new
+                memberships to have can_share set to false.</para>
+        </wadl:doc>
+        <request>
+            <param name="can_share" style="plain" required="true"
+                type="xsd:boolean">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN" title="can_share">
+                    <para>To give an owner access to a private image,
+                        set to true. The owner ID is the tenant
+                        ID.</para>
+                </wadl:doc>
+            </param>
+            <representation mediaType="application/json"
+                element="image">
+                <xsdxt:code href="samples/imagememberships.json"/>
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method name="PUT" id="replaceMember">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Replace member">
+            <para role="shortdesc">Replaces a membership list for an
+                image.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/json"
+                element="image">
+                <param name="memberships" style="plain"
+                    required="true"/>
+                <param name="can_share" style="plain" required="true"
+                    type="ImageForCreate"/>
+                <xsdxt:code href="samples/imagemembershiplist.json"/>
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method name="DELETE" id="removeMember">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+            title="Delete image">
+            <para role="shortdesc">Removes a member from an
+                image.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/json"
+                element="image">
+                <param name="member_id" style="plain" required="true"
+                    type="csapi:uuid">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">
+                        <para>ID of member with which an image is
+                            shared.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+</application>
