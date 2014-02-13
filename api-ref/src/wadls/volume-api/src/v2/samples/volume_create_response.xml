@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<volume xmlns:atom="http://www.w3.org/2005/Atom"
-    xmlns="http://docs.openstack.org/api/openstack-volume/2.0/content"
-    name="vol-001" id="ad63f5e4-ead6-4ca5-8c9a-461a64a40d1b">
-    <attachments/>
-    <metadata/>
-</volume>

@@ -5,10 +5,10 @@
     xmlns:linkend="http://www.w3.org/1999/linkend"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" 
-    xml:id="api.rackspace.com-backup">
+    version="5.0-extension RackBook-2.0"
+    xml:id="api.rackspace.com-big-data">
     <info>
-        <title>Cloud Backup API</title>
+        <title>Cloud Big Data API</title>
         <copyright>
             <year>2010-2014</year>
         </copyright>
@@ -17,5 +17,6 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_backup-v1.xml"/>
+    <xi:include href="ch_big-data-v1.xml"/>
 </book>
+

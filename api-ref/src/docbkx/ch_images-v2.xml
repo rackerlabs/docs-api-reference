@@ -5,23 +5,23 @@
     xmlns:linkend="http://www.w3.org/1999/linkend"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" xml:id="image-v2">
-    <title>Image Service API v2</title>
-    <para>Image Service API v2.0, API v2.1, and API v2.2.</para>
-    <section xml:id="images-v2">
+    version="5.0-extension RackBook-2.0" xml:id="images-v2">
+    <title>Cloud Images API v2</title>
+    <section xml:id="images">
         <title>Images</title>
-        <para>Creates, updates, and deletes image metadata records.
-            Enables users to share images with each other. Also,
-            uploads and downloads raw image data.</para>
-        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
-            href="../wadls/image-api/src/v2/os-image-v2.wadl"/>
+        <para>Create, update, and delete image metadata records. Share
+            images with other users. Also, upload and download raw
+            image data.</para>
+       <!-- add back - validation errors <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
+            href="https://github.rackspace.com/IX/cloud-images/raw/master/src/wadl/image-2.0.wadl"
+        /> -->
     </section>
-    <section xml:id="image-schemas-v2">
+    <section xml:id="image-schemas">
         <title>Image schemas</title>
-        <para>Gets a JSON-schema document that represents an images or
-            image entity.</para>
+        <para>Get a JSON-schema document that represents an image or
+            images entity.</para>
         <wadl:resources
-            href="../wadls/image-api/src/v2/os-image-schemas-v2.wadl"
+            href="https://github.rackspace.com/IX/cloud-images/raw/master/src/wadl/image-schemas-2.0.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
 </chapter>
