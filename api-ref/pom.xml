@@ -30,14 +30,26 @@
             <goals>
               <goal>generate-html</goal>
             </goals>
-            <phase>generate-sources</phase>
+            <phase>generate-sources</phase>            
             <configuration>
-              <includes> api-ref.xml, api-ref-servers.xml, api-ref-servers-ext.xml, 
-                api-ref-identity.xml,
-                api-ref-blockstorage.xml,
-                api-ref-files.xml, api-ref-queues.xml <!--, api-ref-image.xml,
-                api-ref-networking.xml, api-ref-objectstorage.xml, api-ref-orchestration.xml,
-                api-ref-telemetry.xml--> </includes>
+              <includes> api-ref.xml,       <!-- comprehensive -->
+                api-ref-auto-scale.xml,     <!-- auto scale -->
+                api-ref-backup.xml,         <!-- backup -->
+                api-ref-big-data.xml,       <!-- big data -->
+                api-ref-blockstorage.xml,   <!-- block storage -->
+                api-ref-databases.xml,      <!-- databases -->
+                api-ref-dns.xml,            <!-- dns -->
+                api-ref-files.xml,          <!-- files -->
+                api-ref-identity.xml,       <!-- identity -->
+                api-ref-images.xml,         <!-- images -->
+                api-ref-load-balancers.xml, <!-- load balancers -->
+                api-ref-monitoring.xml,     <!-- monitoring -->
+                api-ref-networks.xml,       <!-- networks -->
+                api-ref-orchestration.xml,  <!-- orchestration -->
+                api-ref-queues.xml,         <!-- queues -->
+                api-ref-servers.xml,        <!-- servers -->
+                api-ref-servers-ext.xml     <!-- servers extensions -->
+              </includes>
               <profileSecurity>reviewer</profileSecurity>
               <highlightSource>false</highlightSource>
               <enableGoogleAnalytics>1</enableGoogleAnalytics>
@@ -56,7 +68,40 @@
               <pdfFilenameBase>api-ref</pdfFilenameBase>
             </configuration>
           </execution> -->
-    <execution>
+          <execution>
+            <id>os-api-ref-auto-scale</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-auto-scale.xml </includes>
+              <pdfFilenameBase>api-ref-auto-scale</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-backup</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-backup.xml </includes>
+              <pdfFilenameBase>api-ref-backup</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-big-data</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-big-data.xml </includes>
+              <pdfFilenameBase>api-ref-big-data</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
             <id>os-api-ref-blockstorage</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -65,6 +110,116 @@
             <configuration>
               <includes> bk-api-ref-blockstorage.xml </includes>
               <pdfFilenameBase>api-ref-blockstorage</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-databases</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-databases.xml </includes>
+              <pdfFilenameBase>api-ref-databases</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-dns</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-dns.xml </includes>
+              <pdfFilenameBase>api-ref-dns</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-files</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-files.xml </includes>
+              <pdfFilenameBase>api-ref-files</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-identity</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-identity.xml </includes>
+              <pdfFilenameBase>api-ref-identity</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-images</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-images.xml </includes>
+              <pdfFilenameBase>api-ref-images</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-load-balancers</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-load-balancers.xml </includes>
+              <pdfFilenameBase>api-ref-load-balancers</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-monitoring</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-monitoring.xml </includes>
+              <pdfFilenameBase>api-ref-monitoring</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-networks</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-networks.xml </includes>
+              <pdfFilenameBase>api-ref-networks</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-orchestration</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-orchestration.xml </includes>
+              <pdfFilenameBase>api-ref-orchestration</pdfFilenameBase>
+            </configuration>
+          </execution>
+          <execution>
+            <id>os-api-ref-queues</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> bk-api-ref-queues.xml </includes>
+              <pdfFilenameBase>api-ref-queues</pdfFilenameBase>
             </configuration>
           </execution>
           <execution>
@@ -89,88 +244,10 @@
               <pdfFilenameBase>api-ref-servers-ext</pdfFilenameBase>
             </configuration>
           </execution>
-          <execution>
-            <id>os-api-ref-identity</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-identity.xml </includes>
-              <pdfFilenameBase>api-ref-identity</pdfFilenameBase>
-            </configuration>
-          </execution>
-        <!--  <execution>
-            <id>os-api-ref-image</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-image.xml </includes>
-              <pdfFilenameBase>api-ref-image</pdfFilenameBase>
-            </configuration>
-          </execution> -->
-          <execution>
-            <id>os-api-ref-files</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-files.xml </includes>
-              <pdfFilenameBase>api-ref-files</pdfFilenameBase>
-            </configuration>
-          </execution>
-          <execution>
-            <id>os-api-ref-queues</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-queues.xml </includes>
-              <pdfFilenameBase>api-ref-queues</pdfFilenameBase>
-            </configuration>
-          </execution>
-         <!-- <execution>
-            <id>os-api-ref-networking</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-networking.xml </includes>
-              <pdfFilenameBase>api-ref-networking</pdfFilenameBase>
-            </configuration>
-          </execution>
-          <execution>
-            <id>os-api-ref-orchestration</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-orchestration.xml </includes>
-              <pdfFilenameBase>api-ref-orchestration</pdfFilenameBase>
-            </configuration>
-          </execution>
-          <execution>
-            <id>os-api-ref-telemetry</id>
-            <goals>
-              <goal>generate-webhelp</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <includes> bk-api-ref-telemetry.xml </includes>
-              <pdfFilenameBase>api-ref-telemetry</pdfFilenameBase>
-            </configuration>
-          </execution>-->
         </executions>
         <configuration>
           <!-- These parameters apply to pdf and webhelp -->
-          <generateToc> 
-            appendix toc,title
+          <generateToc> appendix toc,title 
             article/appendix nop
             article toc,title
             book toc,title

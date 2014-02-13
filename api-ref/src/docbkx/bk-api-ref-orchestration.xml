@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-orchestration-pdf">
     <info>
-        <title>OpenStack Orchestration API v1.0 Reference</title>
+        <title>Rackspace Orchestration API v1.0 Reference</title>
         <titleabbrev>Orchestration API Reference</titleabbrev>
         <author>
             <personname>
@@ -23,7 +23,7 @@
             <year>2010-2013</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack Orchestration</productname>
+        <productname>Rackspace Orchestration</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
