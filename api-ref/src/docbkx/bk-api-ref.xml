@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <book xmlns="http://docbook.org/ns/docbook"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0"
-    xml:id="api.rackspace.com-pdf">
+    xml:id="api.rackspace.com-all-pdf">
     <info>
         <title>Rackspace API Reference</title>
         <titleabbrev>API Reference</titleabbrev>
@@ -23,7 +26,7 @@
             <year>2010-2014</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>Rackspace</productname>
+        <productname>Rackspace Cloud Files</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
@@ -33,19 +36,20 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_blockstorage-api.xml"/>
-    <xi:include href="ch_servers.xml"/>
-    <xi:include href="ch_servers-ext.xml"/>
-    <xi:include href="ch_identity-v3.xml"/>
-    <xi:include href="ch_identity-v3-ext.xml"/>
-    <xi:include href="ch_identity-v2.xml"/>
-    <xi:include href="ch_identity-admin-v2.xml"/>
-    <xi:include href="ch_identity-v2-ext.xml"/>
-    <xi:include href="ch_images-v2.xml"/>
-    <xi:include href="ch_images-v1.xml"/>
-    <xi:include href="ch_netconn-v2.xml"/>
-    <xi:include href="ch_netconn-ext-v2.xml"/>
-    <xi:include href="ch_files-v1.xml"/>
-    <xi:include href="ch_orchestration-v1.xml"/>
-    <xi:include href="ch_telemetry-v2.xml"/>
+    <xi:include href="api-ref-auto-scale.xml"/>
+    <xi:include href="api-ref-backup.xml"/>
+    <xi:include href="api-ref-big-data.xml"/>
+    <xi:include href="api-ref-blockstorage.xml"/>
+    <xi:include href="api-ref-databases.xml"/>
+    <xi:include href="api-ref-dns.xml"/>
+    <xi:include href="api-ref-files.xml"/>
+    <xi:include href="api-ref-identity.xml"/>
+    <xi:include href="api-ref-images.xml"/>
+    <xi:include href="api-ref-load-balancers.xml"/>
+    <xi:include href="api-ref-monitoring.xml"/>
+    <xi:include href="api-ref-networking.xml"/>
+    <xi:include href="api-ref-orchestration.xml"/>
+    <xi:include href="api-ref-queues.xml"/>
+    <xi:include href="api-ref-servers.xml"/>
+    <xi:include href="api-ref-servers-ext.xml"/>
 </book>
