@@ -8,21 +8,22 @@
     xmlns:db="http://docbook.org/ns/docbook"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" xml:id="auto-scale-v1">
-    <title>Auto Scale API v1</title>
+    version="5.0-extension RackBook-2.0" xml:id="auto-scale-v1.0">
+    <title>Auto Scale API v1.0</title>
     <section xml:id="auto-scale-groups">
         <title>Groups</title>
-        <!-- add back later - validation errors 
-            <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#groups">
-                <wadl:method href="#getGroups"/>
-               <wadl:method href="#createGroup"/>
-            </wadl:resource>
-        </wadl:resources>-->
+        <!-- add back later - validation errors -->
+        <!--  <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02" href="../wadls/autoscale/wadl/autoscale.wadl"/>-->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#group">
+                href="../wadls/autoscale/wadl/autoscale.wadl#groups">
+                <wadl:method href="#getGroups"/>
+                <wadl:method href="#createGroup"/>
+            </wadl:resource>
+        </wadl:resources>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#group">
                 <wadl:method href="#getGroupManifest"/>
                 <wadl:method href="#deleteGroup"/>
                 <wadl:method href="#getGroupState"/>
