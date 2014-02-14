@@ -2,9 +2,9 @@
 <book xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     version="5.0-extension RackBook-2.0"
-    xml:id="api.rackspace.com-auto-scale-v1.0-pdf">
+    xml:id="api.rackspace.com-feeds-pdf">
     <info>
-        <title>Rackspace Auto Scale API v1.0 Reference</title>
+        <title>Rackspace Cloud Feeds API v1 Reference</title>
         <titleabbrev>API Reference</titleabbrev>
         <author>
             <personname>
@@ -19,7 +19,7 @@
             <year>2010-2014</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>Rackspace Auto Scale</productname>
+        <productname>Rackspace Cloud Feeds</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
@@ -29,7 +29,7 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_auto-scale-v1.xml"/>
+    <xi:include href="ch_feeds-v1.xml"/>
 </book>
 
 

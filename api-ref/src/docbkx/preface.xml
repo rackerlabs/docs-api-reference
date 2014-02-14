@@ -41,6 +41,10 @@
             <para><link xlink:href="api-ref-dns.html">Cloud DNS
                     API</link></para>
         </listitem>
+        <!--<listitem>
+            <para><link xlink:href="api-ref-feeds.html">Cloud Feeds
+                API</link></para>
+        </listitem>-->
         <listitem>
             <para><link xlink:href="api-ref-files.html">Cloud Files
                     API</link></para>
