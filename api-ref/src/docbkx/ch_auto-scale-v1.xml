@@ -9,59 +9,43 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="auto-scale-v1.0">
+    <!-- ../wadls/autoscale/wadl/autoscale.wadl -->
     <title>Auto Scale API v1.0</title>
     <section xml:id="auto-scale-groups">
         <title>Groups</title>
-        <!-- add back later - validation errors -->
-        <!--  <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02" href="../wadls/autoscale/wadl/autoscale.wadl"/>-->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#groups">
-                <wadl:method href="#getGroups"/>
-                <wadl:method href="#createGroup"/>
-            </wadl:resource>
-        </wadl:resources>
-        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+                href="../wadls/autoscale/wadl/autoscale.wadl#groups"/>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#group">
-                <wadl:method href="#getGroupManifest"/>
-                <wadl:method href="#deleteGroup"/>
-                <wadl:method href="#getGroupState"/>
-                <wadl:method href="#getGroupConfig"/>
-                <wadl:method href="#putGroupConfig"/>
-                <wadl:method href="#getLaunchConfig"/>
-                <wadl:method href="#putLaunchConfig"/>
-                <wadl:method href="#pauseGroup"/>
-                <wadl:method href="#resumeGroup"/>
-            </wadl:resource>
+                href="../wadls/autoscale/wadl/autoscale.wadl#group"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#group_state"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#group_config"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#launch_configuration"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#pause"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#resume"/>
         </wadl:resources>
     </section>
     <section xml:id="auto-scale-policies">
         <title>Policies</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policies">
-                <wadl:method href="#getPolicies"/>
-                <wadl:method href="#createPolicies"/>
-                <wadl:method href="#getPolicy"/>
-                <wadl:method href="#putPolicy"/>
-                <wadl:method href="#deletePolicy"/>
-                <wadl:method href="#executePolicy"/>
-                <wadl:method href="#getWebhooks"/>
-                <wadl:method href="#createWebhook"/>
-                <wadl:method href="#getWebhook"/>
-                <wadl:method href="#putWebhook"/>
-                <wadl:method href="#deleteWebhook"/>
-            </wadl:resource>
-        </wadl:resources>
-    </section>
-    <section xml:id="auto-scale-webhook">
-        <title>Webhooks</title>
-        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+                href="../wadls/autoscale/wadl/autoscale.wadl#policies"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#anonymous_execute_webhook">
-                <wadl:method href="#anonymousExecute"/>
-            </wadl:resource>
+                href="../wadls/autoscale/wadl/autoscale.wadl#policy"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#execute"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#webhooks"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#webhook"/>
+            <wadl:resource
+                href="../wadls/autoscale/wadl/autoscale.wadl#anonymous_execute_webhook"
+            />
         </wadl:resources>
     </section>
 </chapter>

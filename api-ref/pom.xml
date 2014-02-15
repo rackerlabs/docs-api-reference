@@ -30,26 +30,26 @@
             <goals>
               <goal>generate-html</goal>
             </goals>
-            <phase>generate-sources</phase>            
+            <phase>generate-sources</phase>
             <configuration>
-              <includes> api-ref.xml,       <!-- comprehensive -->
-                api-ref-auto-scale.xml <!--,      auto scale -->
-                <!--    api-ref-backup.xml,   -->      <!-- backup -->
-                <!--  api-ref-big-data.xml,   -->    <!-- big data -->
-                <!--  api-ref-blockstorage.xml,  --> <!-- block storage -->
-                <!--   api-ref-databases.xml,  -->    <!-- databases -->               
-                <!--   api-ref-dns.xml,    -->        <!-- dns -->
-                   <!--api-ref-feeds.xml,   -->       <!-- feeds -->
-                <!--  api-ref-files.xml,     -->     <!-- files -->
-                <!--  api-ref-identity.xml,  -->     <!-- identity -->
-                <!--   api-ref-images.xml,   -->      <!-- images -->
-                <!--   api-ref-load-balancers.xml, --><!-- load balancers -->
-                <!--    api-ref-monitoring.xml, -->    <!-- monitoring -->
-                <!--    api-ref-networks.xml,   -->    <!-- networks -->
-                <!--    api-ref-orchestration.xml, --> <!-- orchestration -->
-                <!--    api-ref-queues.xml,   -->      <!-- queues -->
-                <!--    api-ref-servers.xml,  -->      <!-- servers -->
-                <!--    api-ref-servers-ext.xml -->    <!-- servers extensions -->
+              <includes> api-ref.xml, <!-- comprehensive -->
+                api-ref-auto-scale.xml, <!--,      auto scale -->
+                api-ref-backup.xml, <!-- backup -->
+                api-ref-big-data.xml, <!-- big data -->
+                api-ref-blockstorage.xml, <!-- block storage -->
+                api-ref-databases.xml, <!-- databases -->
+                api-ref-dns.xml, --> <!-- dns -->
+                <!--api-ref-feeds.xml,   -->
+                <!-- feeds --> api-ref-files.xml, <!-- files -->
+                api-ref-identity.xml, <!-- identity -->
+                api-ref-images.xml, <!-- images -->
+                api-ref-load-balancers.xml,<!-- load balancers -->
+                api-ref-monitoring.xml, <!-- monitoring -->
+                api-ref-networks.xml, <!-- networks -->
+                api-ref-orchestration.xml, <!-- orchestration -->
+                api-ref-queues.xml, <!-- queues -->
+                api-ref-servers.xml, <!-- servers -->
+                api-ref-servers-ext.xml <!-- servers extensions -->
               </includes>
               <profileSecurity>reviewer</profileSecurity>
               <highlightSource>false</highlightSource>
@@ -80,7 +80,7 @@
               <pdfFilenameBase>api-ref-auto-scale</pdfFilenameBase>
             </configuration>
           </execution>
-       <!--   <execution>
+          <execution>
             <id>os-api-ref-backup</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -91,7 +91,7 @@
               <pdfFilenameBase>api-ref-backup</pdfFilenameBase>
             </configuration>
           </execution>
-          <execution>
+          <!--    <execution>
             <id>os-api-ref-big-data</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -135,7 +135,7 @@
               <pdfFilenameBase>api-ref-dns</pdfFilenameBase>
             </configuration>
           </execution>-->
-         <!-- <execution>
+          <!-- <execution>
             <id>os-api-ref-feeds</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -146,7 +146,7 @@
               <pdfFilenameBase>api-ref-feeds</pdfFilenameBase>
             </configuration>
           </execution>-->
-       <!--   <execution>
+          <!--   <execution>
             <id>os-api-ref-files</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -261,14 +261,14 @@
           <!-- These parameters apply to pdf and webhelp -->
           <generateToc> appendix toc,title 
             article/appendix nop
-            article toc,title
-            book toc,title
-            chapter toc,title
-            section toc,title
-            part toc,title
-            qandadiv toc
+            article toc,title 
+            book toc,title 
+            chapter toc,title 
+            section toc,title 
+            part toc,title 
+            qandadiv toc 
             qandaset toc
-            reference toc,title
+            reference toc,title 
             set toc,title </generateToc>
           <xincludeSupported>true</xincludeSupported>
           <sourceDirectory>src/docbkx</sourceDirectory>

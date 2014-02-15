@@ -34,42 +34,43 @@
         <para>List supported Cloud Databases API versions.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#versions">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#versions">
                 <wadl:method href="getVersions"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#version">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#version">
                 <wadl:method href="getVersionInfo"/>
             </wadl:resource>
         </wadl:resources>
     </section>
-    <!-- add back later - validation errors <section xml:id="Database_Instances">
+    <!-- add back later - validation errors -->
+    <section xml:id="Database_Instances">
         <title>Database instances</title>
         <para>Manage database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#instances">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#instances">
                 <wadl:method href="createInstance"/>
                 <wadl:method href="getInstance"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#instanceId">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#instanceId">
                 <wadl:method href="getInstanceById"/>
                 <wadl:method href="deleteInstance"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#root">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#root">
                 <wadl:method href="createRoot"/>
                 <wadl:method href="isRootEnabled"/>
             </wadl:resource>
         </wadl:resources>
-    </section>-->
+    </section>
     <section xml:id="Database_Instances_Actions">
         <title>Database instance actions</title>
         <para>Perform actions for database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#instanceAction">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#instanceAction">
                 <wadl:method href="restartInstance"/>
                 <wadl:method href="resizeInstance"/>
                 <wadl:method href="resizeVolume"/>
@@ -81,12 +82,12 @@
         <para>Manage databases.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#databases">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#databases">
                 <wadl:method href="createDatabase"/>
                 <wadl:method href="getDatabases"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#databaseName">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#databaseName">
                 <wadl:method href="deleteDatabase"/>
             </wadl:resource>
         </wadl:resources>
@@ -96,12 +97,12 @@
         <para>Manage database users.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#users">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#users">
                 <wadl:method href="createUser"/>
                 <wadl:method href="getUsers"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#userId">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#userId">
                 <wadl:method href="deleteUser"/>
             </wadl:resource>
         </wadl:resources>
@@ -111,11 +112,11 @@
         <para>Manage flavors.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#flavors">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#flavors">
                 <wadl:method href="getFlavors"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/database-api/plain/apidocs/src/xsd/dbaas.wadl#flavorId">
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#flavorId">
                 <wadl:method href="getFlavorById"/>
             </wadl:resource>
         </wadl:resources>
