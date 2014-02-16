@@ -34,13 +34,10 @@
         <para>List supported Cloud Databases API versions.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#versions">
-                <wadl:method href="getVersions"/>
-            </wadl:resource>
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#versions"/>
             <wadl:resource
-                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#version">
-                <wadl:method href="getVersionInfo"/>
-            </wadl:resource>
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#version"
+            />
         </wadl:resources>
     </section>
     <!-- add back later - validation errors -->

@@ -38,12 +38,12 @@
                 api-ref-big-data.xml, <!-- big data -->
                 api-ref-blockstorage.xml, <!-- block storage -->
                 api-ref-databases.xml, <!-- databases -->
-                api-ref-dns.xml, --> <!-- dns -->
-                <!--api-ref-feeds.xml,   -->
-                <!-- feeds --> api-ref-files.xml, <!-- files -->
+                api-ref-dns.xml,  <!-- dns -->
+                <!--api-ref-feeds.xml,   --><!-- feeds --> 
+                api-ref-files.xml, <!-- files -->
                 api-ref-identity.xml, <!-- identity -->
                 api-ref-images.xml, <!-- images -->
-                api-ref-load-balancers.xml,<!-- load balancers -->
+         <!--       api-ref-load-balancers.xml, --> <!-- load balancers -->
                 api-ref-monitoring.xml, <!-- monitoring -->
                 api-ref-networks.xml, <!-- networks -->
                 api-ref-orchestration.xml, <!-- orchestration -->
@@ -91,7 +91,7 @@
               <pdfFilenameBase>api-ref-backup</pdfFilenameBase>
             </configuration>
           </execution>
-          <!--    <execution>
+     <execution>
             <id>os-api-ref-big-data</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -134,7 +134,7 @@
               <includes> bk-api-ref-dns.xml </includes>
               <pdfFilenameBase>api-ref-dns</pdfFilenameBase>
             </configuration>
-          </execution>-->
+          </execution>
           <!-- <execution>
             <id>os-api-ref-feeds</id>
             <goals>
@@ -146,7 +146,7 @@
               <pdfFilenameBase>api-ref-feeds</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--   <execution>
+      <execution>
             <id>os-api-ref-files</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -179,7 +179,7 @@
               <pdfFilenameBase>api-ref-images</pdfFilenameBase>
             </configuration>
           </execution>
-          <execution>
+         <!-- <execution>
             <id>os-api-ref-load-balancers</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -189,7 +189,7 @@
               <includes> bk-api-ref-load-balancers.xml </includes>
               <pdfFilenameBase>api-ref-load-balancers</pdfFilenameBase>
             </configuration>
-          </execution>
+          </execution> -->
           <execution>
             <id>os-api-ref-monitoring</id>
             <goals>
@@ -255,7 +255,7 @@
               <includes> bk-api-ref-servers-ext.xml </includes>
               <pdfFilenameBase>api-ref-servers-ext</pdfFilenameBase>
             </configuration>
-          </execution>-->
+          </execution>
         </executions>
         <configuration>
           <!-- These parameters apply to pdf and webhelp -->
