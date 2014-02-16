@@ -36,8 +36,9 @@
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#versions"/>
             <wadl:resource
-                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#version"
-            />
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#version">
+                <wadl:method href="#getVersionInfo"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
     <!-- add back later - validation errors -->
@@ -47,19 +48,17 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#instances">
-                <wadl:method href="createInstance"/>
-                <wadl:method href="getInstance"/>
+                <wadl:method href="#createInstance"/>
+                <wadl:method href="#getInstance"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#instanceId">
-                <wadl:method href="getInstanceById"/>
-                <wadl:method href="deleteInstance"/>
+                <wadl:method href="#getInstanceById"/>
+                <wadl:method href="#deleteInstance"/>
             </wadl:resource>
             <wadl:resource
-                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#root">
-                <wadl:method href="createRoot"/>
-                <wadl:method href="isRootEnabled"/>
-            </wadl:resource>
+                href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#root"/>
+
         </wadl:resources>
     </section>
     <section xml:id="Database_Instances_Actions">
@@ -68,9 +67,9 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#instanceAction">
-                <wadl:method href="restartInstance"/>
-                <wadl:method href="resizeInstance"/>
-                <wadl:method href="resizeVolume"/>
+                <wadl:method href="#restartInstance"/>
+                <wadl:method href="#resizeInstance"/>
+                <wadl:method href="#resizeVolume"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -80,12 +79,12 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#databases">
-                <wadl:method href="createDatabase"/>
-                <wadl:method href="getDatabases"/>
+                <wadl:method href="#createDatabase"/>
+                <wadl:method href="#getDatabases"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#databaseName">
-                <wadl:method href="deleteDatabase"/>
+                <wadl:method href="#deleteDatabase"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -95,12 +94,12 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#users">
-                <wadl:method href="createUser"/>
-                <wadl:method href="getUsers"/>
+                <wadl:method href="#createUser"/>
+                <wadl:method href="#getUsers"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#userId">
-                <wadl:method href="deleteUser"/>
+                <wadl:method href="#deleteUser"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -110,11 +109,11 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#flavors">
-                <wadl:method href="getFlavors"/>
+                <wadl:method href="#getFlavors"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/dbaas.wadl#flavorId">
-                <wadl:method href="getFlavorById"/>
+                <wadl:method href="#getFlavorById"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -124,23 +123,23 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#instances">
-                <wadl:method href="getIndex"/>
+                <wadl:method href="#getIndex"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#instanceId">
-                <wadl:method href="showinstances"/>
+                <wadl:method href="#showinstances"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#diagnostics">
-                <wadl:method href="getdiagnosticdetails"/>
+                <wadl:method href="#getdiagnosticdetails"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#rootdetails">
-                <wadl:method href="getrootdetails"/>
+                <wadl:method href="#getrootdetails"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#hwInfo">
-                <wadl:method href="getHwInfo"/>
+                <wadl:method href="#getHwInfo"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -150,15 +149,15 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#hosts">
-                <wadl:method href="gethosts"/>
+                <wadl:method href="#gethosts"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#hostid">
-                <wadl:method href="gethostbyid"/>
+                <wadl:method href="#gethostbyid"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#instanceAction-hostId">
-                <wadl:method href="updateHostInstances"/>
+                <wadl:method href="#updateHostInstances"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -168,7 +167,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#instanceAction">
-                <wadl:method href="rebootInstance"/>
+                <wadl:method href="#rebootInstance"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -178,7 +177,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#storage">
-                <wadl:method href="indexstorage"/>
+                <wadl:method href="#indexstorage"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -188,11 +187,11 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#accounts">
-                <wadl:method href="getaccounts"/>
+                <wadl:method href="#getaccounts"/>
             </wadl:resource>
             <wadl:resource
                 href="https://raw2.github.com/masthalter/reddwarf_lite-integration/master/xsd/management.wadl#accountid">
-                <wadl:method href="getaccountbyid"/>
+                <wadl:method href="#getaccountbyid"/>
             </wadl:resource>
         </wadl:resources>
     </section>

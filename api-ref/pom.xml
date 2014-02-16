@@ -68,7 +68,7 @@
               <includes> bk-api-ref.xml </includes>
               <pdfFilenameBase>api-ref</pdfFilenameBase>
             </configuration>
-          </execution> -->
+          </execution> 
           <execution>
             <id>os-api-ref-auto-scale</id>
             <goals>
@@ -135,7 +135,7 @@
               <pdfFilenameBase>api-ref-dns</pdfFilenameBase>
             </configuration>
           </execution>
-          <!-- <execution>
+       <execution>
             <id>os-api-ref-feeds</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -145,7 +145,7 @@
               <includes> bk-api-ref-feeds.xml </includes>
               <pdfFilenameBase>api-ref-feeds</pdfFilenameBase>
             </configuration>
-          </execution>-->
+          </execution>
       <execution>
             <id>os-api-ref-files</id>
             <goals>
@@ -179,7 +179,7 @@
               <pdfFilenameBase>api-ref-images</pdfFilenameBase>
             </configuration>
           </execution>
-         <!-- <execution>
+    <execution>
             <id>os-api-ref-load-balancers</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -189,7 +189,7 @@
               <includes> bk-api-ref-load-balancers.xml </includes>
               <pdfFilenameBase>api-ref-load-balancers</pdfFilenameBase>
             </configuration>
-          </execution> -->
+          </execution> 
           <execution>
             <id>os-api-ref-monitoring</id>
             <goals>
@@ -255,7 +255,7 @@
               <includes> bk-api-ref-servers-ext.xml </includes>
               <pdfFilenameBase>api-ref-servers-ext</pdfFilenameBase>
             </configuration>
-          </execution>
+          </execution>-->
         </executions>
         <configuration>
           <!-- These parameters apply to pdf and webhelp -->

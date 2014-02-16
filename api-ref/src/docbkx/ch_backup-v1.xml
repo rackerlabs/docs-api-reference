@@ -15,8 +15,6 @@
             <wadl:resource
                 href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_configuration"/>
             <wadl:resource
-                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent__machineAgentId_"/>
-            <wadl:resource
                 href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_busy__machineAgentId_"/>
             <wadl:resource
                 href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_delete"/>
@@ -35,13 +33,7 @@
             <wadl:resource
                 href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration"/>
             <wadl:resource
-                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration__backupConfigurationId_"
-            />
-        </wadl:resources>
-    </section>
-    <section xml:id="backup-backup">
-        <title>Backups</title>
-        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration__backupConfigurationId_"/>
             <wadl:resource
                 href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration_system__machineAgentId_"/>
             <wadl:resource
