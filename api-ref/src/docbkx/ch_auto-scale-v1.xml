@@ -12,7 +12,7 @@
     <!-- ../wadls/autoscale/wadl/autoscale.wadl -->
     <title>Auto Scale API v1.0</title>
     <section xml:id="auto-scale-groups">
-        <title>Groups</title>
+        <title>Scaling groups</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="../wadls/autoscale/wadl/autoscale.wadl#groups"/>
@@ -38,7 +38,13 @@
             <wadl:resource
                 href="../wadls/autoscale/wadl/autoscale.wadl#policy"/>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#execute"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#execute"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="auto-scale-webhooks">
+        <title>Web hooks</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="../wadls/autoscale/wadl/autoscale.wadl#webhooks"/>
             <wadl:resource

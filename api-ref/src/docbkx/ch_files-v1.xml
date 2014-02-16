@@ -92,7 +92,7 @@ Accept-Ranges: bytes</programlisting>
         </wadl:resources>
     </section>
     <!-- add back later - validation errors -->
-    <!--<section xml:id="files_cdn_containers">
+    <section xml:id="files_cdn_containers">
         <title>CDN-enabled containers</title>
         <para>Manage CDN-enabled containers.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -101,13 +101,13 @@ Accept-Ranges: bytes</programlisting>
             />
         </wadl:resources>
     </section>
-           <section xml:id="files_cdn_objects">
-           <title>CDN-enabled objects</title>
+    <section xml:id="files_cdn_objects">
+        <title>CDN-enabled objects</title>
         <para>Manage CDN-enabled objects</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-files/raw/master/src/wadl/rax-cloudFilesCDN-api-v1.wadl#object"
             />
         </wadl:resources>
-    </section> -->
+    </section>
 </chapter>

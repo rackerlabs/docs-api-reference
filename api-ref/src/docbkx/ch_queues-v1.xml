@@ -28,9 +28,7 @@
         </note>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#version">
-                <wadl:method href="getHomeDocument"/>
-            </wadl:resource>
+                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#version"/>
         </wadl:resources>
     </section>
     <section xml:id="queue-operations-dle001">

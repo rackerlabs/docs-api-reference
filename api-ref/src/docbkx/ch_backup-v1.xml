@@ -7,7 +7,98 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="backup-v1">
     <title>Cloud Backup API v1</title>
-    <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
-        href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl"
-    />
+    <section xml:id="backup-agents">
+        <title>Agents</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent__machineAgentId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_configuration"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent__machineAgentId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_busy__machineAgentId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_delete"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_enable"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#agent_encrypt"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#user_agents"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-configuration">
+        <title>Agents</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration__backupConfigurationId_"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-backup">
+        <title>Backups</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration_system__machineAgentId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration_enable__backupConfigurationId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup_action-requested"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup__backupId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup_completed__backupConfigurationId_"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-restore">
+        <title>Restore</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup_report__backupId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore_files"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore_files__restoreId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore_files__restoreFileID_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup_availableforrestore"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore_action-requested"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore__restoreId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#restore_report__restoreId_"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-system-activity">
+        <title>System activity</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#system_activity__agentId_"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#activity"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-help">
+        <title>Help</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#help_health"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#help_developerguide"/>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#help_supportedimages__cloudServersPlatform_"
+            />
+        </wadl:resources>
+    </section>
 </chapter>
