@@ -17,24 +17,26 @@
         first available IP address.</para>
     <section xml:id="networks">
         <title>Networks</title>
-        <para>Lists, shows information for, creates, updates, and
-            deletes networks.</para>
-        <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-networks.wadl"
-            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+        <para>List, show information for, create, update, and delete
+            networks.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-networks.wadl#Networks"
+            />
+        </wadl:resources>
     </section>
     <section xml:id="subnets">
         <title>Subnets</title>
-        <para>Lists, shows information for, creates, updates, and
-            deletes subnet resources.</para>
+        <para>List, show information for, create, update, and delete
+            subnet resources.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-subnets.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ports">
         <title>Ports</title>
-        <para>Lists, shows information for, creates, updates, and
-            deletes ports.</para>
+        <para>List, show information for, create, update, and delete
+            ports.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-ports.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
