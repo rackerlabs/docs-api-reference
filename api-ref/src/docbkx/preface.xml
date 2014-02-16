@@ -57,10 +57,10 @@
             <para><link xlink:href="api-ref-images.html">Cloud Images
                     API</link></para>
         </listitem>
-        <listitem>
+      <!--  <listitem>
             <para><link xlink:href="api-ref-load-balancers.html">Cloud
                     Load Balancers API</link></para>
-        </listitem>
+        </listitem> -->
         <listitem>
             <para><link xlink:href="api-ref-monitoring.html">Cloud
                     Monitoring API</link></para>
