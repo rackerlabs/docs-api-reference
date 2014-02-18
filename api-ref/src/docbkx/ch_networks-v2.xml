@@ -21,7 +21,7 @@
             networks.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-networks.wadl#Networks"
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networks.wadl#Networks"
             />
         </wadl:resources>
     </section>
@@ -30,7 +30,7 @@
         <para>List, show information for, create, update, and delete
             subnet resources.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-subnets.wadl"
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/subnets.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ports">
@@ -38,7 +38,7 @@
         <para>List, show information for, create, update, and delete
             ports.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-ports.wadl"
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/ports.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
 </chapter>

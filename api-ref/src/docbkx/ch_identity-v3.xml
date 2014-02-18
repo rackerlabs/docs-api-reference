@@ -5,7 +5,7 @@
     xmlns:linkend="http://www.w3.org/1999/linkend"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" xml:id="identity-v3"
+    version="5.0-extension RackBook-3.0" xml:id="identity-v3"
     xlink:href="#identity-v3">
     <title>Identity API v3</title>
     <para>Get an authentication token that permits access to the
@@ -15,7 +15,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list version -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#versions"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#versions"
             />
         </wadl:resources>
     </section>
@@ -26,7 +26,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- authenticate token -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#tokens"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#tokens"
             />
         </wadl:resources>
     </section>
@@ -38,9 +38,9 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- create service -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#catalog"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#catalog"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#catalogID"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#catalogID"
             />
         </wadl:resources>
     </section>
@@ -51,9 +51,9 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- create endpoint -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#endpoints"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#endpoints"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#endpointsID"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#endpointsID"
             />
         </wadl:resources>
     </section>
@@ -96,17 +96,17 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- create domain -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#domains"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#domains"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#domainID"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#domainID"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#domainIDUserIDRoles"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#domainIDUserIDRoles"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#domainIDUserIDRoleID"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#domainIDUserIDRoleID"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#domainIDGroupIDRoles"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#domainIDGroupIDRoles"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#domainIDGroupIDRoleID"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#domainIDGroupIDRoleID"
             />
         </wadl:resources>
     </section>
@@ -117,23 +117,23 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- create project -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projects"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projects"/>
             <!-- get project -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projectID"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projectID"/>
             <!-- list project users -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projectIDUsers"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projectIDUsers"/>
             <!-- list project user roles -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projectIDUserIDRoles"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projectIDUserIDRoles"/>
             <!-- check project user role -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projectIDUserIDRoleID"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projectIDUserIDRoleID"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projectIDGroupIDRoles"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projectIDGroupIDRoles"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#projectIDGroupIDRoleID"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#projectIDGroupIDRoleID"
             />
         </wadl:resources>
     </section>
@@ -144,15 +144,15 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- create user -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#users"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#users"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#userID"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#userID"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#userIDGroups"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#userIDGroups"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#userIDProjects"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#userIDProjects"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#userIDRoles"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#userIDRoles"
             />
         </wadl:resources>
     </section>
@@ -161,59 +161,52 @@
         <title>Groups</title>
         <para>Manage groups (service developers only).</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <!-- create group -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#groups"/>
-            <!-- get group -->
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#groups"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#groupID"/>
-            <!-- list group users -->
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#groupID"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#groupIDUsers"/>
-            <!-- add user to group -->
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#groupIDUsers"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#groupIDUserIDs"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#groupIDUserIDs"
             />
         </wadl:resources>
     </section>
-    <!-- Credentials -->
     <section xml:id="Credential_Calls">
         <title>Credentials</title>
         <para>Manage credentials (service developers only).</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <!-- create credential -->
+
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#credentials"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#credentials"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#credentialID"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#credentialID"
             />
         </wadl:resources>
     </section>
-    <!-- Roles -->
     <section xml:id="Role_Calls">
         <title>Roles</title>
         <para>Manage roles (service developers only).</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <!-- create role -->
+
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#roles"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#roles"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#roleID"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#roleID"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#roleIDUsers"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#roleIDUsers"
             />
         </wadl:resources>
     </section>
-    <!-- Policies -->
     <section xml:id="Policy_Calls">
         <title>Policies</title>
         <para>Manage policies (service developers only).</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <!-- create policy -->
+
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#policies"/>
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#policies"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v3/wadl/identity-admin.wadl#policyID"
+                href="https://github.rackspace.com/IX/auth-3.0/raw/master/src/wadl/identity-admin.wadl#policyID"
             />
         </wadl:resources>
     </section>
