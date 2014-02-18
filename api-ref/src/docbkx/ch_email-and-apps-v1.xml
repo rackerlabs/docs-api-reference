@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="email-v1.0">
+    <!-- https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl -->
+    <title>Email &amp; Apps API v1.0</title>
+    <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
+        href="https://github.rackspace.com/IX/email-and-apps/raw/master/src/wadl/email-apps.wadl"
+    > </wadl:resources>
+</chapter>

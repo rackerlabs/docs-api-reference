@@ -46,10 +46,16 @@
         <title>Snapshots</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/volume-api/src/v1/volume-api.wadl#snapshots">
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#snapshots">
                 <wadl:method href="#createSnapshot"/>
                 <wadl:method href="#getSnapshotsSimple"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#snapshot_detail">       
                 <wadl:method href="#getSnapshotsDetail"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#snapshot_id">   
                 <wadl:method href="#getSnapshot"/>
                 <wadl:method href="#updateSnapshot"/>
                 <wadl:method href="#deleteSnapshot"/>

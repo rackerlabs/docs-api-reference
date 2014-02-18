@@ -46,8 +46,6 @@
     </info>
     <xi:include href="preface.xml"/>
     <xi:include href="ch_identity-v3.xml"/>
-    <xi:include href="ch_identity-v3-ext.xml"/>
     <xi:include href="ch_identity-v2.xml"/>
     <xi:include href="ch_identity-admin-v2.xml"/>
-    <xi:include href="ch_identity-v2-ext.xml"/>
 </book>
