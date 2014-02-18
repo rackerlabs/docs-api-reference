@@ -6,16 +6,15 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="feeds-v1">
-    <title>Feeds API v2.0</title>
-    <!--  <para>xx</para>
+    <title>Cloud Feeds API v2.0</title>
     <section xml:id="feed">
-        <title>Feeds</title> -->
-    <!--  <wadl:resources href="../wadls/cloud-feeds/feed.wadl"
-        xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
- </section>
-   <section xml:id="product">
+        <title>Feeds</title>
+        <wadl:resources href="../wadls/cloud-feeds/feed.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="product">
         <title>Product</title>
         <wadl:resources href="../wadls/cloud-feeds/product.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
-    </section>-->
+    </section>
 </chapter>

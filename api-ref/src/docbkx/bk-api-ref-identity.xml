@@ -20,8 +20,8 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="api.rackspace.com-identity-pdf">
     <info>
-        <title>OpenStack Identity Service API Reference</title>
-        <titleabbrev>Identity Service API Reference</titleabbrev>
+        <title>Rackspace Cloud Identity API Reference</title>
+        <titleabbrev>Cloud Identity API Reference</titleabbrev>
         <author>
             <personname>
                 <firstname/>
@@ -35,7 +35,7 @@
             <year>2010-2013</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack Identity Service</productname>
+        <productname>Rackspace Cloud Identity</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>

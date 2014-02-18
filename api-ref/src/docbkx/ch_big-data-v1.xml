@@ -6,32 +6,28 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="big-data-v1">
-    <title>Big Data API v1</title>
-    <para>The chapter describes each of the API operations provided by
-        the Cloud Big Data service. </para>
+    <title>Cloud Big Data API v1</title>
     <section xml:id="profileOperations">
         <title>Profiles</title>
         <para>Manage profiles.</para>
-        <note>
-            <para>Your Cloud Big Data profile is different from your
-                cloud account. Your profile has the following
-                characteristics and requirements:</para>
-            <itemizedlist>
-                <listitem>
-                    <para>A profile is the configuration for the
-                        administration and login account for the
-                        cluster.</para>
-                </listitem>
-                <listitem>
-                    <para>Only one profile is allowed for each user or
-                        account.</para>
-                </listitem>
-                <listitem>
-                    <para>Any updates or additions override the
-                        existing profile. </para>
-                </listitem>
-            </itemizedlist>
-        </note>
+        <para>Your Cloud Big Data profile is different from your cloud
+            account. Your profile has the following characteristics
+            and requirements:</para>
+        <itemizedlist>
+            <listitem>
+                <para>A profile is the configuration for the
+                    administration and login account for the
+                    cluster.</para>
+            </listitem>
+            <listitem>
+                <para>Only one profile is allowed for each user or
+                    account.</para>
+            </listitem>
+            <listitem>
+                <para>Any updates or additions override the existing
+                    profile.</para>
+            </listitem>
+        </itemizedlist>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#profiles"

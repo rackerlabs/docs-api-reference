@@ -43,7 +43,7 @@
                 api-ref-files.xml, <!-- files -->
                 api-ref-identity.xml, <!-- identity -->
                 api-ref-images.xml, <!-- images -->
-         <!--       api-ref-load-balancers.xml, --> <!-- load balancers -->
+                <!--       api-ref-load-balancers.xml, --> <!-- load balancers -->
                 api-ref-monitoring.xml, <!-- monitoring -->
                 api-ref-networks.xml, <!-- networks -->
                 api-ref-orchestration.xml, <!-- orchestration -->

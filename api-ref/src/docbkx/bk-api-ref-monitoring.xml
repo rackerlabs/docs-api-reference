@@ -8,8 +8,8 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-telemetry-pdf">
     <info>
-        <title>OpenStack Metering API v2.0 Reference</title>
-        <titleabbrev>Metering API Reference</titleabbrev>
+        <title>Rackspace Cloud Monitoring API v2.0 Reference</title>
+        <titleabbrev>Cloud Monitoring API Reference</titleabbrev>
         <author>
             <personname>
                 <firstname/>
@@ -23,7 +23,7 @@
             <year>2010-2013</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack Metering</productname>
+        <productname>Rackspace Cloud Monitoring</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>

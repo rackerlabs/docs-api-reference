@@ -21,8 +21,8 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-compute-pdf">
     <info>
-        <title>OpenStack Compute API v2 Reference</title>
-        <titleabbrev>API Reference</titleabbrev>
+        <title>Rackspace Cloud Servers API v2 Reference</title>
+        <titleabbrev>Cloud Servers API Reference</titleabbrev>
         <author>
             <personname>
                 <firstname/>
@@ -36,7 +36,7 @@
             <year>2010-2014</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>OpenStack Compute</productname>
+        <productname>Rackspace Cloud Servers</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>

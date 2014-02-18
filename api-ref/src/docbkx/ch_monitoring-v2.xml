@@ -10,7 +10,7 @@
     <para>Perform monitoring operations.</para>
     <section xml:id="alarms">
         <title>Alarms</title>
-        <para>Lists, creates, gets details for, updates, and deletes
+        <para>List, create, get details for, update, and delete
             alarms.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
@@ -36,7 +36,7 @@
     </section>
     <section xml:id="meters">
         <title>Meters</title>
-        <para>Gets information for meters.</para>
+        <para>Get information for meters.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#meters">
@@ -55,7 +55,7 @@
     </section>
     <section xml:id="resources">
         <title>Resources</title>
-        <para>Gets information for resources.</para>
+        <para>Get information for resources.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#resources">

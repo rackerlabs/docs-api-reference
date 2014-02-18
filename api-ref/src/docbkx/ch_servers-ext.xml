@@ -10,21 +10,21 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="servers-ext-v2">
     <title>Cloud Servers API v2 extensions</title>
-    <para>Adds capabilities to the core Cloud Servers API. Use extensions to
-        add features, MIME types, actions, states, headers,
-        parameters, and resources to the core API. Query the Cloud Servers
-        API to list available extensions with a &GET; request to
-        v2/extensions.</para>
+    <para>Extensions add capabilities to the core Cloud Servers API.
+        Use extensions to add features, MIME types, actions, states,
+        headers, parameters, and resources to the core API. Query the
+        Cloud Servers API to list available extensions with a &GET;
+        request to v2/extensions.</para>
     <section xml:id="ext-os-disk-config-servers">
         <title>Servers and images with disk config (servers,
             images)</title>
-        <para>Extends servers with the diskConfig attribute.</para>
+        <para>Extend servers with the diskConfig attribute.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-disk-config.wadl"/>
     </section>
     <section xml:id="ext-os-extended-status">
         <title>Server extended status (servers)</title>
-        <para>Shows extended status information, vm_state, task_state,
+        <para>Show extended status information, vm_state, task_state,
             and power_state, in detailed server responses.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-extended-status.wadl"
@@ -32,7 +32,7 @@
     </section>
     <section xml:id="ext-os-rescue">
         <title>Server rescue and unrescue (os-rescue)</title>
-        <para>Puts a server into rescue mode or unrescues a server in
+        <para>Put a server into rescue mode or unrescue a server in
             rescue mode.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-rescue.wadl"
@@ -40,8 +40,8 @@
     </section>
     <section xml:id="ext-limits">
         <title>Limits with project usage (limits)</title>
-        <para>Extends limits to show the project usage. Shows
-            information such as RAM or instance quotas usage.</para>
+        <para>Show the project usage such as RAM or instance quotas
+            usage.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-used-limits.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
@@ -49,9 +49,9 @@
     <section xml:id="ext-compute_limits_admins">
         <title>Limits with project usage for administrators
             (limits)</title>
-        <para>Extends limits to enable administrators to show the
-            project usage for a specified customer project ID. Shows
-            information such as RAM or instance quotas usage.</para>
+        <para>Administrators only. Show the project usage for a
+            specified customer project ID. Show information such as
+            RAM or instance quotas usage.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-used-limits-for-admins.wadl"
         />
@@ -61,17 +61,17 @@
     
     <section xml:id="ext-os-flavor-extra-specs">
         <title>Flavor extra-specs (os-extra-specs)</title>
-        <para>Lists, creates, and updates the extra-specs or keys for
-            a flavor.</para>
+        <para>List, create, and update the extra-specs or keys for a
+            flavor.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flavor-extra-specs.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-instance-actions">
         <title>Server actions (os-instance-actions)</title>
-        <para>Permits all users to list available actions for a
-            specified server. Permits administrators to get details
-            for a specified action for a specified server.</para>
+        <para>List available actions for a specified server. </para>
+        <para>Get details for a specified action for a specified
+            server (administrators only).</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-instance-actions.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
@@ -176,7 +176,7 @@
         <para>Lists details for available images or gets details for a
             specified image. Includes the
                 <code>OS-EXT-IMG-SIZE:size</code> extended attribute,
-            which shows the image size.</para>
+            which Show the image size.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-ext-img-size.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
@@ -202,7 +202,7 @@
     </section>
     <section xml:id="ext-os-certificates">
         <title>Root certificates (os-certificates)</title>
-        <para>Creates and shows details for a root certificate.</para>
+        <para>Creates and Show details for a root certificate.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-certificates.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
@@ -222,7 +222,7 @@
     </section>
     <section xml:id="ext-os-fixed-ips">
         <title>Fixed IPs (os-fixed-ips)</title>
-        <para>Shows data for a specified fixed IP, such as host name,
+        <para>Show data for a specified fixed IP, such as host name,
             CIDR, and address. Also, reserves or frees a fixed
             IP.</para>
         <wadl:resources
@@ -298,7 +298,7 @@
     </section>
     <section xml:id="ext-os-networks">
         <title>Networks (os-networks)</title>
-        <para>Shows network information for or deletes networks. Also,
+        <para>Show network information for or deletes networks. Also,
             disassociates a network from a project if you use vlan
             mode.</para>
         <wadl:resources
@@ -325,7 +325,7 @@
     </section>
     <section xml:id="ext-os-security-groups">
         <title>Security groups (os-security-groups)</title>
-        <para>Lists, shows information for, creates, and deletes
+        <para>Lists, Show information for, creates, and deletes
             security groups.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-security-groups.wadl"
@@ -334,7 +334,7 @@
     <section xml:id="ext-os-security-group-default-rules">
         <title>Rules for default security group
             (os-security-group-default-rules)</title>
-        <para>Lists, shows information for, and creates default
+        <para>Lists, Show information for, and creates default
             security group rules.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-security-group-default-rules.wadl"
@@ -411,7 +411,7 @@
     <section xml:id="ext-os-ext-az">
         <title>Servers with extended availability zones
             (servers)</title>
-        <para>Shows the instance availability zone for compute nodes
+        <para>Show the instance availability zone for compute nodes
             (nova-compute). Internal services appear in their own
                 <emphasis role="italic">internal</emphasis>
             availability zone.</para>
@@ -422,7 +422,7 @@
     
     <section xml:id="ext-os-ext-ips">
         <title>Server IP type (servers)</title>
-        <para>Shows the type of the IP addresses assigned to an
+        <para>Show the type of the IP addresses assigned to an
             instance. Type is either fixed or floating.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-ext-ips.wadl"
@@ -430,7 +430,7 @@
     </section>
     <section xml:id="ext-os-extended-server-attributes">
         <title>Server extended attributes (servers)</title>
-        <para>Shows metadata for servers.</para>
+        <para>Show metadata for servers.</para>
         <wadl:resources
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-extended-server-attributes.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
