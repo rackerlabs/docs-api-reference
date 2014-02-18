@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-admin-v2"
     xlink:href="#identity-admin-v2">
     <title>Identity admin API v2.0</title>
-    <para>Gets an authentication token that permits access to the
+    <para>Get an authentication token that permits access to the
         Rackspace Cloud APIs.</para>
     <wadl:resources
         href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl"

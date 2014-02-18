@@ -8,14 +8,16 @@
   version="5.0-extension RackBook-2.0"
   xml:id="api.rackspace.com-image">
   <info>
-    <title>Rackspace Cloud Databases APIs</title>
+    <title>Cloud Databases APIs</title>
     <copyright>
       <year>2010-2014</year>
     </copyright>
     <legalnotice role="rs-api">
       <para/>
     </legalnotice>
+    <annotation>
+      <xi:include href="itemizedlist-service-list.xml"/>
+    </annotation>
   </info>
-  <xi:include href="preface.xml"/>
   <xi:include href="ch_databases-v1.xml"/>
 </book>

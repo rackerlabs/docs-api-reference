@@ -18,13 +18,13 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="queues-v1.0">
     <title>Cloud Queues API v1.0</title>
-    <para>Perform the following Cloud Queues operations:</para>
+    <para>Perform Cloud Queues operations.</para>
     <section xml:id="homeDocument-operation">
         <title>Home document</title>
         <para>Get the home document for Cloud Queues.</para>
         <note>
             <para>The home document schema is currently not ratified
-                in OpenStack and may change. </para>
+                in OpenStack and may change.</para>
         </note>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource

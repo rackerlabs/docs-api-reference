@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-v2"
     xlink:href="#identity-v2">
     <title>Identity API v2.0</title>
-    <para>Gets an authentication token that permits access to the
+    <para>Get an authentication token that permits access to the
         Rackspace Cloud APIs.</para>
     <wadl:resources 
         xmlns:wadl="http://wadl.dev.java.net/2009/02">

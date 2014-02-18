@@ -11,8 +11,6 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-v2-ext"
     xlink:href="#identity-v2-ext">
     <title>Identity API v2.0 extensions</title>
-    <para>Adds capabilities to the core Cloud Identity API
-        v2.0.</para>
     <para>Query the Identity API to list available extensions
         with a &GET; request to <code>v2.0/extensions</code>.</para>
     <section xml:id="os-ksadm-admin-ext">

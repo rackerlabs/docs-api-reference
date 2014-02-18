@@ -11,15 +11,13 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-v3-ext"
     xlink:href="#identity-v3-ext">
     <title>Identity API v3 extensions</title>
-    <para>Adds capabilities to the core Identity Admin API
-        v3.</para>
     <para>Query the Identity API to list available extensions
         with a &GET; request to <code>v3/extensions</code>.</para>
     <section xml:id="identity_v3_OS-OAUTH1-ext">
         <title>OS-OAUTH1 extension</title>
-        <para>Enables users to delegate roles to third-party consumers
-            through the <link xlink:href="http://oauth.net/core/1.0a/"
-                >OAuth 1.0a specification</link>.</para>
+        <para>Delegate roles to third-party consumers through the
+                <link xlink:href="http://oauth.net/core/1.0a/">OAuth
+                1.0a specification</link>.</para>
         <para>A user is an Identity Service API user who delegates its
             roles and who authorizes request tokens. A consumer is a
             third-party application that uses OAuth to access a

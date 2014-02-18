@@ -9,7 +9,7 @@
     <title>Networks API v2.0 extensions</title>
     <section xml:id="quotas-ext">
         <title>Quotas extension</title>
-        <para>Lists, shows information for, updates, and resets
+        <para>List, show information for, update, and reset
             quotas.</para>
         <wadl:resources href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/netconn-api/src/os-quotas.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>

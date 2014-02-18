@@ -21,8 +21,8 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-blockstorage-pdf">
     <info>
-        <title>OpenStack Block Storage API v2.0 Reference</title>
-        <titleabbrev>API Reference</titleabbrev>
+        <title>Rackspace Cloud Block Storage API v2.0 Reference</title>
+        <titleabbrev>Cloud Block Storage API Reference</titleabbrev>
         <author>
             <personname>
                 <firstname/>
@@ -36,7 +36,7 @@
             <year>2010-2013</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
-        <productname>Rackspace Block Storage</productname>
+        <productname>Rackspace Cloud Block Storage</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
