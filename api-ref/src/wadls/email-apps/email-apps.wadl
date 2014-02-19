@@ -1852,11 +1852,11 @@
                title="Split Domain Routing - Edit Settings">
                <para role="shortdesc">Sets the external email
                   server.</para>
-               <para>This command will return a
-                  success when the verification passes. Since this
-                  involves communication to the external server the
-                  request may take some time. If the verification
-                  fails a 400 return code will be sent back with the
+               <para>This command will return a success when the
+                  verification passes. Since this involves
+                  communication to the external server the request may
+                  take some time. If the verification fails a 400
+                  return code will be sent back with the
                   verification's error message.</para>
                <table rules="all">
                   <caption>Request Data</caption>
@@ -2710,8 +2710,8 @@
          <method id="d1e3299" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Blacklist - Add">
-               <para role="shortdesc">Adds an email address or domain to the
-                  blacklist.</para>
+               <para role="shortdesc">Adds an email address or domain
+                  to the blacklist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -2753,7 +2753,8 @@
          <method id="d1e3347" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Blacklist - Edit">
-               <para role="shortdesc">Edits email addresses on the blacklist.</para>
+               <para role="shortdesc">Edits email addresses on the
+                  blacklist.</para>
                <para>Remarks</para>
                <para>You can use a '%' as a wildcard in domains, but
                   not in the TLD (.com, .net, etc). You cannot use
@@ -2823,8 +2824,8 @@
          <method id="d1e3442" name="DELETE">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Blacklist - Delete">
-               <para role="shortdesc">Removes an email address or domain from the
-                  blacklist.</para>
+               <para role="shortdesc">Removes an email address or
+                  domain from the blacklist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -2930,7 +2931,8 @@
          <method id="d1e3554" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Blacklist - Add">
-               <para role="shortdesc">Adds an IP to the blacklist.</para>
+               <para role="shortdesc">Adds an IP to the
+                  blacklist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -2964,7 +2966,8 @@
          <method id="d1e3593" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Blacklist - Edit">
-               <para>Edit IP addresses on the blacklist.</para>
+               <para role="shortdesc">Edits IP addresses on the
+                  blacklist.</para>
                <para>Remarks</para>
                <para>You can use a '%' as a wildcard in the last
                   octets to specify IP ranges. For example:
@@ -3136,8 +3139,8 @@
          <method id="d1e3799" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Safelist - Add">
-               <para role="shortdesc">Adds an email address or domain to the
-                  safelist.</para>
+               <para role="shortdesc">Adds an email address or domain
+                  to the safelist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -3349,7 +3352,8 @@
          <method id="d1e4045" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Safelist - Add">
-               <para role="shortdesc">Adds an IP to the safelist.</para>
+               <para role="shortdesc">Adds an IP to the
+                  safelist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -6551,7 +6555,8 @@
          <method id="d1e8063" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Index">
-               <para role="shortdesc">Shows a list of mailboxes under the domain</para>
+               <para role="shortdesc">Shows a list of mailboxes under
+                  the domain</para>
                <para>Filter/Search</para>
                <para>Mailbox searches may be filtered by the 'enabled'
                   flag using query methods ?enabled=true and
@@ -6780,9 +6785,10 @@
          <method id="d1e8229" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Add">
-               <para role="shortdesc">Adds a mailbox using the specified form fields.
-                  All required fields must be supplied when adding.
-                  Other fields may be omitted.</para>
+               <para role="shortdesc">Adds a mailbox using the
+                  specified form fields. All required fields must be
+                  supplied when adding. Other fields may be
+                  omitted.</para>
                <table rules="all">
                   <caption>Request Data</caption>
                   <thead>
@@ -7012,9 +7018,10 @@
          <method id="d1e8653" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Edit">
-               <para role="shortdesc">Edits a mailbox using the specified form fields.
-                  All required fields must be supplied when adding.
-                  Other fields may be omitted.</para>
+               <para role="shortdesc">Edits a mailbox using the
+                  specified form fields. All required fields must be
+                  supplied when adding. Other fields may be
+                  omitted.</para>
                <table rules="all">
                   <caption>Request Data</caption>
                   <thead>
@@ -7275,7 +7282,8 @@
          <method id="d1e9118" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Add Email Address">
-               <para role="shortdesc">Adds a mailbox's email address.</para>
+               <para role="shortdesc">Adds a mailbox's email
+                  address.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -7304,7 +7312,8 @@
          <method id="d1e9152" name="DELETE">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Delete Email Address">
-               <para role="shortdesc">Deletes the email address.</para>
+               <para role="shortdesc">Deletes the email
+                  address.</para>
                <para>Remarks</para>
                <para>The operation will fail if the email address does
                   not exist.</para>
@@ -7335,10 +7344,10 @@
          <method id="d1e9190" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Mailbox Permissions - Index">
-               <para role="shortdesc">Exchange mailboxes can be given permissions. A
-                  permission is defined as a tuple (mailbox,
-                  permissionType). permissionType:= (SendAs |
-                  FullAccess | Both)</para>
+               <para role="shortdesc">Exchange mailboxes can be given
+                  permissions. A permission is defined as a tuple
+                  (mailbox, permissionType). permissionType:= (SendAs
+                  | FullAccess | Both)</para>
                <para>Shows the current set of permissions granted on a
                   user's mailbox.</para>
                <para>Remarks</para>
@@ -7406,10 +7415,10 @@
          <method id="d1e9252" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Mailbox Permission - Add">
-               <para role="shortdesc">Exchange mailboxes can be given permissions. A
-                  permission is defined as a tuple (mailbox,
-                  permissionType). permissionType:= (SendAs |
-                  FullAccess | Both)</para>
+               <para role="shortdesc">Exchange mailboxes can be given
+                  permissions. A permission is defined as a tuple
+                  (mailbox, permissionType). permissionType:= (SendAs
+                  | FullAccess | Both)</para>
                <para>Grants user2 the specified permission on mailbox
                   of user1.</para>
                <para>Remarks</para>
@@ -7471,10 +7480,10 @@
          <method id="d1e9340" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Mailbox Permission - Edit">
-               <para role="shortdesc">Exchange mailboxes can be given permissions. A
-                  permission is defined as a tuple (mailbox,
-                  permissionType). permissionType:= (SendAs |
-                  FullAccess | Both)</para>
+               <para role="shortdesc">Exchange mailboxes can be given
+                  permissions. A permission is defined as a tuple
+                  (mailbox, permissionType). permissionType:= (SendAs
+                  | FullAccess | Both)</para>
                <para>Modifies permission granted to user2 on the
                   mailbox of user1.</para>
                <para>Remarks</para>
@@ -7535,8 +7544,8 @@
          <method id="d1e9428" name="DELETE">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Mailbox Permission - Delete">
-               <para role="shortdesc">Deletes permission granted to user2 on the
-                  mailbox of user1.</para>
+               <para role="shortdesc">Deletes permission granted to
+                  user2 on the mailbox of user1.</para>
                <para>Remarks</para>
                <para>The permission granted to user John Doe on the
                   mailbox of Jane Doe is deleted.</para>
@@ -8030,7 +8039,7 @@
          <method id="d1e9982" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Spam Settings - Edit">
-               <para>This operation will modify the mailbox spam
+               <para role="shortdesc">Modifies the mailbox spam
                   setting. Only 'filterlevel' is the required form
                   field.</para>
                <para>Remarks</para>
@@ -8202,8 +8211,8 @@
          <method id="d1e10196" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Blacklist - Add">
-               <para role="shortdesc">Adds an email address or domain to the
-                  blacklist.</para>
+               <para role="shortdesc">Adds an email address or domain
+                  to the blacklist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -8246,7 +8255,8 @@
          <method id="d1e10246" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Blacklist - Edit">
-               <para>Edits email addresses on the blacklist.</para>
+               <para role="shortdesc">Edits email addresses on the
+                  blacklist.</para>
                <para>Remarks</para>
                <para>You can use a '%' as a wildcard in domains, but
                   not in the TLD (.com, .net, etc). You cannot use
@@ -8426,7 +8436,8 @@
          <method id="d1e10459" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Blacklist - Add">
-               <para role="shortdesc">Adds an IP to the blacklist.</para>
+               <para role="shortdesc">Adds an IP to the
+                  blacklist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -8454,7 +8465,8 @@
          <method id="d1e10491" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Blacklist - Edit">
-               <para>Edit IP addresses on the blacklist.</para>
+               <para role="shortdesc">Edits IP addresses on the
+                  blacklist.</para>
                <para>Remarks</para>
                <para>You can use a '%' as a wildcard in the last
                   octets to specify IP ranges. For example:
@@ -8622,8 +8634,8 @@
          <method id="d1e10695" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Safelist - Add">
-               <para role="shortdesc">Adds an email address or domain to the
-                  safelist.</para>
+               <para role="shortdesc">Adds an email address or domain
+                  to the safelist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -8658,7 +8670,8 @@
          <method id="d1e10736" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Safelist - Edit">
-               <para>Edit email addresses on the safelist.</para>
+               <para role="shortdesc">Edits email addresses on the
+                  safelist.</para>
                <para>Remarks</para>
                <para>You can use a '%' as a wildcard in domains, but
                   not in the TLD (.com, .net, etc). You cannot use
@@ -8838,7 +8851,8 @@
          <method id="d1e10948" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Safelist - Add">
-               <para role="shortdesc">Adds an IP to the ipsafelist.</para>
+               <para role="shortdesc">Adds an IP to the
+                  ipsafelist.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
@@ -8873,7 +8887,8 @@
          <method id="d1e10989" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="IP Safelist - Edit">
-               <para>Edit IP addresses on the safelist.</para>
+               <para role="shortdesc">Edits IP addresses on the
+                  safelist.</para>
                <para>Remarks</para>
                <para>You can use a '%' as a wildcard in the last
                   octets to specify IP ranges. For example:
@@ -9139,9 +9154,9 @@
          <method id="d1e11237" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Add">
-               <para role="shortdesc">Adds the contact's details as specified. If the
-                  contact does not exist, use Add, if it does, use
-                  Edit.</para>
+               <para role="shortdesc">Adds the contact's details as
+                  specified. If the contact does not exist, use Add,
+                  if it does, use Edit.</para>
                <table rules="all">
                   <caption>Request Data</caption>
                   <thead>
@@ -9329,9 +9344,9 @@
          <method id="d1e11579" name="PUT">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Edit">
-               <para>Edit the contact's details as specified. If the
-                  contact does not exist, use Add, if it does, use
-                  Edit.</para>
+               <para role="shortdesc">Edits the contact's details as
+                  specified. If the contact does not exist, use Add,
+                  if it does, use Edit.</para>
                <table rules="all">
                   <caption>Request Data</caption>
                   <thead>
@@ -9558,6 +9573,8 @@
          <method id="d1e11967" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="List">
+               <para role="shortdesc">Lists Distribution Lists,
+                  supports exporting. (see Listings)</para>
                <itemizedlist>
                   <listitem>
                      <para>Lists Distribution Lists, supports
@@ -9633,6 +9650,8 @@
          <method id="d1e12057" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Read">
+               <para role="shortdesc">Reads an existing Distribution
+                  List.</para>
                <itemizedlist>
                   <listitem>
                      <para>Use this route to read an existing
@@ -10913,9 +10932,9 @@
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN"
                title="Existing Distribution List Options - Available Managers&#xA;Recipients">
-               <para>Use this route to retrieve a list of recipients
-                  that can be managers for a specific Distribution
-                  List on the given domain.</para>
+               <para role="shortdesc">Lists recipients that can be
+                  managers for a specific Distribution List on the
+                  given domain.</para>
                <itemizedlist>
                   <listitem>
                      <para>Use this route to retrieve a list of
@@ -10972,9 +10991,9 @@
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN"
                title="Exist Distribution List Options - Available Members&#xA;Recipients">
-               <para>Use this route to retrieve a list of recipients
-                  that can be Members for a specific Distribution List
-                  on the given domain.</para>
+               <para role="shortdesc">Lists recipients that can be
+                  Members for a specific Distribution List on the
+                  given domain.</para>
                <itemizedlist>
                   <listitem>
                      <para>Use this route to retrieve a list of
@@ -13679,9 +13698,10 @@
          <method id="d1e16575" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Add Admins">
-               <para role="shortdesc">Adds an admin to the resource.</para>
-               <para>This refers to the admins that
-                  can manage the resource.</para>              
+               <para role="shortdesc">Adds an admin to the
+                  resource.</para>
+               <para>This refers to the admins that can manage the
+                  resource.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json"
