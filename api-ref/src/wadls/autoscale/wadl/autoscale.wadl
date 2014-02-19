@@ -863,7 +863,8 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/json">
-                <doc xml:lang="en"/>
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN"xml:lang="en"/>
             </representation>
         </request>
         <response status="204"/> &commonFaults; &getFaults;
@@ -880,7 +881,8 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/json">
-                <doc xml:lang="en"/>
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN"xml:lang="en"/>
             </representation>
         </request>
         <response status="204"/> &commonFaults; &getFaults;
@@ -1311,7 +1313,8 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/json">
-                <doc xml:lang="en"/>
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN"xml:lang="en"/>
             </representation>
         </request>
         <response status="202"/> &commonFaults; &getFaults;
@@ -1446,7 +1449,8 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/json">
-                <doc xml:lang="en"/>
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN"xml:lang="en"/>
             </representation>
         </request>
         <response status="202"/> &commonFaults; &getFaults;
