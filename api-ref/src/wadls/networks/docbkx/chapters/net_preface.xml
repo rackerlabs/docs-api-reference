@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter [
+<!-- Some useful entities borrowed from HTML -->
+<!ENTITY ndash "&#x2013;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY hellip "&#x2026;">
+<!ENTITY plusmn "&#xB1;">
+
+<!-- Useful for describing APIs -->
+<!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+
+<!ENTITY CHECK '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="figures/Check_mark_23x20_02.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+
+<!ENTITY ARROW '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="../figures/Arrow_east.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="ch_preface">
+    <title>Preface</title>
+    <para>Rackspace Cloud Networks enables you to create isolated networks and provision <glossterm>server</glossterm>
+        instances with Rackspace networks or the isolated networks that you created. </para>
+    <para>When you create an isolated network, it is associated with your tenant ID.</para>
+
+    <para>Cloud Networks was originally released using the Cloud Servers Nova-network (see <olink targetdoc="cn-devguide"
+            targetptr="api_operations_nova">API Operations - Nova</olink>). Now Cloud Networks has been released using
+        Neutron (see <olink targetdoc="cn-devguide" targetptr="api_operations_nuetron">API Operations - Neutron</olink>).
+        Both sets of API operations work. For information that helps you determine which method is better for you, see <olink
+            targetdoc="cn-devguide" targetptr="section_nova_v_neutron">“Networking: Nova-network versus
+        Neutron”</olink>.</para>
+    <para>To request access to Cloud Networks now, click
+        <link xlink:href="http://www.iwantcloudnetworks.com/">"I want Cloud Networks"</link>.</para>
+    <para>To detect if you are enabled to use Cloud Networks, issue a &GET; <command>/limits</command> call or a
+            <command>nova absolute-limits</command> call and review the <literal>maxTotalPrivateNetworks</literal> value:
+            <table xml:id="maxTotalPrivateNetworks" rules="all">
+            <caption>maxTotalPrivateNetworks Value</caption>
+            <col width="20%"/>
+            <col width="80%"/>
+            <thead>
+                <tr>
+                    <th>maxTotalPrivateNetworks Value</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>
+                        <para>Cloud Networks is disabled.</para>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Greater than 0</td>
+                    <td>
+                        <para>Cloud Networks is enabled. The value indicates the number of isolated networks that you are
+                            allowed to create.</para>
+                    </td>
+                </tr>
+            </tbody>
+        </table></para>
+    <para>For more information about querying limits, see
+        <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ProgrammaticLimits.html">Get Limits</link>.</para>
+    <para>We welcome feedback, comments, and bug reports. Login to the Rackspace customer portal at
+        <link xlink:href="http://www.rackspace.com/support/">http://www.rackspace.com/support/</link>.</para>
+
+    <section xml:id="Intended_Audience-d1e85">
+        <title>Intended Audience</title>
+        <para>This guide assists software developers who want to develop applications by using Cloud Servers and Cloud
+            Networks. </para>
+        <para>To use this information, you should have access to an active Rackspace Cloud Servers account and access to
+            Cloud Networks. You should also be familiar with the following concepts: </para>
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>Cloud Servers service</para>
+            </listitem>
+            <listitem>
+                <para><glossterm>RESTful</glossterm> web services</para>
+            </listitem>
+            <listitem>
+                <para><glossterm>HTTP</glossterm>/1.1</para>
+            </listitem>
+            <listitem>
+                <para>JSON or XML data serialization formats</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+
+    <xi:include href="../../../shared/cloud-servers/cs_pricing_servicelevel.xml"/>
+
+    <section xml:id="Document_Change_History">
+        <title>Document Change History</title>
+        <para> This version of the guide applies only to v3.0 of the API. The most recent changes are described in the
+            following table: </para>
+        <?rax revhistory?>
+    </section>
+
+    <xi:include href="../../../shared/cloud-servers/section_gs_resources.xml"/>
+</chapter>

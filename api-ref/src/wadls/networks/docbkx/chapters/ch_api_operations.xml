@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter [
+<!-- Some useful entities borrowed from HTML -->
+<!ENTITY ndash  "&#x2013;">
+<!ENTITY mdash  "&#x2014;">
+<!ENTITY hellip "&#x2026;">
+<!ENTITY plusmn "&#xB1;">
+
+<!-- Useful for describing APIs -->
+<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+
+<!ENTITY CHECK  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="figures/Check_mark_23x20_02.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+
+<!ENTITY ARROW  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="../figures/Arrow_east.svg"
+ scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+<!ENTITY CIS 'Rackspace Cloud Identity Service'>
+<!ENTITY fgCS 'first generation Cloud Servers'>
+<!ENTITY ngCS 'next generation Cloud Servers'>
+<!ENTITY cnresource1 'rax-networks'>
+<!ENTITY virt_ext 'Cloud Networks virtual interface extension'>
+<!ENTITY Uvirt_ext 'Cloud Networks Virtual Interface Extension'>
+<!ENTITY cnresource2 'os-networksv2'>
+]>
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xmlns:raxm="http://docs.rackspace.com/api/metadata"
+    xml:id="api_operations">
+    <title>API Operations</title>
+    <section xml:id="api_networks">
+        <title>Networks</title>
+        <informaltable rules="all">
+
+            <thead>
+                <tr>
+                    <td colspan="1">Verb</td>
+                    <td colspan="2">URI</td>
+                    <td colspan="3">Description</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="1">&GET;</td>
+                    <td colspan="2">/&cnresource2;</td>
+                    <td colspan="3">Lists the networks configured for a specified tenant ID. </td>
+                </tr>
+                <tr>
+                    <td colspan="1">&POST;</td>
+                    <td colspan="2">/&cnresource2;</td>
+                    <td colspan="3">Creates a network for the specified tenant ID.</td>
+                </tr>
+                <tr>
+                    <td colspan="1">&POST;</td>
+                    <td colspan="2">/&cnresource2;</td>
+                    <td colspan="3">Provisions a new server and attaches networks.</td>
+                </tr>
+                <tr>
+                    <td colspan="1">&GET;</td>
+                    <td colspan="2">/&cnresource2;/<parameter>id</parameter></td>
+                    <td colspan="3">Shows information for a specified network ID.</td>
+                </tr>
+                <tr>
+                    <td colspan="1">&DELETE;</td>
+                    <td colspan="2">/&cnresource2;/<parameter>id</parameter></td>
+                    <td colspan="3">Deletes the specified network.</td>
+                </tr>
+            </tbody>
+        </informaltable>
+        <section xml:id="list_networks">
+
+            <title>List Networks</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&GET;</td>
+                        <td colspan="2">/&cnresource2;</td>
+                        <td colspan="3">Lists the networks configured for a specified tenant ID. </td>
+                    </tr>
+
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: OK (<returnvalue>200</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Unauthorized (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>) </simpara>
+
+            <para>Lists the networks configured for the tenant ID specified in the request URI. </para>
+            <para>This operation does not require a request body.</para>
+            <para>This operation returns a response body. The response body returns the following fields: <table rules="all"
+                    width="100%">
+                    <caption>List Networks Response Fields</caption>
+                    <col width="20%"/>
+                    <col width="80%"/>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>The network ID.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <para>label</para>
+                            </td>
+                            <td>The name of the network. ServiceNet is labeled as <literal>private</literal> and PublicNet is
+                                labeled as <literal>public</literal> in the network list.</td>
+                        </tr>
+                        <tr>
+                            <td>cidr</td>
+                            <td>The CIDR for an isolated network.</td>
+                        </tr>
+                    </tbody>
+                </table></para>
+
+            <note>
+                <para>To list the networks that are associated with servers, see
+                    <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Servers-d1e2078.html">List Servers</link>
+                    in the <citetitle>Next Generation Cloud Servers Developer Guide</citetitle>.</para>
+            </note>
+
+            <para>The following examples show a JSON and an XML response for the list networks operation.</para>
+
+
+            <example xml:id="json_list_networks">
+                <title>List Networks: JSON Response</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/networks.json" parse="text"/></programlisting>
+
+            </example>
+            <?hard-pagebreak?>
+            <example xml:id="xml_list_networks">
+                <title>List Networks: XML Response</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/networks.xml" parse="text"/></programlisting>
+
+            </example>
+
+
+        </section>
+        <?hard-pagebreak?>
+
+        <section xml:id="create_virtual_interface">
+            <title>Create Network</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&POST;</td>
+                        <td colspan="2">/&cnresource2;</td>
+                        <td colspan="3">Creates a network for the specified tenant ID.</td>
+                    </tr>
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: OK (<returnvalue>200</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Bad Request (<errorcode>400</errorcode>), Unauthorized
+                (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>)</simpara>
+            <para>This operation creates a network for the specified tenant ID. </para>
+            <para>This operation requires a request body. Specify the following attributes in the request body:</para>
+            <para>
+                <table rules="all" width="100%">
+
+                    <caption>Create Network Request Attributes</caption>
+                    <col width="20%"/>
+                    <col width="70%"/>
+                    <col width="10%"/>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>cidr</td>
+                            <td>The IP block from which to allocate the network. For example,
+                                    <userinput>172.16.0.0/24</userinput> or <userinput>2001:DB8::/64</userinput>. For more
+                                information about CIDR notation, see
+                                <link xlink:href="http://www.rackspace.com/knowledge_center/article/using-cidr-notation"><citetitle>CIDR
+                                   Notation</citetitle></link>.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <para>label</para>
+                            </td>
+                            <td>The name of the new network. For example, <userinput>my_new_network</userinput>.</td>
+                            <td>Yes</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </para>
+            <para>This operation returns a response body. The response body returns the following fields: <table rules="all"
+                    width="100%">
+                    <caption>Create Network Response Fields</caption>
+                    <col width="20%"/>
+                    <col width="80%"/>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>cidr</td>
+                            <td>The IP block from which the network was allocated.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>The network ID.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <para>label</para>
+                            </td>
+                            <td>The name of the new network. </td>
+                        </tr>
+                    </tbody>
+                </table></para>
+            <para>The following examples show a JSON and XML requests and responses for the create network operation.</para>
+
+
+            <example xml:id="json_create_virtual_interface_req">
+                <title>Create Network: JSON Request</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_network_req.json" parse="text"/></programlisting>
+
+            </example>
+            <example xml:id="json_create_virtual_interface_resp">
+                <title>Create Network: JSON Response</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_network_resp.json" parse="text"/></programlisting>
+
+            </example>
+            <?hard-pagebreak?>
+            <example xml:id="xml_create_virtual_interface_req">
+                <title>Create Network: XML Request</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_network_req.xml" parse="text"/></programlisting>
+
+            </example>
+            <example xml:id="xml_create_virtual_interface_resp">
+                <title>Create Network: XML Response</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_network_resp.xml" parse="text"/></programlisting>
+
+            </example>
+
+        </section>
+        <?hard-pagebreak?>
+        <section xml:id="provision_server_with_networks">
+            <title>Provision Server and Attach Networks</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&POST;</td>
+                        <td colspan="2">/servers</td>
+                        <td colspan="3">Provisions a new server with specified networks. </td>
+                    </tr>
+                </tbody>
+            </informaltable>
+
+            <simpara>Normal Response Code: Accepted (<returnvalue>202</returnvalue>)</simpara>
+            <simpara>Error Response Codes: computeFault (<errorcode>400</errorcode>, <errorcode>500</errorcode>, &hellip;),
+                Bad Request (<errorcode>400</errorcode>), Unauthorized (<errorcode>401</errorcode>), Forbidden
+                    (<errorcode>403</errorcode>), Not Found (<errorcode>404</errorcode>), Bad Method
+                    (<errorcode>405</errorcode>), Request Entity Too Large (<errorcode>413</errorcode>), Unsupported Media
+                Type (<errorcode>415</errorcode>), Service Unavailable (<errorcode>503</errorcode>) </simpara>
+            <informaltable rules="all" width="100%">
+                <tbody>
+                    <tr>
+                        <td colspan="1">Status Transition:</td>
+                        <td colspan="3">
+                            <code>BUILD</code> &ARROW; <code>ACTIVE</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"/>
+                        <td colspan="3">
+                            <code>BUILD</code> &ARROW; <code>ERROR</code> (on error) </td>
+                    </tr>
+                </tbody>
+            </informaltable>
+            <para>This operation asynchronously provisions a new server. </para>
+            <para>You must specify the networks that you want to attach to your server. If you do not specify any networks,
+                ServiceNet and PublicNet are attached by default. For information about the Rackspace networks, see
+                <link xlink:href="http://docs.rackspace.com/servers/api/v2/cn-gettingstarted/content/networks.html">Isolated Networks and Rackspace Networks</link>. </para>
+            <para>You can optionally provision the server instance with specified isolated networks. However, if you specify
+                an isolated network, you must explicitly specify the UUIDs for PublicNet and ServiceNet to attach these
+                networks to your server. The UUID for ServiceNet is <literal>11111111-1111-1111-1111-111111111111</literal>,
+                and the UUID for PublicNet is <literal>00000000-0000-0000-0000-000000000000</literal>. Omit these UUIDs from
+                the request to detach from these networks.</para>
+            <para>
+                <note>
+                    <para>RackConnect and Managed Cloud Service Level customers will receive an error if they opt out of
+                        attaching to PublicNet or ServiceNet.</para>
+                </note>
+            </para>
+
+            <para>To attach a network to an existing server, you must create a virtual interface. See
+                <xref linkend="api_virt_interfaces"/>.</para>
+
+
+            <para>For complete information about this API operation, see
+                <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/CreateServers.html">Create Server</link>
+                in the <citetitle>Next Generation Cloud Servers Developer Guide</citetitle>.</para>
+            <note>
+                <para>To list the networks that are associated with servers, see
+                    <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Servers-d1e2078.html">List Servers</link>
+                    in the <citetitle>Next Generation Cloud Servers Developer Guide</citetitle>.</para>
+            </note>
+            <?hard-pagebreak?>
+            <para>The following table describes the required and optional attributes that you can specify in the request
+                body:</para>
+            <para>
+                <table rules="all" width="100%">
+                    <caption>Provision Server with Isolated Network Request Attributes</caption>
+                    <col width="20%"/>
+                    <col width="70%"/>
+                    <col width="10%"/>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>name</td>
+                            <td>The server name. </td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>imageRef</td>
+                            <td>The image reference. Specify as an ID or full URL. </td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>flavorRef</td>
+                            <td>The flavor reference. Specify as an ID or full URL. </td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>networks </td>
+                            <td>By default, the server instance is provisioned with all Rackspace networks and isolated
+                                networks for the tenant. Optionally, to provision the server instance with a specific
+                                isolated tenant network, specify the UUID of the network in the <command>uuid</command>
+                                attribute. You can specify multiple UUIDs.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>OS-DCF:diskConfig </td>
+                            <td>The disk configuration value, which is <literal
+                                    xmlns:raxm="http://docs.rackspace.com/api/metadata">AUTO</literal> or <literal
+                                    xmlns:raxm="http://docs.rackspace.com/api/metadata">MANUAL</literal>. See
+                                <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html">Disk Configuration
+                                   Extension</link>.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>metadata </td>
+                            <td>Metadata key and value pairs.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td valign="top">personality </td>
+                            <td>File path and contents. </td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>The following examples show a JSON and XML requests and responses for the provision server
+                operation.</para>
+
+
+            <example xml:id="json_create_server_req">
+                <title>Provision Server with Isolated Network: JSON Request</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/server-post-req.json" parse="text"/></programlisting>
+
+            </example>
+            <example xml:id="json_create_server_resp">
+                <title>Provision Server with Isolated Network: JSON Response</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/server-post-resp.json" parse="text"/></programlisting>
+
+            </example>
+            <?hard-pagebreak?>
+            <example xml:id="xml_create_server_req">
+                <title>Provision Server with Isolated Network: XML Request</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/server-post-req.xml" parse="text"/></programlisting>
+
+            </example>
+            <example xml:id="xml_create_server_resp">
+                <title>Provision Server with Isolated Network: XML Response</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/server-post-resp.xml" parse="text"/></programlisting>
+
+            </example>
+
+
+        </section>
+        <?hard-pagebreak?>
+        <section xml:id="show_network">
+            <title>Show Network</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&GET;</td>
+                        <td colspan="2">/&cnresource2;/<parameter>id</parameter></td>
+                        <td colspan="3">Shows information for a specified network ID.</td>
+                    </tr>
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: OK (<returnvalue>200</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Unauthorized (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>),
+                Network Not Found (<errorcode>420</errorcode>)</simpara>
+            <para>Specify the network ID as <parameter>id</parameter> in the URI.</para>
+            <para>This operation shows information for the specified network ID. </para>
+            <note>
+                <para>To list the networks that are associated with servers, see
+                    <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Servers-d1e2078.html">List Servers</link>
+                    in the <citetitle>Next Generation Cloud Servers Developer Guide</citetitle>.</para>
+            </note>
+            <para>This operation does not require a request body.</para>
+            <para>This operation returns a response body. The response body returns the following fields: <table rules="all"
+                    width="100%">
+                    <caption>Show Network Response Fields</caption>
+                    <col width="20%"/>
+                    <col width="80%"/>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr>
+                            <td>cidr</td>
+                            <td>The <glossterm>CIDR</glossterm> for an isolated private network.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>The network ID.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <para>label</para>
+                            </td>
+                            <td>The name of the network. </td>
+                        </tr>
+                    </tbody>
+                </table></para>
+            <para>The following examples show a JSON and an XML response for the show network operation.</para>
+
+
+            <example xml:id="json_show_network">
+                <title>Show Network: JSON Response</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/network.json" parse="text"/></programlisting>
+
+            </example>
+            <?hard-pagebreak?>
+            <example xml:id="xml_list_networks_curl">
+                <title>Show Network: XML Response</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/network.xml" parse="text"/></programlisting>
+
+            </example>
+
+        </section>
+        <?hard-pagebreak?>
+        <section xml:id="delete_network">
+            <title>Delete Network</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&DELETE;</td>
+                        <td colspan="2">/&cnresource2;/<parameter>id</parameter></td>
+                        <td colspan="3">Deletes the specified network.</td>
+                    </tr>
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: Accepted (<returnvalue>202</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Bad Request (<errorcode>400</errorcode>), Unauthorized
+                (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>), Network Not Found
+                    (<errorcode>404</errorcode>)</simpara>
+            <para>This operation deletes the network specified in the URI. </para>
+            <para>You cannot delete an isolated network unless the network is not attached to any server.</para>
+
+            <para>To detach a network from a server, delete the virtual interface for the network from the server instance.
+                See <xref linkend="delete_virt_interface_api"/>.</para>
+            <para>This operation does not require a request body. </para>
+            <para>This operation does not return a response body.</para>
+
+        </section>
+    </section>
+    <section xml:id="api_virt_interfaces">
+        <title>Virtual Interfaces</title>
+        <para>Use the &virt_ext; to create a virtual interface to a specified network and attach that network to an existing
+            server instance. You can attach a an isolated network that you have created or a Rackspace network.</para>
+        <para>A virtual interface works in the same way as the network interface card (NIC) inside your laptop. Like a NIC, a
+            virtual interface is the medium through which you can attach a network. To use a virtual interface to attach a
+            network to your server, you create and connect a virtual interface for a specified network to a server instance.
+            The network, which is comprised of logical switches, is attached to your server instance through the virtual
+            interface. </para>
+        <para>You can create a maximum of one virtual interface per instance per network. </para>
+        <para>You can also use the &virt_ext; to:</para>
+        <itemizedlist>
+            <listitem>
+                <para>List the virtual interfaces for a server instance.</para>
+            </listitem>
+            <listitem>
+                <para>Delete a virtual interface and detach it from a server instance.</para>
+            </listitem>
+        </itemizedlist>
+        <informaltable rules="all">
+
+            <thead>
+                <tr>
+                    <td colspan="1">Verb</td>
+                    <td colspan="2">URI</td>
+                    <td colspan="3">Description</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="1">&GET;</td>
+                    <td colspan="2">/servers/<parameter>instance_id</parameter>/os-virtual-interfacesv2 </td>
+                    <td colspan="3">Lists the virtual interfaces configured for a server instance. </td>
+                </tr>
+                <tr>
+                    <td colspan="1">&POST;</td>
+                    <td colspan="2">/servers/<parameter>instance_id</parameter>/os-virtual-interfacesv2</td>
+                    <td colspan="3">Creates a virtual interface for a network and attaches the network to a server
+                        instance.</td>
+                </tr>
+                <tr>
+                    <td colspan="1">&DELETE;</td>
+                    <td colspan="2"
+                            >/servers/<parameter>instance_id</parameter>/os-virtual-interfacesv2/<parameter>interface_id</parameter></td>
+                    <td colspan="3">Deletes a virtual interface from a server instance.</td>
+                </tr>
+            </tbody>
+        </informaltable>
+        <section xml:id="list_virt_interfaces">
+
+            <title>List Virtual Interfaces</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&GET;</td>
+                        <td colspan="2">/servers/<parameter>instance_id</parameter>/os-virtual-interfacesv2</td>
+                        <td colspan="3">Lists the virtual interfaces configured for a server instance. </td>
+                    </tr>
+
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: OK (<returnvalue>200</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Unauthorized (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>) </simpara>
+
+            <para>Lists the virtual interfaces configured for a server instance. </para>
+            <para>Specify the server instance ID as <parameter>instance_id</parameter> in the URI.</para>
+            <para>This operation does not require a request body.</para>
+            <para>This operation returns a response body. The response body returns the following fields: <table rules="all"
+                    width="100%">
+                    <caption>List Virtual Interfaces Response Fields</caption>
+                    <col width="20%"/>
+                    <col width="80%"/>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>The virtual interface ID.</td>
+                        </tr>
+                        <tr>
+                            <td>ip_addresses</td>
+                            <td>For each IP address associated with the virtual interface, lists the address, network ID, and
+                                network label.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <para>mac_address</para>
+                            </td>
+                            <td>The Media Access Control (MAC) address for the virtual interface. A MAC address is a unique
+                                identifier assigned to network interfaces for communications on the physical network
+                                segment.</td>
+                        </tr>
+
+                    </tbody>
+                </table></para>
+            <para>The following examples show a JSON and an XML response for the list virtual interfaces operation.</para>
+
+
+            <example xml:id="json_list_virtual_interfaces">
+                <title>List Virtual Interfaces: JSON Response</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/virtual_interfaces.json" parse="text"/></programlisting>
+
+            </example>
+            <?hard-pagebreak?>
+            <example xml:id="xml_list_virtual_interfaces">
+                <title>List Virtual Interfaces: XML Response</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/virtual_interfaces.xml" parse="text"/></programlisting>
+
+            </example>
+
+
+        </section>
+        <?hard-pagebreak?>
+
+        <section xml:id="api_create_virtual_interface">
+            <title>Create Virtual Interface</title>
+            <informaltable rules="all">
+
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&POST;</td>
+                        <td colspan="2">/servers/<parameter>instance_id</parameter>/os-virtual-interfacesv2</td>
+                        <td colspan="3">Creates a virtual interface for a network and attaches the network to a server
+                            instance.</td>
+                    </tr>
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: OK (<returnvalue>200</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Bad Request (<errorcode>400</errorcode>), Unauthorized
+                (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>)</simpara>
+            <para>This operation creates a virtual interface for a network and attaches the network to a server
+                instance.</para>
+            <para>Specify the server instance ID as <parameter>instance_id</parameter> in the URI.</para>
+            <para>Specify the network ID in the request body.</para>
+            <para>You can create a maximum of one virtual interface per instance per network. </para>
+            <para>This operation requires a request body. Specify the following attributes in the request body:</para>
+            <para>
+                <table rules="all" width="100%">
+
+                    <caption>Create Virtual Interface Request Attributes</caption>
+                    <col width="20%"/>
+                    <col width="70%"/>
+                    <col width="10%"/>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>network_id</td>
+                            <td>The ID of the network for which you want to create a virtual interface. You can create a
+                                virtual interface for an isolated or Rackspace network.</td>
+                            <td>Yes</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </para>
+            <para>This operation returns a response body. The response body returns the following fields: <table rules="all"
+                    width="100%">
+                    <caption>Create Virtual Interface Response Fields</caption>
+                    <col width="20%"/>
+                    <col width="80%"/>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>mac_address</td>
+                            <td>
+                                <para>The Media Access Control (MAC) address for the virtual interface. A MAC address is a
+                                    unique identifier assigned to network interfaces for communications on the physical
+                                    network segment.</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>
+                                <para>The virtual interface ID.</para>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ip_addresses</td>
+                            <td><para>For each IP address associated with the virtual interface, lists the following
+                                    information: <itemizedlist>
+                                        <listitem>
+                                            <para>address. The IP address.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>network ID. The ID for the associated network.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>network label. The label for the associated network.</para>
+                                        </listitem>
+                                    </itemizedlist></para></td>
+                        </tr>
+                    </tbody>
+                </table></para>
+            <para>The following examples show a JSON and XML requests and responses for the create virtual interface
+                operation.</para>
+            <example xml:id="json_create_virtual_interface_req_api">
+                <title>Create Virtual Interface: JSON Request</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_virtual_interface_req.json" parse="text"/></programlisting>
+
+            </example>
+            <example xml:id="json_create_virtual_interface_resp_api">
+                <title>Create Virtual Interface: JSON Response</title>
+                <programlisting language="json"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_virtual_interface_resp.json" parse="text"/></programlisting>
+
+            </example>
+            <?hard-pagebreak?>
+            <example xml:id="xml_create_virtual_interface_req_api">
+                <title>Create Virtual Interface: XML Request</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_virtual_interface_req.xml" parse="text"/></programlisting>
+            </example>
+            <example xml:id="xml_create_virtual_interface_resp_api">
+                <title>Create Virtual Interface: XML Response</title>
+                <programlisting language="xml"><?db-font-size 65%?><xi:include href="../../../shared/samples/create_virtual_interface_resp.xml" parse="text"/></programlisting>
+            </example>
+        </section>
+        <?hard-pagebreak?>
+        <section xml:id="delete_virt_interface_api">
+            <title>Delete Virtual Interface</title>
+            <informaltable rules="all">
+                <thead>
+                    <tr>
+                        <td colspan="1">Verb</td>
+                        <td colspan="2">URI</td>
+                        <td colspan="3">Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1">&DELETE;</td>
+                        <td colspan="2"
+                                >/servers/<parameter>instance_id</parameter>/os-virtual-interfacesv2/<parameter>interface_id</parameter></td>
+                        <td colspan="3">Deletes a virtual interface from a server instance.</td>
+                    </tr>
+                </tbody>
+            </informaltable>
+            <simpara>Normal Response Code: OK (<returnvalue>200</returnvalue>)</simpara>
+            <simpara>Error Response Codes: Bad Request (<errorcode>400</errorcode>), Unauthorized
+                (<errorcode>401</errorcode>), Forbidden (<errorcode>403</errorcode>), Network Not Found
+                    (<errorcode>404</errorcode>)</simpara>
+            <para>This operation deletes the specified virtual interface from the specified server instance.</para>
+            <para>Specify the server instance ID as <parameter>instance_id</parameter> in the URI.</para>
+            <para>Specify the virtual interface ID as <parameter>interface_id</parameter> in the URI. To find the ID of a
+                virtual interface, issue the list virtual interfaces API operation. See
+                <xref linkend="list_virt_interfaces"/>. </para>
+            <para>This operation does not require a request body. </para>
+            <para>This operation does not return a response body.</para>
+        </section>
+    </section>
+</chapter>
