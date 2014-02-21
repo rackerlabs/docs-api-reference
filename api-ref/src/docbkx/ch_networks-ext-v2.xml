@@ -6,8 +6,8 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="networks-v2-ext">
-    <title>Networks API v2.0 extensions</title>
-    <section xml:id="quotas-ext">
+    <title>Cloud Networks API v2.0 extensions</title>
+ <!--   <section xml:id="quotas-ext">
         <title>Quotas extension</title>
         <para>List, show information for, update, and reset
             quotas.</para>
@@ -25,7 +25,7 @@
         <wadl:resources
             href="../wadls/networks/wadl/ports-binding-ext.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
-    </section>
+    </section>-->
     <section xml:id="layer-3">
         <title>Layer-3</title>
         <wadl:resources
@@ -38,4 +38,5 @@
             href="../wadls/networks/wadl/security-groups.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
+    <xi:include href="section_networks_nova_ext.xml"/>
 </chapter>

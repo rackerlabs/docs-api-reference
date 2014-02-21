@@ -37,7 +37,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#queues">
-                <wadl:method href="listQueues"/>
+                <wadl:method href="#listQueues"/>
             </wadl:resource>
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#queue"/>
