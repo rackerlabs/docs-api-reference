@@ -8,49 +8,50 @@
     xmlns:db="http://docbook.org/ns/docbook"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" xml:id="auto-scale-v1.0">
-    <!-- https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl -->
+    version="5.0-extension RackBook-2.0" xml:id="autoscale-v1.0">
+    <!-- ../wadls/autoscale/wadl/autoscale.wadl -->
     <title>Auto Scale API v1.0</title>
-    <section xml:id="auto-scale-groups">
+    <section xml:id="autoscale-groups">
+        <!-- put back later ../wadls/autoscale/wadl/autoscale.wadl -->
         <title>Scaling groups</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#groups"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#groups"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#group"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#group"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#group_state"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#group_state"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#group_config"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#group_config"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#launch_configuration"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#launch_configuration"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#pause"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#pause"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#resume"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#resume"/>
         </wadl:resources>
     </section>
-    <section xml:id="auto-scale-policies">
+    <section xml:id="autoscale-policies">
         <title>Policies</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policies"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#policies"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policy"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#policy"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#execute"
+                href="../wadls/autoscale/wadl/autoscale.wadl#execute"
             />
         </wadl:resources>
     </section>
-    <section xml:id="auto-scale-webhooks">
+    <section xml:id="autoscale-webhooks">
         <title>Web hooks</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhooks"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#webhooks"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhook"/>
+                href="../wadls/autoscale/wadl/autoscale.wadl#webhook"/>
             <wadl:resource
-                href="https://raw2.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#anonymous_execute_webhook"
+                href="../wadls/autoscale/wadl/autoscale.wadl#anonymous_execute_webhook"
             />
         </wadl:resources>
     </section>

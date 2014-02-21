@@ -3584,7 +3584,7 @@
          <method id="d1e4316" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Show">
-               <para>The show operation will return detailed
+               <para role="shortdesc">Shows detailed
                   information about the specified mailbox.</para>
                <para>Remarks</para>
                <itemizedlist>
@@ -5941,8 +5941,8 @@
          <method id="d1e7359" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Show">
-               <para role="shortdesc">Returns detailed information
-                  about a given domain's Rackspace Mailbox storage
+               <para role="shortdesc">Shows details for
+                  a specified domain's Rackspace Mailbox storage
                   notification settings that control whether an email
                   notification is sent to users when their mailbox
                   reaches a certain capacity.</para>
@@ -6156,8 +6156,7 @@
          <method id="d1e7597" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Show">
-               <para role="shortdesc">Returns detailed information
-                  about the specified alias.</para>
+               <para role="shortdesc">Shows details for a specified alias.</para>
                <para>Remarks</para>
                <itemizedlist>
                   <listitem>
@@ -6556,7 +6555,7 @@
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Index">
                <para role="shortdesc">Shows a list of mailboxes under
-                  the domain</para>
+                  the domain.</para>
                <para>Filter/Search</para>
                <para>Mailbox searches may be filtered by the 'enabled'
                   flag using query methods ?enabled=true and
@@ -6659,8 +6658,7 @@
          <method id="d1e8160" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Show">
-               <para role="shortdesc">Returns detailed information
-                  about the specified mailbox.</para>
+               <para role="shortdesc">Shows details for a specified mailbox.</para>
                <para>Remarks</para>
                <itemizedlist>
                   <listitem>
@@ -7642,7 +7640,7 @@
          <method id="d1e9528" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="BlackBerry Mobile Service - Add">
-               <para>Attaches a BlackBerry mobile service to the
+               <para role="shortdesc">Attaches a BlackBerry mobile service to the
                   mailbox.</para>
                <table rules="all">
                   <caption>Request Data</caption>
@@ -7890,7 +7888,7 @@
          <method id="d1e9809" name="POST">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="ActiveSync Mobile Service - Add">
-               <para>Attaches a ActiveSync service to the
+               <para role="shortdesc">Attaches a ActiveSync service to the
                   mailbox.</para>
                <table rules="all">
                   <caption>Status Code</caption>
@@ -13297,7 +13295,7 @@
          <method id="d1e16099" name="GET">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                title="Show">
-               <para role="shortdesc">Returns the resource's
+               <para role="shortdesc">Returns resource
                   details.</para>
                <para>Remarks</para>
                <itemizedlist>
