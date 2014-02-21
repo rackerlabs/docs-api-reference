@@ -861,12 +861,6 @@
                 the Auto Scale API yet and will be implemented in a
                 future release.</para>
         </wadl:doc>
-        <request>
-            <representation mediaType="application/json">
-                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"xml:lang="en"/>
-            </representation>
-        </request>
         <response status="204"/> &commonFaults; &getFaults;
         &postPutFaults; </method>
     <method id="resumeGroup" name="POST">
@@ -879,12 +873,6 @@
                 the Auto Scale API yet and will be implemented in a
                 future release.</para>
         </wadl:doc>
-        <request>
-            <representation mediaType="application/json">
-                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"xml:lang="en"/>
-            </representation>
-        </request>
         <response status="204"/> &commonFaults; &getFaults;
         &postPutFaults; </method>
     <method name="GET" id="getPolicies"
@@ -1311,12 +1299,6 @@
             <para>If the operation succeeds, a response body is
                 returned.</para>
         </wadl:doc>
-        <request>
-            <representation mediaType="application/json">
-                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"xml:lang="en"/>
-            </representation>
-        </request>
         <response status="202"/> &commonFaults; &getFaults;
         &postPutFaults; </method>
     <method name="GET" id="getWebhooks">
@@ -1447,11 +1429,6 @@
             title="Execute anonymous webhook">
             <para role="shortdesc">Runs an anonymous webhook.</para>
         </wadl:doc>
-        <request>
-            <representation mediaType="application/json">
-                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"xml:lang="en"/>
-            </representation>
-        </request>
+        
         <response status="202"/> &commonFaults; &getFaults;
-        &postPutFaults; </method>--> </application>
+        &postPutFaults; </method></application>
