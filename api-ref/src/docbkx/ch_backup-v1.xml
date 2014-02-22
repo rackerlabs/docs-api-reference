@@ -28,7 +28,7 @@
         </wadl:resources>
     </section>
     <section xml:id="backup-configuration">
-        <title>Agents</title>
+        <title>Backup configuration</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/rcbu-docs/raw/master/src/wadl/rcbu.wadl#backup-configuration"/>

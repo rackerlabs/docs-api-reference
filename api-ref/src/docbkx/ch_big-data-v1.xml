@@ -9,7 +9,6 @@
     <title>Cloud Big Data API v1</title>
     <section xml:id="profileOperations">
         <title>Profiles</title>
-        <para>Manage profiles.</para>
         <para>Your Cloud Big Data profile is different from your cloud
             account. Your profile has the following characteristics
             and requirements:</para>
@@ -36,7 +35,6 @@
     </section>
     <section xml:id="clusterOperations">
         <title>Clusters</title>
-        <para>Manage clusters.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#clusters"/>
@@ -49,8 +47,6 @@
     </section>
     <section xml:id="nodeOperations">
         <title>Nodes</title>
-        <para>Manage servers, or nodes, that are part of a
-            cluster.</para>
 
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
@@ -62,7 +58,6 @@
     </section>
     <section xml:id="flavorOperations">
         <title>Flavors</title>
-        <para>Manage flavors.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#flavorsVersion"/>
@@ -77,7 +72,6 @@
     </section>
     <section xml:id="typeOperations">
         <title>Types</title>
-        <para>Manage cluster types.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#typeVersion"/>
@@ -92,7 +86,6 @@
     </section>
     <section xml:id="limitsOperations">
         <title>Resource limits</title>
-        <para>Manage resource limits.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#limitVersion"/>
