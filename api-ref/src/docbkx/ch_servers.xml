@@ -15,7 +15,7 @@
             API.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#version">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#version">
                 <wadl:method href="#versionDetails"/>
             </wadl:resource>
         </wadl:resources>
@@ -28,11 +28,11 @@
             a version change.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#extensions">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#extensions">
                 <wadl:method href="#listExtensions"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#extension">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#extension">
                 <wadl:method href="#getExtension"/>
             </wadl:resource>
         </wadl:resources>
@@ -42,7 +42,7 @@
         <para>Get rate and absolute limits.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#limits">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#limits">
                 <wadl:method href="#listLimits"/>
             </wadl:resource>
         </wadl:resources>
@@ -53,16 +53,16 @@
             servers.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#Servers">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#Servers">
                 <wadl:method href="#listServers"/>
                 <wadl:method href="#createServer"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#server_detail">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#server_detail">
                 <wadl:method href="#listDetailServers"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#server_id">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#server_id">
                 <wadl:method href="#getServer"/>
                 <wadl:method href="#updateServer"/>
                 <wadl:method href="#deleteServer"/>
@@ -75,14 +75,14 @@
             metadata or metadata items.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#metadata">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#metadata">
                 <!-- Metadata -->
                 <wadl:method href="#listMetadata"/>
                 <wadl:method href="#updateMetadata"/>
                 <wadl:method href="#setMetadata"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#MetadataKey">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#MetadataKey">
                 <wadl:method href="#getMetadataItem"/>
                 <wadl:method href="#setMetadataItem"/>
                 <wadl:method href="#deleteMetadataItem"/>
@@ -95,9 +95,9 @@
             server and network.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#ips"/>
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#ips"/>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#network_label"
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#network_label"
             />
         </wadl:resources>
     </section>
@@ -108,7 +108,7 @@
             and create image from server.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#action">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#action">
                 <wadl:method href="#changePassword"/>
                 <wadl:method href="#rebootServer"/>
                 <wadl:method href="#rebuildServer"/>
@@ -127,15 +127,15 @@
             memory capacity.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#Flavors">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#Flavors">
                 <wadl:method href="#listFlavors"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#flavor_detail">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#flavor_detail">
                 <wadl:method href="#listDetailFlavors"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#flavor_id">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#flavor_id">
                 <wadl:method href="#getFlavor"/>
             </wadl:resource>
         </wadl:resources>
@@ -153,15 +153,15 @@
             />.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#Images">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#Images">
                 <wadl:method href="#listImages"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#image_detail">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#image_detail">
                 <wadl:method href="#listDetailImages"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#image_id">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#image_id">
                 <wadl:method href="#getImage"/>
                 <wadl:method href="#deleteImage"/>
             </wadl:resource>
@@ -173,14 +173,14 @@
             metadata or metadata items.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#image_metadata">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#image_metadata">
                 <!-- Metadata -->
                 <wadl:method href="#listMetadata"/>
                 <wadl:method href="#updateMetadata"/>
                 <wadl:method href="#setMetadata"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/wadl/os-compute-2.wadl#imageMetadataKey">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#imageMetadataKey">
                 <wadl:method href="#getMetadataItem"/>
                 <wadl:method href="#setMetadataItem"/>
                 <wadl:method href="#deleteMetadataItem"/>

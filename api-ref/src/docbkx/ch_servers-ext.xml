@@ -20,14 +20,14 @@
             images)</title>
         <para>Extend servers with the diskConfig attribute.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-disk-config.wadl"/>
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-disk-config.wadl"/>
     </section>
     <section xml:id="ext-os-extended-status">
         <title>Server extended status (servers)</title>
         <para>Show extended status information, vm_state, task_state,
             and power_state, in detailed server responses.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-extended-status.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-extended-status.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-rescue">
@@ -35,7 +35,7 @@
         <para>Put a server into rescue mode or unrescue a server in
             rescue mode.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-rescue.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-rescue.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-limits">
@@ -43,7 +43,7 @@
         <para>Show the project usage such as RAM or instance quotas
             usage.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-used-limits.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-used-limits.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-compute_limits_admins">
@@ -53,7 +53,7 @@
             specified customer project ID. Show information such as
             RAM or instance quotas usage.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-used-limits-for-admins.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-used-limits-for-admins.wadl"
         />
     </section>
     
@@ -64,7 +64,7 @@
         <para>List, create, and update the extra-specs or keys for a
             flavor.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flavor-extra-specs.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-flavor-extra-specs.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-instance-actions">
@@ -73,7 +73,7 @@
         <para>Get details for a specified action for a specified
             server (administrators only).</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-instance-actions.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-instance-actions.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-createserverext">
@@ -81,7 +81,7 @@
         <para>Extends servers and images with a configuration
             drive.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-createserverext.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-createserverext.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section> 
     
@@ -90,21 +90,21 @@
         <para>Permits administrators to perform actions on a server.
             Specify the action in the request body.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-admin-actions.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-admin-actions.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-console-output">
         <title>Server console output (os-console-output)</title>
         <para>Gets console output for a server instance.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-console-output.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-console-output.wadl"
         />
     </section>
     <section xml:id="ext-os-consoles">
         <title>Server console (os-consoles)</title>
         <para>Gets a console for a server instance.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-consoles.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-consoles.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-deferred-delete">
@@ -112,14 +112,14 @@
         <para>Force-deletes a server or restores a deleted
             server.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-deferred-delete.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-deferred-delete.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-diagnostics">
         <title>Server diagnostics (diagnostics)</title>
         <para>Gets the usage data for a server.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-diagnostics.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-diagnostics.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-flavor-access">
@@ -128,7 +128,7 @@
             lists, adds and removes tenants' access to private
             flavors.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flavor-access.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-flavor-access.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="os-flv-disabled">
@@ -138,7 +138,7 @@
                 <literal>OS-FLV-DISABLED:disabled</literal> extended
             attribute.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flv-disabled.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-flv-disabled.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
    
@@ -150,7 +150,7 @@
                 <literal>rxtx_factor</literal> extended attribute,
             related to configured bandwidth cap values.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flavor-rxtx.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-flavor-rxtx.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-flavorextradata">
@@ -161,14 +161,14 @@
                 <literal>OS-FLV-EXT-DATA:ephemeral</literal>, and
                 <literal>swap</literal> extended attributes.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flavorextradata.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-flavorextradata.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-flavormanage">
         <title>Flavors create or delete (flavors)</title>
         <para>Creates or deletes flavors.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-flavormanage.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-flavormanage.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-ext-img-size">
@@ -178,7 +178,7 @@
                 <code>OS-EXT-IMG-SIZE:size</code> extended attribute,
             which Show the image size.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-ext-img-size.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-ext-img-size.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     
@@ -189,7 +189,7 @@
             assigns metadata to groups of compute nodes. Aggregates
             are only visible to the cloud provider.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-aggregates.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-aggregates.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-attach-interfaces">
@@ -197,27 +197,27 @@
         <para>Creates, lists, and gets details for port
             interfaces.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-attach-interfaces.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-attach-interfaces.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-certificates">
         <title>Root certificates (os-certificates)</title>
         <para>Creates and Show details for a root certificate.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-certificates.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-certificates.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-cloudpipe">
         <title>Cloudpipe (os-cloudpipe)</title>
         <para>Manages virtual VPNs for projects.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-cloudpipe.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-cloudpipe.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-coverage">
         <title>Coverage reports (os-coverage)</title>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-coverage.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-coverage.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-fixed-ips">
@@ -226,7 +226,7 @@
             CIDR, and address. Also, reserves or frees a fixed
             IP.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-fixed-ips.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-fixed-ips.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-floating-ip-dns">
@@ -235,14 +235,14 @@
             allocated by the Floating IPs extension. Requests are
             dispatched to a DNS driver selected at startup.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-floating-ip-dns.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-floating-ip-dns.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-floating-ip-pools">
         <title>Floating IP pools (os-floating-ip-pools)</title>
         <para>Manages groups of floating IPs.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-floating-ip-pools.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-floating-ip-pools.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-floating-ips">
@@ -250,7 +250,7 @@
         <para>Assigns and allocates floating IP addresses to instances
             that run in an OpenStack cloud.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-floating-ips.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-floating-ips.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-floating-ips-bulk">
@@ -260,14 +260,14 @@
                 <literal>os-floating-ip-pools</literal> extension to
             view available pools.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-floating-ips-bulk.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-floating-ips-bulk.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-hosts">
         <title>Hosts (os-hosts)</title>
         <para>Manages physical hosts.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-hosts.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-hosts.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-hypervisors">
@@ -276,7 +276,7 @@
             that hosts the hypervisor through the API for the
             hypervisor (XenAPI or KVM/libvirt).</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-hypervisors.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-hypervisors.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     
@@ -284,7 +284,7 @@
         <title>Keypairs (os-keypairs)</title>
         <para>Generates, imports, and deletes SSH keys.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-keypairs.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-keypairs.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-migrations">
@@ -293,7 +293,7 @@
             migrations for a region or a specified cell in a
             region.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-migrations.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-migrations.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-networks">
@@ -302,7 +302,7 @@
             disassociates a network from a project if you use vlan
             mode.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-networks.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-networks.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-quota-sets">
@@ -311,7 +311,7 @@
             view quotas for a tenant and view and update default
             quotas.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-quota-sets.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-quota-sets.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     
@@ -320,7 +320,7 @@
         <para>Starts a stopped server or stops a running
             server.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-server-start-stop.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-server-start-stop.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-security-groups">
@@ -328,7 +328,7 @@
         <para>Lists, Show information for, creates, and deletes
             security groups.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-security-groups.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-security-groups.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-security-group-default-rules">
@@ -337,7 +337,7 @@
         <para>Lists, Show information for, and creates default
             security group rules.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-security-group-default-rules.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-security-group-default-rules.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-server-password">
@@ -345,7 +345,7 @@
         <para>Retrieves and resets the encrypted admin password set
             through metadata service.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-server-password.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-server-password.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-services">
@@ -353,7 +353,7 @@
         <para>Lists, enables, and disables Compute services in all
             hosts.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-services.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-services.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-simple-tenant-usage">
@@ -361,7 +361,7 @@
         <para>Reports usage statistics on compute and storage
             resources.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-simple-tenant-usage.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-simple-tenant-usage.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-virtual-interfaces">
@@ -369,7 +369,7 @@
         <para>Lists the virtual interfaces for a specified server
             instance.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-virtual-interfaces.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-virtual-interfaces.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-volume">
@@ -377,7 +377,7 @@
         <para>Manages volumes and snapshots for use with the Compute
             API.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-volume.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-volume.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-volume_attachments">
@@ -387,7 +387,7 @@
             server instance, gets volume details for a volume
             attachment, and deletes a volume attachment.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-volume_attachments.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-volume_attachments.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-block-device-mapping-v2-boot">
@@ -395,7 +395,7 @@
             (servers)</title>
         <para>Creates a server with a block device mapping.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-block-device-mapping-v2-boot.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-block-device-mapping-v2-boot.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-server-os-ext-ips-mac">
@@ -404,7 +404,7 @@
         <para>Adds OS-EXT-IPS-MAC:mac_addr extended attribute when you
             create, show information for, or list servers.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-server-OS-EXT-IPS-MAC.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-server-OS-EXT-IPS-MAC.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     
@@ -416,7 +416,7 @@
                 <emphasis role="italic">internal</emphasis>
             availability zone.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-ext-az.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-ext-az.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     
@@ -425,14 +425,14 @@
         <para>Show the type of the IP addresses assigned to an
             instance. Type is either fixed or floating.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-ext-ips.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-ext-ips.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-extended-server-attributes">
         <title>Server extended attributes (servers)</title>
         <para>Show metadata for servers.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-extended-server-attributes.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-extended-server-attributes.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
    
@@ -440,7 +440,7 @@
         <title>Servers with scheduler hints (servers)</title>
         <para>Creates a server with scheduler hints.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-scheduler-hints.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-scheduler-hints.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="ext-os-multi-server-create">
@@ -449,7 +449,7 @@
             ID. The request and response examples show how to create
             multiple servers with or without a reservation ID.</para>
         <wadl:resources
-            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/ext/os-multi-server-create.wadl"
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/ext/os-multi-server-create.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>-->
 </chapter>
