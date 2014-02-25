@@ -38,18 +38,18 @@
                 api-ref-big-data.xml, <!-- big data -->
                 api-ref-blockstorage.xml, <!-- block storage -->
                 api-ref-databases.xml, <!-- databases -->
-                api-ref-dns.xml,  <!-- dns -->
+                <!--api-ref-dns.xml,-->  <!-- dns -->
                 api-ref-email-and-apps.xml,  <!-- email and apps -->
                 api-ref-feeds.xml,   <!-- feeds --> 
                 api-ref-files.xml, <!-- files -->
                 api-ref-identity.xml, <!-- identity -->
                 api-ref-images.xml, <!-- images -->
-                api-ref-load-balancers.xml, <!-- load balancers -->
+                <!--api-ref-load-balancers.xml,--> <!-- load balancers -->
                 api-ref-monitoring.xml, <!-- monitoring -->
                 api-ref-networks.xml, <!-- networks -->
                 api-ref-orchestration.xml, <!-- orchestration -->
                 api-ref-queues.xml, <!-- queues -->
-                api-ref-servers.xml, <!-- servers -->
+               <!-- api-ref-servers.xml, --> <!-- servers -->
                 api-ref-servers-ext.xml <!-- servers extensions -->
               </includes>
               <profileSecurity>reviewer</profileSecurity>

@@ -7,8 +7,6 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="blockstorage-v2">
     <title>Cloud Block Storage API v2.0</title>
-    <para>Manage volumes and snapshots for use with the Block Storage
-        API.</para>
     <section xml:id="volumes">
         <title>Volumes</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">

@@ -10,23 +10,13 @@
     <section xml:id="profileOperations">
         <title>Profiles</title>
         <para>Your Cloud Big Data profile is different from your cloud
-            account. Your profile has the following characteristics
-            and requirements:</para>
-        <itemizedlist>
-            <listitem>
-                <para>A profile is the configuration for the
-                    administration and login account for the
-                    cluster.</para>
-            </listitem>
-            <listitem>
-                <para>Only one profile is allowed for each user or
-                    account.</para>
-            </listitem>
-            <listitem>
-                <para>Any updates or additions override the existing
-                    profile.</para>
-            </listitem>
-        </itemizedlist>
+            account.</para>
+        <para>A profile is the configuration for the administration
+            and login account for the cluster.</para>
+        <para>Only one profile is allowed for each user or
+            account.</para>
+        <para>Any updates or additions override the existing
+            profile.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#profiles"

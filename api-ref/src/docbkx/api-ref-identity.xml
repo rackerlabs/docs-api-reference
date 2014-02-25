@@ -8,7 +8,7 @@
   version="5.0-extension RackBook-2.0"
   xml:id="api.rackspace.com-identity">
   <info>
-    <title>Cloud Identity APIs and extensions</title>
+    <title>Cloud Identity API</title>
     <copyright>
       <year>2010-2014</year>
     </copyright>
@@ -19,8 +19,5 @@
      <xi:include href="itemizedlist-service-list.xml"/>
     </annotation>
   </info>
-  <xi:include href="ch_identity-v3.xml"/>
   <xi:include href="ch_identity-v2.xml"/>
-  <xi:include href="ch_identity-admin-v2.xml"/>
-  <xi:include href="ch_identity-v2-ext.xml"/>
 </book>

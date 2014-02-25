@@ -26,18 +26,18 @@
         <para><link xlink:href="api-ref-databases.html">Cloud
                 Databases API</link></para>
     </listitem>
-    <listitem>
+  <!--  <listitem>
         <para><link xlink:href="api-ref-dns.html">Cloud DNS
             API</link></para>
-    </listitem>
+    </listitem>-->
     <listitem>
         <para><link xlink:href="api-ref-email-and-apps.html">Email
                 &amp; Apps API</link></para>
     </listitem>
-    <listitem>
+   <!-- <listitem>
         <para><link xlink:href="api-ref-feeds.html">Cloud Feeds
                 API</link></para>
-    </listitem>
+    </listitem> -->
     <listitem>
         <para><link xlink:href="api-ref-files.html">Cloud Files
                 API</link></para>
@@ -50,10 +50,10 @@
         <para><link xlink:href="api-ref-images.html">Cloud Images
                 API</link></para>
     </listitem>
-    <listitem>
+   <!-- <listitem>
         <para><link xlink:href="api-ref-load-balancers.html">Cloud
                 Load Balancers API</link></para>
-    </listitem>
+    </listitem>-->
     <listitem>
         <para><link xlink:href="api-ref-monitoring.html">Cloud
                 Monitoring API</link></para>
@@ -71,7 +71,7 @@
                 API</link></para>
     </listitem>
     <listitem>
-        <para><link xlink:href="api-ref-servers.html">Cloud Servers
+        <para><link xlink:href="api-ref.html">Cloud Servers
                 API</link></para>
     </listitem>
     <listitem>
