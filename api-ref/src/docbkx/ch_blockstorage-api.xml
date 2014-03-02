@@ -22,6 +22,7 @@
             <wadl:resource
                 href="https://github.rackspace.com/IX/cbs-api/raw/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_id">
                 <wadl:method href="#getVolume"/>
+                <wadl:method href="#renameVolume"/>
                 <wadl:method href="#updateVolume"/>
                 <wadl:method href="#deleteVolume"/>
             </wadl:resource>

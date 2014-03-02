@@ -11,11 +11,9 @@
     <section xml:id="profileOperations">
         <title>Profiles</title>
         <para>Your Cloud Big Data profile is different from your cloud
-            account.</para>
-        <para>A profile is the configuration for the administration
-            and login account for the cluster.</para>
-        <para>Only one profile is allowed for each user or
-            account.</para>
+            account. A profile is the configuration for the
+            administration and login account for the cluster. Each
+            user or account can have only one profile.</para>
         <para>Any updates or additions override the existing
             profile.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
