@@ -28,16 +28,19 @@
     <resources
         base="https://{region}.autoscale.api.rackspacecloud.com/"
         xml:id="autoscale-v1.0">
-        <resource id="version" path="v1.0/" rax:roles="admin autoscale:admin autoscale:service-admin">
+        <resource id="version" path="v1.0/"
+            rax:roles="admin autoscale:admin autoscale:service-admin">
             <!-- GROUPS resource -->
             <resource id="tenantid" path="{tenantId}">
-                <param name="tenantId" type="xsd:string" required="true" style="template">
+                <param name="tenantId" type="xsd:string"
+                    required="true" style="template">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>A subscriber to the auto
                             scaling service.</para></wadl:doc>
                 </param>
                 <resource id="groups" path="groups">
-                    <param name="X-Auth-Token" style="header" type="xsd:string" required="true">
+                    <param name="X-Auth-Token" style="header"
+                        type="xsd:string" required="true">
                         <wadl:doc
                             xmlns="http://docbook.org/ns/docbook"
                             xml:lang="EN"><para>A valid authentication
@@ -46,7 +49,8 @@
                     <method href="#createGroup"/>
                     <method href="#listGroups"/>
                     <resource id="group" path="{groupId}">
-                        <param name="groupId" type="osapi:UUID" required="true" style="template">
+                        <param name="groupId" type="osapi:UUID"
+                            required="true" style="template">
                             <wadl:doc
                                 xmlns="http://docbook.org/ns/docbook"
                                 xml:lang="EN"><para>A scaling
@@ -77,7 +81,9 @@
                             <method href="#getPolicies"/>
                             <method href="#createPolicies"/>
                             <resource id="policy" path="{policyId}">
-                                <param name="policyId" type="osapi:UUID" required="true" style="template">
+                                <param name="policyId"
+                                   type="osapi:UUID" required="true"
+                                   style="template">
                                    <wadl:doc
                                    xmlns="http://docbook.org/ns/docbook"
                                    xml:lang="EN"><para>A scaling
@@ -115,8 +121,10 @@
             </resource>
             <resource id="anonymous_execute_webhook"
                 path="execute/{capability_version}/{capability_hash}/">
-                <param name="capability_version" required="true" style="template" type="xsd:string"/>
-                <param name="capability_hash" required="true" style="template" type="xsd:string"/>
+                <param name="capability_version" required="true"
+                    style="template" type="xsd:string"/>
+                <param name="capability_hash" required="true"
+                    style="template" type="xsd:string"/>
                 <method href="#anonymousExecute"/>
             </resource>
         </resource>
@@ -133,7 +141,7 @@
                 policy. To describe the group, specify the scaling
                 group configuration, launch configuration, and
                 optional scaling policies in the request body in JSON
-                format.</para> 
+                format.</para>
             <para>If the request succeeds, the response body describes
                 the created group in JSON format. The response
                 includes an ID and links for the group.</para>
@@ -151,10 +159,10 @@
                     required="true" type="object"
                     path="$.launchConfiguration">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>Specifies details for the
-                            launch configuration. The launch
-                            configuration describes what to do when a
-                            new server is created. It includes
+                        xml:lang="EN">
+                        <para>A launch configuration.</para><para>A
+                            launch configuration defines what to do
+                            when a new server is created, including
                             information about the server image, the
                             flavor of the server image, and the load
                             balancer to which to connect. You must set
@@ -165,11 +173,12 @@
                     required="false" type="array"
                     path="$.launchConfiguration.args.loadBalancers">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>Provides details about one
-                            or more load balancers to which to add new
-                            servers. All servers are added to these
-                            load balancers with the IP addresses of
-                            their ServiceNet network. All servers are
+                        xml:lang="EN">
+                        <para>One or more load balancers to which to
+                            add new servers.</para>
+                        <para>All servers are added to these load
+                            balancers with the IP addresses of their
+                            ServiceNet network. All servers are
                             enabled and equally weighted. Any new
                             servers that are not connected to the
                             ServiceNet network are not added to any
@@ -476,8 +485,8 @@
             </representation>
         </request>
         <response status="201">
-            <param name="location" style="header"
-                   required="true" type="xsd:anyURI">
+            <param name="location" style="header" required="true"
+                type="xsd:anyURI">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN"><para>Creates an auto scaling
                         endpoint.</para></wadl:doc>
@@ -485,7 +494,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resCreateGroup.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resCreateGroup.json"/>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; &postPutFaults; </method>
@@ -500,8 +510,10 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetGroups-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetGroups.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroups-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroups.json"/>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -509,19 +521,23 @@
         rax:roles="observer autoscale:observer">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Show group details">
-            <para role="shortdesc">Shows details about the
-                configuration for a specified scaling group.</para>
+            <para role="shortdesc">Shows configuration details for a
+                specified scaling group.</para>
             <para>Details include the launch configuration and the
                 scaling policies for the specified scaling group
-                configuration. These details are returned in the
-                response body in JSON format.</para>
+                configuration.</para>
+            <para>The details appear in the response body in JSON
+                format.</para>
         </wadl:doc>
         <response status="200">
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetGroupManifest-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetGroupManifest.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroupManifest-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroupManifest.json"
+                    />
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -543,7 +559,8 @@
         </wadl:doc>
         <response status="204"/> &commonFaults; &getFaults;
         &postPutFaults; </method>
-    <method id="getGroupState" name="GET" rax:roles="observer autoscale:observer">
+    <method id="getGroupState" name="GET"
+        rax:roles="observer autoscale:observer">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Get group state">
             <para role="shortdesc">Gets the current state of a scaling
@@ -589,12 +606,16 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetGroupState-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetGroupState.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroupState-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroupState.json"
+                    />
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
-    <method id="getGroupConfig" name="GET" rax:roles="observer autoscale:observer">
+    <method id="getGroupConfig" name="GET"
+        rax:roles="observer autoscale:observer">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Get group configuration">
             <para role="shortdesc"> Lists the configuration for a
@@ -610,8 +631,11 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetGroupConfig-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetGroupConfig.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroupConfig-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetGroupConfig.json"
+                    />
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -632,7 +656,9 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/reqPutGroupConfig.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/reqPutGroupConfig.json"
+                    />
                 </wadl:doc>
                 <param style="plain" name="maxEntities"
                     required="true" type="object" path="$.maxEntities">
@@ -684,23 +710,26 @@
         </request>
         <response status="204"/> &commonFaults; &getFaults;
         &postPutFaults; </method>
-    <method id="getLaunchConfig" name="GET" rax:roles="observer autoscale:observer">
+    <method id="getLaunchConfig" name="GET"
+        rax:roles="observer autoscale:observer">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Get Launch Configuration">
-            <para role="shortdesc">Shows details about the launch
-                configuration for a scaling group.</para>
-            <para>The launch configuration describes the details of
-                how to create a server, from what image to create a
-                server, which load balancers to join the server to,
-                which networks to add the server to, and other
-                metadata. The launch configuration is returned in the
-                response body in JSON format.</para>
+            <para role="shortdesc">Shows launch configuration details
+                for a specified scaling group.</para>
+            <para>The details include how to create a server, from
+                which image to create a server, which load balancers
+                to join the server to, which networks to add the
+                server to, and other metadata.</para>
+            <para>The details appear in the response body in JSON
+                format.</para>
         </wadl:doc>
         <response status="200">
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetLaunchConfig.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetLaunchConfig.json"
+                    />
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -738,15 +767,15 @@
                     required="false" type="array"
                     path="$.args.loadBalancers">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>Details about one or more
-                            load balancers to add new servers to. All
-                            servers will be added to these load
+                        xml:lang="EN"><para>One or more load balancers
+                            to which to add servers.</para>
+                        <para>All servers are added to these load
                             balancers with the IP addresses of their
-                            ServiceNet network. All servers will be
+                            ServiceNet network. All servers are
                             enabled and equally weighted. Any new
                             servers that are not connected to the
-                            ServiceNet network will not be added to
-                            any load balancers.</para></wadl:doc>
+                            ServiceNet network are not added to any
+                            load balancers.</para></wadl:doc>
                 </param>
                 <param style="plain" name="port" required="true"
                     type="integer"
@@ -858,7 +887,8 @@
         </wadl:doc>
         <response status="204"/> &commonFaults; &getFaults;
         &postPutFaults; </method>
-    <method name="GET" id="getPolicies" rax:roles="observer autoscale:observer">
+    <method name="GET" id="getPolicies"
+        rax:roles="observer autoscale:observer">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Get Policies List">
             <para role="shortdesc">Lists all scaling policies that are
@@ -872,7 +902,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetPolicies.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetPolicies.json"/>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -920,29 +951,48 @@
                                 policies, followed by the matching
                                 response.</para></listitem>
                     </itemizedlist>
-                    <xsdxt:sample title="Create Policy (Desired Capacity) Request: JSON" >
+                    <xsdxt:sample
+                        title="Create Policy (Desired Capacity) Request: JSON">
                         <para>The following example shows how to
                             create a webhook-based policy that
                             specifies that the desired capacity be
                             five servers and sets the cool-down phase
                             to 1800 seconds.</para>
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicy-desiredCapacity.json"/>
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicy-desiredCapacity.json"
+                        />
                     </xsdxt:sample>
-                    <xsdxt:sample title="Create Policy (Incremental Change) Request: JSON" >
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicy-change.json"/>
+                    <xsdxt:sample
+                        title="Create Policy (Incremental Change) Request: JSON">
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicy-change.json"
+                        />
                     </xsdxt:sample>
-                    <xsdxt:sample title="Create Policy (Percentage Change) Request: JSON" >
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicy-changePercent.json"/>
+                    <xsdxt:sample
+                        title="Create Policy (Percentage Change) Request: JSON">
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicy-changePercent.json"
+                        />
                     </xsdxt:sample>
-                    <xsdxt:sample title="Create Policy (Percentage Change at Time) Request: JSON" >
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicy-changePercentTime.json"/>
+                    <xsdxt:sample
+                        title="Create Policy (Percentage Change at Time) Request: JSON">
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicy-changePercentTime.json"
+                        />
                     </xsdxt:sample>
-                    <xsdxt:sample title="Create Policy (Percentage Change on Date) Request: JSON" >
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicy-changePercentDate.json"/>
+                    <xsdxt:sample
+                        title="Create Policy (Percentage Change on Date) Request: JSON">
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicy-changePercentDate.json"
+                        />
                     </xsdxt:sample>
-                    <xsdxt:sample title="Create Policies Request: HTTP and JSON" >
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicies-json-http.txt"/>
-                        <xsdxt:code href="../docbkx/samples/reqCreatePolicies.json"/>
+                    <xsdxt:sample
+                        title="Create Policies Request: HTTP and JSON">
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicies-json-http.txt"/>
+                        <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicies.json"
+                        />
                     </xsdxt:sample>
                 </wadl:doc>
                 <param style="plain" name="array" required="true"
@@ -1076,29 +1126,36 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:sample title="Create Policies Response: HTTP and JSON" >
-                        <xsdxt:code href="../docbkx/samples/resCreatePolicies-json-http.txt"/>
-                        <xsdxt:code href="../docbkx/samples/resCreatePolicies.json"/>
+                    <xsdxt:sample
+                        title="Create Policies Response: HTTP and JSON">
+                        <xsdxt:code
+                            href="../docbkx/samples/resCreatePolicies-json-http.txt"/>
+                        <xsdxt:code
+                            href="../docbkx/samples/resCreatePolicies.json"
+                        />
                     </xsdxt:sample>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; &postPutFaults; </method>
-    <method name="GET" id="getPolicy" rax:roles="observer autoscale:observer">
+    <method name="GET" id="getPolicy"
+        rax:roles="observer autoscale:observer">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Show policy details">
-            <para role="shortdesc">Shows details for a specified
-                scaling policy.</para>
-            <para>The description includes an ID, name, type,
-                adjustment, cool-down time, and links. The description
-                is returned in the response body in JSON
+            <para role="shortdesc">Shows scaling policy
+                details.</para>
+            <para>Details include an ID, name, type, adjustment,
+                cool-down time, and links.</para>
+            <para>The details appear in the response body in JSON
                 format.</para>
         </wadl:doc>
         <response status="200">
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetPolicy-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetPolicy.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetPolicy-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetPolicy.json"/>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -1106,33 +1163,28 @@
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Replace policy">
             <para role="shortdesc">Updates an existing scaling policy
-                for the specified tenant.</para><para>To update the
-                policy, specify the policy's name, type, adjustment,
-                and cool-down time in the request body in JSON format.
-                If the change is successful, no response body is
-                returned.</para>
+                for the specified tenant.</para>
+            <para>To update the policy, specify the name, type,
+                adjustment, and cool-down time for the policy in the
+                request body in JSON format. If the change succeeds,
+                no response body is returned.</para>
         </wadl:doc>
         <request>
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/reqPutPolicy.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/reqPutPolicy.json"/>
                 </wadl:doc>
-                <param style="plain"
-                    name="name"
-                    required="true"
-                    type="string"
-                    path="$.scalingPolicies.[*].name">
+                <param style="plain" name="name" required="true"
+                    type="string" path="$.scalingPolicies.[*].name">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>A name for the scaling
                             policy. This name must be unique for each
                             scaling policy.</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="args"
-                    required="false"
-                    type="object"
-                    path="$.scalingPolicies.[*].args">
+                <param style="plain" name="args" required="false"
+                    type="object" path="$.scalingPolicies.[*].args">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>Additional configuration
                             information for policies of type
@@ -1144,9 +1196,7 @@
                             exclusive.</para>
                     </wadl:doc>
                 </param>
-                <param style="plain"
-                    name="cron"
-                    required="false"
+                <param style="plain" name="cron" required="false"
                     type="string"
                     path="$.scalingPolicies.[*].args.cron">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1161,11 +1211,8 @@
                                 xlink:href="http://en.wikipedia.org/wiki/Cron"
                                 >http://en.wikipedia.org/wiki/Cron</link>.</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="at"
-                    required="false"
-                    type="string"
-                    path="$.scalingPolicies.[*].args.at">
+                <param style="plain" name="at" required="false"
+                    type="string" path="$.scalingPolicies.[*].args.at">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>The time at which this
                             policy runs. This property is mutually
@@ -1177,10 +1224,8 @@
                             not specified, a 400 error is
                             returned.</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="changePercent"
-                    required="false"
-                    type="number"
+                <param style="plain" name="changePercent"
+                    required="false" type="number"
                     path="$.scalingPolicies.[*].changePercent">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>The percent change to make
@@ -1201,9 +1246,7 @@
                             servers, the actual number of servers that
                             will be launched is 2.</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="cooldown"
-                    required="true"
+                <param style="plain" name="cooldown" required="true"
                     type="number"
                     path="$.scalingPolicies.[*].cooldown">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1216,11 +1259,8 @@
                             is 86400 seconds (24
                         hrs).</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="type"
-                    required="true"
-                    type="enum"
-                    path="$.scalingPolicies.[*].type">
+                <param style="plain" name="type" required="true"
+                    type="enum" path="$.scalingPolicies.[*].type">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>The type of policy that
                             runs for the current release. This value
@@ -1229,11 +1269,8 @@
                                 <code>schedule</code> for
                             schedule-based policies.</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="change"
-                    required="false"
-                    type="integer"
-                    path="$.scalingPolicies.[*].change">
+                <param style="plain" name="change" required="false"
+                    type="integer" path="$.scalingPolicies.[*].change">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>The change to make in the
                             number of servers in the scaling group.
@@ -1243,10 +1280,8 @@
                             negative integer, the number of servers
                             decreases.</para></wadl:doc>
                 </param>
-                <param style="plain"
-                    name="desiredCapacity"
-                    required="false"
-                    type="integer"
+                <param style="plain" name="desiredCapacity"
+                    required="false" type="integer"
                     path="$.scalingPolicies.[*].desiredCapacity">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN"><para>The desired server
@@ -1296,8 +1331,10 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetWebhooks-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetWebhooks.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetWebhooks-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetWebhooks.json"/>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; &postPutFaults; </method>
@@ -1314,8 +1351,11 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/reqCreateWebhook-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/reqCreateWebhook.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreateWebhook-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreateWebhook.json"
+                    />
                 </wadl:doc>
                 <param style="plain" name="name" required="true"
                     type="string" path="$.[*].name">
@@ -1337,26 +1377,30 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resCreateWebhook-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resCreateWebhook.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resCreateWebhook-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resCreateWebhook.json"
+                    />
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; &postPutFaults; </method>
     <method id="getWebhook" name="GET">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Show webhook details">
-            <para role="shortdesc">Shows webhook details for the
-                specified tenant and the specified scaling
-                policy.</para>
-            <para>The description is returned in the response body in
-                JSON format.</para>
+            <para role="shortdesc">Shows webhook details for a
+                specified scaling policy.</para>
+            <para>The details appear in the response body in JSON
+                format.</para>
         </wadl:doc>
         <response status="200">
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code href="../docbkx/samples/resGetWebhook-json-http.txt"/>
-                    <xsdxt:code href="../docbkx/samples/resGetWebhook.json"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetWebhook-json-http.txt"/>
+                    <xsdxt:code
+                        href="../docbkx/samples/resGetWebhook.json"/>
                 </wadl:doc>
             </representation>
         </response> &commonFaults; &getFaults; </method>
@@ -1373,8 +1417,7 @@
         <request>
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                    xml:lang="EN">
-                </wadl:doc>
+                    xml:lang="EN"> </wadl:doc>
                 <param style="plain" name="name" type="string"
                     required="true" path="$.[*].name">
                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1408,6 +1451,7 @@
             title="Execute anonymous webhook">
             <para role="shortdesc">Runs an anonymous webhook.</para>
         </wadl:doc>
-        
+
         <response status="202"/> &commonFaults; &getFaults;
-        &postPutFaults; </method></application>
+        &postPutFaults; </method>
+</application>
