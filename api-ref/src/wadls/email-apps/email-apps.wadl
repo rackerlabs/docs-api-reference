@@ -48,6 +48,19 @@
                      <method href="#updateDomain"/>
                      <method href="#moveDomain"/>
                      <method href="#moveDomain"/>
+                     <resource
+                        path="alternatedomains"
+                        id="alternatedomains">
+                        <method href="#listDomainAliases"/>
+                        <resource
+                           path="{alternate_domain_name}"
+                           id="alternate_domain_name">
+                           <param name="alternate_domain_name" style="template"
+                              required="true"/>
+                           <method href="#addDomainAlias"/>
+                           <method href="#deleteAlternateDomain" />
+                        </resource>
+                     </resource>
                   </resource>
                </resource>
             </resource>
@@ -59,220 +72,13 @@
             
         
             
-         </resource>
-         <resource
-            path="/v0/customers/{customer_account_number}/domains/{domain_name}/alternatedomains"
-            id="d1e4802a1310">
-            <param name="customer_account_number" style="template"
-               required="true"/>
-            <param name="domain_name" style="template" required="true"/>
-            <method id="listDomainAliases" name="GET">
-               <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  title="Alternate Domains - Index (Reseller Only)">
-                  <para role="shortdesc">Lists Domain Aliases and
-                     Accepted Domains for the domain.</para>
-                  <itemizedlist>
-                     <listitem>
-                        <para>This operation returns a list of Domain
-                           Aliases and Accepted Domains for the
-                           domain.</para>
-                     </listitem>
-                     <listitem>
-                        <para>The type of the alternate domain is
-                           indicated by the 'type' data field.</para>
-                     </listitem>
-                  </itemizedlist>
-               </wadl:doc>
-               <request>
-                  <representation mediaType="application/json"
-                     element="noop">
-                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">
-                        <xsdxt:code
-                           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                           >GET
-                           '/customers/12345678/domains/test.com/alternatedomains',
-                           'text/xml'" });</xsdxt:code>
-                     </wadl:doc>
-                  </representation>
-               </request>
-               <response status="200">
-                  <representation mediaType="application/xml">
-                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">
-                        <xsdxt:code
-                           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                           >&lt;?xml version="1.0"
-                           encoding="utf-8"?&gt;
-                           &lt;alternateDomainList
-                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           xmlns="urn:xml:domainAlternateList"&gt;
-                           &lt;alternateDomains&gt;
-                           &lt;alternateDomain&gt;
-                           &lt;name&gt;domainalias.com&lt;/name&gt;
-                           &lt;type&gt;DomainAlias&lt;/type&gt;
-                           &lt;/alternateDomain&gt;
-                           &lt;alternateDomain&gt;
-                           &lt;name&gt;accepteddomain.com&lt;/name&gt;
-                           &lt;type&gt;AcceptedDomain&lt;/type&gt;
-                           &lt;/alternateDomain&gt;
-                           &lt;/alternateDomains&gt;
-                           &lt;/alternateDomainList&gt;</xsdxt:code>
-                     </wadl:doc>
-                  </representation>
 
-                  <representation mediaType="application/json">
-                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">
-                        <xsdxt:code
-                           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                           >{"alternateDomains":[{"name":"domainalias.com","type":"DomainAlias"},{"name":"accepteddomain.com","type":"AcceptedDomain"}]}</xsdxt:code>
-                     </wadl:doc>
-                  </representation>
-               </response>
-
-            </method>
+        
+        
+            
          </resource>
-         <resource
-            path="v0/customers/{customer_account_number}/domains/{domain_name}/alternatedomains/{alternate_domain_name}"
-            id="d1e5008a1310">
-            <param name="customer_account_number" style="template"
-               required="true"/>
-            <param name="domain_name" style="template" required="true"/>
-            <param name="alternate_domain_name" style="template"
-               required="true"/>
-            <method id="addDomainAlias" name="POST">
-               <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  title="Alternate Domain - Add (Reseller Only)">
-                  <para role="shortdesc">Adds either a Domain Alias or
-                     Accepted Domain to the domain.</para>
-                  <table rules="all">
-                     <caption>Request Data</caption>
-                     <thead>
-                        <tr>
-                           <td>
-                              <b xmlns="http://www.w3.org/1999/xhtml"
-                                 >Field Name</b>
-                           </td>
-                           <td>
-                              <b xmlns="http://www.w3.org/1999/xhtml"
-                                 >Data Type</b>
-                           </td>
-                           <td>
-                              <b xmlns="http://www.w3.org/1999/xhtml"
-                                 >Description</b>
-                           </td>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>type</td>
-                           <td>string</td>
-                           <td>Alternate domain type. Send
-                              "DomainAlias" for a domain alias, and
-                              "AcceptedDomain" for an accepted domain.
-                              (Required)</td>
-                        </tr>
-                        <tr>
-                           <td>createForExistingRecipients</td>
-                           <td>boolean</td>
-                           <td>Whether the alternate addresses should
-                              be created for existing mailboxes when
-                              adding an Accepted Domain. Sending this
-                              field in the request when the type is
-                              Domain Alias will throw an error. This
-                              defaults to false.</td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </wadl:doc>
-               <request>
-                  <representation mediaType="application/json"
-                     element="noop">
-                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">
-                        <xsdxt:code
-                           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                           >POST
-                           '/customers/123456/domains/example.com/alternatedomains/accepteddomain.com',
-                           'text/xml', { 'type' =\u003E
-                           'AcceptedDomain'
-                           'createForExistingRecipients' =\u003E
-                           'true' }" });</xsdxt:code>
-                     </wadl:doc>
-                  </representation>
-               </request>
-               <response status="204"/>
-               <response status="400">
-                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN">
-                     <para>New domain name doesn't meet the naming
-                        requirements. Sample Message: Invalid domain
-                        name</para>
-                  </wadl:doc>
-               </response>
-               <response status="400">
-                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN">
-                     <para>Alternate domain already exists. Sample
-                        Message: abc.com already exists as a domain or
-                        alternate domain</para>
-                  </wadl:doc>
-               </response>
-               <response status="400">
-                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN">
-                     <para>The 'createForExistingRecipients' field was
-                        sent with either data, or as a null field. It
-                        should not be included in the form data at
-                        all.. Sample Message: Invalid Alternate Domain
-                        Setting: createForExistingRecipients is an
-                        invalid setting for Domain Aliases</para>
-                  </wadl:doc>
-               </response>
-               <response status="400">
-                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN">
-                     <para>The only valid values for 'type' are
-                        'DomainAlias' and 'AcceptedDomain', for a
-                        Domain Alias and Accepted Domain
-                        respectively.. Sample Message: Invalid
-                        Alternate Domain type</para>
-                  </wadl:doc>
-               </response>
-            </method>
-         </resource>
-         <resource
-            path="/v0/customers/{customer_account_number}/domains/{domain_name}/alternatedomains/{alternate_domain_name}"
-            id="d1e5303a1310">
-            <param name="customer_account_number" style="template"
-               required="true"/>
-            <param name="domain_name" style="template" required="true"/>
-            <param name="alternate_domain_name" style="template"
-               required="true"/>
-            <method id="deleteAlternateDomain" name="DELETE">
-               <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  title="Alternate Domains - Delete (Reseller Only)">
-                  <para role="shortdesc">Deletes the alternate
-                     domain.</para>
-               </wadl:doc>
-               <request>
-                  <representation mediaType="application/json"
-                     element="noop">
-                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">
-                        <xsdxt:code
-                           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                           >DELETE
-                           '/customers/12345678/domains/example.com/alternatedomains/accepteddomain.com'"
-                           });</xsdxt:code>
-                     </wadl:doc>
-                  </representation>
-               </request>
-               <response status="204"/>
-            </method>
-         </resource>
+        
+            
          <resource
             path="/v0/customers/{customer_account_number}/domains/{domain}/splitdomainrouting"
             id="d1e5483a1310">
@@ -14136,6 +13942,194 @@
                   >DELETE
                   '/customers/12345678/domains/newcompany.com',
                   'text/xml'" });</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </request>
+      <response status="204"/>
+   </method>
+   <method id="listDomainAliases" name="GET">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Alternate Domains - Index (Reseller Only)">
+         <para role="shortdesc">Lists Domain Aliases and
+            Accepted Domains for the domain.</para>
+         <itemizedlist>
+            <listitem>
+               <para>This operation returns a list of Domain
+                  Aliases and Accepted Domains for the
+                  domain.</para>
+            </listitem>
+            <listitem>
+               <para>The type of the alternate domain is
+                  indicated by the 'type' data field.</para>
+            </listitem>
+         </itemizedlist>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json"
+            element="noop">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  '/customers/12345678/domains/test.com/alternatedomains',
+                  'text/xml'" });</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >&lt;?xml version="1.0"
+                  encoding="utf-8"?&gt;
+                  &lt;alternateDomainList
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:domainAlternateList"&gt;
+                  &lt;alternateDomains&gt;
+                  &lt;alternateDomain&gt;
+                  &lt;name&gt;domainalias.com&lt;/name&gt;
+                  &lt;type&gt;DomainAlias&lt;/type&gt;
+                  &lt;/alternateDomain&gt;
+                  &lt;alternateDomain&gt;
+                  &lt;name&gt;accepteddomain.com&lt;/name&gt;
+                  &lt;type&gt;AcceptedDomain&lt;/type&gt;
+                  &lt;/alternateDomain&gt;
+                  &lt;/alternateDomains&gt;
+                  &lt;/alternateDomainList&gt;</xsdxt:code>
+            </wadl:doc>
+         </representation>
+         
+         <representation mediaType="application/json">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{"alternateDomains":[{"name":"domainalias.com","type":"DomainAlias"},{"name":"accepteddomain.com","type":"AcceptedDomain"}]}</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </response>
+      
+   </method>
+   <method id="addDomainAlias" name="POST">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Alternate Domain - Add (Reseller Only)">
+         <para role="shortdesc">Adds either a Domain Alias or
+            Accepted Domain to the domain.</para>
+         <table rules="all">
+            <caption>Request Data</caption>
+            <thead>
+               <tr>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Field Name</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Data Type</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Description</b>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>type</td>
+                  <td>string</td>
+                  <td>Alternate domain type. Send
+                     "DomainAlias" for a domain alias, and
+                     "AcceptedDomain" for an accepted domain.
+                     (Required)</td>
+               </tr>
+               <tr>
+                  <td>createForExistingRecipients</td>
+                  <td>boolean</td>
+                  <td>Whether the alternate addresses should
+                     be created for existing mailboxes when
+                     adding an Accepted Domain. Sending this
+                     field in the request when the type is
+                     Domain Alias will throw an error. This
+                     defaults to false.</td>
+               </tr>
+            </tbody>
+         </table>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json"
+            element="noop">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >POST
+                  '/customers/123456/domains/example.com/alternatedomains/accepteddomain.com',
+                  'text/xml', { 'type' =\u003E
+                  'AcceptedDomain'
+                  'createForExistingRecipients' =\u003E
+                  'true' }" });</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            xml:lang="EN">
+            <para>New domain name doesn't meet the naming
+               requirements. Sample Message: Invalid domain
+               name</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            xml:lang="EN">
+            <para>Alternate domain already exists. Sample
+               Message: abc.com already exists as a domain or
+               alternate domain</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            xml:lang="EN">
+            <para>The 'createForExistingRecipients' field was
+               sent with either data, or as a null field. It
+               should not be included in the form data at
+               all.. Sample Message: Invalid Alternate Domain
+               Setting: createForExistingRecipients is an
+               invalid setting for Domain Aliases</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            xml:lang="EN">
+            <para>The only valid values for 'type' are
+               'DomainAlias' and 'AcceptedDomain', for a
+               Domain Alias and Accepted Domain
+               respectively.. Sample Message: Invalid
+               Alternate Domain type</para>
+         </wadl:doc>
+      </response>
+   </method>
+   <method id="deleteAlternateDomain" name="DELETE">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Alternate Domains - Delete (Reseller Only)">
+         <para role="shortdesc">Deletes the alternate
+            domain.</para>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json"
+            element="noop">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >DELETE
+                  '/customers/12345678/domains/example.com/alternatedomains/accepteddomain.com'"
+                  });</xsdxt:code>
             </wadl:doc>
          </representation>
       </request>

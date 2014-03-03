@@ -29,13 +29,13 @@
     <section xml:id="layer-3">
         <title>Layer-3</title>
         <wadl:resources
-            href="../wadls/networks/wadl/layer3.wadl"
+            href="https://raw.github.com/catlook/networks2/master/src/wadl/layer3.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="security_groups">
         <title>Security groups and rules</title>
         <wadl:resources
-            href="../wadls/networks/wadl/security-groups.wadl"
+            href="https://raw.github.com/catlook/networks2/master/src/wadl/security-groups.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <xi:include href="section_networks_nova_ext.xml"/>

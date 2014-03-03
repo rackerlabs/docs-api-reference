@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-telemetry-pdf">
     <info>
-        <title>Rackspace Cloud Monitoring API v2.0 Reference</title>
+        <title>Rackspace Cloud Monitoring API v1.0 Reference</title>
         <titleabbrev>Cloud Monitoring API Reference</titleabbrev>
         <author>
             <personname>
@@ -33,5 +33,5 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_monitoring-v2.xml"/>
+    <xi:include href="ch_monitoring-v1.xml"/>
 </book>

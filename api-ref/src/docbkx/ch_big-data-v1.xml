@@ -6,19 +6,17 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="big-data-v1">
-    <title>Cloud Big Data API v1</title>
-    <!-- go back to this once WADLs/samples are fixed - href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl -->
+    <title>Cloud Big Data API v1.0</title>
     <section xml:id="profileOperations">
         <title>Profiles</title>
         <para>Your Cloud Big Data profile is different from your cloud
             account. A profile is the configuration for the
             administration and login account for the cluster. Each
-            user or account can have only one profile.</para>
-        <para>Any updates or additions override the existing
-            profile.</para>
+            user or account can have only one profile. Any updates or
+            additions override the existing profile.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#profiles"
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#profiles"
             />
         </wadl:resources>
     </section>
@@ -26,11 +24,11 @@
         <title>Clusters</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#clusters"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#clusters"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#cluster"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#cluster"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#action"
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#action"
             />
         </wadl:resources>
     </section>
@@ -39,9 +37,9 @@
 
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#nodes"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#nodes"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#node"
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#node"
             />
         </wadl:resources>
     </section>
@@ -49,13 +47,13 @@
         <title>Flavors</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavorsVersion"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#flavorsVersion"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavors"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#flavors"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavor"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#flavor"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavorsSupportedType"
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#flavorsSupportedType"
             />
         </wadl:resources>
     </section>
@@ -63,13 +61,13 @@
         <title>Types</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#typeVersion"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#typeVersion"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#types"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#types"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#type"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#type"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavorsType"
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#flavorsType"
             />
         </wadl:resources>
     </section>
@@ -77,9 +75,9 @@
         <title>Resource limits</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#limitVersion"/>
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#limitVersion"/>
             <wadl:resource
-                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#limits"
+                href="https://github.rackspace.com/IX/cloud-big-data/raw/master/src/wadl/cbd-devguide.wadl#limits"
             />
         </wadl:resources>
     </section>

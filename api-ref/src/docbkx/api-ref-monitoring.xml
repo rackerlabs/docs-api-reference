@@ -19,5 +19,5 @@
       <xi:include href="itemizedlist-service-list.xml"/>
     </annotation>
   </info>
-  <xi:include href="ch_monitoring-v2.xml"/>
+  <xi:include href="ch_monitoring-v1.xml"/>
 </book>
