@@ -9,7 +9,7 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="email-v1.0">
-    <title>Email &amp; Apps API v1.0</title>
+    <title>Email &amp; Apps API v0</title>
     <section xml:id="Customers">
         <title>Customers</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">

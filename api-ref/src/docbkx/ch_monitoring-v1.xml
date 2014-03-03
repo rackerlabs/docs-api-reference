@@ -6,12 +6,10 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="monitoring-v2">
-    <title>Cloud Monitoring API v2.0</title>
+    <title>Cloud Monitoring API v1.0</title>
     <para>Perform monitoring operations.</para>
     <section xml:id="alarms">
-        <title>Alarms</title>
-        <para>List, create, get details for, update, and delete
-            alarms.</para>
+        <title>Alarms</title> 
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#alarms">
@@ -36,7 +34,6 @@
     </section>
     <section xml:id="meters">
         <title>Meters</title>
-        <para>Get information for meters.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#meters">
@@ -55,7 +52,6 @@
     </section>
     <section xml:id="resources">
         <title>Resources</title>
-        <para>Get information for resources.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#resources">
