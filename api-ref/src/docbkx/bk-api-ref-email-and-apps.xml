@@ -11,7 +11,7 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-email-and-apps-pdf">
     <info>
-        <title>Rackspace Email &amp; Apps API v1 Reference</title>
+        <title>Rackspace Email &amp; Apps API v0 Reference</title>
         <titleabbrev>API Reference</titleabbrev>
         <author>
             <personname>
@@ -36,5 +36,5 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_email-and-apps-v1.xml"/>
+    <xi:include href="ch_email-and-apps-v0.xml"/>
 </book>

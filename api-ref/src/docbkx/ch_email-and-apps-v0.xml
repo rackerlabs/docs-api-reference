@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="email-v1.0">
+    <title>Email &amp; Apps API v0</title>
+    <section xml:id="Customers">
+        <title>Customers</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#customers">
+                <wadl:method href="#listCustomers"/>
+                <wadl:method href="#addSubaccount"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#customer_account_number">
+                <wadl:method href="#showAccountDetails"/>
+                <wadl:method href="#updateSubaccount"/>
+                <wadl:method href="#deleteAccount"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#logintoken">
+                <wadl:method href="#createLoginToken"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Admin">
+        <title>Admin</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#admins">
+                <wadl:method href="#listAdmins"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#admin_name">
+                <wadl:method href="#showAdminDetails"/>
+                <wadl:method href="#addAdmin"/>
+                <wadl:method href="#updateAdmin"/>
+                <wadl:method href="#deleteAdmin"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Domains">
+        <title>Domains</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#domains">
+                <wadl:method href="#listDomains"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#domain_name">
+                <wadl:method href="#showDomainDetails"/>
+                <wadl:method href="#addDomain"/>
+                <wadl:method href="#updateDomain"/>
+                <wadl:method href="#moveDomain"/>
+                <wadl:method href="#moveDomain"/>
+            </resource>
+
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#alias_name">
+                <wadl:method href="#deleteAlternateDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#splitdomainrouting">
+                <wadl:method href="#showEmailServerDetails"/>
+                <wadl:method href="#setEmailServer"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#archivingSSOLoginURL">
+                <wadl:method href="#showLoginURL"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#publicfolders">
+                <wadl:method href="#showPublicFoldersStatus"/>
+                <wadl:method href="#enablePublicFolders"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#emaileveryone">
+                <wadl:method href="#emailEveryone"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#catchalladdress">
+                <wadl:method href="#showCatchAllAddress"/>
+                <wadl:method href="#updateCatchAllAddress"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Domain_Spam_Settings">
+        <title>Domain Spam Settings</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#settings">
+                <wadl:method href="#showSpamSettings"/>
+                <wadl:method href="#updateSpamSettings"/>
+                <wadl:method href="#updateMailboxSpamSettings"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipblacklist">
+                <wadl:method href="#showBlacklistIP"/>
+                <wadl:method href="#updateBlacklistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address">
+                <wadl:method href="#addBlacklistIP"/>
+                <wadl:method href="#deleteBlacklistIP"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#blacklist">
+                <wadl:method href="#showBlacklist"/>
+                <wadl:method href="#updateBlacklistEmails"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address">
+                <wadl:method href="#updateBlacklist"/>
+                <wadl:method href="#deleteBlacklistEmailsOrDomains"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#safelist">
+                <wadl:method href="#showSafelist"/>
+                <wadl:method href="#updateSafelistEmail"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-safelist">
+                <wadl:method href="#updateSafelist"/>
+                <wadl:method href="#deleteSafelistEmailOrDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipsafelist">
+                <wadl:method href="#showSafelistIP"/>
+                <wadl:method href="#updateSafelistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address-safelist">
+                <wadl:method href="#addSafelistIP"/>
+                <wadl:method href="#deleteSafelistIP"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Rackspace_Email_Mailbox">
+        <title>Rackspace Email Mailbox</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#mailboxes">
+                <wadl:method href="#listMailboxes"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#mailbox_name">
+                <wadl:method href="#showMailboxDetails"/>
+                <wadl:method href="#addMailbox"/>
+                <wadl:method href="#updateMailbox"/>
+                <wadl:method href="#deleteMailbox"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#loginToken">
+                <wadl:method href="#createLoginTokenMailbox"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#blacklist-mailbox">
+                <wadl:method href="#showMailboxBlacklist"/>
+                <wadl:method href="#updateMailboxBlacklistEmails"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-mailbox-blacklist">
+                <wadl:method href="#addBlacklistEmailOrDomain"/>
+                <wadl:method
+                    href="#deleteMailboxBlacklistEmailOrDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipblacklist-mailbox">
+                <wadl:method href="#showMailboxBlacklistIP"/>
+                <wadl:method href="#updateMailboxBlacklistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address-mailbox-blacklist">
+                <wadl:method href="#addMailboxBlacklistIP"/>
+                <wadl:method href="#deleteMailboxBlacklistIP"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#safelist-mailbox">
+                <wadl:method href="#showMailboxSafelist"/>
+                <wadl:method href="#updateMailboxSafelistEmails"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-mailbox-safelist">
+                <wadl:method href="#addMailboxSafelistEmailOrDomain"/>
+                <wadl:method
+                    href="#deleteMailboxSafelistEmailOrDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipsafelist-mailbox">
+                <wadl:method href="#showMailboxSafelistIP"/>
+                <wadl:method href="#updateMailboxSafelistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address-mailbox-safelist-ip">
+                <wadl:method href="#addMailboxSafelistIP"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-mailbox-safelist-ip">
+                <wadl:method href="#deleteMailboxSafelistIP"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#alias_name-alias">
+                <wadl:method href="#showAliasDetails"/>
+                <wadl:method href="#deleteAlias"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-alias">
+                <wadl:method href="#addDomainlistEmail"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#aliases">
+                <wadl:method href="#listRackspaceDomainAliases"/>
+                <wadl:method href="#createAlias"/>
+                <wadl:method href="#deleteDomainlistEmail"/>
+                <wadl:method href="#bulkUpdateAlias"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Rackspace_Email_Mobile_Sync">
+        <title>Rackspace Email Mobile Sync</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../wadls/email-apps/email-apps.wadl#users">
+                <wadl:method href="#listMobileSyncUsers"/>
+                <wadl:method href="#showDomainAutoProvisionSetting"/>
+                <wadl:method href="#setMobileSyncAutoProvision"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#enable">
+                <wadl:method href="#enableMobileSync"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#disable">
+                <wadl:method href="#disableMobileSync"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Rackspace_Email_Spam_Settings">
+        <title>Rackspace Email Spam Settings</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#settings-mailbox">
+                <wadl:method href="#showMailboxSpamSettings"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#settings">
+                <wadl:method href="#showSpamSettings"/>
+                <wadl:method href="#updateSpamSettings"/>
+                <wadl:method href="#updateMailboxSpamSettings"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipblacklist">
+                <wadl:method href="#showBlacklistIP"/>
+                <wadl:method href="#updateBlacklistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address">
+                <wadl:method href="#addBlacklistIP"/>
+                <wadl:method href="#deleteBlacklistIP"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#blacklist">
+                <wadl:method href="#showBlacklist"/>
+                <wadl:method href="#updateBlacklistEmails"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address">
+                <wadl:method href="#updateBlacklist"/>
+                <wadl:method href="#deleteBlacklistEmailsOrDomains"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#safelist">
+                <wadl:method href="#showSafelist"/>
+                <wadl:method href="#updateSafelistEmail"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-safelist">
+                <wadl:method href="#updateSafelist"/>
+                <wadl:method href="#deleteSafelistEmailOrDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipsafelist">
+                <wadl:method href="#showSafelistIP"/>
+                <wadl:method href="#updateSafelistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address-safelist">
+                <wadl:method href="#addSafelistIP"/>
+                <wadl:method href="#deleteSafelistIP"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Rackspace_Storage_Notification">
+        <title>Rackspace Storage Notification</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#storagenotification">
+                <wadl:method href="#showMailboxSettingDetails"/>
+                <wadl:method href="#updateMailboxSettings"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Rackspace_Alias">
+        <title>Rackspace Alias</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#alternatedomains">
+                <wadl:method href="#listDomainAliases"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#alternate_domain_name">
+                <wadl:method href="#addDomainAlias"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#alias_name-alias">
+
+                <wadl:method href="#showAliasDetails"/>
+                <wadl:method href="#deleteAlias"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-alias">
+                <wadl:method href="#addDomainlistEmail"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Exchange_Mailbox">
+        <title>Exchange Mailbox</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#publicfolders">
+                <wadl:method href="#showPublicFoldersStatus"/>
+                <wadl:method href="#enablePublicFolders"/>
+            </resource>
+        </resources>
+    </section>
+    <section xml:id="Exchange_Mailbox_Spam_Settings">
+        <title>Exchange Mailbox Spam Settings</title>
+        <para/>
+    </section>
+    <section xml:id="Exchange_Contact">
+        <title>Exchange Contact</title>
+        <para/>
+    </section>
+    <section xml:id="Exchange_Distribution_Lists_v1">
+        <title>Exchange Distribution Lists</title>
+        <para/>
+    </section>
+
+    <section xml:id="Exchange_Resource_Mailboxes">
+        <title>Exchange Resource Mailboxes</title>
+        <para/>
+    </section>
+    <section xml:id="SharePoint">
+        <title>SharePoint</title>
+        <para>sharepoint</para>
+    </section>
+</chapter>
