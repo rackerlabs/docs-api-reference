@@ -26,7 +26,7 @@
             </resource>
             <resource
                 href="../wadls/email-apps/email-apps.wadl#logintoken">
-                <wadl:method href="#createLoginToken"/>
+                <wadl:method href="#generateLoginToken"/>
             </resource>
         </resources>
     </section>
@@ -159,7 +159,7 @@
             </resource>
             <resource
                 href="../wadls/email-apps/email-apps.wadl#loginToken">
-                <wadl:method href="#createLoginTokenMailbox"/>
+                <wadl:method href="#generateLoginTokenMailbox"/>
             </resource>
             <resource
                 href="../wadls/email-apps/email-apps.wadl#blacklist-mailbox">
@@ -342,23 +342,182 @@
     </section>
     <section xml:id="Exchange_Mailbox_Spam_Settings">
         <title>Exchange Mailbox Spam Settings</title>
-        <para/>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#settings">
+                <wadl:method href="#showSpamSettings"/>
+                <wadl:method href="#updateSpamSettings"/>
+                <wadl:method href="#updateMailboxSpamSettings"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipblacklist">
+                <wadl:method href="#showBlacklistIP"/>
+                <wadl:method href="#updateBlacklistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address">
+                <param name="ip_address" style="template"
+                    required="true"/>
+                <wadl:method href="#addBlacklistIP"/>
+                <wadl:method href="#deleteBlacklistIP"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#blacklist">
+                <wadl:method href="#showBlacklist"/>
+                <wadl:method href="#updateBlacklistEmails"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address">
+                <wadl:method href="#updateBlacklist"/>
+                <wadl:method href="#deleteBlacklistEmailsOrDomains"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#safelist">
+                <wadl:method href="#showSafelist"/>
+                <wadl:method href="#updateSafelistEmail"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#email_address-safelist">
+                <wadl:method href="#updateSafelist"/>
+                <wadl:method href="#deleteSafelistEmailOrDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ipsafelist">
+                <wadl:method href="#showSafelistIP"/>
+                <wadl:method href="#updateSafelistIPs"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ip_address-safelist">
+                <wadl:method href="#addSafelistIP"/>
+                <wadl:method href="#deleteSafelistIP"/>
+            </resource>
+        </resources>
     </section>
     <section xml:id="Exchange_Contact">
         <title>Exchange Contact</title>
-        <para/>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#contacts">
+                <wadl:method href="#listContacts"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#contact_name">
+                <wadl:method href="#showContactDetails"/>
+                <wadl:method href="#addContact"/>
+                <wadl:method href="#updateContact"/>
+                <wadl:method href="#deleteContact"/>
+            </resource>
+        </resources>
     </section>
     <section xml:id="Exchange_Distribution_Lists_v1">
         <title>Exchange Distribution Lists</title>
-        <para/>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#distributionLists">
+                <wadl:method href="#listDistributionLists"/>
+                <wadl:method href="#showDistributionListDetails"/>
+                <wadl:method href="#addDistributionList"/>
+                <wadl:method href="#updateDistributionList"/>
+                <wadl:method href="#deleteDistributionList"/>
+                <wadl:method href="#exportDistributionListFile"/>
+                <wadl:method href="#importDistributionListFile"/>
+                <wadl:method href="#listDistributionListAltEmails"/>
+                <wadl:method href="#updateDistributionListMembers"/>
+                <wadl:method href="#updateDistributionListMembers"/>
+                <wadl:method href="#listDistributionListManagers"/>
+                <wadl:method href="#updateDistributionListManagers"/>
+                <wadl:method href="#listDistributionListSenders"/>
+                <wadl:method href="#updateDistributionListSenders"/>
+                <wadl:method href="#listRecipientsSenders"/>
+                <wadl:method href="#listRecipientsManagers"/>
+                <wadl:method href="#listRecipientsMembers"/>
+                <wadl:method href="#listRecipientsSendersDomain"/>
+                <wadl:method href="#listRecipientsManagersDomain"/>
+                <wadl:method href="#listRecipientsMembersDomain"/>
+            </resource>
+        </resources>
     </section>
 
     <section xml:id="Exchange_Resource_Mailboxes">
         <title>Exchange Resource Mailboxes</title>
-        <para/>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#ex-resources-v1">
+                <wadl:method href="#listResourceMailboxes"/>
+                <wadl:method href="#addResourceMailbox"/>
+                <wadl:method href="#exportResourceMailboxes"/>
+                <wadl:method href="#listResourceMailboxesDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#resource_name">
+                <wadl:method href="#showResourceDetails"/>
+                <wadl:method href="#addResource"/>
+                <wadl:method href="#updateResource"/>
+                <wadl:method href="#deleteResource"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#admins-resource">
+                <wadl:method href="#listResourceAdmins"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#admin_name-resource">
+                <wadl:method href="#addResourceAdmin"/>
+                <wadl:method href="#deleteResourceAdmin"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#common_name">
+                <wadl:method href="#readResourceMailbox"/>
+                <wadl:method href="#updateResourceMailbox"/>
+                <wadl:method href="#deleteResourceMailbox"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#calendarProcessing">
+                <wadl:method href="#readResouceMailboxCalendar"/>
+                <wadl:method href="#updateResourceMailboxCalendar"/>
+                <wadl:method href="#bulkUpdateResourceMailboxCalendar"
+                />
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#delegates">
+                <wadl:method href="#listDelegates"/>
+                <wadl:method href="#bulkUpdateDelegates"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#permissions">
+                <wadl:method href="#readResourceMailboxPermissions"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#bookInPolicy">
+                <wadl:method href="#listPolicies"/>
+                <wadl:method href="#bulkUpdatePolicies"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#resouceOptions">
+                <wadl:method href="#listRecipientsForResource"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#availabledelegatesrecipients">
+                <wadl:method href="#listRecipients"/>
+                <wadl:method href="#listRecipientsDelegates"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#availableBookInPolicyRecipients">
+                <wadl:method href="#listRecipientsForPolicies"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#AvailablePermissionsRecipients">
+                <wadl:method href="#listRecipientsPermissions"/>
+            </resource>
+        </resources>
     </section>
     <section xml:id="SharePoint">
         <title>SharePoint</title>
-        <para>sharepoint</para>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#sharepoint-settings">
+                <wadl:method href="#listSharepointStatus"/>
+                <wadl:method href="#updateSharepointSettings"/>
+            </resource>
+        </resources>
     </section>
 </chapter>
