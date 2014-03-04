@@ -11,7 +11,7 @@
     version="5.0-extension RackBook-2.0" xml:id="email-v1.0">
     <title>Email &amp; Apps API v0</title>
     <section xml:id="Customers">
-        <title>Customers</title>
+        <title>Customer accounts</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
             <resource
                 href="../wadls/email-apps/email-apps.wadl#customers">
@@ -31,7 +31,7 @@
         </resources>
     </section>
     <section xml:id="Admin">
-        <title>Admin</title>
+        <title>Admins</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
             <resource
                 href="../wadls/email-apps/email-apps.wadl#admins">
@@ -58,10 +58,11 @@
                 <wadl:method href="#showDomainDetails"/>
                 <wadl:method href="#addDomain"/>
                 <wadl:method href="#updateDomain"/>
-                <wadl:method href="#moveDomain"/>
+            </resource>
+            <resource
+                href="../wadls/email-apps/email-apps.wadl#new_customer_account_number">
                 <wadl:method href="#moveDomain"/>
             </resource>
-
             <resource
                 href="../wadls/email-apps/email-apps.wadl#alias_name">
                 <wadl:method href="#deleteAlternateDomain"/>
