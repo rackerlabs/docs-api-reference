@@ -44,7 +44,6 @@
                      <method href="#addDomain"/>
                      <method href="#updateDomain"/>
                      <method href="#moveDomain"/>
-                     <method href="#moveDomain"/>
                      <resource path="alternatedomains"
                         id="alternatedomains">
                         <method href="#listDomainAliases"/>
@@ -282,15 +281,26 @@
                   </resource>
                </resource>
             </resource>
+            <resource path="{new_customer_account_number}"
+               id="new_customer_account_number">
+               <param type="xsd:string" style="plain" required="true">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="New customer account number"
+                        ><para>The customer account number to which
+                        you want to move the domain.</para></wadl:doc>
+               </param>
+               <method href="#moveDomain"/>
+            </resource>
          </resource>
       </resource>
    </resources>
    <!-- methods -->
+   <!-- Customer account operations -->
    <method id="listCustomers" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
-         title="Index (Reseller Only)">
-         <para role="shortdesc">Lists customers that the authenticated
-            user has access to.</para>
+         title="List customers (reseller only)">
+         <para role="shortdesc">Lists customers to which the
+            authenticated user has access.</para>
          <para>Filter/Search</para>
          <para>Search parameter 'startswith' and 'contains' will try
             to find the result in customer name, account number and
@@ -314,53 +324,23 @@
          <representation mediaType="application/xml">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
-                  &lt;customerList
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                  xmlns="urn:xml:customerList"&gt;
-                  &lt;offset&gt;0&lt;/offset&gt;
-                  &lt;size&gt;50&lt;/size&gt;
-                  &lt;total&gt;3&lt;/total&gt; &lt;customers&gt;
-                  &lt;customer&gt; &lt;name&gt;API Customer
-                  17&lt;/name&gt;
-                  &lt;accountNumber&gt;460182&lt;/accountNumber&gt;
-                  &lt;referenceNumber&gt;49&lt;/referenceNumber&gt;
-                  &lt;/customer&gt; &lt;customer&gt; &lt;name&gt;API
-                  Customer 39&lt;/name&gt;
-                  &lt;accountNumber&gt;460181&lt;/accountNumber&gt;
-                  &lt;referenceNumber&gt;23&lt;/referenceNumber&gt;
-                  &lt;/customer&gt; &lt;customer&gt; &lt;name&gt;API
-                  Customer 50&lt;/name&gt;
-                  &lt;accountNumber&gt;460183&lt;/accountNumber&gt;
-                  &lt;referenceNumber&gt;10&lt;/referenceNumber&gt;
-                  &lt;/customer&gt; &lt;/customers&gt;
-                  &lt;/customerList&gt;</xsdxt:code>
+               <xsdxt:code href="customers-list-response.xml"/>
             </wadl:doc>
          </representation>
          <representation mediaType="application/json">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >{"offset":0,"size":50,"total":3,"customers":
-                  [{"name":"API Customer
-                  17","accountNumber":"460182","referenceNumber":"49"},
-                  {"name":"API Customer
-                  39","accountNumber":"460181","referenceNumber":"23"},
-                  {"name":"API Customer
-                  50","accountNumber":"460183","referenceNumber":"10"}]}</xsdxt:code>
+               <xsdxt:code href="customers-list-response.json"/>
             </wadl:doc>
          </representation>
       </response>
    </method>
    <method id="addSubaccount" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add (Reseller Only)">
-         <para role="shortdesc">Adds a sub-account. Note that customer
-            number is not known until the customer is added.</para>
+         title="Add sub-account (reseller only)">
+         <para role="shortdesc">Adds a sub-account.</para>
+         <para>Note that customer number is not known until the
+            customer is added.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -427,7 +407,7 @@
    </method>
    <method id="showAccountDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
-         title="Show (Reseller Only)">
+         title="Show account details (reseller only)">
          <para role="shortdesc">Shows account details.</para>
          <para>Remarks</para>
          <itemizedlist>
@@ -498,42 +478,24 @@
    </method>
    <method id="updateSubaccount" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit (Reseller Only)">
-         <para role="shortdesc">Edit a new sub-account.</para>
-         <table rules="all">
-            <caption>Request Data</caption>
-            <thead>
-               <tr>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Field
-                        Name</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Data
-                        Type</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml"
-                        >Description</b>
-                  </td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>name</td>
-                  <td>string</td>
-                  <td>The customer's display name (Required for
-                     Add)</td>
-               </tr>
-               <tr>
-                  <td>referenceNumber</td>
-                  <td>string</td>
-                  <td>The reference number of this account</td>
-               </tr>
-            </tbody>
-         </table>
+         title="Update sub-account (reseller only)">
+         <para role="shortdesc">Updates a sub-account.</para>
       </wadl:doc>
       <request>
+         <param name="name" style="plain" type="xsd:string"
+            required="true">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN"><para>The display name for the
+                  customer.</para>
+            </wadl:doc>
+         </param>
+         <param name="referenceNumber" style="plain" type="xsd:string"
+            required="false">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN"><para>The reference number for the
+                  account</para>
+            </wadl:doc>
+         </param>
          <representation mediaType="application/json" element="noop">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN">
@@ -567,8 +529,8 @@
    </method>
    <method id="deleteAccount" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete Account (Reseller Only)">
-         <para role="shortdesc">Deletes the account</para>
+         title="Delete account (reseller only)">
+         <para role="shortdesc">Deletes an account.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -586,10 +548,10 @@
    <method id="createLoginToken" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Create login token">
-         <para role="shortdesc">Generates a login token using which a
+         <para role="shortdesc">Generates a login token that a
             customer can use to SSO into the Control Panel.</para>
-         <para>Login tokens can be generated for two kinds of users:
-            virtual and non-virtual.</para>
+         <para>Login tokens can be generated for virtual and
+            non-virtual users.</para>
          <itemizedlist>
             <listitem>
                <para>Virtual user gets the administrator's privileges
@@ -689,16 +651,18 @@
          </representation>
       </response>
    </method>
+   <!-- Admin operations -->
    <method id="listAdmins" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Index">
-         <para role="shortdesc">Lists admins under the account. If a
-            customer account is specified, then a list of admins under
-            that specific account will be returned.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="List account admins">
+         <para role="shortdesc">Lists account admins.</para>
+         <para>If you specify a customer account, a list of admins
+            under that specific account are returned.</para>
          <itemizedlist>
             <listitem>
                <para>This operation returns a list of admins under the
-                  account. If a customer account is specified, then a
-                  list of admins under that specific account will be
+                  account. If you specify a customer account, a list
+                  of admins under that specific account is
                   returned.</para>
             </listitem>
             <listitem>
@@ -848,7 +812,7 @@
    <method id="addAdmin" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Add admin">
-         <para role="shortdesc">Adds an admin under the specified
+         <para role="shortdesc">Adds an admin to a specified
             account.</para>
          <itemizedlist>
             <listitem>
@@ -987,8 +951,8 @@
    <method id="updateAdmin" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Update admin">
-         <para role="shortdesc">Edits an existing admin under the
-            specified account.</para>
+         <para role="shortdesc">Updates an admin for a specified
+            account.</para>
          <itemizedlist>
             <listitem>
                <para>Edit an existing admin under the specified
@@ -1126,7 +1090,8 @@
    <method id="deleteAdmin" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Delete Admin">
-         <para role="shortdesc">Deletes an admin</para>
+         <para role="shortdesc">Deletes an admin for a specified
+            account.</para>
          <itemizedlist>
             <listitem>
                <para>Deletes an admin</para>
@@ -1149,12 +1114,14 @@
       </request>
       <response status="204"/>
    </method>
+   <!-- Domain operations -->
    <method id="listDomains" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="List domains">
-         <para role="shortdesc">Lists domains under the account. If a
-            customer account is specified, then a list of domains
-            under that specific account will be returned.</para>
+         <para role="shortdesc">Lists domains in a specified
+            account.</para>
+         <para>If you specify a customer account, a list of domains
+            under that specific account is returned.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -1228,8 +1195,7 @@
    <method id="showDomainDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Show domain details">
-         <para role="shortdesc">Shows detailed information about the
-            specified domain name.</para>
+         <para role="shortdesc">Shows domain details.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -1317,9 +1283,8 @@
    </method>
    <method id="addDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add (Reseller Only)">
-         <para role="shortdesc">Adds a new domain to the account with
-            the data specified.</para>
+         title="Add (reseller only)">
+         <para role="shortdesc">Adds an domain and specified data to an account.</para>
          <itemizedlist>
             <listitem>
                <para>Adds a new domain to the account with the data
@@ -1461,9 +1426,8 @@
    </method>
    <method id="updateDomain" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit (Reseller Only)">
-         <para role="shortdesc">Edits a domain on the account with the
-            data specified.</para>
+         title="Edit (reseller only)">
+         <para role="shortdesc">Updates an account domain with specified data.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -1595,8 +1559,8 @@
    </method>
    <method id="moveDomain" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Move Domain (Reseller Only)">
-         <para role="shortdesc">Moves the domain to another customer
+         title="Move Domain (reseller only)">
+         <para role="shortdesc">Moves a domain to a specified customer
             account.</para>
          <para>Remarks</para>
          <para>'Move Domain' and 'Edit Domain' share the same URI and
@@ -1646,8 +1610,8 @@
    </method>
    <method id="deleteDomain" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete domain (Reseller Only)">
-         <para role="shortdesc">Deletes a domain</para>
+         title="Delete domain (reseller only)">
+         <para role="shortdesc">Deletes a domain.</para>
          <para>Remarks</para>
          <para>The domain and all the mailboxes, mailbox contents,
             groups, and contacts are deleted permanently.</para>
@@ -1668,9 +1632,9 @@
    </method>
    <method id="listDomainAliases" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Alternate Domains - Index (Reseller Only)">
-         <para role="shortdesc">Lists Domain Aliases and Accepted
-            Domains for the domain.</para>
+         title="List domain aliases and alternate domains (reseller only)">
+         <para role="shortdesc">Lists domain aliases and accepted alternate
+            domains for a specified domain.</para>
          <itemizedlist>
             <listitem>
                <para>This operation returns a list of Domain Aliases
@@ -1729,9 +1693,8 @@
    </method>
    <method id="addDomainAlias" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Alternate Domain - Add (Reseller Only)">
-         <para role="shortdesc">Adds either a Domain Alias or Accepted
-            Domain to the domain.</para>
+         title="Add domain alias or alternate domain (reseller only)">
+         <para role="shortdesc">Adds a domain alias or accepted alternate domain to a specified domain.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -1820,8 +1783,8 @@
    </method>
    <method id="deleteAlternateDomain" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Alternate Domains - Delete (Reseller Only)">
-         <para role="shortdesc">Deletes the alternate domain.</para>
+         title="Delete alternate domain (reseller only)">
+         <para role="shortdesc">Deletes an alternate domain.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -1839,9 +1802,9 @@
    </method>
    <method id="showEmailServerDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Split Domain Routing - Show Settings">
-         <para role="shortdesc">Shows the current external email
-            server.</para>
+         title="Show external email server details">
+         <para role="shortdesc">Shows current external email
+            server details.</para>
          <itemizedlist>
             <listitem>
                <para>Shows the current external email server.</para>
@@ -1894,8 +1857,8 @@
          <para>This command will return a success when the
             verification passes. Since this involves communication to
             the external server the request may take some time. If the
-            verification fails a 400 return code will be sent back
-            with the verification's error message.</para>
+            verification fails a 400 return code is sent back with the
+            verification's error message.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -2434,16 +2397,16 @@
                <tr>
                   <td>rsEmail.spamFolderNumLimit</td>
                   <td>int</td>
-                  <td>The max number of emails that will be kept in
-                     the "Spam" folder. Requires
+                  <td>The max number of emails that is kept in the
+                     "Spam" folder. Requires
                      "rsEmail.hasFolderCleaner" to be set to
                      "true".</td>
                </tr>
                <tr>
                   <td>rsEmail.spamForwardingAddress</td>
                   <td>string</td>
-                  <td>The address that spams will be forwarded to.
-                     Requires "rsEmail.spamHandling" to be set to
+                  <td>The address that spams is forwarded to. Requires
+                     "rsEmail.spamHandling" to be set to
                      "toAddress".</td>
                </tr>
                <tr>
@@ -2456,7 +2419,7 @@
                   <td>exchange.quarantineOwner</td>
                   <td>string</td>
                   <td>The address that domain quarantine notifications
-                     will be sent to.</td>
+                     is sent to.</td>
                </tr>
                <tr>
                   <td>exchange.removeQuarantineOwner</td>
@@ -4603,9 +4566,9 @@
                <tr>
                   <td>rsEmail.spamForwardingAddress</td>
                   <td>string</td>
-                  <td>The email address that Spam emails will be
-                     redirected to. This field is required when the
-                     spamHandling field is set to 'toAddress'</td>
+                  <td>The email address that Spam emails is redirected
+                     to. This field is required when the spamHandling
+                     field is set to 'toAddress'</td>
                </tr>
             </tbody>
          </table>
@@ -6255,9 +6218,9 @@
                   <td>string</td>
                   <td>Forwarding email address (If this field is
                      assigned an email address, then email forwarding
-                     will be turned on. If this field is not assigned
-                     or assigned an empty string, then email
-                     forwarding will be disabled.)</td>
+                     is turned on. If this field is not assigned or
+                     assigned an empty string, then email forwarding
+                     is disabled.)</td>
                </tr>
                <tr>
                   <td>visibleInRackspaceEmailCompanyDirectory</td>
@@ -6471,9 +6434,9 @@
                   <td>string</td>
                   <td>Forwarding email address (If this field is
                      assigned an email address, then email forwarding
-                     will be turned on. If this field is not assigned
-                     or assigned an empty string, then email
-                     forwarding will be disabled.)</td>
+                     is turned on. If this field is not assigned or
+                     assigned an empty string, then email forwarding
+                     is disabled.)</td>
                </tr>
                <tr>
                   <td>visibleInRackspaceEmailCompanyDirectory</td>
@@ -8541,7 +8504,7 @@
       <wadl:response status="204">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="No Content.">
-            <para>The request has been accepted and will be
+            <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
       </wadl:response>
@@ -8631,7 +8594,7 @@
       <wadl:response status="204">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="No Content.">
-            <para>The request has been accepted and will be
+            <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
       </wadl:response>
@@ -8685,7 +8648,7 @@
       <wadl:response status="204">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="No Content.">
-            <para>The request has been accepted and will be
+            <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
       </wadl:response>
@@ -8737,7 +8700,7 @@
       <wadl:response status="200">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Accepted.">
-            <para>The request has been accepted and will be
+            <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
       </wadl:response>
@@ -8817,7 +8780,7 @@
       <wadl:response status="202">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Accepted.">
-            <para>The request has been accepted and will be
+            <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
       </wadl:response>
