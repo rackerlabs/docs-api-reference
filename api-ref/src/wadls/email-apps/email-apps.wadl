@@ -10,7 +10,7 @@
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
    xmlns:raxapi="http://docs.rackspace.com/volume/api/v1">
    <resources base="http://api.emailsrvr.com/" xml:id="email">
-      <resource id="version" path="v0">
+      <resource id="version0" path="v0">
          <resource path="customers" id="customers">
             <method href="#listCustomers"/>
             <method href="#addSubaccount"/>
@@ -22,7 +22,7 @@
                <method href="#updateSubaccount"/>
                <method href="#deleteAccount"/>
                <resource path="loginToken" id="logintoken">
-                  <method href="#createLoginToken"/>
+                  <method href="#generateLoginToken"/>
                </resource>
                <resource path="admins" id="admins">
                   <method href="#listAdmins"/>
@@ -44,6 +44,7 @@
                      <method href="#addDomain"/>
                      <method href="#updateDomain"/>
                      <method href="#moveDomain"/>
+                     <method href="#deleteDomain"/>
                      <resource path="alternatedomains"
                         id="alternatedomains">
                         <method href="#listDomainAliases"/>
@@ -76,6 +77,16 @@
                            <method href="#showPublicFoldersStatus"/>
                            <method href="#enablePublicFolders"/>
                         </resource>
+                        <resource path="contacts" id="contacts">
+                           <method href="#listContacts"/>
+                           <resource path="{contact_name}"
+                              id="contact_name">
+                              <method href="#showContactDetails"/>
+                              <method href="#addContact"/>
+                              <method href="#updateContact"/>
+                              <method href="#deleteContact"/>
+                           </resource>
+                        </resource>
                      </resource>
                      <resource path="emaileveryone" id="emaileveryone">
                         <method href="#emailEveryone"/>
@@ -92,7 +103,6 @@
                            <method href="#updateMailboxSpamSettings"/>
                            <resource path="ipblacklist"
                               id="ipblacklist">
-
                               <method href="#showBlacklistIP"/>
                               <method href="#updateBlacklistIPs"/>
                               <resource path="{ip_address}"
@@ -122,7 +132,6 @@
                            <method href="#updateSafelistEmail"/>
                            <resource path="{email_address}"
                               id="email_address-safelist">
-
                               <param name="email_address"
                                  style="template" required="true"/>
                               <method href="#updateSafelist"/>
@@ -169,8 +178,8 @@
                            <method href="#updateMailbox"/>
                            <method href="#deleteMailbox"/>
                            <resource path="loginToken" id="loginToken">
-                              <method href="#createLoginTokenMailbox"
-                              />
+                              <method
+                                 href="#generateLoginTokenMailbox"/>
                            </resource>
                            <resource path="spam" id="spam-mailbox">
                               <resource path="settings"
@@ -185,7 +194,6 @@
                                    href="#updateMailboxBlacklistEmails"/>
                                  <resource path="{email_address}"
                                    id="email_address-mailbox-blacklist">
-
                                    <param name="email_address"
                                    style="template" required="true"/>
                                    <method
@@ -257,7 +265,6 @@
                                  <method href="#deleteAlias"/>
                                  <resource path="{email_address}"
                                    id="email_address-alias">
-
                                    <param name="email_address"
                                    style="template" required="true"/>
                                    <method href="#addDomainlistEmail"
@@ -280,6 +287,16 @@
                      </resource>
                   </resource>
                </resource>
+               <resource path="ex" id="exchange">
+                  <resource path="resources" id="resources-ex"
+                  > </resource>
+               </resource>
+               <resource path="sharepoint" id="sharepoint">
+                  <resource path="settings" id="sharepoint-settings">
+                     <method href="#listSharepointStatus"/>
+                     <method href="#updateSharepointSettings"/>
+                  </resource>
+               </resource>
             </resource>
             <resource path="{new_customer_account_number}"
                id="new_customer_account_number">
@@ -290,6 +307,142 @@
                         you want to move the domain.</para></wadl:doc>
                </param>
                <method href="#moveDomain"/>
+            </resource>
+         </resource>
+      </resource>
+      <resource id="version1" path="v1">
+         <resource path="customers" id="customers-v1">
+            <resource path="{customer_account_number}"
+               id="customer_account_number-v1">
+               <resource path="domains" id="domains-v1">
+                  <resource path="{domain_name}" id="domain_name-v1">
+                     <resource path="ex" id="exchange-v1">
+                        <resource path="distributionLists"
+                           id="distributionLists">
+                           <method href="#listDistributionLists"/>
+                           <method href="#showDistributionListDetails"/>
+                           <method href="#addDistributionList"/>
+                           <method href="#updateDistributionList"/>
+                           <method href="#deleteDistributionList"/>
+                           <method href="#exportDistributionListFile"/>
+                           <method href="#importDistributionListFile"/>
+                           <method
+                              href="#listDistributionListAltEmails"/>
+                           <method
+                              href="#updateDistributionListMembers"/>
+                           <method
+                              href="#updateDistributionListMembers"/>
+                           <method
+                              href="#listDistributionListManagers"/>
+                           <method
+                              href="#updateDistributionListManagers"/>
+                           <method href="#listDistributionListSenders"/>
+                           <method
+                              href="#updateDistributionListSenders"/>
+                           <method href="#listRecipientsSenders"/>
+                           <method href="#listRecipientsManagers"/>
+                           <method href="#listRecipientsMembers"/>
+                           <method href="#listRecipientsSendersDomain"/>
+                           <method
+                              href="#listRecipientsManagersDomain"/>
+                           <method href="#listRecipientsMembersDomain"
+                           />
+                        </resource>
+                        <resource path="resources"
+                           id="ex-resources-v1">
+                           <method href="#listResourceMailboxes"/>
+                           <method href="#addResourceMailbox"/>
+                           <method href="#exportResourceMailboxes"/>
+                           <method href="#listResourceMailboxesDomain"/>
+                           <resource path="{resource_name}"
+                              id="resource_name">
+                              <method href="#showResourceDetails"/>
+                              <method href="#addResource"/>
+                              <method href="#updateResource"/>
+                              <method href="#deleteResource"/>
+                              <resource path="admins"
+                                 id="admins-resource">
+                                 <method href="#listResourceAdmins"/>
+                                 <resource path="{admin_name}"
+                                   id="admin_name-resource">
+                                   <method href="#addResourceAdmin"/>
+                                   <method href="#deleteResourceAdmin"
+                                   />
+                                 </resource>
+                              </resource>
+                           </resource>
+                           <resource path="{common_name}"
+                              id="common_name">
+                              <param name="common_name"
+                                 style="template" required="true"/>
+                              <method href="#readResourceMailbox"/>
+                              <method href="#updateResourceMailbox"/>
+                              <method href="#deleteResourceMailbox"/>
+                              <resource path="calendarProcessing"
+                                 id="calendarProcessing">
+
+                                 <method
+                                   href="#readResouceMailboxCalendar"/>
+                                 <method
+                                   href="#updateResourceMailboxCalendar"/>
+                                 <method
+                                   href="#bulkUpdateResourceMailboxCalendar"/>
+
+                              </resource>
+                              <resource path="delegates"
+                                 id="delegates">
+
+                                 <method href="#listDelegates"/>
+                                 <method href="#bulkUpdateDelegates"/>
+                              </resource>
+                              <resource path="permissions"
+                                 id="permissions">
+
+                                 <method
+                                   href="#readResourceMailboxPermissions"
+                                 />
+                              </resource>
+                              <resource path="bookInPolicy"
+                                 id="bookInPolicy">
+
+                                 <method href="#listPolicies"/>
+                                 <method href="#bulkUpdatePolicies"/>
+                              </resource>
+
+                              <resource path="resourceOptions"
+                                 id="resouceOptions">
+                                 <method
+                                   href="#listRecipientsForResource"/>
+                                 <resource
+                                   path="AvailableDelegatesRecipients"
+                                   id="availabledelegatesrecipients">
+
+                                   <method href="#listRecipients"/>
+
+                                   <method
+                                   href="#listRecipientsDelegates"/>
+                                 </resource>
+                                 <resource
+                                   path="availableBookInPolicyRecipients"
+                                   id="availableBookInPolicyRecipients">
+
+                                   <method
+                                   href="#listRecipientsForPolicies"/>
+                                 </resource>
+                                 <resource
+                                   path="AvailablePermissionsRecipients"
+                                   id="AvailablePermissionsRecipients">
+
+                                   <method
+                                   href="#listRecipientsPermissions"/>
+                                 </resource>
+
+                              </resource>
+                           </resource>
+                        </resource>
+                     </resource>
+                  </resource>
+               </resource>
             </resource>
          </resource>
       </resource>
@@ -324,13 +477,15 @@
          <representation mediaType="application/xml">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN">
-               <xsdxt:code href="customers-list-response.xml"/>
+               <xsdxt:code href="samples/customers-list-response.xml"
+               />
             </wadl:doc>
          </representation>
          <representation mediaType="application/json">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN">
-               <xsdxt:code href="customers-list-response.json"/>
+               <xsdxt:code href="samples/customers-list-response.json"
+               />
             </wadl:doc>
          </representation>
       </response>
@@ -407,8 +562,8 @@
    </method>
    <method id="showAccountDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
-         title="Show account details (reseller only)">
-         <para role="shortdesc">Shows account details.</para>
+         title="Show sub-account details (reseller only)">
+         <para role="shortdesc">Shows sub-account details.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -452,15 +607,7 @@
                xml:lang="EN">
                <xsdxt:code
                   xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
-                  &lt;customer
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                  xmlns="urn:xml:customer"&gt; &lt;name&gt;API
-                  Customer 17&lt;/name&gt;
-                  &lt;accountNumber&gt;460182&lt;/accountNumber&gt;
-                  &lt;referenceNumber&gt;49&lt;/referenceNumber&gt;
-                  &lt;/customer&gt;</xsdxt:code>
+                  href="samples/account-show-details-response.xml"/>
             </wadl:doc>
          </representation>
 
@@ -529,8 +676,8 @@
    </method>
    <method id="deleteAccount" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete account (reseller only)">
-         <para role="shortdesc">Deletes an account.</para>
+         title="Delete sub-account (reseller only)">
+         <para role="shortdesc">Deletes a sub-account.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -545,9 +692,9 @@
       </request>
       <response status="204"/>
    </method>
-   <method id="createLoginToken" name="POST">
+   <method id="generateLoginToken" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Create login token">
+         title="Generate login token">
          <para role="shortdesc">Generates a login token that a
             customer can use to SSO into the Control Panel.</para>
          <para>Login tokens can be generated for virtual and
@@ -1284,7 +1431,8 @@
    <method id="addDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Add (reseller only)">
-         <para role="shortdesc">Adds an domain and specified data to an account.</para>
+         <para role="shortdesc">Adds an domain and specified data to
+            an account.</para>
          <itemizedlist>
             <listitem>
                <para>Adds a new domain to the account with the data
@@ -1427,7 +1575,8 @@
    <method id="updateDomain" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Edit (reseller only)">
-         <para role="shortdesc">Updates an account domain with specified data.</para>
+         <para role="shortdesc">Updates an account domain with
+            specified data.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -1633,8 +1782,8 @@
    <method id="listDomainAliases" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="List domain aliases and alternate domains (reseller only)">
-         <para role="shortdesc">Lists domain aliases and accepted alternate
-            domains for a specified domain.</para>
+         <para role="shortdesc">Lists domain aliases and accepted
+            alternate domains for a specified domain.</para>
          <itemizedlist>
             <listitem>
                <para>This operation returns a list of Domain Aliases
@@ -1694,7 +1843,8 @@
    <method id="addDomainAlias" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Add domain alias or alternate domain (reseller only)">
-         <para role="shortdesc">Adds a domain alias or accepted alternate domain to a specified domain.</para>
+         <para role="shortdesc">Adds a domain alias or accepted
+            alternate domain to a specified domain.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -1803,8 +1953,8 @@
    <method id="showEmailServerDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Show external email server details">
-         <para role="shortdesc">Shows current external email
-            server details.</para>
+         <para role="shortdesc">Shows current external email server
+            details.</para>
          <itemizedlist>
             <listitem>
                <para>Shows the current external email server.</para>
@@ -1951,13 +2101,13 @@
    </method>
    <method id="showPublicFoldersStatus" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Domain Public Folders - Show Status">
-         <para role="shortdesc">Retrieves the Exchange Public Folders
+         title="Domain public folders - Show Status">
+         <para role="shortdesc">Shows the Exchange public folders
             status for the domain.</para>
          <itemizedlist>
             <listitem>
-               <para>Retrieves the Exchange Public Folders status for
-                  the domain.</para>
+               <para>Shows the Exchange public folders status for the
+                  domain.</para>
             </listitem>
          </itemizedlist>
       </wadl:doc>
@@ -1993,8 +2143,8 @@
    </method>
    <method id="enablePublicFolders" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Domain Public Folders - Enable">
-         <para role="shortdesc">Enables the Exchange Public Folders
+         title="Domain public folders - Enable">
+         <para role="shortdesc">Enables the Exchange public folders
             feature on the domain. Once enabled, it cannot be
             disabled.</para>
          <table rules="all">
@@ -4021,12 +4171,13 @@
       </request>
       <response status="204"/>
    </method>
-   <method id="createLoginTokenMailbox" name="POST">
+   <method id="generateLoginTokenMailbox" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Create Login Token">
-         <para role="shortdesc">Generate a login Token which can be
-            used to log in to a user's mailbox. The POST will return a
-            loginToken, created date, and expiration date.</para>
+         <para role="shortdesc">Generates a login token that the user
+            can use to log in to a mailbox.</para>
+         <para>This operation returns a loginToken, created date, and
+            expiration date.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -4077,11 +4228,12 @@
       </response>
    </method>
    <method id="listMobileSyncUsers" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Index">
-         <para role="shortdesc">Returns a list of Mobile Sync users on
-            the domain. This list contains all potential users of
-            Mobile Sync and their current status
-            (enabled/disabled).</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="List Mobile Sync users">
+         <para role="shortdesc">Lists Mobile Sync users on a
+            domain.</para>
+         <para>This list contains all potential users of Mobile Sync
+            and their current status (enabled/disabled).</para>
          <para>Filter/Search</para>
          <para>Searches may be filtered by the 'name' property using
             query methods ?startsWith= or ?contains=.</para>
@@ -4181,9 +4333,9 @@
 
    </method>
    <method id="enableMobileSync" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Enable">
-         <para role="shortdesc">Enables Mobile Sync for a list of
-            users.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Enable Mobile Sync">
+         <para role="shortdesc">Enables Mobile Sync for users.</para>
          <para>Special Considerations</para>
          <itemizedlist>
             <listitem>
@@ -4244,9 +4396,9 @@
       <response status="204"/>
    </method>
    <method id="disableMobileSync" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Disable">
-         <para role="shortdesc">Disables Mobile Sync for a list of
-            users.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Disable Mobile Sync">
+         <para role="shortdesc">Disables Mobile Sync for users.</para>
          <para>Special Considerations</para>
          <itemizedlist>
             <listitem>
@@ -4308,9 +4460,9 @@
    </method>
    <method id="showDomainAutoProvisionSetting" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Get Domain Auto-Provisioning Setting">
-         <para role="shortdesc">Returns the status of domain
-            auto-provisioning setting.</para>
+         title="Show domain auto-provisioning setting">
+         <para role="shortdesc">Shows domain auto-provisioning
+            setting.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -4360,9 +4512,9 @@
    </method>
    <method id="setMobileSyncAutoProvision" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit Domain Auto-Provisioning Settings">
+         title="Enable or disable Mobile Sync auto-provisioning">
          <para role="shortdesc">Enables or disables Mobile Sync
-            auto-provisioning for the whole domain.</para>
+            auto-provisioning for a domain.</para>
          <para>Special Considerations</para>
          <itemizedlist>
             <listitem>
@@ -4424,9 +4576,9 @@
 
    <method id="showMailboxSpamSettings" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show Spam Settings">
-         <para role="shortdesc">Returns the spam settings associated
-            with the mailbox.</para>
+         title="Show mailbox spam settings">
+         <para role="shortdesc">Shows spam settings associated with a
+            mailbox.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -4476,9 +4628,8 @@
    </method>
    <method id="updateMailboxSpamSettings" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit Spam Settings">
-         <para role="shortdesc">Modifies the mailbox spam
-            settings.</para>
+         title="Update mailbox spam settings">
+         <para role="shortdesc">Updates mailbox spam settings.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -4659,9 +4810,9 @@
 
    <method id="showMailboxBlacklist" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Index">
-         <para role="shortdesc">Returns email address blacklist
-            associated with the mailbox.</para>
+         title="Show mailbox blacklist">
+         <para role="shortdesc">Shows email address blacklist
+            associated with a mailbox.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -4714,8 +4865,8 @@
 
    <method id="addBlacklistEmailOrDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Add">
-         <para role="shortdesc">Adds an email address or domain to the
+         title="Add email or domain to blacklist">
+         <para role="shortdesc">Adds an email address or domain to a
             blacklist.</para>
       </wadl:doc>
       <request>
@@ -4748,9 +4899,9 @@
 
    <method id="updateMailboxBlacklistEmails" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Edit">
-         <para role="shortdesc">Edits email addresses on the
-            blacklist.</para>
+         title="Update blacklist email addresses">
+         <para role="shortdesc">Updates blacklist email
+            addresses.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wildcard in domains, but not in
             the TLD (.com, .net, etc). You cannot use wildcards in
@@ -4810,9 +4961,9 @@
 
    <method id="deleteMailboxBlacklistEmailOrDomain" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Delete">
-         <para role="shortdesc">Removes an email address or domain
-            from the blacklist.</para>
+         title="Delete blacklist email address or domain">
+         <para role="shortdesc">Deletes an email address or domain
+            from a blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -4844,9 +4995,9 @@
 
    <method id="showMailboxBlacklistIP" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Index">
-         <para role="shortdesc">Returns IP blacklist associated with
-            the mailbox.</para>
+         title="Show mailbox IP blacklist - Index">
+         <para role="shortdesc">Shows the IP blacklist associated with
+            a mailbox.</para>
          <para>Remarks:</para>
          <itemizedlist>
             <listitem>
@@ -4898,8 +5049,8 @@
 
    <method id="addMailboxBlacklistIP" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Add">
-         <para role="shortdesc">Adds an IP to the blacklist.</para>
+         title="Add IP to blacklist">
+         <para role="shortdesc">Adds an IP to a blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -4924,8 +5075,8 @@
 
    <method id="updateMailboxBlacklistIPs" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Edit">
-         <para role="shortdesc">Edits IP addresses on the
+         title="Update IPs on blacklist">
+         <para role="shortdesc">Updates IP addresses on a
             blacklist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wildcard in the last octets to
@@ -4984,9 +5135,8 @@
 
    <method id="deleteMailboxBlacklistIP" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Delete">
-         <para role="shortdesc">Removes an IP from the
-            blacklist.</para>
+         title="Delete IP from blacklist">
+         <para role="shortdesc">Deletes an IP from a blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5012,9 +5162,9 @@
 
    <method id="showMailboxSafelist" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Index">
-         <para role="shortdesc">Returns email address safelist
-            associated with the mailbox.</para>
+         title="Show mailbox safelist">
+         <para role="shortdesc">Shows email address safelist
+            associated with a mailbox.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -5097,8 +5247,8 @@
          <para role="shortdesc">Edits email addresses on the
             safelist.</para>
          <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in domains, but not in
-            the TLD (.com, .net, etc). You cannot use wildcards in
+         <para>You can use a '%' as a wild card in domains, but not in
+            the TLD (.com, .net, etc). You cannot use wild cards in
             email addresses. For example, the following are allowed:
             @%.example.com, @examp%.com.</para>
          <table rules="all">
@@ -5273,7 +5423,7 @@
          <para role="shortdesc">Edits IP addresses on the
             safelist.</para>
          <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in the last octets to
+         <para>You can use a '%' as a wild card in the last octets to
             specify IP ranges. For example: 216.12.34.%, 216.12.%.%,
             216.%.%.%.</para>
          <table rules="all">
@@ -5974,7 +6124,7 @@
                   verb.</para>
             </listitem>
             <listitem>
-               <para>The "samAccountName" is the logon name used to
+               <para>The "samAccountName" is the login name used to
                   support clients and servers running older versions
                   of the operating system.</para>
             </listitem>
@@ -7166,641 +7316,9 @@
 
    </method>
 
-   <method id="d1e10196" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Add">
-         <para role="shortdesc">Adds an email address or domain to the
-            blacklist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >POST
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/blacklist/anyone@spam.com',
-                  {},'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
-         </wadl:doc>
-      </response>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered current domain. Sample Message: Adding
-               example.com would blacklist the current domain</para>
-         </wadl:doc>
-      </response>
-   </method>
 
-   <method id="d1e10246" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Edit">
-         <para role="shortdesc">Edits email addresses on the
-            blacklist.</para>
-         <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in domains, but not in
-            the TLD (.com, .net, etc). You cannot use wildcards in
-            email addresses. For example, the following are allowed:
-            @%.example.com, @examp%.com.</para>
-         <table rules="all">
-            <caption>Request Data</caption>
-            <thead>
-               <tr>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Field
-                        Name</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Data
-                        Type</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml"
-                        >Description</b>
-                  </td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>addList</td>
-                  <td>string</td>
-                  <td>Comma separated list of email addresses to add
-                     to the list</td>
-               </tr>
-               <tr>
-                  <td>removeList</td>
-                  <td>string</td>
-                  <td>Comma separated list of email addresses to
-                     remove from the list</td>
-               </tr>
-            </tbody>
-         </table>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >PUT
-                  '/customers/12345678/domains/example.com/ex/mailboxes/jane.doe/spam/blacklist',
-                  { 'addList' =\u003E
-                  '@%.example.com,abc@example.com', 'removeList'
-                  =\u003E '@examp%.com' }, 'text/xml'"
-                  });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-   </method>
 
-   <method id="d1e10344" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Delete">
-         <para>Removes an email address or domain from the
-            blacklist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >DELETE
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/blacklist/anyone@yahoo.com',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
-         </wadl:doc>
-      </response>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered email or domain is not on the current
-               blacklist. Sample Message: abc@junkmail.com is not
-               found on the list</para>
-         </wadl:doc>
-      </response>
-   </method>
-
-   <method id="d1e10394" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Index">
-         <para role="shortdesc">Returns IP blacklist associated with
-            the mailbox.</para>
-         <para>Remarks</para>
-         <itemizedlist>
-            <listitem>
-               <para>The Index operation only supports the GET HTTP
-                  verb.</para>
-            </listitem>
-         </itemizedlist>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >GET
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/ipblacklist',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="200">
-         <representation mediaType="application/xml">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
-                  &lt;ipBlacklist
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                  xmlns="urn:xml:ipBlacklist"&gt; &lt;addresses&gt;
-                  &lt;ip&gt;216.12.34.1&lt;/ip&gt;
-                  &lt;ip&gt;216.12.34.2&lt;/ip&gt; &lt;/addresses&gt;
-                  &lt;/ipBlacklist&gt;</xsdxt:code>
-            </wadl:doc>
-         </representation>
-
-         <representation mediaType="application/json">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >{"addresses":["216.12.34.1","216.12.34.2"]}</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </response>
-
-   </method>
-
-   <method id="d1e10459" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Add">
-         <para role="shortdesc">Adds an IP to the blacklist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >POST
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/blacklist/216.12.34.1',
-                  {},'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-   </method>
-
-   <method id="d1e10491" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Edit">
-         <para role="shortdesc">Edits IP addresses on the
-            blacklist.</para>
-         <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in the last octets to
-            specify IP ranges. For example: 216.12.34.%, 216.12.%.%,
-            216.%.%.%.</para>
-         <table rules="all">
-            <caption>Request Data</caption>
-            <thead>
-               <tr>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Field
-                        Name</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Data
-                        Type</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml"
-                        >Description</b>
-                  </td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>addList</td>
-                  <td>string</td>
-                  <td>Comma separated list of IP addresses to add to
-                     the list</td>
-               </tr>
-               <tr>
-                  <td>removeList</td>
-                  <td>string</td>
-                  <td>Comma separated list of IP addresses to remove
-                     from the list</td>
-               </tr>
-            </tbody>
-         </table>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >PUT
-                  '/customers/12345678/domains/example.com/ex/mailboxes/jane.doe/spam/ipblacklist',
-                  { 'addList' =\u003E '216.12.34.%,216.12.%.%',
-                  'removeList' =\u003E '216.%.%.%' }, 'text/xml'"
-                  });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-   </method>
-
-   <method id="d1e10588" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Delete">
-         <para>Removes an IP from the blacklist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >DELETE
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/ipblacklist/216.12.34.1',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered IP is not on the current blacklist. Sample
-               Message: 216.12.34.1 is not found on the
-               blacklist</para>
-         </wadl:doc>
-      </response>
-   </method>
-
-   <method id="d1e10629" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Index">
-         <para role="shortdesc">Returns email address safelist
-            associated with the mailbox.</para>
-         <para>Remarks</para>
-         <itemizedlist>
-            <listitem>
-               <para>The Index operation only supports the GET HTTP
-                  verb.</para>
-            </listitem>
-         </itemizedlist>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >GET
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/safelist',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="200">
-         <representation mediaType="application/xml">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
-                  &lt;safelist
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                  xmlns="urn:xml:safelist"&gt; &lt;addresses&gt;
-                  &lt;address&gt;name1@notspam.com&lt;/address&gt;
-                  &lt;address&gt;name2@notspam.com&lt;/address&gt;
-                  &lt;/addresses&gt; &lt;/safelist&gt;</xsdxt:code>
-            </wadl:doc>
-         </representation>
-
-         <representation mediaType="application/json">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >{"addresses":["name1@notspam.com","name2@notspam.com"]}</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </response>
-
-   </method>
-
-   <method id="d1e10695" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Add">
-         <para role="shortdesc">Adds an email address or domain to the
-            safelist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >POST
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/safelist/anyone@yahoo.com',
-                  {},'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
-         </wadl:doc>
-      </response>
-   </method>
-
-   <method id="d1e10736" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Edit">
-         <para role="shortdesc">Edits email addresses on the
-            safelist.</para>
-         <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in domains, but not in
-            the TLD (.com, .net, etc). You cannot use wildcards in
-            email addresses. For example, the following are allowed:
-            @%.example.com, @examp%.com.</para>
-         <table rules="all">
-            <caption>Request Data</caption>
-            <thead>
-               <tr>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Field
-                        Name</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Data
-                        Type</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml"
-                        >Description</b>
-                  </td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>addList</td>
-                  <td>string</td>
-                  <td>Comma separated list of email addresses to add
-                     to the list</td>
-               </tr>
-               <tr>
-                  <td>removeList</td>
-                  <td>string</td>
-                  <td>Comma separated list of email addresses to
-                     remove from the list</td>
-               </tr>
-            </tbody>
-         </table>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >PUT
-                  '/customers/12345678/domains/example.com/ex/mailboxes/jane.doe/spam/safelist',
-                  { 'addList' =\u003E
-                  '@%.example.com,abc@example.com', 'removeList'
-                  =\u003E '@examp%.com' }, 'text/xml'"
-                  });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-   </method>
-
-   <method id="d1e10833" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Delete">
-         <para>Removes an email address or domain from the
-            safelist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >DELETE
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/safelist/anyone@yahoo.com',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
-         </wadl:doc>
-      </response>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered email or domain is not on the current
-               safelist. Sample Message: anyone@yahoo.com is not found
-               on the list</para>
-         </wadl:doc>
-      </response>
-   </method>
-
-   <method id="d1e10883" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Index">
-         <para role="shortdesc">Returns IP safelist associated with
-            the mailbox.</para>
-         <para>Remarks</para>
-         <itemizedlist>
-            <listitem>
-               <para>The Index operation only supports the GET HTTP
-                  verb.</para>
-            </listitem>
-         </itemizedlist>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >GET
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/ipsafelist',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="200">
-         <representation mediaType="application/xml">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
-                  &lt;ipSafelist
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                  xmlns="urn:xml:ipSafelist"&gt; &lt;addresses&gt;
-                  &lt;ip&gt;192.168.0.1&lt;/ip&gt;
-                  &lt;ip&gt;192.168.0.2&lt;/ip&gt; &lt;/addresses&gt;
-                  &lt;/ipSafelist&gt;</xsdxt:code>
-            </wadl:doc>
-         </representation>
-
-         <representation mediaType="application/json">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >{"addresses":["192.168.0.1","192.168.0.2"]}</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </response>
-
-   </method>
-
-   <method id="d1e10948" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Add">
-         <para role="shortdesc">Adds an IP to the ipsafelist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >POST
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/ipsafelist/216.12.34.1',
-                  {},'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid IP address. Sample Message: invalid
-               ip address: 123</para>
-         </wadl:doc>
-      </response>
-   </method>
-
-   <method id="d1e10989" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Edit">
-         <para role="shortdesc">Edits IP addresses on the
-            safelist.</para>
-         <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in the last octets to
-            specify IP ranges. For example: 216.12.34.%, 216.12.%.%,
-            216.%.%.%.</para>
-         <table rules="all">
-            <caption>Request Data</caption>
-            <thead>
-               <tr>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Field
-                        Name</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml">Data
-                        Type</b>
-                  </td>
-                  <td>
-                     <b xmlns="http://www.w3.org/1999/xhtml"
-                        >Description</b>
-                  </td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>addList</td>
-                  <td>string</td>
-                  <td>Comma separated list of IP addresses to add to
-                     the list</td>
-               </tr>
-               <tr>
-                  <td>removeList</td>
-                  <td>string</td>
-                  <td>Comma separated list of IP addresses to remove
-                     from the list</td>
-               </tr>
-            </tbody>
-         </table>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >PUT
-                  '/customers/12345678/domains/example.com/ex/mailboxes/jane.doe/spam/ipsafelist',
-                  { 'addList' =\u003E '216.12.34.%,216.12.%.%',
-                  'removeList' =\u003E '216.%.%.%' }, 'text/xml'"
-                  });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-   </method>
-
-   <method id="d1e11087" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Delete">
-         <para>Removes an IP from the safelist.</para>
-      </wadl:doc>
-      <request>
-         <representation mediaType="application/json" element="noop">
-            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">
-               <xsdxt:code
-                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >DELETE
-                  '/customers/12345678/domains/example.com/ex/mailboxes/alex.smith/spam/ipsafelist/216.12.34.1',
-                  'text/xml'" });</xsdxt:code>
-            </wadl:doc>
-         </representation>
-      </request>
-      <response status="204"/>
-      <response status="400">
-         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered IP is not on the current safelist. Sample
-               Message: 216.12.34.1 is not found on the
-               safelist</para>
-         </wadl:doc>
-      </response>
-   </method>
-
-   <method id="d1e11126" name="GET">
+   <method id="listContacts" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Index">
          <para>Returns a list of contacts under the domain.</para>
       </wadl:doc>
@@ -7862,7 +7380,7 @@
 
    </method>
 
-   <method id="d1e11177" name="GET">
+   <method id="showContactDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Show">
          <para>Returns the contact's details.</para>
       </wadl:doc>
@@ -7938,7 +7456,7 @@
       </response>
    </method>
 
-   <method id="d1e11237" name="POST">
+   <method id="addContact" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add">
          <para role="shortdesc">Adds the contact's details as
             specified. If the contact does not exist, use Add, if it
@@ -8111,10 +7629,9 @@
          </wadl:doc>
       </response>
    </method>
-
-   <method id="d1e11579" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Edit">
-         <para role="shortdesc">Edits the contact's details as
+   <method id="updateContact" name="PUT">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update">
+         <para role="shortdesc">Updates the contact's details as
             specified. If the contact does not exist, use Add, if it
             does, use Edit.</para>
          <table rules="all">
@@ -8242,11 +7759,10 @@
                xml:lang="EN">
                <xsdxt:code
                   xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >PUT
+                  >POST
                   '/customers/12345678/domains/example.com/ex/contacts/alex.smith',
-                  'text/xml', { 'externalEmail' =\u003E
-                  'jonnysNewEmail@microsoft.com', 'company' =\u003E
-                  'Microsoft', 'businessnumber' =\u003E '425 555 5555'
+                  'text/xml', { 'displayName' =\u003E 'Johnny
+                  Customer', 'externalEmail' =\u003E 'jonny@apple.com'
                   }" });</xsdxt:code>
             </wadl:doc>
          </representation>
@@ -8287,7 +7803,7 @@
       </response>
    </method>
 
-   <method id="d1e11921" name="DELETE">
+   <method id="deleteContact" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete">
          <para role="shortdesc">Deletes the contact.</para>
          <para>Remarks</para>
@@ -8315,7 +7831,7 @@
       </response>
    </method>
 
-   <method id="d1e11967" name="GET">
+   <method id="listDistributionLists" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List">
          <para role="shortdesc">Lists Distribution Lists, supports
             exporting. (see Listings)</para>
@@ -8362,24 +7878,24 @@
             </wadl:doc>
          </representation>
       </response>
-      <wadl:response status="400">
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFondFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12057" name="GET">
+   <method id="showDistributionListDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Read">
          <para role="shortdesc">Reads an existing Distribution
             List.</para>
@@ -8439,24 +7955,24 @@
             </wadl:doc>
          </representation>
       </response>
-      <wadl:response status="400">
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFondFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12160" name="POST">
+   <method id="addDistributionList" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create">
          <para role="shortdesc">Adds a Distribution List.</para>
          <itemizedlist>
@@ -8501,31 +8017,31 @@
          </representation>
       </request>
       <response status="204"/>
-      <wadl:response status="204">
+      <response status="204">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="No Content.">
             <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="400">
+      </response>
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFoundFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12243" name="PUT">
+   <method id="updateDistributionList" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update">
          <para role="shortdesc">Updates an existing Distribution
             List.</para>
@@ -8591,31 +8107,31 @@
          </representation>
       </request>
       <response status="204"/>
-      <wadl:response status="204">
+      <response status="204">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="No Content.">
             <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="400">
+      </response>
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFoundFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12352" name="DELETE">
+   <method id="deleteDistributionList" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete">
          <para role="shortdesc">Deletes a distribution list.</para>
          <itemizedlist>
@@ -8645,31 +8161,31 @@
          </representation>
       </request>
       <response status="204"/>
-      <wadl:response status="204">
+      <response status="204">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="No Content.">
             <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="400">
+      </response>
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFoundFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12433" name="GET">
+   <method id="exportDistributionListFile" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Export">
          <para role="shortdesc">Exports a file of distribution
             lists.</para>
@@ -8697,31 +8213,31 @@
          </representation>
       </request>
       <response status="202"/>
-      <wadl:response status="200">
+      <response status="200">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Accepted.">
             <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="400">
+      </response>
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFoundFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12509" name="POST">
+   <method id="importDistributionListFile" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Import">
          <para role="shortdesc">Imports a file of distribution
             lists.</para>
@@ -8777,31 +8293,31 @@
          </representation>
       </request>
       <response status="202"/>
-      <wadl:response status="202">
+      <response status="202">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Accepted.">
             <para>The request has been accepted and is
                processed.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="400">
+      </response>
+      <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Bad Request.">
             <para>The request was invalid. Inspect the validationFault
                response for more detail.</para>
          </wadl:doc>
-      </wadl:response>
-      <wadl:response status="404">
+      </response>
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFoundFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
 
-   <method id="d1e12616" name="GET">
+   <method id="listDistributionListAltEmails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Email Addresses - List">
          <para role="shortdesc">Lists an existing Distribution List's
@@ -8845,13 +8361,1779 @@
             </wadl:doc>
          </representation>
       </response>
-      <wadl:response status="404">
+      <response status="404">
          <wadl:doc xmlns="http://docbook.org/ns/docbook"
             title="Not Found.">
             <para>The domain does not exist, the domain does not have
                Exchange, or the marker was not found. Inspect the
                itemNotFondFault for more detail.</para>
          </wadl:doc>
-      </wadl:response>
+      </response>
    </method>
+
+   <!-- begin EXCHANGE RESOURCES -->
+
+   <method id="listResourceMailboxes" name="GET">
+      <doc title="List">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this to list resource mailboxes, supports
+                  exporting, supports exporting. (see Listings)</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#ExchangeResource"
+                     >Exchange Resource</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "ResourceMailboxes": [ { "Type": "Room",
+                  "PhoneNumber": "1234567890", "Upn":
+                  "room.101@example.com", "ResourceCapacity": 25,
+                  "CustomProperties": [ { "Value":
+                  "Videoconferencing", "ExchangeAction": 0 }, {
+                  "Value": "Whiteboard", "ExchangeAction": 0 } ],
+                  "CommonName": "room.101", "DisplayName": "Room 101",
+                  "Alias": "room.101.example.com",
+                  "IsHiddenFromAddressList": false,
+                  "PrimarySmtpAddress": null, "EmailAddresses": null,
+                  "Status": "Ready", "SamAccountName": "room.101",
+                  "LegacyExchangeDn": "/o=e14s/ou=Exchange
+                  Administrative Group
+                  (FYDIBOHF23SPDLT)/cn=Recipients/cn=room.101b5c" }, {
+                  "Type": "Room", "PhoneNumber": "1234567890", "Upn":
+                  "room.102@example.com", "ResourceCapacity": 25,
+                  "CustomProperties": [ { "Value":
+                  "Videoconferencing", "ExchangeAction": 0 }, {
+                  "Value": "Whiteboard", "ExchangeAction": 0 } ],
+                  "CommonName": "room.102", "DisplayName": "Room 101",
+                  "Alias": "room.102.example.com",
+                  "IsHiddenFromAddressList": false,
+                  "PrimarySmtpAddress": null, "EmailAddresses": null,
+                  "Status": "Ready", "SamAccountName": "room.102",
+                  "LegacyExchangeDn": "/o=e14s/ou=Exchange
+                  Administrative Group
+                  (FYDIBOHF23SPDLT)/cn=Recipients/cn=room.1029fd" }, {
+                  "Type": "Room", "PhoneNumber": "1234567890", "Upn":
+                  "room.103@example.com", "ResourceCapacity": 25,
+                  "CustomProperties": [ { "Value":
+                  "Videoconferencing", "ExchangeAction": 0 }, {
+                  "Value": "Whiteboard", "ExchangeAction": 0 } ],
+                  "CommonName": "room.103", "DisplayName": "Room 103",
+                  "Alias": "room.103.example.com",
+                  "IsHiddenFromAddressList": false,
+                  "PrimarySmtpAddress": null, "EmailAddresses": null,
+                  "Status": "Ready", "SamAccountName": "room.103",
+                  "LegacyExchangeDn": "/o=e14s/ou=Exchange
+                  Administrative Group
+                  (FYDIBOHF23SPDLT)/cn=Recipients/cn=room.10370c" } ],
+                  "Sort": "cn", "Limit": 50, "Total": 3, "Order":
+                  "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The listing was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the marker was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="readResourceMailbox" name="GET">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Read resource mailbox">
+         <para role="shortdesc">Reads an existing resource
+            mailbox.</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#ExchangeResource"
+                     >Exchange Resource</phrase>
+               </para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Notes</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>The Exchange Resource resource contains some
+                  paged data that must be accessed via separate GET
+                  requests.</para>
+            </listitem>
+            <listitem>
+               <para>Properties directly on the object and
+                  CustomProperties, can be accessed via a GET on the
+                  base resource.</para>
+            </listitem>
+         </itemizedlist>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.1"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Type": "Room", "PhoneNumber": "1234567890",
+                  "Upn": "room.101@example.com", "ResourceCapacity":
+                  25, "CustomProperties": [ { "Value":
+                  "Videoconferencing", "ExchangeAction": 0 }, {
+                  "Value": "Whiteboard", "ExchangeAction": 0 } ],
+                  "CommonName": "room.101", "DisplayName": "Room 101",
+                  "Alias": "room.101.example.com",
+                  "IsHiddenFromAddressList": false,
+                  "PrimarySmtpAddress": null, "EmailAddresses": null,
+                  "Status": "Ready", "SamAccountName": "room.101",
+                  "LegacyExchangeDn": "/o=e14s/ou=Exchange
+                  Administrative Group
+                  (FYDIBOHF23SPDLT)/cn=Recipients/cn=room.1019d4"
+                  }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The resource was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the marker was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="addResourceMailbox" name="POST">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Add resource mailbox">
+         <para role="shortdesc">Adds a new resource mailbox.</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to add a new resource
+                  mailbox.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#ExchangeResource"
+                     >Exchange Resource</phrase>
+               </para>
+            </listitem>
+         </itemizedlist>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >POST
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources
+                  { "CommonName" : "room.101" "Type" : "Room"
+                  "DisplayName" : "Room 101" "PhoneNumber" :
+                  "1234567890" "ResourceCapacity": 25,
+                  "CustomProperties": [ { "Value" :
+                  "Videoconferencing" }, { "Value" : "Whiteboard" } ],
+                  "CalendarProcessing": { "AutoBooking" : "AutoUpdate"
+                  "BookingWindowInDays": 90,
+                  "EnforceSchedulingHorizon": false, "AllowConflicts":
+                  true, "AllowRecurringMeetings": false,
+                  "ScheduleOnlyDuringWorkHours": true,
+                  "MaximumDurationInMinutes": 720,
+                  "MaximumConflictInstances": 1,
+                  "ConflictPercentageAllowed": 50,
+                  "AdditionalResponse": { "Enable": true, "Value" :
+                  "This is an additional response" } }, "Delegates": [
+                  { "Value" : "user1" }, { "Value" : "user2" }, {
+                  "Value" : "user3" } ], "Permissions": [ {
+                  "Recipient" : "user5" "Types": [ "FullAccess" ] }, {
+                  "Recipient" : "user6" "Types": [ "SendAs" ] }, {
+                  "Recipient" : "user7" "Types": [ "FullAccess"
+                  "SendAs" ] } ], "BookInPolicy": { "Recipients": [ {
+                  "Value" : "user1" }, { "Value" : "user2" } ] },
+                  "RequestInPolicy": { "Recipients": [ { "Value" :
+                  "user4" }, { "Value" : "user5" } ] },
+                  "RequestOutOfPolicy": { "AllUsers": true } }"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="204">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="No Content.">
+            <para>The request has been accepted and will be
+               processed.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the marker was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="updateResourceMailbox" name="PUT">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Update resource mailbox">
+         <para role="shortdesc">Updates a resource mailbox.</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to update an existing resource
+                  mailbox.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#ExchangeResource"
+                     >Exchange Resource</phrase>
+               </para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Notes</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>All data that is part of the 'Exchange Resource'
+                  resource can be updated in a single PUT
+                  request.</para>
+            </listitem>
+            <listitem>
+               <para>CustomProperties, Delegates, and policies must
+                  specify an Action, set to either Add or Remove, to
+                  specify the operation for that value.</para>
+            </listitem>
+            <listitem>
+               <para>Permissions must be specified in whole. For
+                  example, resource1@example.com has user5's
+                  permission types set to FullAccess.</para>
+            </listitem>
+            <listitem>
+               <para>To add SendAs, the request must contain both
+                  FullAccess and SendAs for that user.</para>
+            </listitem>
+            <listitem>
+               <para>To remove all permissions from user7, the request
+                  must contain an empty Type array for that
+                  user.</para>
+            </listitem>
+         </itemizedlist>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101
+                  { "Type" : "Room" "DisplayName" : "Conference Room
+                  101" "PhoneNumber" : "try shouting"
+                  "ResourceCapacity" : "30" "CustomProperties": [ {
+                  "Value" : "Whiteboard" "Action" : "Remove" } ],
+                  "CalendarProcessing": { "AutoBooking" : "AutoUpdate"
+                  "BookingWindowInDays": 180,
+                  "EnforceSchedulingHorizon": true, "AllowConflicts":
+                  false, "AllowRecurringMeetings": true,
+                  "ScheduleOnlyDuringWorkHours": false,
+                  "MaximumDurationInMinutes": 1440,
+                  "MaximumConflictInstances": 0,
+                  "ConflictPercentageAllowed": 0,
+                  "AdditionalResponse": { "Enable": false } },
+                  "Delegates": [ { "Value" : "user3" "Action" :
+                  "Remove" }, { "Value" : "user4" "Action" : "Add" }
+                  ], "Permissions": [ { "Recipient" : "user5" "Types":
+                  [ "FullAccess" "SendAs" ] }, { "Recipient" : "user7"
+                  "Types": [] }, { "Recipient" : "user8" "Types": [
+                  "FullAccess" ] } ], "BookInPolicy": { "Recipients":
+                  [ { "Value" : "user2" "Action" : "Remove" }, {
+                  "Value" : "user3" "Action" : "Add" } ] },
+                  "RequestInPolicy": { "AllUsers": true },
+                  "RequestOutOfPolicy": { "AllUsers": false,
+                  "Recipients": [ { "Value" : "user7" "Action" : "Add"
+                  }, { "Value" : "user8" "Action" : "Add" } ] } }"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="204">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="No Content.">
+            <para>The request has been accepted and will be
+               processed.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the marker was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+   <method id="deleteResourceMailbox" name="DELETE">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Delete resource mailbox">
+         <para role="shortdesc">Deletes a resource mailbox.</para>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >DELETE
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The request has been accepted and will be
+               processed.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the marker was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="exportResourceMailboxes" name="GET">
+      <doc title="Export">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to export a file of resource
+                  mailboxes.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#ExchangeResource"
+                     >Exchange Resource</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <wadl:param name="exportTo" type="xs:string"/>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources?exportTo=myAdminEmail@example.com"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="202"/>
+      <response status="202">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Accepted.">
+            <para>The request has been accepted and will be
+               processed.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the marker was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="readResouceMailboxCalendar" name="GET">
+      <doc title="Calendar Processing - Read">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox's calendar processing data.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#CalendarProcessing"
+                     >Calendar Processing</phrase>
+               </para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/calendarProcessing"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "AutoBooking": "AutoUpdate",
+                  "BookingWindowInDays": 90,
+                  "EnforceSchedulingHorizon": false, "AllowConflicts":
+                  true, "AllowRecurringMeetings": false,
+                  "ScheduleOnlyDuringWorkHours": true,
+                  "MaximumDurationInMinutes": 720,
+                  "MaximumConflictInstances": 1,
+                  "ConflictPercentageAllowed": 50,
+                  "AdditionalResponse": { "Enable": true, "Value":
+                  "This is an additional response" } }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="updateResourceMailboxCalendar" name="PUT">
+      <doc title="Calendar Processing - Update">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to update an existing resource
+                  mailbox's calendar processing data.</para>
+            </listitem>
+            <listitem>
+               <para>Although Calendar Processing settings can be
+                  updated as part of the base Exchange Resource
+                  update, a convenience route is also available for
+                  just sending just the Calendar Processing part of
+                  the request.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#CalendarProcessing"
+                     >Calendar Processing</phrase>
+               </para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/calendarProcessing
+                  { "AutoBooking" : "AutoUpdate"
+                  "BookingWindowInDays": 180,
+                  "EnforceSchedulingHorizon": true, "AllowConflicts":
+                  false, "AllowRecurringMeetings": true,
+                  "ScheduleOnlyDuringWorkHours": false,
+                  "MaximumDurationInMinutes": 1440,
+                  "MaximumConflictInstances": 0,
+                  "ConflictPercentageAllowed": 0,
+                  "AdditionalResponse": { "Enable": false } }"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+   </method>
+
+   <method id="listDelegates" name="GET">
+      <doc title="Delegates - List">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox's delegates data.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Delegates"
+                     >Delegates</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/delegates"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Delegates": [ { "Value": "user1" }, { "Value":
+                  "user2" }, { "Value": "user3" } ], "Limit": 50,
+                  "Total": 3, "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="bulkUpdateDelegates" name="PUT">
+      <doc title="Delegates - Bulk Update">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to update an existing resource
+                  mailbox's delegates data.</para>
+            </listitem>
+            <listitem>
+               <para>Although Delegates settings can be updated as
+                  part of the base Exchange Resource update, a
+                  convenience route is also available for just sending
+                  the Delegates part of the request.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Delegates"
+                     >Delegates</phrase> Array</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/delegates
+                  [ { "Value" : "user1" "Action" : "Remove" }, {
+                  "Value" : "user2" "Action" : "Remove" }, { "Value" :
+                  "user5" "Action" : "Add" } ]" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="readResourceMailboxPermissions" name="GET">
+      <doc title="Permissions - List">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox's permissions data.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Permissions"
+                     >Permissions</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/permissions"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Permissions": [ { "Recipient": "user5", "Types":
+                  [ "FullAccess" ] }, { "Recipient": "user6", "Types":
+                  [ "SendAs" ] }, { "Recipient": "user7", "Types": [
+                  "FullAccess", "SendAs" ] } ], "Limit": 50, "Total":
+                  3, "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="bulkUpdateResourceMailboxCalendar" name="PUT">
+      <doc title="Calendar Processing - Bulk Update">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox's calendar processing data.</para>
+            </listitem>
+            <listitem>
+               <para>Although Permissions settings can be updated as
+                  part of the base Exchange Resource update, a
+                  convenience route is also available for just sending
+                  the Permissions part of the request.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Permissions"
+                     >Permissions</phrase> Array</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/permissions
+                  [ { "Recipient" : "user5" "Types": [ "FullAccess"
+                  "SendAs" ] }, { "Recipient" : "user7" "Types": [] },
+                  { "Recipient" : "user8" "Types": [ "FullAccess" ] }
+                  ]" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+
+   <method id="listPolicies" name="GET">
+      <doc title="Policies - List">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox's permissions data.</para>
+            </listitem>
+            <listitem>
+               <para>Examples in this section will use BookInPolicy,
+                  but the interface for the three is all the
+                  same.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">URL Format</para>
+         <para xmlns="http://docbook.org/ns/docbook">BookIn,
+            RequestIn, and RequestOutOf policies can all be accessed
+            via the resource's URL followed by /bookInPolicy,
+            /requestInPolicy, and /requestOutOfPolicy,
+            respectively.</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain name}/ex/resources/{common
+                  name}/bookInPolicy</para>
+            </listitem>
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain name}/ex/resources/{common
+                  name}/requestInPolicy</para>
+            </listitem>
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain name}/ex/resources/{common
+                  name}/requestOutOfPolicy</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/bookInPolicy"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Recipients": [ { "Value": "user1" }, { "Value":
+                  "user2" } ], "AllUsers":false, "Limit": 50, "Total":
+                  2, "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="bulkUpdatePolicies" name="PUT">
+      <doc title="Policies - Bulk Update">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to read an existing resource
+                  mailbox's policies data.</para>
+            </listitem>
+            <listitem>
+               <para>Although policies settings can be updated as part
+                  of the base Exchange Resource update, a convenience
+                  route is also available for just sending the just
+                  the policies part of the request.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase>
+               </para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">URL Format</para>
+         <para xmlns="http://docbook.org/ns/docbook">BookIn,
+            RequestIn, and RequestOutOf policies can all be accessed
+            via the resource's URL followed by /bookInPolicy,
+            /requestInPolicy, and /requestOutOfPolicy,
+            respectively.</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain name}/ex/resources/{common
+                  name}/bookInPolicy</para>
+            </listitem>
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain name}/ex/resources/{common
+                  name}/requestInPolicy</para>
+            </listitem>
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain name}/ex/resources/{common
+                  name}/requestOutOfPolicy</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/bookInPolicy
+                  { "Recipients": [ { "Value" : "user2" "Action" :
+                  "Remove" }, { "Value" : "user3" "Action" : "Add" }
+                  ], "AllUsers\":false }" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="200">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" title="OK.">
+            <para>The data was successfully retrieved.</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Bad Request.">
+            <para>The request was invalid. Inspect the validationFault
+               response for more detail.</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+            title="Not Found.">
+            <para>The domain does not exist, the domain does not have
+               Exchange, or the resource was not found. Inspect the
+               itemNotFondFault for more detail.</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="listRecipients" name="GET">
+      <doc
+         title="New Resource Options - Available Delegates Recipients">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to list recipients that can be
+                  delegates for a new resource on a given
+                  domain.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Note</para>
+         <para xmlns="http://docbook.org/ns/docbook">
+            https://api.emailsrvr.com/v1/domains/{domain}/ex/resourceOptions/
+            is the base URL for getting complete sets of valid data
+            that can be submitted as part of an Exchange Resource add
+            operation.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resourceOptions/AvailableDelegatesRecipients"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Recipients": [ { "Value": "user1" }, { "Value":
+                  "user10" }, { "Value": "user2" }, { "Value": "user3"
+                  }, { "Value": "user4" }, { "Value": "user5" }, {
+                  "Value": "user6" }, { "Value": "user7" }, { "Value":
+                  "user8" }, { "Value": "user9" } ], "Limit": 50,
+                  "Total": 10, "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+   </method>
+
+   <method id="listRecipientsForResource" name="GET">
+      <doc title="List Available Recipients for New Resource">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to list recipients that can have
+                  permissions for a new resource on a given
+                  domain.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Note</para>
+         <para xmlns="http://docbook.org/ns/docbook">
+            https://api.emailsrvr.com/v1/domains/(domain)/ex/resourceOptions/
+            is the base URL for getting complete sets of valid data
+            that can be submitted as part of an Exchange Resource add
+            operation.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resourceOptions/AvailablePermissionsRecipients"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Recipients": [ { "Value": "user1" }, { "Value":
+                  "user10" }, { "Value": "user2" }, { "Value": "user3"
+                  }, { "Value": "user4" }, { "Value": "user5" }, {
+                  "Value": "user6" }, { "Value": "user7" }, { "Value":
+                  "user8" }, { "Value": "user9" } ], "Limit": 50,
+                  "Total": 10, "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+   </method>
+
+   <method id="listRecipientsForPolicies" name="GET">
+      <doc title="New Resource Options - Available Policy Recipients">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to list recipients that can be in
+                  policies for a new resource on a given
+                  domain.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">URL Format</para>
+         <para xmlns="http://docbook.org/ns/docbook">Available BookIn,
+            RequestIn, and RequestOutOf policy recipients can all be
+            accessed via the resourceOptions URL followed by
+            /availableBookInPolicyRecipients,
+            /availableRequestInPolicyRecipients,
+            /availableRequestOutOfRecipients respectively. The example
+            in this section will use BookInPolicy, but the interface
+            for the three is all the same.</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain
+                  name}/ex/resources/resourceOptions/availableBookInPolicyRecipients</para>
+            </listitem>
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain
+                  name}/ex/resources/resourceOptions/availableRequestInPolicyRecipients</para>
+            </listitem>
+            <listitem>
+               <para>/v1/customers/{customer account
+                  number}/domains/{domain
+                  name}/ex/resources/resourceOptions/availableRequestOutOfRecipients</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Note</para>
+         <para xmlns="http://docbook.org/ns/docbook">
+            https://api.emailsrvr.com/v1/domains/{domain}/ex/resourceOptions/
+            is the base URL for getting complete sets of valid data
+            that can be submitted as part of an Exchange Resource add
+            operation.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resourceOptions/availableBookInPolicyRecipients"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Recipients": [ { "Value": "user1" }, { "Value":
+                  "user10" }, { "Value": "user2" }, { "Value": "user3"
+                  }, { "Value": "user4" }, { "Value": "user5" }, {
+                  "Value": "user6" }, { "Value": "user7" }, { "Value":
+                  "user8" }, { "Value": "user9" } ], "Limit": 50,
+                  "Total": 10, "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+   </method>
+
+   <method id="listRecipientsDelegates" name="GET">
+      <doc
+         title="Existing Resource Options - Available Delegates Recipients">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to list recipients that can be
+                  delegates for an existing resource.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Note</para>
+         <para xmlns="http://docbook.org/ns/docbook">
+            https://api.emailsrvr.com/v1/domains/{domain}/ex/resource/{common
+            name}/options is the base URL for getting complete sets of
+            valid data that can be submitted as part of an Exchange
+            Resource edit operation.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/options/AvailableDelegatesRecipients"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Recipients": [ { "Value": "user10" }, { "Value":
+                  "user4" }, { "Value": "user5" }, { "Value": "user6"
+                  }, { "Value": "user7" }, { "Value": "user8" }, {
+                  "Value": "user9" } ], "Limit": 50, "Total": 7,
+                  "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+   </method>
+
+   <method id="listRecipientsPermissions" name="GET">
+      <doc title="List Available Recipients for Existing Resource">
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>Use this route to list recipients that can have
+                  permissions for an existing resource.</para>
+            </listitem>
+            <listitem>
+               <para>Data Model: <phrase role="#Recipients"
+                     >Recipients</phrase> Listing</para>
+            </listitem>
+         </itemizedlist>
+         <para xmlns="http://docbook.org/ns/docbook">Note</para>
+         <para xmlns="http://docbook.org/ns/docbook">
+            https://api.emailsrvr.com/v1/domains/{domain}/ex/resource/{common
+            name}/options is the base URL for getting complete sets of
+            valid data that can be submitted as part of an Exchange
+            Resource edit operation.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  https://api.emailsrvr.com/v1/domains/example.com/ex/resources/room.101/options/AvailablePermissionsRecipients"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{ "Recipients": [ { "Value": "user1" }, { "Value":
+                  "user10" }, { "Value": "user2" }, { "Value": "user3"
+                  }, { "Value": "user4" }, { "Value": "user8" }, {
+                  "Value": "user9" } ], "Limit": 50, "Total": 7,
+                  "Order": "asc" }</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+   </method>
+
+
+   <method id="listResourceMailboxesDomain" name="GET">
+      <doc title="Index">
+         <para xmlns="http://docbook.org/ns/docbook">This operation
+            returns a list of resource mailboxes associated with the
+            domain.</para>
+         <para xmlns="http://docbook.org/ns/docbook">Remarks</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>The Index operation only supports the GET HTTP
+                  verb.</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  '/customers/12345678/domains/example.com/ex/resources?size=100\u0026offset=10\u0026contains=conference',
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;resourceList
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:resourceList"&gt;
+                  &lt;offset&gt;0&lt;/offset&gt;
+                  &lt;size&gt;50&lt;/size&gt;
+                  &lt;total&gt;3&lt;/total&gt; &lt;resources&gt;
+                  &lt;resource&gt;
+                  &lt;name&gt;apiexresource43&lt;/name&gt;
+                  &lt;displayName&gt;API Test&lt;/displayName&gt;
+                  &lt;type&gt;room&lt;/type&gt; &lt;/resource&gt;
+                  &lt;resource&gt;
+                  &lt;name&gt;apiexresource5&lt;/name&gt;
+                  &lt;displayName&gt;API Test&lt;/displayName&gt;
+                  &lt;type&gt;equipment&lt;/type&gt; &lt;/resource&gt;
+                  &lt;resource&gt;
+                  &lt;name&gt;apiexresource85&lt;/name&gt;
+                  &lt;displayName&gt;API Test&lt;/displayName&gt;
+                  &lt;type&gt;room&lt;/type&gt; &lt;/resource&gt;
+                  &lt;/resources&gt;
+                  &lt;/resourceList&gt;</xsdxt:code>
+            </doc>
+         </representation>
+
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{"offset":0,"size":50,"total":3,"resources":[{"name":"apiexresource43","displayName":"API
+                  Test","type":"room"},{"name":"apiexresource5","displayName":"API
+                  Test","type":"equipment"},{"name":"apiexresource85","displayName":"API
+                  Test","type":"room"}]}</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+
+   </method>
+
+   <method id="showResourceDetails" name="GET">
+      <doc title="Show">
+         <para xmlns="http://docbook.org/ns/docbook">Returns the
+            resource's details.</para>
+         <para xmlns="http://docbook.org/ns/docbook">Remarks</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>The Show operation only supports the GET HTTP
+                  verb.</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  '/customers/12345678/domains/example.com/ex/resource/conference.room',
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;resource
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:resource"&gt;
+                  &lt;name&gt;apiexresource43&lt;/name&gt;
+                  &lt;displayName&gt;API Test&lt;/displayName&gt;
+                  &lt;type&gt;room&lt;/type&gt;
+                  &lt;/resource&gt;</xsdxt:code>
+            </doc>
+         </representation>
+
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{"name":"apiexresource43","displayName":"API
+                  Test","type":"room"}</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Resource is not found. Sample Message: Resource not
+               found</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Entity is found but it's not a resource mailbox.
+               Sample Message: Mailbox is not a resource</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="addResource" name="POST">
+      <doc title="Add">
+         <para xmlns="http://docbook.org/ns/docbook">Adds the resource
+            with the specified information. Required fields must be
+            supplied when adding. Others are optional.</para>
+         <table xmlns="http://docbook.org/ns/docbook">
+            <caption>Request Data</caption>
+            <thead>
+               <tr>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Description</b>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>displayName</td>
+                  <td>string</td>
+                  <td>Resource display name (Required for add)</td>
+               </tr>
+               <tr>
+                  <td>type</td>
+                  <td>string</td>
+                  <td>The resource type, 'room' or 'equipment'
+                     (Required for add)</td>
+               </tr>
+               <tr>
+                  <td>password</td>
+                  <td>string</td>
+                  <td>The password to change the settings of the
+                     mailbox or add/remove admins (Required for
+                     add)</td>
+               </tr>
+            </tbody>
+         </table>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >POST
+                  '/customers/12345678/domains/example.com/ex/resources/conference.room',
+                  { 'displayName' =\u003E 'Conference Room' 'type'
+                  =\u003E 'room' 'password' =\u003E 'abcDEF123' },
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>New resource mailbox already exists. Sample Message:
+               The email address conference.room@abc.com is already in
+               use</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>New resource mailbox name doesn't meet the naming
+               requirements. Sample Message: Invalid resource
+               name</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>New display name doesn't meet the naming
+               requirements. Sample Message: Invalid display
+               name</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Invalid resource mailbox type. Sample Message:
+               Invalid Resource Type. The input must be:
+               room/equipment</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="updateResource" name="PUT">
+      <doc title="Edit">
+         <para xmlns="http://docbook.org/ns/docbook">Edits the
+            resource with the specified information. Required fields
+            must be supplied when adding. Others are optional.</para>
+         <table xmlns="http://docbook.org/ns/docbook">
+            <caption>Request Data</caption>
+            <thead>
+               <tr>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Description</b>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>displayName</td>
+                  <td>string</td>
+                  <td>Resource display name (Required for add)</td>
+               </tr>
+               <tr>
+                  <td>type</td>
+                  <td>string</td>
+                  <td>The resource type, 'room' or 'equipment'
+                     (Required for add)</td>
+               </tr>
+               <tr>
+                  <td>password</td>
+                  <td>string</td>
+                  <td>The password to change the settings of the
+                     mailbox or add/remove admins (Required for
+                     add)</td>
+               </tr>
+            </tbody>
+         </table>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT
+                  '/customers/12345678/domains/example.com/ex/resources/all.employees',
+                  { 'displayName' =\u003E 'Conference Room A'
+                  'password' =\u003E 'ABCd4321' }, 'text/xml',"
+                  });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>New resource mailbox already exists. Sample Message:
+               The email address conference.room@abc.com is already in
+               use</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>New resource mailbox name doesn't meet the naming
+               requirements. Sample Message: Invalid resource
+               name</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>New display name doesn't meet the naming
+               requirements. Sample Message: Invalid display
+               name</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Invalid resource mailbox type. Sample Message:
+               Invalid Resource Type. The input must be:
+               room/equipment</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="deleteResource" name="DELETE">
+      <doc title="Delete">
+         <para xmlns="http://docbook.org/ns/docbook">Deletes the
+            resource.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >DELETE
+                  '/customers/12345678/domains/example.com/ex/resources/all.employees',
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Resource is not found. Sample Message: Resource not
+               found</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Entity is found but it's not a resource mailbox.
+               Sample Message: Mailbox is not a resource</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="listResourceAdmins" name="GET">
+      <doc title="Index Admin">
+         <para xmlns="http://docbook.org/ns/docbook">This refers to
+            the admins that can manage the resource.</para>
+         <para xmlns="http://docbook.org/ns/docbook">Gets the list of
+            resource admins.</para>
+         <para xmlns="http://docbook.org/ns/docbook">Remarks</para>
+         <itemizedlist xmlns="http://docbook.org/ns/docbook">
+            <listitem>
+               <para>The Index operation only supports the GET HTTP
+                  verb.</para>
+            </listitem>
+         </itemizedlist>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET
+                  '/customers/12345678/domains/example.com/ex/resources/conference.room/admins',
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;resourceAdminList
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:resourceAdminList"&gt;
+                  &lt;offset&gt;0&lt;/offset&gt;
+                  &lt;size&gt;50&lt;/size&gt;
+                  &lt;total&gt;3&lt;/total&gt; &lt;admins&gt;
+                  &lt;admin&gt;apiexmailbox70@apidomain90.com&lt;/admin&gt;
+                  &lt;admin&gt;apiexmailbox87@apidomain90.com&lt;/admin&gt;
+                  &lt;admin&gt;apiexmailbox89@apidomain90.com&lt;/admin&gt;
+                  &lt;/admins&gt;
+                  &lt;/resourceAdminList&gt;</xsdxt:code>
+            </doc>
+         </representation>
+
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >{"offset":0,"size":50,"total":3,"admins":["apiexmailbox70@apidomain90.com","apiexmailbox87@apidomain90.com","apiexmailbox89@apidomain90.com"]}</xsdxt:code>
+            </doc>
+         </representation>
+      </response>
+
+   </method>
+
+   <method id="addResourceAdmin" name="POST">
+      <doc title="Add Admins">
+         <para xmlns="http://docbook.org/ns/docbook">This refers to
+            the admins that can manage the resource.</para>
+         <para xmlns="http://docbook.org/ns/docbook">Adds an admin to
+            the resource.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >POST
+                  '/customers/12345678/domains/example.com/ex/resources/conference.room/admins/john.smith',
+                  {}, 'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Resource is not found. Sample Message: Resource not
+               found</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Entity is found but it's not a resource mailbox.
+               Sample Message: Mailbox is not a resource</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Admin is already on the resource admin list. Sample
+               Message: User is already on the resource admin
+               list</para>
+         </wadl:doc>
+      </response>
+   </method>
+
+   <method id="deleteResourceAdmin" name="DELETE">
+      <doc title="Delete Member">
+         <para xmlns="http://docbook.org/ns/docbook">Removes the admin
+            from the resource.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >DELETE
+                  '/customers/12345678/domains/example.com/ex/resources/conference.room/admins/john.smith',
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Resource is not found. Sample Message: Resource not
+               found</para>
+         </wadl:doc>
+      </response>
+      <response status="404">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Entity is found but it's not a resource mailbox.
+               Sample Message: Mailbox is not a resource</para>
+         </wadl:doc>
+      </response>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook">
+            <para>Admin is not found on the resource admin list.
+               Sample Message: User is not on the resource admin
+               list</para>
+         </wadl:doc>
+      </response>
+   </method>
+   <!-- begin SHAREPOINT -->
+
+   <method id="listSharepointStatus" name="GET">
+      <doc title="List SharePoint Status">
+         <para xmlns="http://docbook.org/ns/docbook">Returns the
+            status and quota size of the SharePoint service.</para>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET '/customers/999999/sharepoint/settings',
+                  'text/xml'" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            <doc xml:lang="en">
+               <xsdxt:sample
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0">
+                  <xsdxt:code
+                     href="./samples/ea-sharepoint-status-response.xml"
+                  />
+               </xsdxt:sample>
+            </doc>
+         </representation>
+         <representation mediaType="application/json">
+            <doc xml:lang="en">
+               <xsdxt:sample
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0">
+                  <xsdxt:code
+                     href="./samples/ea-sharepoint-status-response.json"
+                  />
+               </xsdxt:sample>
+            </doc>
+         </representation>
+      </response>
+   </method>
+
+   <method id="updateSharepointSettings" name="PUT">
+      <doc title="Update SharePoint Settings (Reseller Only)">
+         <para xmlns="http://docbook.org/ns/docbook"> If you are a
+            reseller, this operation modifies SharePoint settings for
+            your customers. </para>
+         <table xmlns="http://docbook.org/ns/docbook">
+            <caption>Request Data</caption>
+            <thead>
+               <tr>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Description</b>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>enabled</td>
+                  <td>boolean</td>
+                  <td>Whether SharePoint is enabled or not. By
+                     enabling SharePoint you and/or your customers are
+                     agreeing to Rackspace's <link
+                        xlink:href="http://www.rackspace.com/information/legal/sharepointappterms"
+                        >SharePoint Services Terms and
+                        Conditions</link>
+                  </td>
+               </tr>
+               <tr>
+                  <td>size</td>
+                  <td>double</td>
+                  <td>SharePoint's storage size in GB. Valid values
+                     are .25 and any integer between 1 and 50
+                     inclusive. This field will be ignored when
+                     SharePoint is disabled. (default value is
+                     0.25GB)</td>
+               </tr>
+            </tbody>
+         </table>
+      </doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <doc xml:lang="en">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT '/customers/123456/sharepoint/settings',
+                  'text/xml', { 'enabled' =\u003E 'true', 'size'
+                  =\u003E '10.0' }" });</xsdxt:code>
+            </doc>
+         </representation>
+      </request>
+      <response status="204"/>
+   </method>
+
+
 </application>
