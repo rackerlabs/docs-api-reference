@@ -46,5 +46,5 @@
         </legalnotice>
     </info>
     <xi:include href="preface.xml"/>
-    <xi:include href="ch_blockstorage-api.xml"/>
+    <xi:include href="ch_blockstorage-v1.xml"/>
 </book>
