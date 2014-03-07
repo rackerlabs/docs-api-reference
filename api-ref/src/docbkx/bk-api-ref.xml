@@ -41,15 +41,16 @@
     <xi:include href="api-ref-big-data.xml"/>
     <xi:include href="api-ref-blockstorage.xml"/>
     <xi:include href="api-ref-databases.xml"/>
-    <xi:include href="api-ref-dns.xml"/>
+   <!-- <xi:include href="api-ref-dns.xml"/>-->
+    <xi:include href="api-ref-email-and-apps.xml"/>
     <xi:include href="api-ref-files.xml"/>
     <xi:include href="api-ref-identity.xml"/>
     <xi:include href="api-ref-images.xml"/>
-    <xi:include href="api-ref-load-balancers.xml"/>
+   <!-- <xi:include href="api-ref-load-balancers.xml"/>-->
     <xi:include href="api-ref-monitoring.xml"/>
-    <xi:include href="api-ref-networking.xml"/>
+    <xi:include href="api-ref-networks.xml"/>
     <xi:include href="api-ref-orchestration.xml"/>
     <xi:include href="api-ref-queues.xml"/>
-    <xi:include href="api-ref-servers.xml"/>
+    <xi:include href="api-ref.xml"/>
     <xi:include href="api-ref-servers-ext.xml"/>
 </book>

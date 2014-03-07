@@ -1,0 +1,16 @@
+{
+   "snapshot":{
+      "created_at":"2014-01-28T16:56:56.000000",
+      "display_description":"Daily backup",
+      "display_name":"snap-001",
+      "id":"3fbbcccf-d058-4502-8844-6feeffdf4cb5",
+      "metadata":{
+
+      },
+      "os-extended-snapshot-attributes:progress":"25.39%",
+      "os-extended-snapshot-attributes:project_id":"123456",
+      "size":100,
+      "status":"creating",
+      "volume_id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+   }
+}

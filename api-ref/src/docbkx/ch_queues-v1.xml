@@ -28,7 +28,7 @@
         </note>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#version"/>
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#version"/>
         </wadl:resources>
     </section>
     <section xml:id="queue-operations-dle001">
@@ -36,15 +36,15 @@
         <para>Manage queues.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#queues">
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queues">
                 <wadl:method href="#listQueues"/>
             </wadl:resource>
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#queue"/>
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queue"/>
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#metadata"/>
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#metadata"/>
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#stats"
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#stats"
             />
         </wadl:resources>
     </section>
@@ -60,9 +60,9 @@
         </note>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#messages"/>
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#messages"/>
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#message"
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#message"
             />
         </wadl:resources>
     </section>
@@ -71,9 +71,9 @@
         <para>Perform claim operations.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#claims"/>
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claims"/>
             <wadl:resource
-                href="https://github.rackspace.com/IX/cloud-queuing/raw/master/src/wadl/cq-devguide.wadl#claim"
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claim"
             />
         </wadl:resources>
     </section>

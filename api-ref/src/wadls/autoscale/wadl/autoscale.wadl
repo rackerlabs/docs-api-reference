@@ -48,7 +48,7 @@
                     </param>
                     <method href="#createGroup"/>
                     <method href="#listGroups"/>
-                    <resource id="group" path="{groupId}">
+                    <resource id="groupId" path="{groupId}">
                         <param name="groupId" type="osapi:UUID"
                             required="true" style="template">
                             <wadl:doc
@@ -150,8 +150,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/reqCreateGroup-json-http.txt"/>
+                    <!--<xsdxt:code
+                        href="../docbkx/samples/reqCreateGroup-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/reqCreateGroup.json"/>
                 </wadl:doc>
@@ -510,8 +510,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetGroups-json-http.txt"/>
+                    <!--<xsdxt:code
+                        href="../docbkx/samples/resGetGroups-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetGroups.json"/>
                 </wadl:doc>
@@ -533,8 +533,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetGroupManifest-json-http.txt"/>
+                    <!-- <xsdxt:code
+                        href="../docbkx/samples/resGetGroupManifest-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetGroupManifest.json"
                     />
@@ -606,8 +606,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetGroupState-json-http.txt"/>
+                    <!--<xsdxt:code
+                        href="../docbkx/samples/resGetGroupState-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetGroupState.json"
                     />
@@ -631,8 +631,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetGroupConfig-json-http.txt"/>
+                    <!--  <xsdxt:code
+                        href="../docbkx/samples/resGetGroupConfig-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetGroupConfig.json"
                     />
@@ -911,215 +911,200 @@
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
             title="Create policy">
             <para role="shortdesc">Creates one or more scaling
-                policies for the specified scaling group.</para>
+                policies for a specified scaling group.</para>
             <para>To create a policy, specify it in the request body
                 in JSON format. Each description must include a name,
                 type, adjustment, and cool-down time.</para>
             <para>Use the JSON response to obtain information about
-                the newly-created policy or policies:</para><itemizedlist>
+                the newly-created policy or policies:</para>
+            <itemizedlist>
                 <listitem><para>The response header points to the List
-                        Policies endpoint..</para></listitem>
+                        Policies endpoint.</para></listitem>
                 <listitem><para>The response body provides an array of
-                        scaling policies..</para></listitem>
+                        scaling policies.</para></listitem>
+            </itemizedlist>
+            <para>The examples that are provided below show several
+                methods for creating a scaling policy:</para><itemizedlist>
+                <listitem><para>A request to create a policy based on
+                        desired capacity.</para></listitem>
+                <listitem><para>A request to create a policy based on
+                        incremental change.</para></listitem>
+                <listitem><para>A request to create a policy based on
+                        change percentage.</para></listitem>
+                <listitem><para>A request to create a policy based on
+                        change percentage scheduled daily, at a
+                        specific time of day.</para></listitem>
+                <listitem><para>A request to create a policy based on
+                        change percentage scheduled once, for a
+                        specific date and time.</para></listitem>
+                <listitem><para>A request to create multiple policies,
+                        followed by the matching
+                    response.</para></listitem>
             </itemizedlist>
         </wadl:doc>
         <request>
-            <representation mediaType="application/json">
+            <param style="plain" name="array" required="true"
+                type="array" path="$.[*]">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                    xml:lang="EN">
-                    <para>The examples that are provided below show
-                        several methods for creating a scaling
-                        policy:</para><itemizedlist>
-                        <listitem><para>A request to create a policy
-                                based on desired
-                            capacity.</para></listitem>
-                        <listitem><para>A request to create a policy
-                                based on incremental
-                            change.</para></listitem>
-                        <listitem><para>A request to create a policy
-                                based on change
-                            percentage.</para></listitem>
-                        <listitem><para>A request to create a policy
-                                based on change percentage scheduled
-                                daily, at a specific time of
-                                day.</para></listitem>
-                        <listitem><para>A request to create a policy
-                                based on change percentage scheduled
-                                once, for a specific date and
-                                time.</para></listitem>
-                        <listitem><para>A request to create multiple
-                                policies, followed by the matching
-                                response.</para></listitem>
-                    </itemizedlist>
-                    <xsdxt:sample
-                        title="Create Policy (Desired Capacity) Request: JSON">
-                        <para>The following example shows how to
-                            create a webhook-based policy that
-                            specifies that the desired capacity be
-                            five servers and sets the cool-down phase
-                            to 1800 seconds.</para>
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicy-desiredCapacity.json"
-                        />
-                    </xsdxt:sample>
-                    <xsdxt:sample
-                        title="Create Policy (Incremental Change) Request: JSON">
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicy-change.json"
-                        />
-                    </xsdxt:sample>
-                    <xsdxt:sample
-                        title="Create Policy (Percentage Change) Request: JSON">
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicy-changePercent.json"
-                        />
-                    </xsdxt:sample>
-                    <xsdxt:sample
-                        title="Create Policy (Percentage Change at Time) Request: JSON">
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicy-changePercentTime.json"
-                        />
-                    </xsdxt:sample>
-                    <xsdxt:sample
-                        title="Create Policy (Percentage Change on Date) Request: JSON">
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicy-changePercentDate.json"
-                        />
-                    </xsdxt:sample>
-                    <xsdxt:sample
-                        title="Create Policies Request: HTTP and JSON">
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicies-json-http.txt"/>
-                        <xsdxt:code
-                            href="../docbkx/samples/reqCreatePolicies.json"
-                        />
-                    </xsdxt:sample>
+                    xml:lang="EN"><para>An array of scaling
+                        policies.</para></wadl:doc>
+            </param>
+            <param style="plain" name="name" required="true"
+                type="string" path="$.[*].name">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The name of the scaling
+                        policy. The name must be unique for each
+                        scaling policy in the scaling
+                    group.</para></wadl:doc>
+            </param>
+            <param style="plain" name="args" required="false"
+                type="object" path="$.[*].args">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>Additional configuration
+                        information for policies of type "schedule."
+                        This parameter is not required for policies of
+                        type "webhook." This parameter must be set to
+                        either "at" or <code>cron</code>. Both "at"
+                        and <code>cron</code> are mutually
+                        exclusive.</para>
                 </wadl:doc>
-                <param style="plain" name="array" required="true"
-                    type="array" path="$.[*]">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>An array of scaling
-                            policies.</para></wadl:doc>
-                </param>
-                <param style="plain" name="name" required="true"
-                    type="string" path="$.[*].name">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The name of the scaling
-                            policy. The name must be unique for each
-                            scaling policy in the scaling
-                            group.</para></wadl:doc>
-                </param>
-                <param style="plain" name="args" required="false"
-                    type="object" path="$.[*].args">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>Additional configuration
-                            information for policies of type
-                            "schedule." This parameter is not required
-                            for policies of type "webhook." This
-                            parameter must be set to either "at" or
-                                <code>cron</code>. Both "at" and
-                                <code>cron</code> are mutually
-                            exclusive.</para>
-                    </wadl:doc>
-                </param>
-                <param style="plain" name="cron" required="false"
-                    type="string" path="$.[*].args.cron">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The recurring time when
-                            the policy runs as a cron entry. For
-                            example, if you set this parameter to
-                                <code>1 0 * * *</code>, the policy
-                            will run at one minute past midnight
-                            (00:01) every day of the month, and every
-                            day of the week. For more information
-                            about cron, see <link
-                                xlink:href="http://en.wikipedia.org/wiki/Cron"
-                                >
-                                http://en.wikipedia.org/wiki/Cron</link>.</para></wadl:doc>
-                </param>
-                <param style="plain" name="at" required="false"
-                    type="string" path="$.[*].args.at">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The time at which this
-                            policy runs. This property is mutually
-                            exclusive with the <code>cron</code>
-                            parameter. You can either provide
-                                <code>cron</code> or "at" for a given
-                            policy, but not both. You must specify
-                            seconds when using "at". If seconds are
-                            not specified, a 400 error is
-                            returned.</para></wadl:doc>
-                </param>
-                <param style="plain" name="changePercent"
-                    required="false" type="number"
-                    path="$.[*].changePercent">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The percentage amount
-                            change to make in the number of servers in
-                            the scaling group. If this number is
-                            positive, the number of servers increases
-                            by the specified percentage. If you set
-                            this parameter to a negative number, the
-                            number of servers decreases by the
-                            specified percentage.</para><para>The
-                            absolute change in the number of servers
-                            is rounded to the nearest integer. This
-                            means that if -X% of the current number of
-                            servers translates to -0.5 or -0.25 or
-                            -0.75 servers, the actual number of
-                            servers that are shut down is 1. If X% of
-                            the current number of servers translates
-                            to 1.2 or 1.5 or 1.7 servers, the actual
-                            number of servers that are launched is
-                            2.</para></wadl:doc>
-                </param>
-                <param style="plain" name="cooldown" required="true"
-                    type="number" path="$.[*].cooldown">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The cool-down period, in
-                            seconds, before this particular scaling
-                            policy can run again. The cool-down period
-                            does not affect the global scaling group
-                            cool-down. The minimum value for this
-                            parameter is 0 seconds, the maximum value
-                            is 86400 seconds (24 hrs).</para>
-                    </wadl:doc>
-                </param>
-                <param style="plain" name="type" required="true"
-                    type="enum" path="$.[*].type">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The type of policy that is
-                            executed for the current release. This
-                            value can be either <code>webhook</code>
-                            for webhook-based policies or
-                                <code>schedule</code> for
-                            schedule-based policies.</para></wadl:doc>
-                </param>
-                <param style="plain" name="change" required="false"
-                    type="integer" path="$.[*].change">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The change to make in the
-                            number of servers in the scaling group.
-                            This parameter must be an integer. If the
-                            value is a positive integer, the number of
-                            servers increases. If the value is a
-                            negative integer, the number of servers
-                            decreases.</para></wadl:doc>
-                </param>
-                <param style="plain" name="desiredCapacity"
-                    required="false" type="integer"
-                    path="$.[*].desiredCapacity">
-                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>The desired server
-                            capacity of the scaling the group. For
-                            example how many servers there should be
-                            in the scaling group. This value must be
-                            an absolute number. For example, if this
-                            parameter is set to 10, executing this
-                            policy will bring the number of servers to
-                            10. The minimum allowed value of this
-                            parameter is 0.</para></wadl:doc>
-                </param>
+            </param>
+            <param style="plain" name="cron" required="false"
+                type="string" path="$.[*].args.cron">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The recurring time when the
+                        policy runs as a cron entry. For example, if
+                        you set this parameter to <code>1 0 * *
+                            *</code>, the policy will run at one
+                        minute past midnight (00:01) every day of the
+                        month, and every day of the week. For more
+                        information about cron, see <link
+                            xlink:href="http://en.wikipedia.org/wiki/Cron"
+                            >
+                        http://en.wikipedia.org/wiki/Cron</link>.</para></wadl:doc>
+            </param>
+            <param style="plain" name="at" required="false"
+                type="string" path="$.[*].args.at">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The time at which this policy
+                        runs. This property is mutually exclusive with
+                        the <code>cron</code> parameter. You can
+                        either provide <code>cron</code> or "at" for a
+                        given policy, but not both. You must specify
+                        seconds when using "at". If seconds are not
+                        specified, a 400 error is
+                    returned.</para></wadl:doc>
+            </param>
+            <param style="plain" name="changePercent" required="false"
+                type="number" path="$.[*].changePercent">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The percentage amount change
+                        to make in the number of servers in the
+                        scaling group. If this number is positive, the
+                        number of servers increases by the specified
+                        percentage. If you set this parameter to a
+                        negative number, the number of servers
+                        decreases by the specified
+                        percentage.</para><para>The absolute change in
+                        the number of servers is rounded to the
+                        nearest integer. This means that if -X% of the
+                        current number of servers translates to -0.5
+                        or -0.25 or -0.75 servers, the actual number
+                        of servers that are shut down is 1. If X% of
+                        the current number of servers translates to
+                        1.2 or 1.5 or 1.7 servers, the actual number
+                        of servers that are launched is
+                    2.</para></wadl:doc>
+            </param>
+            <param style="plain" name="cooldown" required="true"
+                type="number" path="$.[*].cooldown">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The cool-down period, in
+                        seconds, before this particular scaling policy
+                        can run again. The cool-down period does not
+                        affect the global scaling group cool-down. The
+                        minimum value for this parameter is 0 seconds,
+                        the maximum value is 86400 seconds (24
+                        hrs).</para>
+                </wadl:doc>
+            </param>
+            <param style="plain" name="type" required="true"
+                type="enum" path="$.[*].type">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The type of policy that is
+                        executed for the current release. This value
+                        can be either <code>webhook</code> for
+                        webhook-based policies or
+                            <code>schedule</code> for schedule-based
+                        policies.</para></wadl:doc>
+            </param>
+            <param style="plain" name="change" required="false"
+                type="integer" path="$.[*].change">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The change to make in the
+                        number of servers in the scaling group. This
+                        parameter must be an integer. If the value is
+                        a positive integer, the number of servers
+                        increases. If the value is a negative integer,
+                        the number of servers
+                    decreases.</para></wadl:doc>
+            </param>
+            <param style="plain" name="desiredCapacity"
+                required="false" type="integer"
+                path="$.[*].desiredCapacity">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    xml:lang="EN"><para>The desired server capacity of
+                        the scaling the group. For example how many
+                        servers there should be in the scaling group.
+                        This value must be an absolute number. For
+                        example, if this parameter is set to 10,
+                        executing this policy will bring the number of
+                        servers to 10. The minimum allowed value of
+                        this parameter is 0.</para></wadl:doc>
+            </param>
+            <representation mediaType="application/json">
+                <xsdxt:sample
+                    title="Create Policy (Desired Capacity) Request: JSON">
+                    <para>The following example shows how to create a
+                        webhook-based policy that specifies that the
+                        desired capacity be five servers and sets the
+                        cool-down phase to 1800 seconds.</para>
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreatePolicy-desiredCapacity.json"
+                    />
+                </xsdxt:sample>
+                <xsdxt:sample
+                    title="Create Policy (Incremental Change) Request: JSON">
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreatePolicy-change.json"
+                    />
+                </xsdxt:sample>
+                <xsdxt:sample
+                    title="Create Policy (Percentage Change) Request: JSON">
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreatePolicy-changePercent.json"
+                    />
+                </xsdxt:sample>
+                <xsdxt:sample
+                    title="Create Policy (Percentage Change at Time) Request: JSON">
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreatePolicy-changePercentTime.json"
+                    />
+                </xsdxt:sample>
+                <xsdxt:sample
+                    title="Create Policy (Percentage Change on Date) Request: JSON">
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreatePolicy-changePercentDate.json"
+                    />
+                </xsdxt:sample>
+                <xsdxt:sample
+                    title="Create Policies Request: HTTP and JSON">
+                    <!-- <xsdxt:code
+                            href="../docbkx/samples/reqCreatePolicies-json-http.txt"/>-->
+                    <xsdxt:code
+                        href="../docbkx/samples/reqCreatePolicies.json"
+                    />
+                </xsdxt:sample>
             </representation>
         </request>
         <response status="201">
@@ -1128,8 +1113,8 @@
                     xml:lang="EN">
                     <xsdxt:sample
                         title="Create Policies Response: HTTP and JSON">
-                        <xsdxt:code
-                            href="../docbkx/samples/resCreatePolicies-json-http.txt"/>
+                        <!-- <xsdxt:code
+                            href="../docbkx/samples/resCreatePolicies-json-http.txt"/>-->
                         <xsdxt:code
                             href="../docbkx/samples/resCreatePolicies.json"
                         />
@@ -1152,8 +1137,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetPolicy-json-http.txt"/>
+                    <!-- <xsdxt:code
+                        href="../docbkx/samples/resGetPolicy-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetPolicy.json"/>
                 </wadl:doc>
@@ -1331,8 +1316,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetWebhooks-json-http.txt"/>
+                    <!--<xsdxt:code
+                        href="../docbkx/samples/resGetWebhooks-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetWebhooks.json"/>
                 </wadl:doc>
@@ -1351,8 +1336,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/reqCreateWebhook-json-http.txt"/>
+                    <!-- <xsdxt:code
+                        href="../docbkx/samples/reqCreateWebhook-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/reqCreateWebhook.json"
                     />
@@ -1377,8 +1362,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resCreateWebhook-json-http.txt"/>
+                    <!--<xsdxt:code
+                        href="../docbkx/samples/resCreateWebhook-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resCreateWebhook.json"
                     />
@@ -1397,8 +1382,8 @@
             <representation mediaType="application/json">
                 <wadl:doc xmlns="http://docbook.org/ns/docbook"
                     xml:lang="EN">
-                    <xsdxt:code
-                        href="../docbkx/samples/resGetWebhook-json-http.txt"/>
+                    <!-- <xsdxt:code
+                        href="../docbkx/samples/resGetWebhook-json-http.txt"/>-->
                     <xsdxt:code
                         href="../docbkx/samples/resGetWebhook.json"/>
                 </wadl:doc>
