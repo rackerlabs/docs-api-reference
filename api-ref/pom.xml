@@ -34,23 +34,25 @@
             <configuration>
               <includes> api-ref.xml, <!-- comprehensive -->
                 api-ref-auto-scale.xml, <!--,      auto scale -->
-              <!--  api-ref-backup.xml, --><!-- backup -->
-           <!--     api-ref-big-data.xml, --><!-- big data -->
-                api-ref-blockstorage.xml <!-- block storage -->
-               <!-- api-ref-databases.xml,--> <!-- databases -->
-                <!--api-ref-dns.xml,-->  <!-- dns -->
-               <!-- api-ref-email-and-apps.xml, --> <!-- email and apps -->
-               <!-- api-ref-feeds.xml, -->  <!-- feeds --> 
-             <!--   api-ref-files.xml,--> <!-- files -->
-             <!--   api-ref-identity.xml,--> <!-- identity -->
-               <!-- api-ref-images.xml,--> <!-- images -->
-                <!--api-ref-load-balancers.xml,--> <!-- load balancers -->
-               <!-- api-ref-monitoring.xml,--> <!-- monitoring -->
-           <!--     api-ref-networks.xml,--> <!-- networks -->
-            <!--    api-ref-orchestration.xml,--> <!-- orchestration -->
-             <!--   api-ref-queues.xml, --><!-- queues -->
-               <!-- api-ref-servers.xml, --> <!-- servers -->
-              <!--  api-ref-servers-ext.xml --><!-- servers extensions -->
+                api-ref-backup.xml, <!-- backup -->
+                api-ref-big-data.xml, <!-- big data -->
+                api-ref-blockstorage.xml, <!-- block storage -->
+                <!-- api-ref-databases.xml,-->
+                <!-- databases -->
+                <!--api-ref-dns.xml,-->
+                <!-- dns --> api-ref-email-and-apps.xml, <!-- email and apps -->
+                <!-- api-ref-feeds.xml, -->
+                <!-- feeds --> api-ref-files.xml, <!-- files -->
+                api-ref-identity.xml, <!-- identity -->
+                api-ref-images.xml, <!-- images -->
+                <!--api-ref-load-balancers.xml,-->
+                <!-- load balancers --> api-ref-monitoring.xml,
+                <!-- monitoring --> api-ref-networks.xml,
+                <!-- networks --> api-ref-orchestration.xml,
+                <!-- orchestration --> api-ref-queues.xml, <!-- queues -->
+                <!-- api-ref-servers.xml, -->
+                <!-- servers --> api-ref-servers-ext.xml
+                <!-- servers extensions -->
               </includes>
               <profileSecurity>reviewer</profileSecurity>
               <highlightSource>false</highlightSource>
@@ -59,7 +61,7 @@
             </configuration>
           </execution>
           <!-- Configuration for OpenStack API References (pdf) -->
-       <!--   <execution>
+          <!--   <execution>
             <id>os-api-ref</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -70,7 +72,7 @@
               <pdfFilenameBase>api-ref</pdfFilenameBase>
             </configuration>
           </execution> -->
-         <!-- <execution>
+          <!-- <execution>
             <id>os-api-ref-auto-scale</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -92,7 +94,7 @@
               <pdfFilenameBase>api-ref-backup</pdfFilenameBase>
             </configuration>
           </execution>-->
-     <!--<execution>
+          <!--<execution>
             <id>os-api-ref-big-data</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -147,7 +149,7 @@
               <pdfFilenameBase>api-ref-feeds</pdfFilenameBase>
             </configuration>
           </execution>-->
-      <!--<execution>
+          <!--<execution>
             <id>os-api-ref-files</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -180,7 +182,7 @@
               <pdfFilenameBase>api-ref-images</pdfFilenameBase>
             </configuration>
           </execution>-->
-   <!-- <execution>
+          <!-- <execution>
             <id>os-api-ref-load-balancers</id>
             <goals>
               <goal>generate-webhelp</goal>
