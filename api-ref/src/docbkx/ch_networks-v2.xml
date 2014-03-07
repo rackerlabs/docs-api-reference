@@ -15,7 +15,7 @@
         configuration settings with a neutron network. You can choose
         a specific IP address from the block or let neutron choose the
         first available IP address.</para>
-    <section xml:id="networks">
+    <section xml:id="network-ops">
         <title>Networks</title>
         <para>List, show information for, create, update, and delete
             networks.</para>

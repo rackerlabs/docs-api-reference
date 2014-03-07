@@ -1,0 +1,21 @@
+{
+   "volume":{
+      "status":"in-use",
+      "display_name":"new name",
+      "attachments":[
+
+      ],
+      "availability_zone":"nova",
+      "bootable":"false",
+      "created_at":"2012-10-23T17:12:40.000000",
+      "display_description":"new description",
+      "volume_type":"SATA",
+      "snapshot_id":null,
+      "source_volid":null,
+      "metadata":{
+
+      },
+      "id":"5e9c00de-60b3-48de-ae58-0a07ec842d51",
+      "size":100
+   }
+}

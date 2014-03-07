@@ -20,6 +20,6 @@
     </annotation>
   </info>
   <xi:include href="ch_networks-v2.xml"/>
-  <xi:include href="ch_networks-ext-v2.xml"/>
+  <xi:include href="ch_networks-v2-ext.xml"/>
   <xi:include href="ch_networks_nova.xml"/>
 </book>
