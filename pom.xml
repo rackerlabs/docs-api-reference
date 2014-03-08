@@ -39,7 +39,7 @@
       <plugin>
         <groupId>com.rackspace.cloud.api</groupId>
         <artifactId>clouddocs-maven-plugin</artifactId>
-        <version>1.13.1-SNAPSHOT</version>
+        <version>1.14.1</version>
       </plugin>
     </plugins>
   </build>
