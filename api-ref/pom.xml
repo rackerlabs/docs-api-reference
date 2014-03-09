@@ -37,22 +37,20 @@
                 api-ref-backup.xml, <!-- backup -->
                 api-ref-big-data.xml, <!-- big data -->
                 api-ref-blockstorage.xml, <!-- block storage -->
-                <!-- api-ref-databases.xml,-->
-                <!-- databases -->
-                <!--api-ref-dns.xml,-->
-                <!-- dns --> api-ref-email-and-apps.xml, <!-- email and apps -->
-                <!-- api-ref-feeds.xml, -->
-                <!-- feeds --> api-ref-files.xml, <!-- files -->
+                 api-ref-databases.xml,<!-- databases -->
+                <!--api-ref-dns.xml,--> <!-- dns --> 
+                api-ref-email-and-apps.xml, <!-- email and apps -->
+                <!-- api-ref-feeds.xml, --> <!-- feeds --> 
+                api-ref-files.xml, <!-- files -->
                 api-ref-identity.xml, <!-- identity -->
                 api-ref-images.xml, <!-- images -->
-                <!--api-ref-load-balancers.xml,-->
-                <!-- load balancers --> api-ref-monitoring.xml,
-                <!-- monitoring --> api-ref-networks.xml,
-                <!-- networks --> api-ref-orchestration.xml,
-                <!-- orchestration --> api-ref-queues.xml, <!-- queues -->
-                <!-- api-ref-servers.xml, -->
-                <!-- servers --> api-ref-servers-ext.xml
-                <!-- servers extensions -->
+                <!--api-ref-load-balancers.xml,--> <!-- load balancers --> 
+                api-ref-monitoring.xml, <!-- monitoring --> 
+                api-ref-networks.xml, <!-- networks --> 
+                api-ref-orchestration.xml, <!-- orchestration --> 
+                api-ref-queues.xml, <!-- queues -->
+                <!-- api-ref-servers.xml, --> <!-- servers --> 
+                api-ref-servers-ext.xml <!-- servers extensions -->
               </includes>
               <profileSecurity>reviewer</profileSecurity>
               <highlightSource>false</highlightSource>
@@ -61,7 +59,7 @@
             </configuration>
           </execution>
           <!-- Configuration for OpenStack API References (pdf) -->
-          <!--   <execution>
+        <!--   <execution>
             <id>os-api-ref</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -72,7 +70,7 @@
               <pdfFilenameBase>api-ref</pdfFilenameBase>
             </configuration>
           </execution> -->
-          <!-- <execution>
+<!--        <execution>
             <id>os-api-ref-auto-scale</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -83,7 +81,7 @@
               <pdfFilenameBase>api-ref-auto-scale</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+<!--          <execution>
             <id>os-api-ref-backup</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -94,7 +92,7 @@
               <pdfFilenameBase>api-ref-backup</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+        <!--  <execution>
             <id>os-api-ref-big-data</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -105,7 +103,7 @@
               <pdfFilenameBase>api-ref-big-data</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+<!--          <execution>
             <id>os-api-ref-blockstorage</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -116,7 +114,7 @@
               <pdfFilenameBase>api-ref-blockstorage</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--  <execution>
+        <!-- <execution>
             <id>os-api-ref-databases</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -126,8 +124,8 @@
               <includes> bk-api-ref-databases.xml </includes>
               <pdfFilenameBase>api-ref-databases</pdfFilenameBase>
             </configuration>
-          </execution>
-        <execution>
+          </execution>-->
+     <!--   <execution>
             <id>os-api-ref-dns</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -137,8 +135,8 @@
               <includes> bk-api-ref-dns.xml </includes>
               <pdfFilenameBase>api-ref-dns</pdfFilenameBase>
             </configuration>
-          </execution>
-       <execution>
+          </execution>-->
+       <!--<execution>
             <id>os-api-ref-feeds</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -149,7 +147,7 @@
               <pdfFilenameBase>api-ref-feeds</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+<!--          <execution>
             <id>os-api-ref-files</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -160,7 +158,7 @@
               <pdfFilenameBase>api-ref-files</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+         <!-- <execution>
             <id>os-api-ref-identity</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -193,7 +191,7 @@
               <pdfFilenameBase>api-ref-load-balancers</pdfFilenameBase>
             </configuration>
           </execution> -->
-          <!--<execution>
+        <!--  <execution>
             <id>os-api-ref-monitoring</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -204,7 +202,7 @@
               <pdfFilenameBase>api-ref-monitoring</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+        <!--  <execution>
             <id>os-api-ref-networks</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -215,7 +213,7 @@
               <pdfFilenameBase>api-ref-networks</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
+         <!-- <execution>
             <id>os-api-ref-orchestration</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -237,15 +235,15 @@
               <pdfFilenameBase>api-ref-queues</pdfFilenameBase>
             </configuration>
           </execution>-->
-          <!--<execution>
-            <id>os-api-ref-servers</id>
+     <!-- <execution>
+            <id>os-api-ref</id>
             <goals>
               <goal>generate-webhelp</goal>
             </goals>
             <phase>generate-sources</phase>
             <configuration>
               <includes> bk-api-ref-servers.xml </includes>
-              <pdfFilenameBase>api-ref-servers</pdfFilenameBase>
+              <pdfFilenameBase>api-ref</pdfFilenameBase>
             </configuration>
           </execution>-->
           <!--<execution>
