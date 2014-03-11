@@ -10,210 +10,88 @@
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
    xmlns:raxapi="http://docs.rackspace.com/volume/api/v1">
    <resources base="http://api.emailsrvr.com/" xml:id="email">
-      <resource id="version0" path="v0">
-         <resource path="customers" id="customers">
-            <method href="#listCustomers"/>
-            <method href="#addSubaccount"/>
-            <resource path="{customer_account_number}"
-               id="customer_account_number">
-               <param name="customer_account_number" style="template"
-                  required="true">
-                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN"><para>The customer account
-                        number.</para>
-                  </wadl:doc>
-               </param>
-               <method href="#showAccountDetails"/>
-               <method href="#updateSubaccount"/>
-               <method href="#deleteAccount"/>
-               <resource path="loginToken" id="logintoken">
-                  <method href="#generateLoginToken"/>
+      <!-- <resource id="version0" path="v0">-->
+      <resource path="customers" id="customers">
+         <method href="#listCustomers"/>
+         <method href="#addSubaccount"/>
+         <resource path="{customer_account_number}"
+            id="customer_account_number">
+            <param name="customer_account_number" style="template"
+               required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"><para>The customer account
+                     number.</para>
+               </wadl:doc>
+            </param>
+            <method href="#showAccountDetails"/>
+            <method href="#updateSubaccount"/>
+            <method href="#deleteAccount"/>
+            <resource path="loginToken" id="logintoken">
+               <method href="#generateLoginToken"/>
+            </resource>
+            <resource path="admins" id="admins">
+               <method href="#listAdmins"/>
+               <resource path="{admin_name}" id="admin_name">
+                  <param name="admin_name" style="template"
+                     required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN"><para>The admin name.</para>
+                     </wadl:doc>
+                  </param>
+                  <method href="#showAdminDetails"/>
+                  <method href="#addAdmin"/>
+                  <method href="#updateAdmin"/>
+                  <method href="#deleteAdmin"/>
                </resource>
-               <resource path="admins" id="admins">
-                  <method href="#listAdmins"/>
-                  <resource path="{admin_name}" id="admin_name">
-                     <param name="admin_name" style="template"
-                        required="true">
-                        <wadl:doc
-                           xmlns="http://docbook.org/ns/docbook"
-                           xml:lang="EN"><para>The admin name.</para>
-                        </wadl:doc>
-                     </param>
-                     <method href="#showAdminDetails"/>
-                     <method href="#addAdmin"/>
-                     <method href="#updateAdmin"/>
-                     <method href="#deleteAdmin"/>
-                  </resource>
-               </resource>
-               <resource path="domains" id="domains">
-                  <method href="#listDomains"/>
-                  <resource path="{domain_name}" id="domain_name">
-                     <param name="domain_name" style="template"
-                        required="true">
-                        <wadl:doc
-                           xmlns="http://docbook.org/ns/docbook"
-                           xml:lang="EN"><para>The domain name.</para>
-                        </wadl:doc>
-                     </param>
-                     <method href="#showDomainDetails"/>
-                     <method href="#addDomain"/>
-                     <method href="#updateDomain"/>
-                     <method href="#moveDomain"/>
-                     <method href="#deleteDomain"/>
-                     <resource path="alternatedomains"
-                        id="alternatedomains">
-                        <method href="#listDomainAliases"/>
-                        <resource path="{alternate_domain_name}"
-                           id="alternate_domain_name">
-                           <param name="alternate_domain_name"
-                              style="template" required="true">
+            </resource>
+            <resource path="domains" id="domains">
+               <method href="#listDomains"/>
+               <resource path="{domain_name}" id="domain_name">
+                  <param name="domain_name" style="template"
+                     required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN"><para>The domain name.</para>
+                     </wadl:doc>
+                  </param>
+                  <method href="#showDomainDetails"/>
+                  <method href="#addDomain"/>
+                  <method href="#updateDomain"/>
+                  <method href="#deleteDomain"/>
+                  <resource path="alternatedomains"
+                     id="alternatedomains">
+                     <method href="#listDomainAliases"/>
+                     <resource path="{alternate_domain_name}"
+                        id="alternate_domain_name">
+                        <param name="alternate_domain_name"
+                           style="template" required="true">
+                           <wadl:doc
+                              xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN"><para>The alternate domain
+                                 name.</para>
+                           </wadl:doc>
+                        </param>
+                        <method href="#addDomainAlias"/>
+                        <resource path="{alias_name}" id="alias_name">
+                           <param name="alias_name" style="template"
+                              required="true">
                               <wadl:doc
                                  xmlns="http://docbook.org/ns/docbook"
-                                 xml:lang="EN"><para>The alternate
-                                   domain name.</para>
+                                 xml:lang="EN"><para>The alias
+                                   name.</para>
                               </wadl:doc>
                            </param>
-                           <method href="#addDomainAlias"/>
-                           <resource path="{alias_name}"
-                              id="alias_name">
-                              <param name="alias_name"
-                                 style="template" required="true">
-                                 <wadl:doc
-                                   xmlns="http://docbook.org/ns/docbook"
-                                   xml:lang="EN"><para>The alias
-                                   name.</para>
-                                 </wadl:doc>
-                              </param>
-                              <method href="#deleteAlternateDomain"/>
-                           </resource>
+                           <method href="#deleteAlternateDomain"/>
                         </resource>
                      </resource>
-                     <resource path="splitdomainrouting"
-                        id="splitdomainrouting">
-                        <method href="#showEmailServerDetails"/>
-                        <method href="#setEmailServer"/>
-                     </resource>
-                     <resource path="archivingSSOLoginURL"
-                        id="archivingSSOLoginURL">
-                        <method href="#showLoginURL"/>
-                     </resource>
-                     <resource path="ex" id="ex">
-                        <resource path="publicfolders"
-                           id="publicfolders">
-                           <method href="#showPublicFoldersStatus"/>
-                           <method href="#enablePublicFolders"/>
-                        </resource>
-                        <resource path="contacts" id="contacts">
-                           <method href="#listContacts"/>
-                           <resource path="{contact_name}"
-                              id="contact_name">
-                              <method href="#showContactDetails"/>
-                              <method href="#addContact"/>
-                              <method href="#updateContact"/>
-                              <method href="#deleteContact"/>
-                           </resource>
-                        </resource>
-                     </resource>
-                     <resource path="emaileveryone" id="emaileveryone">
-                        <method href="#emailEveryone"/>
-                     </resource>
-                     <resource path="catchalladdress"
-                        id="catchalladdress">
-                        <method href="#showCatchAllAddress"/>
-                        <method href="#updateCatchAllAddress"/>
-                     </resource>
-                     <resource path="spam" id="spam">
-                        <resource path="settings" id="settings">
-                           <method href="#showSpamSettings"/>
-                           <method href="#updateMailboxSpamSettings"/>
-                           <resource path="ipblacklist"
-                              id="ipblacklist">
-                              <method href="#showBlacklistIP"/>
-                              <method href="#updateBlacklistIPs"/>
-                              <resource path="{ip_address}"
-                                 id="ip_address">
-                                 <param name="ip_address"
-                                   style="template" required="true">
-                                   <wadl:doc
-                                   xmlns="http://docbook.org/ns/docbook"
-                                   xml:lang="EN"><para>The IP
-                                   address.</para>
-                                   </wadl:doc>
-                                 </param>
-                                 <method href="#addBlacklistIP"/>
-                                 <method href="#deleteBlacklistIP"/>
-                              </resource>
-                           </resource>
-                        </resource>
-                        <resource path="blacklist" id="blacklist">
-                           <method href="#showBlacklist"/>
-                           <method href="#updateBlacklistEmails"/>
-                           <resource path="{email_address}"
-                              id="email_address">
-                              <param name="email_address"
-                                 style="template" required="true">
-                                 <wadl:doc
-                                   xmlns="http://docbook.org/ns/docbook"
-                                   xml:lang="EN"><para>The email
-                                   address.</para>
-                                 </wadl:doc>
-                              </param>
-                              <method href="#updateBlacklist"/>
-                              <method
-                                 href="#deleteBlacklistEmailsOrDomains"
-                              />
-                           </resource>
-                        </resource>
-                        <resource path="safelist" id="safelist">
-                           <method href="#showSafelist"/>
-                           <method href="#updateSafelistEmail"/>
-                           <resource path="{email_address}"
-                              id="email_address-safelist">
-                              <param name="email_address"
-                                 style="template" required="true">
-                                 <wadl:doc
-                                   xmlns="http://docbook.org/ns/docbook"
-                                   xml:lang="EN"><para>The email
-                                   address.</para>
-                                 </wadl:doc>
-                              </param>
-                              <method href="#updateSafelist"/>
-                              <method
-                                 href="#deleteSafelistEmailOrDomain"/>
-                           </resource>
-                        </resource>
-                        <resource path="ipsafelist" id="ipsafelist">
-                           <method href="#showSafelistIP"/>
-                           <method href="#updateSafelistIPs"/>
-                           <resource path="{ip_address}"
-                              id="ip_address-safelist">
-                              <param name="ip_address"
-                                 style="template" required="true">
-                                 <wadl:doc
-                                   xmlns="http://docbook.org/ns/docbook"
-                                   xml:lang="EN"><para>The IP
-                                   address.</para>
-                                 </wadl:doc>
-                              </param>
-                              <method href="#addSafelistIP"/>
-                              <method href="#deleteSafelistIP"/>
-                           </resource>
-                        </resource>
-                     </resource>
-                     <resource path="mobilesync" id="mobilesync">
-                        <resource path="users" id="users">
-                           <method href="#listMobileSyncUsers"/>
-                           <method
-                              href="#showDomainAutoProvisionSetting"/>
-                           <method href="#setMobileSyncAutoProvision"/>
-                           <resource path="enable" id="enable">
-                              <method href="#enableMobileSync"/>
-                           </resource>
-                           <resource path="disable" id="disable">
-                              <method href="#disableMobileSync"/>
-                           </resource>
-                        </resource>
-                     </resource>
+                  </resource>
+                  <resource path="splitdomainrouting"
+                     id="splitdomainrouting">
+                     <method href="#showEmailServerDetails"/>
+                     <method href="#setEmailServerDetails"/>
+                  </resource>
+                  <resource path="archivingSSOLoginURL"
+                     id="archivingSSOLoginURL">
+                     <method href="#showLoginURL"/>
                   </resource>
                   <resource path="rs" id="rs">
                      <resource path="mailboxes" id="mailboxes">
@@ -244,7 +122,8 @@
                               </resource>
                               <resource path="blacklist"
                                  id="blacklist-mailbox">
-                                 <method href="#showMailboxBlacklist"/>
+                                 <method
+                                   href="#listMailboxBlacklistEmails"/>
                                  <method
                                    href="#updateMailboxBlacklistEmails"/>
                                  <resource path="{email_address}"
@@ -258,7 +137,7 @@
                                    </wadl:doc>
                                    </param>
                                    <method
-                                   href="#addBlacklistEmailOrDomain"/>
+                                   href="#addMailboxBlacklistEmailOrDomain"/>
                                    <method
                                    href="#deleteMailboxBlacklistEmailOrDomain"
                                    />
@@ -267,7 +146,7 @@
                               <resource path="ipblacklist"
                                  id="ipblacklist-mailbox">
                                  <method
-                                   href="#showMailboxBlacklistIP"/>
+                                   href="#listMailboxBlacklistIPs"/>
                                  <method
                                    href="#updateMailboxBlacklistIPs"/>
                                  <resource path="{ip_address}"
@@ -288,7 +167,8 @@
                               </resource>
                               <resource path="safelist"
                                  id="safelist-mailbox">
-                                 <method href="#showMailboxSafelist"/>
+                                 <method
+                                   href="#listMailboxSafelistEmails"/>
                                  <method
                                    href="#updateMailboxSafelistEmails"/>
                                  <resource path="{email_address}"
@@ -310,7 +190,8 @@
                               </resource>
                               <resource path="ipsafelist"
                                  id="ipsafelist-mailbox">
-                                 <method href="#showMailboxSafelistIP"/>
+                                 <method
+                                   href="#listMailboxSafelistIPs"/>
                                  <method
                                    href="#updateMailboxSafelistIPs"/>
                                  <resource path="{ip_address}"
@@ -384,160 +265,285 @@
                         <method href="#bulkUpdateAlias"/>
                      </resource>
                   </resource>
+                  <!--<resource path="ex" id="ex">
+                     <resource path="publicfolders" id="publicfolders">
+                        <method href="#showPublicFoldersStatus"/>
+                        <method href="#enablePublicFolders"/>
+                     </resource>
+                     <resource path="contacts" id="contacts">
+                        <method href="#listContacts"/>
+                        <resource path="{contact_name}"
+                           id="contact_name">
+                           <method href="#showContactDetails"/>
+                           <method href="#addContact"/>
+                           <method href="#updateContact"/>
+                           <method href="#deleteContact"/>
+                        </resource>
+                     </resource>
+                  </resource>-->
+                  <resource path="ex" id="ex">
+                     <resource path="distributionLists"
+                        id="distributionLists">
+                        <method href="#listDistributionLists"/>
+                        <method href="#showDistributionListDetails"/>
+                        <method href="#addDistributionList"/>
+                        <method href="#updateDistributionList"/>
+                        <method href="#deleteDistributionList"/>
+                        <method href="#exportDistributionListFile"/>
+                        <method href="#importDistributionListFile"/>
+                        <method
+                           href="#listDistributionListAltEmails"/>
+                        <method
+                           href="#updateDistributionListMembers"/>
+                        <method
+                           href="#updateDistributionListMembers"/>
+                        <method
+                           href="#listDistributionListManagers"/>
+                        <method
+                           href="#updateDistributionListManagers"/>
+                        <method href="#listDistributionListSenders"/>
+                        <method
+                           href="#updateDistributionListSenders"/>
+                        <method href="#listRecipientsSenders"/>
+                        <method href="#listRecipientsManagers"/>
+                        <method href="#listRecipientsMembers"/>
+                        <method href="#listRecipientsSendersDomain"/>
+                        <method
+                           href="#listRecipientsManagersDomain"/>
+                        <method href="#listRecipientsMembersDomain"
+                        />
+                     </resource>
+                     <resource path="resources"
+                        id="ex-resources-v1">
+                        <method href="#listResourceMailboxes"/>
+                        <method href="#addResourceMailbox"/>
+                        <method href="#exportResourceMailboxes"/>
+                        <method href="#listResourceMailboxesDomain"/>
+                        <resource path="{resource_name}"
+                           id="resource_name">
+                           <method href="#showResourceDetails"/>
+                           <method href="#addResource"/>
+                           <method href="#updateResource"/>
+                           <method href="#deleteResource"/>
+                           <resource path="admins"
+                              id="admins-resource">
+                              <method href="#listResourceAdmins"/>
+                              <resource path="{admin_name}"
+                                 id="admin_name-resource">
+                                 <method href="#addResourceAdmin"/>
+                                 <method href="#deleteResourceAdmin"
+                                 />
+                              </resource>
+                           </resource>
+                        </resource>
+                        <resource path="resourceOptions"
+                           id="resouceOptions">
+                           <method
+                              href="#listRecipientsForResource"/>
+                           <resource
+                              path="AvailableDelegatesRecipients"
+                              id="availabledelegatesrecipients">
+                              
+                              <method href="#listRecipients"/>
+                              
+                              <method
+                                 href="#listRecipientsDelegates"/>
+                           </resource>
+                           <resource
+                              path="availableBookInPolicyRecipients"
+                              id="availableBookInPolicyRecipients">
+                              <method
+                                 href="#listRecipientsForPolicies"/>
+                           </resource>
+                           <resource
+                              path="AvailablePermissionsRecipients"
+                              id="AvailablePermissionsRecipients">
+                              <method
+                                 href="#listRecipientsPermissions"/>
+                           </resource>
+                        </resource>
+                        <resource path="{common_name}"
+                           id="common_name">
+                           <param name="common_name"
+                              style="template" required="true">
+                              <wadl:doc
+                                 xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN"><para>The common
+                                    name.</para>
+                              </wadl:doc>
+                           </param>
+                           <method href="#showResourceMailbox"/>
+                           <method href="#updateResourceMailbox"/>
+                           <method href="#deleteResourceMailbox"/>
+                           <resource path="calendarProcessing"
+                              id="calendarProcessing">
+                              <method
+                                 href="#showResouceMailboxCalendar"/>
+                              <method
+                                 href="#updateResourceMailboxCalendar"/>
+                              <method
+                                 href="#bulkUpdateResourceMailboxCalendar"
+                              />
+                           </resource>
+                           <resource path="delegates"
+                              id="delegates">
+                              <method href="#listDelegates"/>
+                              <method href="#bulkUpdateDelegates"/>
+                           </resource>
+                           <resource path="permissions"
+                              id="permissions">
+                              <method
+                                 href="#showResourceMailboxPermissions"
+                              />
+                           </resource>
+                           <resource path="bookInPolicy"
+                              id="bookInPolicy">
+                              <method href="#listPolicies"/>
+                              <method href="#bulkUpdatePolicies"/>
+                           </resource>
+                        </resource>
+                     </resource>
+                  </resource>
+                  <resource path="emaileveryone" id="emaileveryone">
+                     <method href="#emailEveryone"/>
+                  </resource>
+                  <resource path="catchalladdress"
+                     id="catchalladdress">
+                     <method href="#showCatchAllAddress"/>
+                     <method href="#updateCatchAllAddress"/>
+                  </resource>
+                  <resource path="spam" id="spam">
+                     <resource path="settings" id="settings">
+                        <method href="#showSpamSettings"/>
+                        <method href="#updateMailboxSpamSettings"/>
+                     </resource>
+                     <resource path="blacklist" id="blacklist">
+                        <method href="#listBlacklistEmails"/>
+                        <method href="#updateBlacklistEmails"/>
+                        <resource path="{email_address}"
+                           id="email_address">
+                           <param name="email_address"
+                              style="template" required="true">
+                              <wadl:doc
+                                 xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN"><para>The email
+                                   address.</para>
+                              </wadl:doc>
+                           </param>
+                           <method href="#addBlacklistEmailOrDomain"/>
+                           <method
+                              href="#deleteBlacklistEmailsOrDomains"/>
+                        </resource>
+                     </resource>
+                     <resource path="ipblacklist" id="ipblacklist">
+                        <method href="#listBlacklistIPs"/>
+                        <method href="#updateBlacklistIPs"/>
+                        <resource path="{ip_address}" id="ip_address">
+                           <param name="ip_address" style="template"
+                              required="true">
+                              <wadl:doc
+                                 xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN"><para>The IP
+                                   address.</para>
+                              </wadl:doc>
+                           </param>
+                           <method href="#addBlacklistIP"/>
+                           <method href="#deleteBlacklistIP"/>
+                        </resource>
+                     </resource>
+                     <resource path="safelist" id="safelist">
+                        <method href="#listSafelistEmails"/>
+                        <method href="#updateSafelistEmail"/>
+                        <resource path="{email_address}"
+                           id="email_address-safelist">
+                           <param name="email_address"
+                              style="template" required="true">
+                              <wadl:doc
+                                 xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN"><para>The email
+                                   address.</para>
+                              </wadl:doc>
+                           </param>
+                           <method href="#addSafelistEmailOrDomain"/>
+                           <method href="#deleteSafelistEmailOrDomain"
+                           />
+                        </resource>
+                     </resource>
+                  </resource>
+                  <resource path="ipsafelist" id="ipsafelist">
+                     <method href="#listSafelistIPs"/>
+                     <method href="#updateSafelistIPs"/>
+                     <resource path="{ip_address}"
+                        id="ip_address-safelist">
+                        <param name="ip_address" style="template"
+                           required="true">
+                           <wadl:doc
+                              xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN"><para>The IP
+                                 address.</para>
+                           </wadl:doc>
+                        </param>
+                        <method href="#addSafelistIP"/>
+                        <method href="#deleteSafelistIP"/>
+                     </resource>
+
+                  </resource>
                </resource>
-               <resource path="ex" id="exchange">
-                  <resource path="resources" id="resources-ex"
-                  > </resource>
-               </resource>
-               <resource path="sharepoint" id="sharepoint">
-                  <resource path="settings" id="sharepoint-settings">
-                     <method href="#showSharepointStatus"/>
-                     <method href="#updateSharepointSettings"/>
+               <resource path="mobilesync" id="mobilesync">
+                  <resource path="users" id="users">
+                     <method href="#listMobileSyncUsers"/>
+                     <method href="#showDomainAutoProvisionSetting"/>
+                     <method href="#setMobileSyncAutoProvision"/>
+                     <resource path="enable" id="enable">
+                        <method href="#enableMobileSync"/>
+                     </resource>
+                     <resource path="disable" id="disable">
+                        <method href="#disableMobileSync"/>
+                     </resource>
                   </resource>
                </resource>
             </resource>
-            <resource path="{new_customer_account_number}"
-               id="new_customer_account_number">
-               <param type="xsd:string" style="plain" required="true">
+            <resource path="sharepoint" id="sharepoint">
+               <resource path="settings" id="sharepoint-settings">
+                  <method href="#showSharepointStatus"/>
+                  <method href="#updateSharepointSettings"/>
+               </resource>
+            </resource>
+         </resource>
+      </resource>
+      <resource path="{new_customer_account_number}"
+         id="new_customer_account_number">
+         <param type="xsd:string" style="plain" required="true">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN" title="New customer account number"
+                  ><para>The customer account number to which you want
+                  to move the domain.</para></wadl:doc>
+         </param>
+         <resource path="domains" id="domains2">
+            <method href="#listDomains"/>
+            <resource path="{domain_name}" id="domain_name2">
+               <param name="domain_name" style="template"
+                  required="true">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN" title="New customer account number"
-                        ><para>The customer account number to which
-                        you want to move the domain.</para></wadl:doc>
+                     xml:lang="EN"><para>The domain name.</para>
+                  </wadl:doc>
                </param>
                <method href="#moveDomain"/>
             </resource>
          </resource>
       </resource>
-      <resource id="version1" path="v1">
+      <!--    </resource>-->
+    <!--  <resource id="version1" path="v1">-->
          <resource path="customers" id="customers-v1">
             <resource path="{customer_account_number}"
                id="customer_account_number-v1">
                <resource path="domains" id="domains-v1">
                   <resource path="{domain_name}" id="domain_name-v1">
-                     <resource path="ex" id="exchange-v1">
-                        <resource path="distributionLists"
-                           id="distributionLists">
-                           <method href="#listDistributionLists"/>
-                           <method href="#showDistributionListDetails"/>
-                           <method href="#addDistributionList"/>
-                           <method href="#updateDistributionList"/>
-                           <method href="#deleteDistributionList"/>
-                           <method href="#exportDistributionListFile"/>
-                           <method href="#importDistributionListFile"/>
-                           <method
-                              href="#listDistributionListAltEmails"/>
-                           <method
-                              href="#updateDistributionListMembers"/>
-                           <method
-                              href="#updateDistributionListMembers"/>
-                           <method
-                              href="#listDistributionListManagers"/>
-                           <method
-                              href="#updateDistributionListManagers"/>
-                           <method href="#listDistributionListSenders"/>
-                           <method
-                              href="#updateDistributionListSenders"/>
-                           <method href="#listRecipientsSenders"/>
-                           <method href="#listRecipientsManagers"/>
-                           <method href="#listRecipientsMembers"/>
-                           <method href="#listRecipientsSendersDomain"/>
-                           <method
-                              href="#listRecipientsManagersDomain"/>
-                           <method href="#listRecipientsMembersDomain"
-                           />
-                        </resource>
-                        <resource path="resources"
-                           id="ex-resources-v1">
-                           <method href="#listResourceMailboxes"/>
-                           <method href="#addResourceMailbox"/>
-                           <method href="#exportResourceMailboxes"/>
-                           <method href="#listResourceMailboxesDomain"/>
-                           <resource path="{resource_name}"
-                              id="resource_name">
-                              <method href="#showResourceDetails"/>
-                              <method href="#addResource"/>
-                              <method href="#updateResource"/>
-                              <method href="#deleteResource"/>
-                              <resource path="admins"
-                                 id="admins-resource">
-                                 <method href="#listResourceAdmins"/>
-                                 <resource path="{admin_name}"
-                                   id="admin_name-resource">
-                                   <method href="#addResourceAdmin"/>
-                                   <method href="#deleteResourceAdmin"
-                                   />
-                                 </resource>
-                              </resource>
-                           </resource>
-                           <resource path="resourceOptions"
-                              id="resouceOptions">
-                              <method
-                                 href="#listRecipientsForResource"/>
-                              <resource
-                                 path="AvailableDelegatesRecipients"
-                                 id="availabledelegatesrecipients">
-
-                                 <method href="#listRecipients"/>
-
-                                 <method
-                                   href="#listRecipientsDelegates"/>
-                              </resource>
-                              <resource
-                                 path="availableBookInPolicyRecipients"
-                                 id="availableBookInPolicyRecipients">
-                                 <method
-                                   href="#listRecipientsForPolicies"/>
-                              </resource>
-                              <resource
-                                 path="AvailablePermissionsRecipients"
-                                 id="AvailablePermissionsRecipients">
-                                 <method
-                                   href="#listRecipientsPermissions"/>
-                              </resource>
-                           </resource>
-                           <resource path="{common_name}"
-                              id="common_name">
-                              <param name="common_name"
-                                 style="template" required="true"> <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                                    xml:lang="EN"><para>The common name.</para>
-                                 </wadl:doc></param>
-                              <method href="#showResourceMailbox"/>
-                              <method href="#updateResourceMailbox"/>
-                              <method href="#deleteResourceMailbox"/>
-                              <resource path="calendarProcessing"
-                                 id="calendarProcessing">
-                                 <method
-                                   href="#showResouceMailboxCalendar"/>
-                                 <method
-                                   href="#updateResourceMailboxCalendar"/>
-                                 <method
-                                   href="#bulkUpdateResourceMailboxCalendar"
-                                 />
-                              </resource>
-                              <resource path="delegates"
-                                 id="delegates">
-                                 <method href="#listDelegates"/>
-                                 <method href="#bulkUpdateDelegates"/>
-                              </resource>
-                              <resource path="permissions"
-                                 id="permissions">
-                                 <method
-                                   href="#showResourceMailboxPermissions"
-                                 />
-                              </resource>
-                              <resource path="bookInPolicy"
-                                 id="bookInPolicy">
-                                 <method href="#listPolicies"/>
-                                 <method href="#bulkUpdatePolicies"/>
-                              </resource>
-                           </resource>
-                        </resource>
-                     </resource>
+                     
                   </resource>
                </resource>
             </resource>
          </resource>
-      </resource>
    </resources>
    <!-- methods -->
    <!-- Customer account operations -->
@@ -899,10 +905,9 @@
             under that specific account are returned.</para>
          <itemizedlist>
             <listitem>
-               <para>This operation returns a list of admins under the
-                  account. If you specify a customer account, a list
-                  of admins under that specific account is
-                  returned.</para>
+               <para>This operation Lists admins under the account. If
+                  you specify a customer account, a list of admins
+                  under that specific account is returned.</para>
             </listitem>
             <listitem>
                <para>Alternate route: /v0/admins</para>
@@ -1129,7 +1134,7 @@
                   <td>allowSimultaneousLogins</td>
                   <td>boolean</td>
                   <td>Allow simultaneous logins using this
-                     Administrative ID</td>
+                     administrative ID</td>
                </tr>
                <tr>
                   <td>restrictedIps</td>
@@ -1328,8 +1333,8 @@
    </method>
    <method id="deleteAdmin" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete Admin">
-         <para role="shortdesc">Deletes an admin for a specified
+         title="Delete admin">
+         <para role="shortdesc">Deletes an admin from a specified
             account.</para>
          <itemizedlist>
             <listitem>
@@ -1522,9 +1527,9 @@
    </method>
    <method id="addDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add (reseller only)">
-         <para role="shortdesc">Adds an domain and specified data to
-            an account.</para>
+         title="Add domain (reseller only)">
+         <para role="shortdesc">Adds a domain and specified data to an
+            account.</para>
          <itemizedlist>
             <listitem>
                <para>Adds a domain to the account with the data
@@ -1666,9 +1671,9 @@
    </method>
    <method id="updateDomain" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit (reseller only)">
-         <para role="shortdesc">Updates an account domain with
-            specified data.</para>
+         title="Update domain (reseller only)">
+         <para role="shortdesc">Updates a domain with specified
+            data.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -1800,7 +1805,7 @@
    </method>
    <method id="moveDomain" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Move Domain (reseller only)">
+         title="Move domain (reseller only)">
          <para role="shortdesc">Moves a domain to a specified customer
             account.</para>
          <para>Remarks</para>
@@ -1878,8 +1883,8 @@
             alternate domains for a specified domain.</para>
          <itemizedlist>
             <listitem>
-               <para>This operation returns a list of Domain Aliases
-                  and Accepted Domains for the domain.</para>
+               <para>This operation Lists Domain Aliases and Accepted
+                  Domains for the domain.</para>
             </listitem>
             <listitem>
                <para>The type of the alternate domain is indicated by
@@ -2044,7 +2049,7 @@
    </method>
    <method id="showEmailServerDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show external email server details">
+         title="Show external email server details (split domain routing)">
          <para role="shortdesc">Shows current external email server
             details.</para>
          <itemizedlist>
@@ -2092,10 +2097,11 @@
       </response>
 
    </method>
-   <method id="setEmailServer" name="PUT">
+   <method id="setEmailServerDetails" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Split Domain Routing - Edit Settings">
-         <para role="shortdesc">Sets the external email server.</para>
+         title="Set external email server details (split domain routing)">
+         <para role="shortdesc">Sets the external email server
+            details.</para>
          <para>This command will return a success when the
             verification passes. Since this involves communication to
             the external server the request may take some time. If the
@@ -2164,8 +2170,8 @@
    </method>
    <method id="showLoginURL" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Archiving SSO Login URL">
-         <para role="shortdesc">Gets the domain archiving service SSO
+         title="Show archiving SSO login URL">
+         <para role="shortdesc">Shows the domain archiving service SSO
             login URL.</para>
          <para>Remarks</para>
          <para>The retrieved URL can be used in browser to access the
@@ -2193,7 +2199,8 @@
    </method>
    <method id="showPublicFoldersStatus" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Domain public folders - Show Status">
+         title="Show 
+         Exchange public folders status">
          <para role="shortdesc">Shows the Exchange public folders
             status for the domain.</para>
          <itemizedlist>
@@ -2235,7 +2242,8 @@
    </method>
    <method id="enablePublicFolders" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Domain public folders - Enable">
+         title="Enable Exchange public folders
+         feature">
          <para role="shortdesc">Enables the Exchange public folders
             feature on the domain. Once enabled, it cannot be
             disabled.</para>
@@ -2291,14 +2299,14 @@
    </method>
    <method id="emailEveryone" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Domain Email Everyone">
-         <para role="shortdesc">Sends an email to all mailboxes for
-            the domain. This request returns a list of
-            recipients.</para>
+         title="Send an email to everyone on the domain">
+         <para role="shortdesc">Sends an email to all mailboxes in the
+            domain.</para>
+         <para>This request Lists recipients.</para>
          <itemizedlist>
             <listitem>
                <para>Send an email to all mailboxes for the domain.
-                  This request returns a list of recipients.</para>
+                  This request Lists recipients.</para>
             </listitem>
             <listitem>
                <para>Alternate route: /v0/domains/{domain
@@ -2394,14 +2402,15 @@
    </method>
    <method id="showCatchAllAddress" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show Domain Catch-All Address">
-         <para role="shortdesc">Returns the Catch-All Address for the
-            domain. Returns empty string when no Catch-All Address set
-            for the domain.</para>
+         title="Show catch-all address">
+         <para role="shortdesc">Shows the catch-all address for the
+            domain.</para>
+         <para>Returns empty string when no catch-all address set for
+            the domain.</para>
          <itemizedlist>
             <listitem>
-               <para>Return the Catch-All Address for the domain.
-                  Returns empty string when no Catch-All Address set
+               <para>Return the catch-all address for the domain.
+                  Returns empty string when no catch-all address set
                   for the domain.</para>
             </listitem>
             <listitem>
@@ -2454,12 +2463,12 @@
    </method>
    <method id="updateCatchAllAddress" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit Domain Catch-All Address">
-         <para role="shortdesc">Edits the Catch-All Address for the
+         title="Update catch-all address">
+         <para role="shortdesc">Updates the catch-all address for the
             domain.</para>
          <itemizedlist>
             <listitem>
-               <para>Edit the Catch-All Address for the domain.</para>
+               <para>Edit the catch-all address for the domain.</para>
             </listitem>
             <listitem>
                <para>Alternate route: /v0/domains/{domain
@@ -2495,7 +2504,7 @@
                   <td>address</td>
                   <td>string</td>
                   <td>The Catch-All email address. Set address to
-                     empty string to remove Catch-All Address.</td>
+                     empty string to remove catch-all address.</td>
                </tr>
             </tbody>
          </table>
@@ -2515,10 +2524,12 @@
       </request>
       <response status="204"/>
    </method>
+   <!-- DOMAIN SPAM SETTINGS -->
    <method id="showSpamSettings" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show Spam Setting">
-         <para role="shortdesc">Shows the domain spam settings.</para>
+         title="Show spam settings">
+         <para role="shortdesc">Shows the spam settings for a
+            domain.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -2579,8 +2590,9 @@
    </method>
    <method id="updateSpamSettings" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Edit Spam">
-         <para role="shortdesc">Edits the domain spam settings.</para>
+         title="Update spam settings">
+         <para role="shortdesc">Updates spam settings for a
+            domain.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -2789,11 +2801,11 @@
          </wadl:doc>
       </response>
    </method>
-   <method id="showBlacklist" name="GET">
+   <method id="listBlacklistEmails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Index">
-         <para role="shortdesc">Returns the email address blacklist
-            associated with the domain.</para>
+         title="List email addresses in blacklist">
+         <para role="shortdesc">Lists the email addresses in a
+            blacklist associated with a domain.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -2842,10 +2854,10 @@
       </response>
 
    </method>
-   <method id="updateBlacklist" name="POST">
+   <method id="addBlacklistEmailOrDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Add">
-         <para role="shortdesc">Adds an email address or domain to the
+         title="Add email address or domain to blacklist">
+         <para role="shortdesc">Adds an email address or domain to a
             blacklist.</para>
       </wadl:doc>
       <request>
@@ -2863,8 +2875,8 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
       <response status="400">
@@ -2876,8 +2888,8 @@
    </method>
    <method id="updateBlacklistEmails" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Edit">
-         <para role="shortdesc">Edits email addresses on the
+         title="Update email addresses in blacklist">
+         <para role="shortdesc">Updates email addresses in a
             blacklist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wildcard in domains, but not in
@@ -2937,9 +2949,9 @@
    </method>
    <method id="deleteBlacklistEmailsOrDomains" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Delete">
-         <para role="shortdesc">Removes an email address or domain
-            from the blacklist.</para>
+         title="Delete email address or domain from blacklist">
+         <para role="shortdesc">Deletes an email address or domain
+            from a blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -2956,23 +2968,23 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered email or domain is not on the current
-               blacklist. Sample Message: abc@junkmail.com is not
-               found on the list</para>
+            <para>Entered email address or domain is not on the
+               current blacklist. Sample Message: abc@junkmail.com is
+               not found on the list</para>
          </wadl:doc>
       </response>
    </method>
-   <method id="showBlacklistIP" name="GET">
+   <method id="listBlacklistIPs" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Index">
-         <para role="shortdesc">Returns IP blacklist associated with
-            the domain.</para>
+         title="List IP addresses in blacklist">
+         <para role="shortdesc">Lists the IP addresses in a blacklist
+            associated with a domain.</para>
          <para>Remarks:</para>
          <itemizedlist>
             <listitem>
@@ -3023,8 +3035,9 @@
    </method>
    <method id="addBlacklistIP" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Add">
-         <para role="shortdesc">Adds an IP to the blacklist.</para>
+         title="Add IP address to blacklist">
+         <para role="shortdesc">Adds an IP address to a
+            blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -3048,8 +3061,8 @@
    </method>
    <method id="updateBlacklistIPs" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Edit">
-         <para role="shortdesc">Edits IP addresses on the
+         title="Update email addresses in blacklist">
+         <para role="shortdesc">Updates the IP addresses in a
             blacklist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wildcard in the last octets to
@@ -3107,8 +3120,8 @@
    </method>
    <method id="deleteBlacklistIP" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Blacklist - Delete">
-         <para>Removes an IP from the blacklist.</para>
+         title="Deletes an IP address from blacklist">
+         <para>Deletes an IP address from a blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -3137,11 +3150,11 @@
          </wadl:doc>
       </response>
    </method>
-   <method id="showSafelist" name="GET">
+   <method id="listSafelistEmails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Index">
-         <para role="shortdesc">Returns email address safelist
-            associated with the domain.</para>
+         title="Lists email addresses in safelist">
+         <para role="shortdesc">Lists the email addresses in a
+            safelist associated with a domain.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -3190,10 +3203,10 @@
       </response>
 
    </method>
-   <method id="updateSafelist" name="POST">
+   <!--<method id="updateSafelist" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Add">
-         <para role="shortdesc">Adds an email address or domain to the
+         title="Add email address or domain to safelist">
+         <para role="shortdesc">Adds an email address or domain to a
             safelist.</para>
       </wadl:doc>
       <request>
@@ -3211,19 +3224,19 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
-   </method>
+   </method>-->
    <method id="updateSafelistEmail" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Edit">
-         <para role="shortdesc">Edits email addresses on the
+         title="Update email addresses in safelist">
+         <para role="shortdesc">Updates email addresses in a
             safelist.</para>
          <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in domains, but not in
-            the TLD (.com, .net, etc). You cannot use wildcards in
+         <para>You can use a '%' as a wild card in domains, but not in
+            the TLD (.com, .net, etc). You cannot use wild cards in
             email addresses. For example, the following are allowed:
             @%.example.com, @examp%.com.</para>
          <table rules="all">
@@ -3279,8 +3292,8 @@
    </method>
    <method id="deleteSafelistEmailOrDomain" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Delete">
-         <para>Removes an email address or domain from the
+         title="Delete email address or domain from safelist">
+         <para>Deletes an email address or domain from a
             safelist.</para>
       </wadl:doc>
       <request>
@@ -3298,23 +3311,23 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered email or domain is not on the current
-               safelist. Sample Message: anyone@yahoo.com is not found
-               on the list</para>
+            <para>Entered email address or domain is not on the
+               current safelist. Sample Message: anyone@yahoo.com is
+               not found on the list</para>
          </wadl:doc>
       </response>
    </method>
-   <method id="showSafelistIP" name="GET">
+   <method id="listSafelistIPs" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Index">
-         <para role="shortdesc">Returns IP safelist associated with
-            the domain.</para>
+         title="List IP addresses in safelist">
+         <para role="shortdesc">Lists the IP addresses in a safelist
+            associated with a domain.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -3365,8 +3378,9 @@
    </method>
    <method id="addSafelistIP" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Add">
-         <para role="shortdesc">Adds an IP to the safelist.</para>
+         title="Add IP address to safelist">
+         <para role="shortdesc">Adds an IP address to a
+            safelist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -3390,11 +3404,11 @@
    </method>
    <method id="updateSafelistIPs" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Edit">
-         <para role="shortdesc">Edits IP addresses on the
+         title="Update IP addresses in safelist">
+         <para role="shortdesc">Updates the IP addresses in a
             safelist.</para>
          <para>Remarks</para>
-         <para>You can use a '%' as a wildcard in the last octets to
+         <para>You can use a '%' as a wild card in the last octets to
             specify IP ranges. For example: 216.12.34.%, 216.12.%.%,
             216.%.%.%.</para>
          <table rules="all">
@@ -3449,8 +3463,8 @@
    </method>
    <method id="deleteSafelistIP" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Delete">
-         <para>Removes an IP from the safelist.</para>
+         title="Delete IP address from safelist">
+         <para>Deletes an IP address from a safelist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -3479,10 +3493,37 @@
          </wadl:doc>
       </response>
    </method>
+   <method id="addSafelistEmailOrDomain" name="POST">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Add email address or domain to safelist">
+         <para role="shortdesc">Adds an email address or a domain to a
+            safelist.</para>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >POST
+                  '/customers/12345678/domains/example.com/spam/safelist/anyone@yahoo.com',
+                  'text/xml'" });</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: 123</para>
+         </wadl:doc>
+      </response>
+   </method>
    <method id="listMailboxes" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="List domain mailboxes">
-         <para role="shortdesc">Lists domain mailboxes.</para>
+         title="List Rackspace email mailboxes">
+         <para role="shortdesc">Lists Rackspace email mailboxes in a
+            domain.</para>
          <para>Filter/Search</para>
          <para>Mailbox searches may be filtered by the 'enabled' flag
             using query methods ?enabled=true and
@@ -3557,8 +3598,9 @@
    </method>
    <method id="showMailboxDetails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show mailbox details">
-         <para role="shortdesc">Shows mailbox details.</para>
+         title="Show Rackspace email mailbox details">
+         <para role="shortdesc">Shows details for a specified
+            Rackspace email mailbox.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -3677,9 +3719,9 @@
    </method>
    <method id="addMailbox" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add Rackspace mailbox">
-         <para role="shortdesc">Adds a Rackspace mailbox by using the
-            following form fields.</para>
+         title="Add Rackspace email mailbox">
+         <para role="shortdesc">Adds a Rackspace email mailbox.</para>
+         <para>To add a mailbox, use these form fields:</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -3962,8 +4004,8 @@
    <method id="updateMailbox" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Update Rackspace mailbox">
-         <para role="shortdesc">Updates a Rackspace mailbox by using
-            the following form fields.</para>
+         <para role="shortdesc">Updates a Rackspace mailbox.</para>
+         <para>To add a mailbox, use these form fields:</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -4244,8 +4286,10 @@
       <response status="204"/>
    </method>
    <method id="deleteMailbox" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete">
-         <para role="shortdesc">Deletes the mailbox.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Delete Rackspace email mailbox">
+         <para role="shortdesc">Deletes a Rackspace email
+            mailbox.</para>
          <para>Remarks</para>
          <para>The mailbox and mailbox contents are deleted
             permanently.</para>
@@ -4266,10 +4310,10 @@
    </method>
    <method id="generateLoginTokenMailbox" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Create Login Token">
-         <para role="shortdesc">Generates a login token that the user
-            can use to log in to a mailbox.</para>
-         <para>This operation returns a loginToken, created date, and
+         title="Create login token for Rackspace email mailbox">
+         <para role="shortdesc">Creates a login token that a user can
+            use to log in to a Rackspace email mailbox.</para>
+         <para>This operation returns a login token, created date, and
             expiration date.</para>
          <para>Remarks</para>
          <itemizedlist>
@@ -4323,7 +4367,7 @@
    <method id="listMobileSyncUsers" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="List Mobile Sync users">
-         <para role="shortdesc">Lists Mobile Sync users on a
+         <para role="shortdesc">Lists Mobile Sync users in a
             domain.</para>
          <para>This list contains all potential users of Mobile Sync
             and their current status (enabled/disabled).</para>
@@ -4428,7 +4472,8 @@
    <method id="enableMobileSync" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Enable Mobile Sync">
-         <para role="shortdesc">Enables Mobile Sync for users.</para>
+         <para role="shortdesc">Enables the Mobile Sync feature for
+            users.</para>
          <para>Special Considerations</para>
          <itemizedlist>
             <listitem>
@@ -4491,7 +4536,8 @@
    <method id="disableMobileSync" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Disable Mobile Sync">
-         <para role="shortdesc">Disables Mobile Sync for users.</para>
+         <para role="shortdesc">Disables the Mobile Sync feature for
+            users.</para>
          <para>Special Considerations</para>
          <itemizedlist>
             <listitem>
@@ -4553,9 +4599,9 @@
    </method>
    <method id="showDomainAutoProvisionSetting" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show domain auto-provisioning setting">
-         <para role="shortdesc">Shows domain auto-provisioning
-            setting.</para>
+         title="Show auto-provisioning setting">
+         <para role="shortdesc">Shows the auto-provisioning setting
+            for a domain.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -4721,7 +4767,7 @@
    </method>
    <method id="updateMailboxSpamSettings" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Update mailbox spam settings">
+         title="Update spam settings">
          <para role="shortdesc">Updates the mailbox spam
             settings.</para>
          <table rules="all">
@@ -4753,13 +4799,13 @@
                <tr>
                   <td>rsEmail.spamHandling</td>
                   <td>string</td>
-                  <td>The string 'toFolder' will deliver the email to
-                     the user's Spam folder, 'delete' will delete the
-                     mail immediately, 'labelSubject' will prepend
-                     [SPAM] to the email's subject line, and
-                     'toAddress' will send the email to a specified
-                     folder instead. <para>Valid Field
-                        Combinations:</para>
+                  <td><para>The string 'toFolder' will deliver the
+                        email to the user's Spam folder, 'delete' will
+                        delete the mail immediately, 'labelSubject'
+                        will prepend [SPAM] to the email's subject
+                        line, and 'toAddress' will send the email to a
+                        specified folder instead.</para><para>Valid
+                        Field Combinations:</para>
                      <para>(toFolder =&gt; hasFolderCleaner,
                         spamFolderAgeLimit, spamFolderNumLimit)</para>
                      <para>(toAddress =&gt;
@@ -4769,18 +4815,20 @@
                <tr>
                   <td>rsEmail.hasFolderCleaner</td>
                   <td>string</td>
-                  <td>This field is effective when
-                     rsEmail.spamHandling option is set to 'toFolder'.
-                     This field controls how the spam that is
-                     delivered o the spam folder is handled. There are
-                     currently two options supported for handling
-                     spam. First option is to set a limit after which
-                     the spam gets deleted. One can set limit on the
-                     number of days or on the number of spam emails.
-                     Second option is to never automatically delete
-                     the spam. For both these options to be enabled
-                     the rsEmail.hasFolderCleaner field should be set
-                     to 'true'. <para>The folder cleaner fields
+                  <td><para>This field is effective when
+                        rsEmail.spamHandling option is set to
+                        'toFolder'. This field controls how the spam
+                        that is delivered o the spam folder is
+                        handled. There are currently two options
+                        supported for handling spam. First option is
+                        to set a limit after which the spam gets
+                        deleted. One can set limit on the number of
+                        days or on the number of spam emails. Second
+                        option is to never automatically delete the
+                        spam. For both these options to be enabled the
+                        rsEmail.hasFolderCleaner field should be set
+                        to 'true'.</para>
+                     <para>The folder cleaner fields
                         (hasFolderCleaner, spamFolderAgeLimit,
                         spamFolderNumLimit) are allowed only when the
                         spamHandling field is set to 'toFolder'. In
@@ -4902,11 +4950,11 @@
    </method>
 
 
-   <method id="showMailboxBlacklist" name="GET">
+   <method id="listMailboxBlacklistEmails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show mailbox blacklist">
-         <para role="shortdesc">Shows email address blacklist
-            associated with a mailbox.</para>
+         title="List email addresses in mailbox blacklist">
+         <para role="shortdesc">Lists the email addresses in a
+            blacklist associated with a mailbox.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -4957,9 +5005,9 @@
    </method>
 
 
-   <method id="addBlacklistEmailOrDomain" name="POST">
+   <!-- <method id="addBlacklistEmailOrDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add email or domain to blacklist">
+         title="Add email address or domain to blacklist">
          <para role="shortdesc">Adds an email address or domain to a
             blacklist.</para>
       </wadl:doc>
@@ -4978,7 +5026,7 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
+            <para>Entered invalid email address or domain. Sample Message:
                invalid email address: abc</para>
          </wadl:doc>
       </response>
@@ -4988,14 +5036,14 @@
                example.com would blacklist the current domain</para>
          </wadl:doc>
       </response>
-   </method>
+   </method>-->
 
 
    <method id="updateMailboxBlacklistEmails" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Update blacklist email addresses">
-         <para role="shortdesc">Updates blacklist email
-            addresses.</para>
+         title="Update email addresses in blacklist">
+         <para role="shortdesc">Updates the email addresses in a
+            blacklist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wildcard in domains, but not in
             the TLD (.com, .net, etc). You cannot use wildcards in
@@ -5055,7 +5103,7 @@
 
    <method id="deleteMailboxBlacklistEmailOrDomain" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete blacklist email address or domain">
+         title="Delete email address or domain from blacklist">
          <para role="shortdesc">Deletes an email address or domain
             from a blacklist.</para>
       </wadl:doc>
@@ -5074,24 +5122,24 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered email or domain is not on the current
-               blacklist. Sample Message: abc@junkmail.com is not
-               found on the list</para>
+            <para>Entered email address or domain is not on the
+               current blacklist. Sample Message: abc@junkmail.com is
+               not found on the list</para>
          </wadl:doc>
       </response>
    </method>
 
-   <method id="showMailboxBlacklistIP" name="GET">
+   <method id="listMailboxBlacklistIPs" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show mailbox IP blacklist - Index">
-         <para role="shortdesc">Shows the IP blacklist associated with
-            a mailbox.</para>
+         title="List IP addresses in mailbox blacklist">
+         <para role="shortdesc">Lists the IP addresses in a blacklist
+            associated with a mailbox.</para>
          <para>Remarks:</para>
          <itemizedlist>
             <listitem>
@@ -5143,8 +5191,9 @@
 
    <method id="addMailboxBlacklistIP" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add IP to blacklist">
-         <para role="shortdesc">Adds an IP to a blacklist.</para>
+         title="Add IP address to blacklist">
+         <para role="shortdesc">Adds an IP address to a
+            blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5169,8 +5218,8 @@
 
    <method id="updateMailboxBlacklistIPs" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Update IPs on blacklist">
-         <para role="shortdesc">Updates IP addresses on a
+         title="Update IP addresses in blacklist">
+         <para role="shortdesc">Updates IP addresses in a
             blacklist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wildcard in the last octets to
@@ -5229,8 +5278,9 @@
 
    <method id="deleteMailboxBlacklistIP" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete IP from blacklist">
-         <para role="shortdesc">Deletes an IP from a blacklist.</para>
+         title="Delete IP address from blacklist">
+         <para role="shortdesc">Deletes an IP address from a
+            blacklist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5254,11 +5304,11 @@
       </response>
    </method>
 
-   <method id="showMailboxSafelist" name="GET">
+   <method id="listMailboxSafelistEmails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Show mailbox safelist">
-         <para role="shortdesc">Shows email address safelist
-            associated with a mailbox.</para>
+         title="List email addresses in mailbox safelist">
+         <para role="shortdesc">Lists email addresses in a mailbox
+            safelist.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -5310,7 +5360,8 @@
 
    <method id="addMailboxSafelistEmailOrDomain" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Add">
+         title="Add email address or domain to
+         safelist">
          <para role="shortdesc">Adds an email address or domain to the
             safelist.</para>
       </wadl:doc>
@@ -5329,16 +5380,17 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
    </method>
 
    <method id="updateMailboxSafelistEmails" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Edit">
-         <para role="shortdesc">Edits email addresses on the
+         title="Updates email addresses in
+         safelist">
+         <para role="shortdesc">Updates email addresses in a
             safelist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wild card in domains, but not in
@@ -5399,9 +5451,9 @@
 
    <method id="deleteMailboxSafelistEmailOrDomain" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Safelist - Delete">
-         <para role="shortdesc">Removes an email address or domain
-            from the safelist.</para>
+         title="Delete email address or domain from safelist">
+         <para role="shortdesc">Deletes an email address or domain
+            from a safelist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5418,24 +5470,24 @@
       <response status="204"/>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered invalid email or domain. Sample Message:
-               invalid email address: abc</para>
+            <para>Entered invalid email address or domain. Sample
+               Message: invalid email address: abc</para>
          </wadl:doc>
       </response>
       <response status="400">
          <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
-            <para>Entered email or domain is not on the current
-               safelist. Sample Message: anyone@yahoo.com is not found
-               on the list</para>
+            <para>Entered email address or domain is not on the
+               current safelist. Sample Message: anyone@yahoo.com is
+               not found on the list</para>
          </wadl:doc>
       </response>
    </method>
 
-   <method id="showMailboxSafelistIP" name="GET">
+   <method id="listMailboxSafelistIPs" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Index">
-         <para role="shortdesc">Returns IP safelist associated with
-            the mailbox.</para>
+         title="List IP addresses in mailbox safelist">
+         <para role="shortdesc">Lists IP addresses in a mailbox
+            safelist.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -5487,8 +5539,9 @@
 
    <method id="addMailboxSafelistIP" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Add">
-         <para role="shortdesc">Adds an IP to the safelist.</para>
+         title="Add IP address to safelist">
+         <para role="shortdesc">Adds an IP address to a
+            safelist.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5513,8 +5566,8 @@
 
    <method id="updateMailboxSafelistIPs" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Edit">
-         <para role="shortdesc">Edits IP addresses on the
+         title="Update IP addresses in safelist">
+         <para role="shortdesc">Updates IP addresses in a
             safelist.</para>
          <para>Remarks</para>
          <para>You can use a '%' as a wild card in the last octets to
@@ -5573,8 +5626,8 @@
 
    <method id="deleteMailboxSafelistIP" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="IP Safelist - Delete">
-         <para role="shortdesc">Removes an IP from the
+         title="Delete IP address from safelist">
+         <para role="shortdesc">Deletes an IP address from a
             safelist.</para>
       </wadl:doc>
       <request>
@@ -5600,11 +5653,13 @@
    </method>
 
    <method id="showMailboxSettingDetails" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Show">
-         <para role="shortdesc">Shows details for a specified domain's
-            Rackspace Mailbox storage notification settings that
-            control whether an email notification is sent to users
-            when their mailbox reaches a certain capacity.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Show storage notification settings">
+         <para role="shortdesc">Shows storage notification settings
+            for a specified Rackspace mailbox.</para>
+         <para>These settings control whether an email notification is
+            sent to users when their mailbox reaches a certain
+            capacity.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -5659,10 +5714,10 @@
    </method>
 
    <method id="updateMailboxSettings" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Edit">
-         <para role="shortdesc">Updates detailed information about a
-            given domain's Rackspace Mailbox storage notification
-            settings.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Update mailbox storage notification settings">
+         <para role="shortdesc">Updates Rackspace mailbox storage
+            notification settings in a specified domain.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -5733,9 +5788,10 @@
    </method>
 
    <method id="listRackspaceDomainAliases" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Index">
-         <para role="shortdesc">Shows a list of aliases for the
-            Rackspace domain.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="List aliases in Rackspace domain">
+         <para role="shortdesc">Lists aliases in a Rackspace
+            domain.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -5787,9 +5843,9 @@
    </method>
 
    <method id="showAliasDetails" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Show">
-         <para role="shortdesc">Shows details for a specified
-            alias.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Show alias details">
+         <para role="shortdesc">Shows alias details.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -5850,7 +5906,8 @@
    </method>
 
    <method id="createAlias" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Create alias">
          <para role="shortdesc">Creates an alias.</para>
          <para>Remarks</para>
          <para>Currently there is a limit of 50 domain emails and 4
@@ -5918,8 +5975,9 @@
    </method>
 
    <method id="deleteAlias" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete">
-         <para role="shortdesc">Deletes the alias.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Delete alias">
+         <para role="shortdesc">Deletes an alias.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5944,9 +6002,9 @@
 
    <method id="addDomainlistEmail" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add Email Address To Alias List">
-         <para role="shortdesc">Adds an email address to the domain
-            email list or to the non-domain email list.</para>
+         title="Add email address to alias list">
+         <para role="shortdesc">Adds an email address to a domain or
+            non-domain email list.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -5986,10 +6044,9 @@
 
    <method id="deleteDomainlistEmail" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete Email Address From Alias List">
-         <para role="shortdesc">Deletes an email address from the
-            domain email list or from the non-domain email
-            list.</para>
+         title="Delete email address from alias list">
+         <para role="shortdesc">Deletes an email address from a domain
+            or non-domain email list.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -6116,9 +6173,9 @@
    </method>
 
    <method id="listDomainMailboxes" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Index">
-         <para role="shortdesc">Shows a list of mailboxes under the
-            domain.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="List domain mailboxes">
+         <para role="shortdesc">Lists mailboxes in a domain.</para>
          <para>Filter/Search</para>
          <para>Mailbox searches may be filtered by the 'enabled' flag
             using query methods ?enabled=true and
@@ -6320,10 +6377,10 @@
    </method>
 
    <method id="addMailbox1" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add">
-         <para role="shortdesc">Adds a mailbox using the specified
-            form fields. All required fields must be supplied when
-            adding. Other fields may be omitted.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Add mailbox">
+         <para role="shortdesc">Adds a mailbox.</para>
+         <para>To add a mailbox, specify these form fields:</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -6538,10 +6595,8 @@
    <method id="updateMailbox1" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Update mailbox">
-         <para role="shortdesc">Updates a mailbox by using the
-            specified form fields.</para><para>All required fields
-            must be supplied when adding. Other fields may be
-            omitted.</para>
+         <para role="shortdesc">Updates a mailbox.</para><para>To
+            update a mailbox, specify these form fields:</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -6753,7 +6808,8 @@
    </method>
 
    <method id="deleteMailbox1" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Delete mailbox">
          <para role="shortdesc">Deletes a mailbox.</para>
          <para>Remarks</para>
          <para>The mailbox and mailbox contents are deleted
@@ -6776,8 +6832,9 @@
 
    <method id="addMailboxEmail" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Add Email Address">
-         <para role="shortdesc">Adds a mailbox's email address.</para>
+         title="Add email address to mailbox">
+         <para role="shortdesc">Adds an email address to a
+            mailbox.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -6796,8 +6853,8 @@
 
    <method id="deleteMailboxEmail" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Delete Email Address">
-         <para role="shortdesc">Deletes the email address.</para>
+         title="Delete email address">
+         <para role="shortdesc">Deletes an email address.</para>
          <para>Remarks</para>
          <para>The operation will fail if the email address does not
             exist.</para>
@@ -6819,11 +6876,12 @@
 
    <method id="showPermissionMailbox" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Mailbox Permissions - Index">
-         <para role="shortdesc">Exchange mailboxes can be given
-            permissions.</para><para>A permission is defined as a
-            tuple (mailbox, permissionType). permissionType:= (SendAs
-            | FullAccess | Both)</para>
+         title="Show Exchange mailbox permissions">
+         <para role="shortdesc">Shows permissions for an Exchange
+            mailbox.</para>
+         <para>A permission is defined as a tuple (mailbox,
+            permissionType). permissionType:= (SendAs | FullAccess |
+            Both)</para>
          <para>Shows the current set of permissions granted on a
             user's mailbox.</para>
          <para>Remarks</para>
@@ -6881,11 +6939,12 @@
 
    <method id="grantAddMailboxPermission" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Mailbox Permission - Add">
-         <para role="shortdesc">Exchange mailboxes can be given
-            permissions.</para><para>A permission is defined as a
-            tuple (mailbox, permissionType). permissionType:= (SendAs
-            | FullAccess | Both)</para>
+         title="Add Exchange mailbox permissions">
+         <para role="shortdesc">Adds permissions to an Exchange
+            mailbox.</para>
+         <para>A permission is defined as a tuple (mailbox,
+            permissionType). permissionType:= (SendAs | FullAccess |
+            Both)</para>
          <para>Grants user2 the specified permission on mailbox of
             user1.</para>
          <para>Remarks</para>
@@ -6937,9 +6996,9 @@
 
    <method id="updateMailboxPermission" name="PUT">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Mailbox Permission - Edit">
-         <para role="shortdesc">Exchange mailboxes can be given
-            permissions.</para>
+         title="Update Exchange mailbox permissions">
+         <para role="shortdesc">Updates permissions for an Exchange
+            mailbox.</para>
          <para>A permission is defined as a tuple (mailbox,
             permissionType). permissionType:= (SendAs | FullAccess |
             Both)</para>
@@ -6992,7 +7051,7 @@
    </method>
    <method id="deleteMailboxPermission" name="DELETE">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Mailbox Permission - Delete">
+         title="Delete Exchange mailbox permissions">
          <para role="shortdesc">Deletes permission granted to user2 on
             the mailbox of user1.</para>
          <para>Remarks</para>
@@ -7016,9 +7075,10 @@
 
    <method id="listMailboxMobile" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="BlackBerry Mobile Service - Index">
-         <para>Returns a list of mailboxes that has BlackBerry mobile
-            service enabled.</para>
+         title="List mailboxes with the BlackBerry mobile
+         service enabled">
+         <para role="shortdesc">Lists mailboxes with the BlackBerry
+            mobile service enabled.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -7075,9 +7135,9 @@
 
    <method id="attachMailboxMobile" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="BlackBerry Mobile Service - Add">
+         title="Add BlackBerry mobile service to mailbox">
          <para role="shortdesc">Attaches a BlackBerry mobile service
-            to the mailbox.</para>
+            to a mailbox.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -7170,9 +7230,10 @@
 
    <method id="listMailboxActiveSync" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="ActiveSync Mobile Service - Index">
-         <para>Returns a list of mailboxes that have ActiveSync mobile
-            service enabled.</para>
+         title="List mailboxes with the ActiveSync mobile
+         service enabled">
+         <para role="shortdesc">Lists mailboxes with the ActiveSync
+            mobile service enabled.</para>
          <para>Remarks</para>
          <para>The index operation only supports the GET HTTP
             verb.</para>
@@ -7225,9 +7286,10 @@
 
    <method id="showMailboxActiveSync" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="ActiveSync Service - Show">
-         <para>Returns the mailbox ActiveSync mobile service setup
-            information to access Hosted Exchange 2007.</para>
+         title="Show ActiveSync mobile service settings">
+         <para>Shows the ActiveSync mobile service settings for a
+            mailbox that are used to access Hosted Exchange
+            2007.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -7288,9 +7350,9 @@
 
    <method id="attachMailboxActiveSync" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="ActiveSync Mobile Service - Add">
-         <para role="shortdesc">Attaches a ActiveSync service to the
-            mailbox.</para>
+         title="Add ActiveSync mobile service to mailbox">
+         <para role="shortdesc">Attaches an ActiveSync mobile service
+            to a mailbox.</para>
          <table rules="all">
             <caption>Status Code</caption>
             <thead>
@@ -7360,9 +7422,9 @@
 
    <method id="listMailboxBlacklist" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-         title="Blacklist - Index">
-         <para role="shortdesc">Returns email address blacklist
-            associated with the mailbox.</para>
+         title="List email addresses in mailbox blacklist">
+         <para role="shortdesc">Lists email addresses in a mailbox
+            blacklist.</para>
          <para>Remarks</para>
          <itemizedlist>
             <listitem>
@@ -7415,8 +7477,9 @@
 
 
    <method id="listContacts" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Index">
-         <para>Returns a list of contacts under the domain.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="List contacts in domain">
+         <para role="shortdesc">Lists contacts in a domain.</para>
       </wadl:doc>
       <request>
          <representation mediaType="application/json" element="noop">
@@ -7553,10 +7616,11 @@
    </method>
 
    <method id="addContact" name="POST">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add">
-         <para role="shortdesc">Adds the contact's details as
-            specified. If the contact does not exist, use Add, if it
-            does, use Edit.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Add contact">
+         <para role="shortdesc">Adds a contact.</para>
+         <para>If the contact does not exist, use add.</para>
+         <para>If it does, use edit.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -7726,10 +7790,11 @@
       </response>
    </method>
    <method id="updateContact" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update">
-         <para role="shortdesc">Updates the contact's details as
-            specified. If the contact does not exist, use Add, if it
-            does, use Edit.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Update contact">
+         <para role="shortdesc">Updates a contact.</para>
+         <para>If the contact does not exist, use add.</para><para>If
+            it does, use edit.</para>
          <table rules="all">
             <caption>Request Data</caption>
             <thead>
@@ -7900,8 +7965,9 @@
    </method>
 
    <method id="deleteContact" name="DELETE">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete">
-         <para role="shortdesc">Deletes the contact.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Delete contact">
+         <para role="shortdesc">Deletes a contact.</para>
          <para>Remarks</para>
          <para>Contact is deleted immediately without verification and
             data is lost permanently.</para>
@@ -7928,9 +7994,11 @@
    </method>
 
    <method id="listDistributionLists" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List">
-         <para role="shortdesc">Lists Distribution Lists, supports
-            exporting. (see Listings)</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="List distribution lists">
+         <para role="shortdesc">Lists distribution
+            lists.</para><para>Supports exporting. (see
+            Listings).</para>
          <itemizedlist>
             <listitem>
                <para>Lists Distribution Lists, supports exporting.
@@ -7992,11 +8060,13 @@
    </method>
 
    <method id="showDistributionListDetails" name="GET">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="show">
-         <para role="shortdesc">Shows a distribution list.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Show distribution list details">
+         <para role="shortdesc">Shows distribution list
+            details.</para>
          <itemizedlist>
             <listitem>
-               <para>Use this route to read an existing Distribution
+               <para>Use this route to read a distribution
                   List.</para>
             </listitem>
             <listitem>
@@ -8006,7 +8076,7 @@
          <para xmlns="http://docbook.org/ns/docbook">Notes</para>
          <itemizedlist>
             <listitem>
-               <para>The Distribution List resource contains some
+               <para>The distribution list resource contains some
                   paged data that must be accessed via separate GET
                   requests.</para>
             </listitem>
@@ -8069,7 +8139,7 @@
 
    <method id="addDistributionList" name="POST">
       <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create">
-         <para role="shortdesc">Adds a Distribution List.</para>
+         <para role="shortdesc">Adds a distribution list.</para>
          <itemizedlist>
             <listitem>
                <para>Use this route to add a new Distribution
@@ -8137,12 +8207,12 @@
    </method>
 
    <method id="updateDistributionList" name="PUT">
-      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update">
-         <para role="shortdesc">Updates an existing Distribution
-            List.</para>
+      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+         title="Update distribution list">
+         <para role="shortdesc">Updates a distribution list.</para>
          <itemizedlist>
             <listitem>
-               <para>Updates an existing Distribution List.</para>
+               <para>Updates a distribution list.</para>
             </listitem>
             <listitem>
                <para>Supports Asynchronous Statuses and Asynchronous
@@ -8156,7 +8226,7 @@
          <itemizedlist>
             <listitem>
                <para>All data that is part of the Exchange
-                  Distribution List resource can be updated in a
+                  distribution list resource can be updated in a
                   single PUT request.</para>
             </listitem>
             <listitem>
@@ -8179,8 +8249,7 @@
                xml:lang="EN">
                <xsdxt:code
                   xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
-                  >PUT
-                  https://api.emailsrvr.com/v1/domains/example.com/ex/distributionlists/ExampleDL
+                  >PUT https://api.emailsrvr.com/v1/domains/example.com/ex/distributionlists/ExampleDL
                   { "Description" : "This is an example of an edited
                   DL." "DisplayName" : "ExampleDL" "EmailAddresses": [
                   { "Action\":\"remove" "Value" :
@@ -8415,12 +8484,12 @@
    <method id="listDistributionListAltEmails" name="GET">
       <wadl:doc xmlns="http://docbook.org/ns/docbook"
          title="Email Addresses - List">
-         <para role="shortdesc">Lists an existing Distribution List's
-            alternate email addresses. (see Listings).</para>
+         <para role="shortdesc">Lists a distribution list's alternate
+            email addresses. (see Listings).</para>
          <itemizedlist>
             <listitem>
-               <para>Lists an existing Distribution List's alternate
-                  email addresses. (see Listings)</para>
+               <para>Lists a distribution list's alternate email
+                  addresses. (see Listings)</para>
             </listitem>
             <listitem>
                <para>Data Model: <phrase role="#EXDLEA">Email
@@ -9724,7 +9793,7 @@
       <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
          title="List resource mailboxes for a domain">
          <para role="shortdesc">Lists the resource mailboxes
-            associated with the domain.</para>
+            associated with a domain.</para>
          <para xmlns="http://docbook.org/ns/docbook">Remarks</para>
          <itemizedlist xmlns="http://docbook.org/ns/docbook">
             <listitem>
@@ -10256,7 +10325,7 @@
       <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
          title="Update Sharepoint settings (reseller only)">
          <para role="shortdesc">Updates SharePoint settings for your
-            customers. (Reseller only.)</para>
+            customers. (reseller only.)</para>
          <table xmlns="http://docbook.org/ns/docbook">
             <caption>Request Data</caption>
             <thead>
