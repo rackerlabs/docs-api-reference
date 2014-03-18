@@ -12,29 +12,29 @@
     <!-- https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl -->
     <title>Auto Scale API v1.0</title>
     <section xml:id="autoscale-groups">
-        <!-- put back later ../wadls/autoscale/wadl/autoscale.wadl -->
+        <!-- put back later https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl -->
         <title>Scaling groups</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#groups">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#groups">
                 <wadl:method href="#listGroups"/>
                 <wadl:method href="#createGroup"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#groupId">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#groupId">
                 <wadl:method href="#showGroupManifest"/>
                 <wadl:method href="#deleteGroup"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#state">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#state">
                 <wadl:method href="#getGroupState"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#pause">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#pause">
                 <wadl:method href="#pauseGroup"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#resume">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#resume">
                 <wadl:method href="#resumeGroup"/>
             </wadl:resource>
         </wadl:resources>
@@ -45,12 +45,12 @@
             developers to manage configurations.</para>
         <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#config">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#config">
                 <wadl:method href="#getGroupConfig"/>
                 <wadl:method href="#putGroupConfig"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#launch">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#launch">
                 <wadl:method href="#getLaunchConfig"/>
                 <wadl:method href="#putLaunchConfig"/>
             </wadl:resource>
@@ -60,18 +60,18 @@
         <title>Policies</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#policies">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policies">
                 <wadl:method href="#getPolicies"/>
                 <wadl:method href="#createPolicies"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#policyid">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policyid">
                 <wadl:method href="#deletePolicy"/>
                 <wadl:method href="#getPolicy"/>
                 <wadl:method href="#putPolicy"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#execute">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#execute">
                 <wadl:method href="#executePolicy"/>
             </wadl:resource>
         </wadl:resources>
@@ -81,7 +81,7 @@
         <para>Manage executions.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#capability_hash">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#capability_hash">
                 <wadl:method href="#anonymousExecute"/>
             </wadl:resource>
         </wadl:resources>
@@ -90,12 +90,12 @@
         <title>Web hooks</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#webhooks">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhooks">
                 <wadl:method href="#getWebhooks"/>
                 <wadl:method href="#createWebhook"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/autoscale/wadl/autoscale.wadl#webhookid">
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhookid">
                 <wadl:method href="#getWebhook"/>
                 <wadl:method href="#putWebhook"/>
                 <wadl:method href="#deleteWebhook"/>
