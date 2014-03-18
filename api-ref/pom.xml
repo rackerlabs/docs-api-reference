@@ -70,7 +70,7 @@
               <pdfFilenameBase>api-ref</pdfFilenameBase>
             </configuration>
           </execution> -->
-<!--        <execution>
+        <execution>
             <id>os-api-ref-auto-scale</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -80,7 +80,7 @@
               <includes> bk-api-ref-auto-scale.xml </includes>
               <pdfFilenameBase>api-ref-auto-scale</pdfFilenameBase>
             </configuration>
-          </execution>-->
+          </execution>
 <!--          <execution>
             <id>os-api-ref-backup</id>
             <goals>
