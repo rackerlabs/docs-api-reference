@@ -56,6 +56,7 @@
               <highlightSource>false</highlightSource>
               <enableGoogleAnalytics>1</enableGoogleAnalytics>
               <googleAnalyticsId>UA-17511903-1</googleAnalyticsId>
+              <branding>rackspace</branding>
             </configuration>
           </execution>
           <!-- Configuration for OpenStack API References (pdf) -->
