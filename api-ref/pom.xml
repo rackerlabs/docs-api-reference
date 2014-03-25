@@ -40,7 +40,7 @@
                  api-ref-databases.xml,<!-- databases -->
                 <!--api-ref-dns.xml,--> <!-- dns --> 
                 api-ref-email-and-apps.xml, <!-- email and apps -->
-                <!-- api-ref-feeds.xml, --> <!-- feeds --> 
+               <!--  api-ref-feeds.xml, --> <!-- feeds --> 
                 api-ref-files.xml, <!-- files -->
                 api-ref-identity.xml, <!-- identity -->
                 api-ref-images.xml, <!-- images -->

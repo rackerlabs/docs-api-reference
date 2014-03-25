@@ -9,10 +9,8 @@
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="autoscale-v1.0">
-    <!-- https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl -->
     <title>Auto Scale API v1.0</title>
     <section xml:id="autoscale-groups">
-        <!-- put back later https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl -->
         <title>Scaling groups</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource

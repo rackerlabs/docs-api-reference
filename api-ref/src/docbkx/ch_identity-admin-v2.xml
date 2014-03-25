@@ -5,15 +5,15 @@
 	<para>The operations described in this chapter allow service
 		developers to get and validate access tokens and to manage
 		users, tenants, roles, and service endpoints. </para>
-	<para>Most calls to the Admin API require authentication. Two kinds
-		of calls are available without authentication: 
+	<!--<para>Most calls to the Admin API require authentication. Two kinds
+		of calls are available without authentication:</para>
 		<itemizedlist spacing="compact">
 			<listitem>
-				<para>	calls to discover the service, such as obtaining version info, the WADL contract, and the API Developer Guide
+				<para>calls to discover the service, such as obtaining version info, the WADL contract, and the API Developer Guide
 				 </para>
 			</listitem>
 			<listitem>
-				<para>	calls to authenticate and get a token</para>
+				<para>calls to authenticate and get a token</para>
 			</listitem>
 		</itemizedlist>
 		</para>
@@ -51,18 +51,18 @@
 		If an extension is required, it is included in Rackspace's implementation of the Keystone Identity Service; 
 		issuing the calls as described here will use API extensions as needed.
 	</para>
-	
+	-->
 	<!-- USERS -->
 	<section xml:id="User_Calls">
 		<title>Users</title>
-		<para>The operations described in this section allow service developers to manage users.</para>
+		<!--<para>The operations described in this section allow service developers to manage users.</para>
 		<note>
 			<para>Some of the functionality described in this section is provided by the <code>OS-KSADM</code>,
 					<code>RAX-AUTH</code>, and <code>RAX-KSKEY</code> extensions to the core Identity API. You can learn
 				more about API extensions at 
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/v2.0/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/v2.0/src/docbkx/</link>. </para>
-		</note>
+		</note>-->
 		<!--- this section comes from 4 WADLs: core identity-admin + extensions OS-KSADM-admin & RAX-KSKEY-admin & RAX-AUTH -->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<!-- list users -->
@@ -136,7 +136,7 @@
 	<!-- GROUPS -->
 	<section xml:id="Group_Calls">
 		<title>Groups</title>
-		<para>The operations described in this section allow service developers to manage groups.</para>
+		<!--<para>The operations described in this section allow service developers to manage groups.</para>
 		<note>
 			<para>Some of the functionality described in this section is
 				provided by the <code>RAX-GRPADM</code> and <code>RAX-KSGRP</code> extensions to the
@@ -145,7 +145,7 @@
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-api/openstack-identity-api/src/docbkx/RAX-GRPADM/RAX-GRPADM.wadl#groups"/>
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-api/openstack-identity-api/src/docbkx/RAX-GRPADM/RAX-GRPADM.wadl#group"/>
@@ -160,7 +160,7 @@
 	<!-- ROLES -->
 	<section xml:id="Role_Calls">
 		<title>Roles</title>
-		<para>The operations described in this section allow service developers to manage roles.</para>
+		<!--<para>The operations described in this section allow service developers to manage roles.</para>
 		<note>
 			<para>Some of the functionality described in this section is
 				provided by the <code>OS-KSADM</code> extension to the
@@ -169,7 +169,7 @@
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<!-- list roles -->
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#roles">
@@ -209,7 +209,7 @@
 	<!-- TOKENS -->
 	<section xml:id="Token_Calls">
 		<title>Tokens</title>
-		<para>The operations described in this section allow service developers to get and validate access tokens.</para>
+		<!--<para>The operations described in this section allow service developers to get and validate access tokens.</para>
 		<note>
 			<para>Some of the functionality described in this section is
 				provided by the <code>RAX-AUTH</code> extension to the
@@ -218,7 +218,7 @@
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tokens">
 				<!-- authenticate -->
@@ -229,10 +229,10 @@
 				<wadl:method href="validateToken">
 				<wadl:doc>
 					<tip>
-						<para>			You can use this call to return information about an impersonator:
+						<para>You can use this call to return information about an impersonator:
 							a Racker performing operations on behalf of a user. 
 						</para>
-						<para>			For information about how an impersonator can use a validated token,
+						<para>For information about how an impersonator can use a validated token,
 							see <xref linkend="Impersonation_Calls" />. 
 						</para>
 					</tip>
@@ -288,7 +288,7 @@
 				<wadl:method href="listRolesForUserOnTenant">
 					<wadl:doc>
 						<important>
-							<para>				Rackspace's implementation of the OpenStack Identity Service v2.0 
+							<para>Rackspace's implementation of the OpenStack Identity Service v2.0 
 								supports <code>GET v2.0/tenants/{tenantId}/users/{userId}/roles</code>
 								for internal users only.  Customers will not have access to this call.
 							</para>
@@ -302,7 +302,7 @@
 	<!-- ENDPOINT TEMPLATES -->
 	<section xml:id="Endpoint_Template_Calls">
 		<title>Endpoint templates</title>
-		<note>
+		<!--<note>
 			<para>Some of the functionality described in this section is
 				provided by the <code>OS-KSCATALOG</code> extension to the
 				core Identity API. 
@@ -310,7 +310,7 @@
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		 
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSCATALOG-admin.wadl#endpointTemplates">
@@ -332,14 +332,14 @@
 	<!-- ENDPOINTS -->
 	<section xml:id="Endpoint_Calls">
 		<title>Endpoints</title>
-		<note>
+		<!--<note>
 			<para>Some of the functionality described in this section is
 				provided by the <code>OS-KSCATALOG</code> extension to the
 				core Identity API. You can learn more about API extensions at
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSCATALOG-admin.wadl#endpoints">
 				<wadl:method href="listEndpoints"/>
@@ -359,7 +359,7 @@
 	<!-- SECRETS -->
 	<section xml:id="Secret_Calls">
 		<title>Secret questions and answers</title>
-		<para>The operations described in this section allow service developers to manage 
+		<!--<para>The operations described in this section allow service developers to manage 
 			secret questions and answers. Secret questions and answers can be used to identify a user to a support Racker via telephone.</para>
 		<note>
 			<para>Some of the functionality described in this section is
@@ -369,7 +369,7 @@
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSQA-admin.wadl#secretqa">
 				<wadl:method href="getUserSecretQA"/>
@@ -404,15 +404,15 @@
 	<!-- IMPERSONATIONS -->
 	<section xml:id="Impersonation_Calls">
 		<title>Impersonations</title>
-		<para>The operations described in this section allow service developers to manage Rackers' impersonations of 
+		<!--<para>The operations described in this section allow service developers to manage Rackers' impersonations of 
 			users for diagnostic purposes.</para>
 		<figure xml:id="impersonation">
 			<title>A Racker issues one POST with the Racker's own credentials, then a second POST identifying the user to be impersonated.
 			</title>
-			<!-- this is Joe Savak's drawing, 
+			<!-\- this is Joe Savak's drawing, 
 				from https://docs.google.com/a/rackspace.com/drawings/d/1fxomVwZRmWT6NYmhTFwj9VMfQ_NQHLVfpfb6474xnoc/edit 
 			    PNG fits PDF width at 55%, 710x477
-			-->
+			-\->
 			<mediaobject>
 				<imageobject>
 					<imagedata fileref="../figures/auth-impersonation.png" format="PNG" align="center" />
@@ -427,7 +427,7 @@
 				<link xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/">
 					https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.  
 			</para>
-		</note>
+		</note>-->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<wadl:resource href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-AUTH.wadl#impersonation-tokens">
 				<wadl:method href="impersonateUser">
@@ -441,7 +441,7 @@
 	<!-- RATE LIMITING -->
 	<section xml:id="Ratelimiting_Calls">
 		<title>Rate limits</title>
-		<para>The operations described in this section allow service developers to manage rate limits.</para>
+		<!--<para>The operations described in this section allow service developers to manage rate limits.</para>
 		<para>
 			The rate limiting logic is based on a fixed-size bucket algorithm.
 		</para>
@@ -519,10 +519,10 @@
 		<title>
 			After hitting the Auth endpoint, a request hits the rate limiting filter; if the filter determines that rate limits apply, the rate limit module is called.
 		</title>
-		<!-- this is Alex Silva's drawing, 
+		<!-\- this is Alex Silva's drawing, 
 				from http://red.rackspace.com/display/auth/Cloud+Auth+Rate+Limiting 
 			    PNG fits PDF width 521x389
-			-->
+			-\->
 		<mediaobject>
 			<imageobject>
 				<imagedata fileref="../figures/auth-ratelimiting-flow.png" format="PNG" align="center" />
@@ -536,10 +536,10 @@
 		<figure>
 			<title> A request key for rate limiting can be generated from an IP
 				address, a header value, or a valid token. </title>
-			<!-- this is Alex Silva's drawing, 
+			<!-\- this is Alex Silva's drawing, 
 				from http://red.rackspace.com/display/auth/Cloud+Auth+Rate+Limiting 
 			    PNG fits PDF width at 521x317
-			-->
+			-\->
 			<mediaobject>
 				<imageobject>
 					<imagedata fileref="../figures/auth-ratelimiting-keygeneration-20.png" format="PNG" align="center" />
@@ -553,7 +553,7 @@
 			</para>
 			<para>When no limit group is specified for a user, that user is assigned to the <code>default</code> group.
 			</para>
-		</note>
+		</note>-->
 		<!--- this section comes from 1 WADL: RAX-RATELIMIT-admin -->
 		<wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
 			<!-- list rate limit for 1 user -->
