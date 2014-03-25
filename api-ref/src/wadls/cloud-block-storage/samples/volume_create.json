@@ -1,9 +1,0 @@
-{
-   "volume":{
-      "display_name":"vol-001",
-      "display_description":"Another volume.",
-      "size":100,
-      "source_volid":"e3611474-589b-46b7-9bdf-5555e2e4999b",
-      "volume_type":"SATA"
-   }
-}

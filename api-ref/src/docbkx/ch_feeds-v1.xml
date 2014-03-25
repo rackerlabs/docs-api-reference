@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0" xml:id="feeds-v1">
     <title>Cloud Feeds API v2.0</title>
     <para>TBD.</para>
-   <!-- <section xml:id="feed">
+    <section xml:id="feed">
         <title>Feeds</title>
         <wadl:resources href="../wadls/cloud-feeds/feed.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
@@ -17,5 +17,5 @@
         <title>Product</title>
         <wadl:resources href="../wadls/cloud-feeds/product.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
-    </section> -->
+    </section> 
 </chapter>
