@@ -7,21 +7,25 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="backup-v1">
     <title>Cloud Backup API v1.0</title>
-    <section xml:id="backup-agents">
+    <para>TBD.</para>
+    <!-- don't use this yet - catherine is updating the WADL. -->
+   <!-- <section xml:id="backup-agents">
         <title>Agents</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="../wadls/cloud-backup/wadl/rcbu.wadl#agent__machineAgentId_"/>
             <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_enable"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_encrypt"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#changeencryption"/>
+            <wadl:resource
                 href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_configuration"/>
             <wadl:resource
                 href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_busy__machineAgentId_"/>
             <wadl:resource
-                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_delete"/>
-            <wadl:resource
-                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_enable"/>
-            <wadl:resource
-                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_encrypt"/>
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_delete"/>    
             <wadl:resource
                 href="../wadls/cloud-backup/wadl/rcbu.wadl#user_agents"
             />
@@ -92,5 +96,5 @@
                 href="../wadls/cloud-backup/wadl/rcbu.wadl#help_supportedimages__cloudServersPlatform_"
             />
         </wadl:resources>
-    </section>
+    </section>-->
 </chapter>
