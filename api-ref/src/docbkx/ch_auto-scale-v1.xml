@@ -39,8 +39,6 @@
     </section>
     <section xml:id="Configurations">
         <title>Configurations</title>
-        <para>The operations described in this chapter allow
-            developers to manage configurations.</para>
         <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#config">
@@ -76,7 +74,6 @@
     </section>
     <section xml:id="Executions">
         <title>Executions</title>
-        <para>Manage executions.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#capability_hash">
@@ -85,7 +82,7 @@
         </wadl:resources>
     </section>
     <section xml:id="autoscale-webhooks">
-        <title>Web hooks</title>
+        <title>Webhooks</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhooks">
