@@ -81,7 +81,7 @@
             />
         </wadl:resources>
     </section>
-    <section xml:id="backup-help">
+   <!-- <section xml:id="backup-help">
         <title>Help</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
@@ -92,5 +92,5 @@
                 href="../wadls/cloud-backup/wadl/rcbu.wadl#help_supportedimages__cloudServersPlatform_"
             />
         </wadl:resources>
-    </section>
+    </section>-->
 </chapter>
