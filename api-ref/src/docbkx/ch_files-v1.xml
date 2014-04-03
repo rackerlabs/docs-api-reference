@@ -51,9 +51,10 @@ Accept-Ranges: bytes</programlisting>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#account">
-                <wadl:method href="#showAccountDetails"/>
-                <wadl:method href="#updateAccountMeta"/>
-                <wadl:method href="#showAccountMeta"/>
+                <wadl:method href="#listcontainers"/>
+                <wadl:method href="#updateaccountmeta"/>
+                <wadl:method href="#retrieveaccountmeta"/>  
+                <wadl:method href="#deleteaccountmeta"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -65,11 +66,12 @@ Accept-Ranges: bytes</programlisting>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#container">
-                <wadl:method href="#showContainerDetails"/>
-                <wadl:method href="#createContainer"/>
-                <wadl:method href="#deleteContainer"/>
-                <wadl:method href="#updateContainerMeta"/>
-                <wadl:method href="#showContainerMeta"/>
+                <wadl:method href="#listcontainerobjects"/>
+                <wadl:method href="#createcontainer"/>
+                <wadl:method href="#deletecontainer"/>
+                <wadl:method href="#updateacontainermeta"/>
+                <wadl:method href="#retrievecontainermeta"/>
+                <wadl:method href="#deletecontainermeta"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -80,13 +82,13 @@ Accept-Ranges: bytes</programlisting>
             different name. Updates object metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#object">
-                <wadl:method href="#getObject"/>
-                <wadl:method href="#createOrReplaceObject"/>
-                <wadl:method href="#copyObject"/>
-                <wadl:method href="#deleteObject"/>
-                <wadl:method href="#showObjectMeta"/>
-                <wadl:method href="#updateObjectMeta"/>
+            href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#object">
+                <wadl:method href="#getobjectdata"/>
+                <wadl:method href="#createobject"/>
+                <wadl:method href="#deleteobject"/>
+                <wadl:method href="#copyobject"/>
+                <wadl:method href="#retrieveobjectmeta"/>
+                <wadl:method href="#updateaobjmeta"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -96,8 +98,11 @@ Accept-Ranges: bytes</programlisting>
         <para>Manage CDN-enabled containers.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#container"
-            />
+                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#container">
+                <wadl:method href="#enableDisableCDNcontainer"/>
+                <wadl:method href="#retrieveCDNcontainermeta"/>
+                <wadl:method href="#updateCDNcontainermeta"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
     <section xml:id="files_cdn_objects">
@@ -105,8 +110,9 @@ Accept-Ranges: bytes</programlisting>
         <para>Manage CDN-enabled objects</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#object"
-            />
+                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#object">
+                <wadl:method href="#deleteCDNobject"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
 </chapter>
