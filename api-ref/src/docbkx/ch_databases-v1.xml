@@ -32,8 +32,7 @@
             /instances/detail instead.</para>
     </note>
     <section xml:id="API_Versions">
-        <title>API Versions</title>
-        <para>List supported Cloud Databases API versions.</para>
+        <title>API versions</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;dbaas.wadl#versions"/>
@@ -46,13 +45,11 @@
     <!-- add back later - validation errors -->
     <section xml:id="Database_Instances">
         <title>Database instances</title>
-        <para>Manage database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;dbaas.wadl#instances">
                 <wadl:resource
                 href="&urlcopy;dbaas.wadl#instances">
-              
                 <wadl:method href="#createInstance"/>
                 <wadl:method href="#getInstance"/>
             </wadl:resource>
@@ -68,7 +65,6 @@
     </section>
     <section xml:id="Database_Instances_Actions">
         <title>Database instance actions</title>
-        <para>Perform actions for database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;dbaas.wadl#instanceAction">
@@ -80,7 +76,6 @@
     </section>
     <section xml:id="databases">
         <title>Databases</title>
-        <para>Manage databases.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;dbaas.wadl#databases">
@@ -95,7 +90,6 @@
     </section>
     <section xml:id="user_management">
         <title>Users</title>
-        <para>Manage database users.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;dbaas.wadl#users">
@@ -110,7 +104,6 @@
     </section>
     <section xml:id="flavors">
         <title>Flavors</title>
-        <para>Manage flavors.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;dbaas.wadl#flavors">
@@ -150,7 +143,6 @@
     </section>
     <section xml:id="Host_Information">
         <title>Host information</title>
-        <para>Get host information.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;management.wadl#hosts">
@@ -168,7 +160,6 @@
     </section>
     <section xml:id="Management_Instances_Actions">
         <title>Management instance actions</title>
-        <para>Perform actions for database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;management.wadl#instanceAction">
@@ -178,7 +169,6 @@
     </section>
     <section xml:id="Storage_Management">
         <title>Storage management</title>
-        <para>Get information about storage devices.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;management.wadl#storage">
@@ -188,7 +178,6 @@
     </section>
     <section xml:id="Account_Information">
         <title>Account information</title>
-        <para>Manage accounts.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="&urlcopy;management.wadl#accounts">
