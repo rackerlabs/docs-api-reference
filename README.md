@@ -18,21 +18,45 @@ yum install maven3
 
 Build
 =====
-The web pages are in the ``api-ref`` directory.
 
-Run the ``mvn`` command in that directory.
+To build and test any of these documents:
 
-cd api-ref
+#. Open a terminal window.
+
+#. Change into a directory where you want to clone api-site.
+
+#. Run this command to clone openstack/api-site:
+
+git clone https://github.com/openstack/api-site
+
+#. CD into the api-site directory.
+
+#. Run these commands to ensure you have the latest changes:
+
+git remote update
+git checkout master
+git pull origin master
+git review –d change-number /* where change-number is the change number of the review
+
+#. Run this command to build the docs locally:
 
 mvn clean generate-sources
 
-The generated PDF documentation file is::
+The root of the generated HTML (API site) documentation is::
 
-api-ref/target/docbkx/webhelp/api-quick-start-onepager-external/api-quick-start-onepager.pdf
+api-site/api-ref/target/docbkx/html/api-ref.html
 
-The root of the generated HTML documentation is::
+The root of the generated API guide (in progress) is::
 
-api-ref/target/docbkx/webhelp/api-quick-start-onepager-external/content/index.html
+api-site/api-guide/target/docbkx/webhelp/api-guide/index.html
+
+The generated PDFs for the API pages are at::
+
+api-site/api-ref-guides/target/docbkx/pdf/*.pdf
+
+The root of the API quick start is at::
+
+api-site/api-quick-start/target/docbkx/webhelp/api-quick-start-onepager-external/api-quick-start-onepager.pdf
 
 Test
 ====
