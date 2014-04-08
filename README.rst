@@ -27,36 +27,36 @@ To build and test any of these documents:
 
 #. Run this command to clone openstack/api-site:
 
-git clone https://github.com/openstack/api-site
+        git clone https://github.com/openstack/api-site
 
 #. CD into the api-site directory.
 
 #. Run these commands to ensure you have the latest changes:
 
-git remote update
-git checkout master
-git pull origin master
-git review –d change-number /* where change-number is the change number of the review
+        git remote update
+        git checkout master
+        git pull origin master
+        git review –d change-number /* where change-number is the change number of the review
 
 #. Run this command to build the docs locally:
 
-mvn clean generate-sources
+        mvn clean generate-sources
 
-The root of the generated HTML (API site) documentation is::
+- The root of the generated HTML (API site) documentation is::
 
-api-site/api-ref/target/docbkx/html/api-ref.html
+        api-site/api-ref/target/docbkx/html/api-ref.html
 
-The root of the generated API guide (in progress) is::
+- The root of the generated API guide (in progress) is::
 
-api-site/api-guide/target/docbkx/webhelp/api-guide/index.html
+        api-site/api-guide/target/docbkx/webhelp/api-guide/index.html
 
-The generated PDFs for the API pages are at::
+- The generated PDFs for the API pages are at::
 
-api-site/api-ref-guides/target/docbkx/pdf/*.pdf
+        api-site/api-ref-guides/target/docbkx/pdf/*.pdf
 
-The root of the API quick start is at::
+- The root of the API quick start is at::
 
-api-site/api-quick-start/target/docbkx/webhelp/api-quick-start-onepager-external/api-quick-start-onepager.pdf
+        api-site/api-quick-start/target/docbkx/webhelp/api-quick-start-onepager-external/api-quick-start-onepager.pdf
 
 Test
 ====
