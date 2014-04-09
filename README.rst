@@ -1,5 +1,5 @@
-rax-api-ref
-===========
+docs-api-reference
+==================
 
 API reference pages for Rackspace APIs
 
@@ -16,47 +16,61 @@ On Fedora 15 and later::
 
 yum install maven3
 
-Build
-=====
+Build, Update, and Test API pages
+=================================
 
-To build and test any of these documents:
+To build, optionally update, and test the API pages:
 
-#. Open a terminal window.
+#. If necessary, create and log in to a github.com account.
 
-#. Change into a directory where you want to clone api-site.
+#. In the Github UI for https://github.com/rackerlabs/docs-api-reference, click Fork on the right.
 
-#. Run this command to clone openstack/api-site:
+#. Copy the URL for your fork. This is your <fork_URL>.
+        
+#. In a Terminal window, clone the fork that you just created. 
+        <fork_URL> is the URL that you copied in step 3.
+        
+        $ git clone <fork_URL>                       
+                        
+#. Change to the forked repository that you just cloned. 
+        
+        <myfork> is the name of your fork.
+        
+        $ cd <myfork>
 
-        git clone https://github.com/openstack/api-site
+#. Add a remote to the upstream repository.
 
-#. CD into the api-site directory.
+        upstream is an arbitrary name.
+        
+        $ git remote add upstream https://github.com/rackerlabs/docs-api-reference.git
 
-#. Run these commands to ensure you have the latest changes:
+#. Change into a directory where you want to clone docs-api-reference.
 
-        git remote update
-        git checkout master
-        git pull origin master
-        git review –d change-number /* where change-number is the change number of the review
+#. Change into the directory for your forked repository.
 
-#. Run this command to build the docs locally:
+        $ cd docs-api-reference
+        
+#. If you want to make updates to the docs-api-reference repository, create a branch. Otherwise, skip to the next step.
 
-        mvn clean generate-sources
+   Do all your work on your branch and NOT on rackerlabs/docs-api-reference. 
+                
+        <mybranch> is an arbitrary branch name where you will do your work.
+                
+        $ git checkout -b <mybranch>                       
+                        
+#. Do a remote build to make sure that things work okay.
+                        
+        $ mvn clean generate-sources
 
-- The root of the generated HTML (API site) documentation is::
+#. When you are ready to commit, and periodically if you want the latest stuff, merge changes from remote project into your local fork.
+                        
+#. Push your branch to your fork.
+         
+         $ git push origin <mybranch>
 
-        api-site/api-ref/target/docbkx/html/api-ref.html
+The root of the generated HTML (API site) documentation is::
 
-- The root of the generated API guide (in progress) is::
-
-        api-site/api-guide/target/docbkx/webhelp/api-guide/index.html
-
-- The generated PDFs for the API pages are at::
-
-        api-site/api-ref-guides/target/docbkx/pdf/*.pdf
-
-- The root of the API quick start is at::
-
-        api-site/api-quick-start/target/docbkx/webhelp/api-quick-start-onepager-external/api-quick-start-onepager.pdf
+         docs-api-reference/api-ref/target/docbkx/html/api-ref.html
 
 Test
 ====
