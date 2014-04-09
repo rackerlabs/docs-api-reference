@@ -16,7 +16,7 @@ On Fedora 15 and later::
 
 yum install maven3
 
-Build, Update, and Test API pages
+Build, optionally update, and test API pages
 =================================
 
 To build, optionally update, and test the API pages:
@@ -25,38 +25,39 @@ To build, optionally update, and test the API pages:
 
 #. In the Github UI for https://github.com/rackerlabs/docs-api-reference, click Fork on the right.
 
-#. Copy the URL for your fork. This is your <fork_URL>.
+#. Copy the URL for your fork. This is your "*fork_URL*".
         
 #. In a Terminal window, clone the fork that you just created. 
-        <fork_URL> is the URL that you copied in step 3.
         
-        $ git clone <fork_URL>                       
+   "*fork_URL*" is the URL that you copied in step 3.
+        
+        $ git clone "*fork_URL*"                       
                         
 #. Change to the forked repository that you just cloned. 
         
-        <myfork> is the name of your fork.
+   "*myfork*" is the name of your fork.
         
-        $ cd <myfork>
+        $ cd "*myfork*"
 
 #. Add a remote to the upstream repository.
 
-        upstream is an arbitrary name.
+   upstream is an arbitrary name.
         
         $ git remote add upstream https://github.com/rackerlabs/docs-api-reference.git
-
-#. Change into a directory where you want to clone docs-api-reference.
 
 #. Change into the directory for your forked repository.
 
         $ cd docs-api-reference
         
-#. If you want to make updates to the docs-api-reference repository, create a branch. Otherwise, skip to the next step.
+#. If you want to make updates to the docs-api-reference repository, create a branch. 
+
+   Otherwise, skip to the next step.
 
    Do all your work on your branch and NOT on rackerlabs/docs-api-reference. 
                 
-        <mybranch> is an arbitrary branch name where you will do your work.
+   "*mybranch*" is an arbitrary branch name where you will do your work.
                 
-        $ git checkout -b <mybranch>                       
+        $ git checkout -b "*mybranch*"                       
                         
 #. Do a remote build to make sure that things work okay.
                         
@@ -66,7 +67,7 @@ To build, optionally update, and test the API pages:
                         
 #. Push your branch to your fork.
          
-         $ git push origin <mybranch>
+         $ git push origin "*mybranch*"
 
 The root of the generated HTML (API site) documentation is::
 
