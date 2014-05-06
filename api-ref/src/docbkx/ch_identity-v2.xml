@@ -8,6 +8,7 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-v2"
     xlink:href="#identity-v2">
     <title>Cloud Identity API v2.0</title>
+    <para>Add introduction here.</para>
     <section xml:id="User_Calls">
         <title>Users</title>
         <!--- this section comes from 3 WADLs: core identity-admin + extensions OS-KSADM-admin & RAX-KSKEY-admin -->
@@ -217,10 +218,10 @@
                                    (<code>identity:user-admin</code>)
                                 or user role
                                    (<code>identity:default</code>).</para>
-                            <para>For users with the
-                                   <code>user</code> role, the call is
-                                valid only if <code>userID</code> and
-                                the <code>user-default</code> token
+                            <para>For users with the <code>user</code>
+                                role, the call is valid only if
+                                   <code>userID</code> and the
+                                   <code>user-default</code> token
                                 have the same value for
                                    <code>tenant</code>.</para>
                         </note>
@@ -272,7 +273,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tenants">
-                <wadl:method href="#listTenants"/> 
+                <wadl:method href="#listTenants"/>
             </wadl:resource>
         </wadl:resources>
     </section>
