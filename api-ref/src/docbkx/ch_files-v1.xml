@@ -50,10 +50,10 @@ Accept-Ranges: bytes</programlisting>
             and delete account metadata. Show account metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#account">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-files/master/src/wadl/rax-cloudFiles-api-v1.wadl#account">
                 <wadl:method href="#listcontainers"/>
                 <wadl:method href="#updateaccountmeta"/>
-                <wadl:method href="#retrieveaccountmeta"/>  
+                <wadl:method href="#retrieveaccountmeta"/>
                 <wadl:method href="#deleteaccountmeta"/>
             </wadl:resource>
         </wadl:resources>
@@ -65,7 +65,7 @@ Accept-Ranges: bytes</programlisting>
             and delete container metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#container">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-files/master/src/wadl/rax-cloudFiles-api-v1.wadl#container">
                 <wadl:method href="#listcontainerobjects"/>
                 <wadl:method href="#createcontainer"/>
                 <wadl:method href="#deletecontainer"/>
@@ -82,7 +82,7 @@ Accept-Ranges: bytes</programlisting>
             different name. Updates object metadata.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-            href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#object">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-files/master/src/wadl/rax-cloudFiles-api-v1.wadl#object">
                 <wadl:method href="#getobjectdata"/>
                 <wadl:method href="#createobject"/>
                 <wadl:method href="#deleteobject"/>
@@ -98,7 +98,7 @@ Accept-Ranges: bytes</programlisting>
         <para>Manage CDN-enabled containers.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#container">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-files/master/src/wadl/rax-cloudFilesCDN-api-v1.wadl#container">
                 <wadl:method href="#enableDisableCDNcontainer"/>
                 <wadl:method href="#retrieveCDNcontainermeta"/>
                 <wadl:method href="#updateCDNcontainermeta"/>
@@ -110,7 +110,7 @@ Accept-Ranges: bytes</programlisting>
         <para>Manage CDN-enabled objects</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#object">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-files/master/src/wadl/rax-cloudFilesCDN-api-v1.wadl#object">
                 <wadl:method href="#deleteCDNobject"/>
             </wadl:resource>
         </wadl:resources>
