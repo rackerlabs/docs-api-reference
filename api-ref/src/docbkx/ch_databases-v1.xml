@@ -9,7 +9,7 @@
 <!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
 <!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
 <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
-<!ENTITY urlreal "&urlcopy;">
+<!ENTITY urlreal "https://raw.githubusercontent.com/masthalter/reddwarf_lite-integration/docupdates_sp32a/xsd/">
 <!ENTITY urlcopy "../wadls/cloud-databases/xsd/">
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook"
@@ -35,9 +35,9 @@
         <title>API versions</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#versions"/>
+                href="&urlreal;dbaas.wadl#versions"/>
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#version">
+                href="&urlreal;dbaas.wadl#version">
                 <wadl:method href="#getVersionInfo"/>
             </wadl:resource>
         </wadl:resources>
@@ -47,19 +47,19 @@
         <title>Database instances</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#instances">
+                href="&urlreal;dbaas.wadl#instances">
                 <wadl:resource
-                href="&urlcopy;dbaas.wadl#instances">
+                href="&urlreal;dbaas.wadl#instances">
                 <wadl:method href="#createInstance"/>
                 <wadl:method href="#getInstance"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#instanceId">
+                href="&urlreal;dbaas.wadl#instanceId">
                 <wadl:method href="#getInstanceById"/>
                 <wadl:method href="#deleteInstance"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#root"/>
+                href="&urlreal;dbaas.wadl#root"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -67,7 +67,7 @@
         <title>Database instance actions</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#instanceAction">
+                href="&urlreal;dbaas.wadl#instanceAction">
                 <wadl:method href="#restartInstance"/>
                 <wadl:method href="#resizeInstance"/>
                 <wadl:method href="#resizeVolume"/>
@@ -78,12 +78,12 @@
         <title>Databases</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#databases">
+                href="&urlreal;dbaas.wadl#databases">
                 <wadl:method href="#createDatabase"/>
                 <wadl:method href="#getDatabases"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#databaseName">
+                href="&urlreal;dbaas.wadl#databaseName">
                 <wadl:method href="#deleteDatabase"/>
             </wadl:resource>
         </wadl:resources>
@@ -92,12 +92,12 @@
         <title>Users</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#users">
+                href="&urlreal;dbaas.wadl#users">
                 <wadl:method href="#createUser"/>
                 <wadl:method href="#getUsers"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#userId">
+                href="&urlreal;dbaas.wadl#userId">
                 <wadl:method href="#deleteUser"/>
             </wadl:resource>
         </wadl:resources>
@@ -106,11 +106,11 @@
         <title>Flavors</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#flavors">
+                href="&urlreal;dbaas.wadl#flavors">
                 <wadl:method href="#getFlavors"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;dbaas.wadl#flavorId">
+                href="&urlreal;dbaas.wadl#flavorId">
                 <wadl:method href="#getFlavorById"/>
             </wadl:resource>
         </wadl:resources>
@@ -120,23 +120,23 @@
         <para>Manage database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;management.wadl#instances">
+                href="&urlreal;management.wadl#instances">
                 <wadl:method href="#getIndex"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#instanceId">
+                href="&urlreal;management.wadl#instanceId">
                 <wadl:method href="#showinstances"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#diagnostics">
+                href="&urlreal;management.wadl#diagnostics">
                 <wadl:method href="#getdiagnosticdetails"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#rootdetails">
+                href="&urlreal;management.wadl#rootdetails">
                 <wadl:method href="#getrootdetails"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#hwInfo">
+                href="&urlreal;management.wadl#hwInfo">
                 <wadl:method href="#getHwInfo"/>
             </wadl:resource>
         </wadl:resources>
@@ -145,15 +145,15 @@
         <title>Host information</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;management.wadl#hosts">
+                href="&urlreal;management.wadl#hosts">
                 <wadl:method href="#gethosts"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#hostid">
+                href="&urlreal;management.wadl#hostid">
                 <wadl:method href="#gethostbyid"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#instanceAction-hostId">
+                href="&urlreal;management.wadl#instanceAction-hostId">
                 <wadl:method href="#updateHostInstances"/>
             </wadl:resource>
         </wadl:resources>
@@ -162,7 +162,7 @@
         <title>Management instance actions</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;management.wadl#instanceAction">
+                href="&urlreal;management.wadl#instanceAction">
                 <wadl:method href="#rebootInstance"/>
             </wadl:resource>
         </wadl:resources>
@@ -171,7 +171,7 @@
         <title>Storage management</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;management.wadl#storage">
+                href="&urlreal;management.wadl#storage">
                 <wadl:method href="#indexstorage"/>
             </wadl:resource>
         </wadl:resources>
@@ -180,11 +180,11 @@
         <title>Account information</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="&urlcopy;management.wadl#accounts">
+                href="&urlreal;management.wadl#accounts">
                 <wadl:method href="#getaccounts"/>
             </wadl:resource>
             <wadl:resource
-                href="&urlcopy;management.wadl#accountid">
+                href="&urlreal;management.wadl#accountid">
                 <wadl:method href="#getaccountbyid"/>
             </wadl:resource>
         </wadl:resources>
