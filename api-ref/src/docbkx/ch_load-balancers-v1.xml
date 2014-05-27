@@ -16,9 +16,9 @@
     xmlns:linkend="http://www.w3.org/1999/linkend"
     xmlns:xref="http://www.w3.org/1999/xref"
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RackBook-2.0" xml:id="load-balancer-v1.0">
-    <title>Cloud Load Balancer API v1.0</title>
-    <para>TBD.</para>
+    version="5.0-extension RackBook-2.0" xml:id="load-balancers-v1.0">
+    <title>Cloud Load Balancers API v1.0</title>
+   <section xml:id="load-balancers"><title>Load balancers</title> <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
+        href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl"
+   /></section>
 </chapter>
-
-
