@@ -91,4 +91,143 @@
             </wadl:resource>
         </wadl:resources>
     </section>
+    <section xml:id="usage">
+        <title>Usage</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#usage">
+                <wadl:method href="#showHistoryUsage"/>
+                <wadl:method href="#showAccountLevelUsage"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#current">
+                <wadl:method href="#showCurrentUsage"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#billable">
+                <wadl:method href="#listBillableLoadBalancers"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="access-lists">
+        <title>Access lists</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#accesslist">
+                <wadl:method href="#showAccessList"/>
+                <wadl:method href="#createAccessList"/>
+                <wadl:method href="#deleteNetwork"/>
+                <wadl:method href="#deleteAccessList"/>
+                <wadl:method href="#bulkDeleteNetworks"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="monitors">
+        <title>Health monitors</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#healthmonitor">
+                <wadl:method href="#showHealthMonitor"/>
+                <wadl:method href="#updateHealthMonitor"/>
+                <wadl:method href="#deleteHealthMonitor"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="sessionpersistence">
+        <title>Session persistence</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#sessionpersistence">
+                <wadl:method href="#showSessionPersistence"/>
+                <wadl:method href="#enableSessionPersistence"/>
+                <wadl:method href="#disableSessionPersistence"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="log_connections">
+        <title>Log connections</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#connectionlogging">
+                <wadl:method href="#showConnectionLogging"/>
+                <wadl:method href="#enableConnectionLogging"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="throttle_connections">
+        <title>Throttle connections</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#connectionthrottle">
+                <wadl:method href="#showConnectionThrottle"/>
+                <wadl:method href="#updateConnectionThrottle"/>
+                <wadl:method href="#deleteConnectionThrottle"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="content_caching">
+        <title>Content caching</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#contentcaching">
+                <wadl:method href="#showContentCaching"/>
+                <wadl:method href="#enableContentCaching"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ssl_termination">
+        <title>SSL termination</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#ssltermination">
+                <wadl:method href="#showSSLTermination"/>
+                <wadl:method href="#updateSSLTermination"/>
+                <wadl:method href="#deleteSSLTermination"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="metadata">
+        <title>Metadata</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#metadata">
+                <wadl:method href="#addLoadBalancerMetadata"/>
+                <wadl:method href="#showLoadBalancerMetadata"/>
+                <wadl:method
+                    href="#bulkDeleteLoadBalancerMetadataItems"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#metaId">
+                <wadl:method href="#showLoadBalancerMetadataItem"/>
+                <wadl:method href="#updateLoadBalancerMetadataItem"/>
+                <wadl:method href="#deleteLoadBalancerMetadataItem"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="protocols">
+        <title>Protocols</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#protocols">
+                <wadl:method href="#listProtocols"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="algorithms">
+        <title>Algorithms</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#algorithms"
+            > </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="allowed_domains">
+        <title>Allowed domains</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#alloweddomains">
+                <wadl:method href="#listAllowedDomains"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
 </chapter>
