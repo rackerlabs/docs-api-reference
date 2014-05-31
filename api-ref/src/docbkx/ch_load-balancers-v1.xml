@@ -160,7 +160,7 @@
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#connectionthrottle">
                 <wadl:method href="#showConnectionThrottle"/>
-                <wadl:method href="#updateConnectionThrottle"/>
+                <wadl:method href="#createOrUpdateConnectionThrottle"/>
                 <wadl:method href="#deleteConnectionThrottle"/>
             </wadl:resource>
         </wadl:resources>
@@ -217,8 +217,9 @@
         <title>Algorithms</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#algorithms"
-            > </wadl:resource>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#algorithms">
+                <wadl:method href="#listAlgorithms"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
     <section xml:id="allowed_domains">
