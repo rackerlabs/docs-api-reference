@@ -25,7 +25,7 @@ To update or add WADLs to the API pages:
                         
 #. To add a WADL for a product, go to the docs-api-reference/api-ref/src/docbkx folder.
 
-#. If a ch_* file exists for your product already (such as ch_dns-v1.xml), open it. 
+#. If a ch_{product}-{version}.xml file exists for your product already (such as ch_dns-v1.xml), open it. 
    If not, create a file for your product that uses the ch_{product}-{version}.xml naming convention and open it.
   
 #. Update this file to point to your WADL in your repository. To do so, you need the "raw" link to the WADL.
@@ -47,10 +47,10 @@ To update or add WADLs to the API pages:
                 />
         </chapter>
         
-#. If an api-ref file exists for your product, do nothing. Otherwise, copy another product api-ref* file and rename it to your product name.
+#. If an api-ref-{product}.xml file exists for your product, do nothing. Otherwise, copy another product api-ref-{product}.xml file and rename it to your product name.
    For example, api-ref-dns.xml. 
    
-#. Edit the api-ref* file and add this exact markup, using an appropriate xml:id, title, and included ch_* file name::
+#. Edit the api-ref-{product}.xml file and add this exact markup, using an appropriate xml:id, title, and included ch_{product}-{version}.xml file name::
 
        <?xml version="1.0" encoding="UTF-8"?>
        <book xmlns="http://docbook.org/ns/docbook"
@@ -82,7 +82,7 @@ To update or add WADLs to the API pages:
           <para><link xlink:href="api-ref-dns.html">Cloud DNS API</link></para>
        </listitem>
 
-#. Update the pom.xml file to add instructions to build your api-ref* file. Follow the pattern in that file.
+#. Update the pom.xml file to add instructions to build your api-ref-{product}.xml file. Follow the pattern in that file.
 
 #. Do a remote build to make sure that things work okay.
                         
@@ -93,7 +93,7 @@ To update or add WADLs to the API pages:
                         
 #. Push your branch to your fork.
          
-         $ git push origin "*mybranch*"
+         $ git push origin {mybranch}
 
 The root of the generated HTML (API site) documentation is::
 
