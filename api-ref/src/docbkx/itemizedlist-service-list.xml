@@ -26,10 +26,10 @@
         <para><link xlink:href="api-ref-databases.html">Cloud
                 Databases API</link></para>
     </listitem>
-  <!--  <listitem>
+    <listitem>
         <para><link xlink:href="api-ref-dns.html">Cloud DNS
             API</link></para>
-    </listitem>-->
+    </listitem>
    <!-- <listitem>
         <para><link xlink:href="api-ref-email-and-apps.html">Email
                 &amp; Apps API</link></para>

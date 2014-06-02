@@ -10,60 +10,89 @@ To build the documentation, you must install `Apache Maven <http://maven.apache.
 
 To install Maven 3 for Ubuntu 12.04 and later or Debian wheezy and later:
 
-apt-get install maven
+    apt-get install maven
 
 On Fedora 15 and later::
 
-yum install maven3
+    yum install maven3
 
-Build, optionally update, and test API pages
-=================================
+To update or add WADLs to API pages
+===================================
 
-To build, optionally update, and test the API pages:
+To update or add WADLs to the API pages:
 
-#. If necessary, create and log in to a github.com account.
-
-#. In the Github UI for https://github.com/rackerlabs/docs-api-reference, click Fork on the right.
-
-#. Copy the URL for your fork. This is your "*fork_URL*".
-        
-#. In a Terminal window, clone the fork that you just created. 
-        
-   "*fork_URL*" is the URL that you copied in step 3.
-        
-        $ git clone "*fork_URL*"                       
+#. Complete steps 1 and 2 in this procedure for this project (rackerlabs/docs-api-reference)::
+      
+       '<https://one.rackspace.com/display/devdoc/Github+workflow+howto>'                     
                         
-#. Change to the forked repository that you just cloned. 
+#. To add a WADL for a product, go to the docs-api-reference/api-ref/src/docbkx folder.
+
+#. If a ch_* file exists for your product already (such as ch_dns-v1.xml), open it. 
+   If not, create a file for your product that uses the ch_<product>-<version>.xml naming convention and open it.
+  
+#. Update this file to point to your WADL in your repository. To do so, you need the "raw" link to the WADL.
+   To get that, navigate to your WADL file in your project repository, click on the file name to open a view of the
+   file. Then, click the Raw button at the top of the file. Then, copy the URL in the address bar.
+   
+#. In your ch_<product>-<version>.xml file, add code like this to point to your WADL and methods::
+
+        <chapter xmlns="http://docbook.org/ns/docbook"
+                 xmlns:xi="http://www.w3.org/2001/XInclude"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xmlns:linkend="http://www.w3.org/1999/linkend"
+                 xmlns:xref="http://www.w3.org/1999/xref"
+                 xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                 version="5.0-extension RackBook-2.0" xml:id="dns-v1.0">
+            <title>Cloud DNS API v1.0</title>
+                <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                    href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl"
+                />
+        </chapter>
         
-   "*myfork*" is the name of your fork.
-        
-        $ cd "*myfork*"
+#. If an api-ref file exists for your product, do nothing.
+   If an api-ref file does not exist, copy another product api-ref* file and rename it to your product name.
+   For example, api-ref-dns.xml. 
+   
+#. Edit the api-ref* file and this exact markup, using an appropriate xml:id, title, and ch_* file name::
 
-#. Add a remote to the upstream repository.
+       <?xml version="1.0" encoding="UTF-8"?>
+       <book xmlns="http://docbook.org/ns/docbook"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:linkend="http://www.w3.org/1999/linkend"
+         xmlns:xref="http://www.w3.org/1999/xref"
+         xmlns:wadl="http://wadl.dev.java.net/2009/02"
+         version="5.0-extension RackBook-2.0"
+         xml:id="api.rackspace.com-dns">
+       <info>
+       <title>Cloud DNS APIs</title>
+       <copyright>
+           <year>2010-2014</year>
+        </copyright>
+       <legalnotice role="rs-api">
+          <para/>
+       </legalnotice>
+       <annotation>
+          <xi:include href="itemizedlist-service-list.xml"/>
+       </annotation>
+       </info>
+       <xi:include href="ch_dns-v1.xml"/>
+       </book> 
+   
+#. Update the itemizedlist-service-list.xml file to add your product. For example::
 
-   upstream is an arbitrary name.
-        
-        $ git remote add upstream https://github.com/rackerlabs/docs-api-reference.git
+       <listitem>
+          <para><link xlink:href="api-ref-dns.html">Cloud DNS API</link></para>
+       </listitem>
 
-#. Change into the directory for your forked repository.
+#. Update the pom.xml file to add instructions to build your api-ref* file. Follow the pattern in that file.
 
-        $ cd docs-api-reference
-        
-#. If you want to make updates to the docs-api-reference repository, create a branch. 
-
-   Otherwise, skip to the next step.
-
-   Do all your work on your branch and NOT on rackerlabs/docs-api-reference. 
-                
-   "*mybranch*" is an arbitrary branch name where you will do your work.
-                
-        $ git checkout -b "*mybranch*"                       
-                        
 #. Do a remote build to make sure that things work okay.
                         
         $ mvn clean generate-sources
 
 #. When you are ready to commit, and periodically if you want the latest stuff, merge changes from remote project into your local fork.
+   See '<https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork>'.
                         
 #. Push your branch to your fork.
          

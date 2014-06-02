@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter [
-<!-- Some useful entities borrowed from HTML -->
-<!ENTITY ndash  "&#x2013;">
-<!ENTITY mdash  "&#x2014;">
-<!ENTITY hellip "&#x2026;">   
-<!-- Useful for describing APIs -->
-<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
-<!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
-<!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
-<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
-]>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -18,7 +7,106 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="dns-v1.0">
     <title>Cloud DNS API v1.0</title>
-    <para>TBD.</para>
+    <section xml:id="limits">
+        <title>Limits</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#limits">
+                <wadl:method href="#listLimits"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#type_id">
+                <wadl:method href="#showLimits"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#types">
+                <wadl:method href="#listLimitTypes"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="domains">
+        <title>Domains</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#domains">
+                <wadl:method href="#listDomains"/>
+                <wadl:method href="#listDomainsbyName"/>
+                <wadl:method href="#createDomain"/>
+                <wadl:method href="#updateDomains"/>
+                <wadl:method href="#deleteDomains"/>
+                <wadl:method href="#deleteDomainsAndSubdomains"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#domain_id">
+                <wadl:method href="#listDomainsWithoutSubDomains"/>
+                <wadl:method href="#showDomain"/>
+                <wadl:method href="#updateDomain"/>
+                <wadl:method href="#deleteDomain"/>
+                <wadl:method href="#deleteDomainAndSubdomains"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#changes">
+                <wadl:method href="#showDomainChanges"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#export">
+                <wadl:method href="#exportDomain"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#clone">
+                <wadl:method href="#cloneDomain"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#import">
+                <wadl:method href="#importDomain"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="subdomains">
+        <title>Subdomains</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#subdomains">
+                <wadl:method href="#listSubdomains"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="records">
+        <title>Records</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#records">
+                <wadl:method href="#listRecords"/>
+                <wadl:method href="#searchRecords"/>
+                <wadl:method href="#addRecords"/>
+                <wadl:method href="#updateRecords"/>
+                <wadl:method href="#deleteRecords"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#recordId">
+                <wadl:method href="#showRecord"/>
+                <wadl:method href="#updateRecord"/>
+                <wadl:method href="#deleteRecord"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ptr_records">
+        <title>Reverse DNS</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#rdns">
+                <wadl:method href="#updatePTRRecords"/>
+                <wadl:method href="#addPTRRecords"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#service-name">
+                <wadl:method href="#listPTRRecords"/>
+                <wadl:method href="#deletePTRRecords"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#service-name_recordId">
+                <wadl:method href="#showPTRRecord"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
 </chapter>
-
-
