@@ -21,20 +21,18 @@ To update or add WADLs to API pages
 
 To update or add WADLs to the API pages:
 
-#. Complete steps 1 and 2 in this procedure for this project (rackerlabs/docs-api-reference)::
-      
-       '<https://one.rackspace.com/display/devdoc/Github+workflow+howto>'                     
+#. Complete steps 1 and 2 in this '_procedure https://one.rackspace.com/display/devdoc/Github+workflow+howto' for this project (rackerlabs/docs-api-reference).                     
                         
 #. To add a WADL for a product, go to the docs-api-reference/api-ref/src/docbkx folder.
 
 #. If a ch_* file exists for your product already (such as ch_dns-v1.xml), open it. 
-   If not, create a file for your product that uses the ch_<product>-<version>.xml naming convention and open it.
+   If not, create a file for your product that uses the ch_{product}-{version}.xml naming convention and open it.
   
 #. Update this file to point to your WADL in your repository. To do so, you need the "raw" link to the WADL.
    To get that, navigate to your WADL file in your project repository, click on the file name to open a view of the
    file. Then, click the Raw button at the top of the file. Then, copy the URL in the address bar.
    
-#. In your ch_<product>-<version>.xml file, add code like this to point to your WADL and methods::
+#. In your ch_{product}-{version}.xml file, add code like this to point to your WADL and methods::
 
         <chapter xmlns="http://docbook.org/ns/docbook"
                  xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -92,7 +90,7 @@ To update or add WADLs to the API pages:
         $ mvn clean generate-sources
 
 #. When you are ready to commit, and periodically if you want the latest stuff, merge changes from remote project into your local fork.
-   See '<https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork>'.
+   See '_merge changes from upstream to fork https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork'.
                         
 #. Push your branch to your fork.
          
