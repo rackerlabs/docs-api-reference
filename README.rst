@@ -6,7 +6,7 @@ API reference pages for Rackspace APIs
 Prerequisites
 =============
 
-To build the documentation, you must install `Apache Maven <http://maven.apache.org/>`
+To build the documentation, you must install `Apache Maven http://maven.apache.org/`_.
 
 To install Maven 3 for Ubuntu 12.04 and later or Debian wheezy and later:
 
@@ -21,7 +21,7 @@ To update or add WADLs to API pages
 
 To update or add WADLs to the API pages:
 
-#. Complete steps 1 and 2 in this '_procedure https://one.rackspace.com/display/devdoc/Github+workflow+howto' for this project (rackerlabs/docs-api-reference).                     
+#. Complete steps 1 and 2 in this 'procedure https://one.rackspace.com/display/devdoc/Github+workflow+howto'_ for this project (rackerlabs/docs-api-reference).                     
                         
 #. To add a WADL for a product, go to the docs-api-reference/api-ref/src/docbkx folder.
 
@@ -47,11 +47,10 @@ To update or add WADLs to the API pages:
                 />
         </chapter>
         
-#. If an api-ref file exists for your product, do nothing.
-   If an api-ref file does not exist, copy another product api-ref* file and rename it to your product name.
+#. If an api-ref file exists for your product, do nothing. Otherwise, copy another product api-ref* file and rename it to your product name.
    For example, api-ref-dns.xml. 
    
-#. Edit the api-ref* file and this exact markup, using an appropriate xml:id, title, and ch_* file name::
+#. Edit the api-ref* file and add this exact markup, using an appropriate xml:id, title, and included ch_* file name::
 
        <?xml version="1.0" encoding="UTF-8"?>
        <book xmlns="http://docbook.org/ns/docbook"
@@ -90,7 +89,7 @@ To update or add WADLs to the API pages:
         $ mvn clean generate-sources
 
 #. When you are ready to commit, and periodically if you want the latest stuff, merge changes from remote project into your local fork.
-   See '_merge changes from upstream to fork https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork'.
+   See 'merge changes from upstream to fork https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork'_.
                         
 #. Push your branch to your fork.
          
