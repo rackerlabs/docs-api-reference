@@ -81,14 +81,11 @@ To update or add WADLs to API pages
         
 #. Update the pom.xml file to add instructions to build your api-ref-{product}.xml file. Follow the pattern in that file.
         
-#. Do a remote build to make sure that things work okay.
+#. Do a remote build (mvn clean generate-sources) to make sure that things work okay.
         
-        $ mvn clean generate-sources
-        
-#. When you are ready to commit, and periodically if you want the latest stuff, merge changes from remote project into your local fork.
-        See `merge changes from upstream to fork <https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork>`_.
+#. When you are ready to commit, and periodically if you want the latest stuff, merge changes from remote project into your local fork. See `merge changes from upstream to fork <https://one.rackspace.com/display/devdoc/Merge+changes+from+upstream+to+fork>`_.
             
-#. Push your branch to your fork.
+#. Push your branch to your fork::
             
        $ git push origin {mybranch}
             
