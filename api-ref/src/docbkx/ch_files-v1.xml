@@ -92,7 +92,6 @@ Accept-Ranges: bytes</programlisting>
             </wadl:resource>
         </wadl:resources>
     </section>
-    <!-- add back later - validation errors -->
     <section xml:id="files_cdn_containers">
         <title>CDN-enabled containers</title>
         <para>Manage CDN-enabled containers.</para>

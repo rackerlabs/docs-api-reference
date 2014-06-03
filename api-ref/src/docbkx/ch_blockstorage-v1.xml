@@ -10,8 +10,6 @@
     <section xml:id="volumes">
         <title>Volumes</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <!-- <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volumes">-->
             <wadl:resource
                 href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volumes">
                 <wadl:method href="#createVolume"/>
