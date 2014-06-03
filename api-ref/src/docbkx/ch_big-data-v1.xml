@@ -9,11 +9,6 @@
     <title>Cloud Big Data API v1.0</title>
     <section xml:id="profileOperations">
         <title>Profiles</title>
-        <!--<para>Your Cloud Big Data profile is different from your cloud
-            account. A profile is the configuration for the
-            administration and login account for the cluster. Each
-            user or account can have only one profile. Any updates or
-            additions override the existing profile.</para>-->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide.wadl#profiles"

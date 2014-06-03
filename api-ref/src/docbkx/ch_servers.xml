@@ -71,21 +71,21 @@
     </section>
     <section xml:id="compute_server_metadata">
         <title>Server metadata</title>
-        <para>Set, list, get details for, and delete server
-            metadata or metadata items.</para>
+        <para>Set, list, get details for, and delete server metadata
+            or metadata items.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#metadata">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#server_metadata">
                 <!-- Metadata -->
-                <wadl:method href="#listMetadata"/>
-                <wadl:method href="#updateMetadata"/>
-                <wadl:method href="#setMetadata"/>
+                <wadl:method href="#showServerMetadata"/>
+                <wadl:method href="#createServerMetadata"/>
+                <wadl:method href="#updateServerMetadata"/>
             </wadl:resource>
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#MetadataKey">
-                <wadl:method href="#getMetadataItem"/>
-                <wadl:method href="#setMetadataItem"/>
-                <wadl:method href="#deleteMetadataItem"/>
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#ServerMetadataKey">
+                <wadl:method href="#getServerMetadataItem"/>
+                <wadl:method href="#setServerMetadataItem"/>
+                <wadl:method href="#deleteServerMetadataItem"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -103,9 +103,9 @@
     </section>
     <section xml:id="compute_server-actions">
         <title>Server actions</title>
-        <para>Perform actions for a specified server, including
-            change administrator password, reboot, rebuild, resize,
-            and create image from server.</para>
+        <para>Perform actions for a specified server, including change
+            administrator password, reboot, rebuild, resize, and
+            create image from server.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#action">
@@ -169,21 +169,20 @@
     </section>
     <section xml:id="compute_image_metadata">
         <title>Image metadata</title>
-        <para>Set, list, get details for, and delete image
-            metadata or metadata items.</para>
+        <para>Set, list, get details for, and delete image metadata or
+            metadata items.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#image_metadata">
-                <!-- Metadata -->
-                <wadl:method href="#listMetadata"/>
-                <wadl:method href="#updateMetadata"/>
-                <wadl:method href="#setMetadata"/>
+                <wadl:method href="#showImageMetadata"/>
+                <wadl:method href="#createImageMetadata"/>
+                <wadl:method href="#updateImageMetadata"/>
             </wadl:resource>
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#imageMetadataKey">
-                <wadl:method href="#getMetadataItem"/>
-                <wadl:method href="#setMetadataItem"/>
-                <wadl:method href="#deleteMetadataItem"/>
+                <wadl:method href="#getImageMetadataItem"/>
+                <wadl:method href="#setImageMetadataItem"/>
+                <wadl:method href="#deleteImageMetadataItem"/>
             </wadl:resource>
         </wadl:resources>
     </section>
