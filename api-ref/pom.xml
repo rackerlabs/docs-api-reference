@@ -42,8 +42,8 @@
                 api-ref-email-and-apps.xml, <!-- email and apps -->
                <!--  api-ref-feeds.xml, --> <!-- feeds --> 
                 api-ref-files.xml, <!-- files -->
-               <!-- api-ref-identity.xml, <!-\- identity -\->-->
-               <!-- api-ref-images.xml, <!-\- images -\->-->
+                api-ref-identity.xml, <!-- identity -->
+                api-ref-images.xml, <!-- images -->
                 api-ref-load-balancers.xml, <!-- load balancers --> 
                 api-ref-monitoring.xml, <!-- monitoring --> 
                 api-ref-networks.xml, <!-- networks --> 
