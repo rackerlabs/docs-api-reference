@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-v2"
     xlink:href="#identity-v2">
     <title>Cloud Identity API v2.0</title>
-    <para>Add introduction here.</para>
+   <!-- <para>Add introduction here.</para>-->
     <section xml:id="User_Calls">
         <title>Users</title>
         <!--- this section comes from 3 WADLs: core identity-admin + extensions OS-KSADM-admin & RAX-KSKEY-admin -->
@@ -136,7 +136,7 @@
                 </wadl:method>
             </wadl:resource>
             <!-- list all credentials -->
-            <wadl:resource
+            <!--<wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userCredentials-v2.0">
                 <wadl:method href="#listCredentials">
                     <wadl:doc>
@@ -155,7 +155,7 @@
                         </note>
                     </wadl:doc>
                 </wadl:method>
-            </wadl:resource>
+            </wadl:resource>-->
             <!-- get user's API key credentials -->
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSKEY-admin.wadl#userCredentialsByType">
@@ -178,10 +178,10 @@
                 </wadl:method>
             </wadl:resource>
             <!-- reset user's API key credentials -->
-            <wadl:resource
+           <!-- <wadl:resource
                 href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-AUTH.wadl#reset_apikey_credentials">
                 <wadl:method href="#resetUserAPIKeyCredentials"/>
-            </wadl:resource>
+            </wadl:resource>-->
         </wadl:resources>
     </section>
     <section xml:id="Role_Calls">
