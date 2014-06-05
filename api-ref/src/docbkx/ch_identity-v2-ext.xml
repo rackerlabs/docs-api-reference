@@ -25,12 +25,12 @@
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSCATALOG-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
-    <section xml:id="rax-auth-ext">
+    <!--<section xml:id="rax-auth-ext">
         <title>RAX-AUTH extension</title>
         <wadl:resources
             href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-AUTH.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
-    </section>
+    </section>-->
     <section xml:id="rax-ksgrp-admin-ext">
         <title>RAX-KSGRP admin extension</title>
         <wadl:resources
@@ -49,10 +49,10 @@
             href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSQA-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
-    <section xml:id="rax-ratelimit-admin-ext">
+   <!-- <section xml:id="rax-ratelimit-admin-ext">
         <title>RAX-RATELIMIT admin extension</title>
         <wadl:resources
             href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-RATELIMIT-admin.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
-    </section>
+    </section>-->
 </chapter>

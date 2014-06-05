@@ -13,23 +13,24 @@
             images with other users. Also, upload and download raw
             image data.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <!--    https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/-->
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-2.0.wadl#Images">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#Images">
                 <wadl:method href="#listImages"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-2.0.wadl#ImageID">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#ImageID">
                 <wadl:method href="#getImage"/>
                 <wadl:method href="#updateImage"/>
                 <wadl:method href="#deleteImage"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-2.0.wadl#Tagstag">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#Tagstag">
                 <wadl:method href="#addImageTag"/>
                 <wadl:method href="#deleteImageTag"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-2.0.wadl#Members">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#Members">
                 <wadl:method href="#createImageMember"/>
                 <wadl:method href="#listImageMembers"/>
             </wadl:resource>
@@ -39,7 +40,7 @@
                 <wadl:method href="#updateImageMember"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-2.0.wadl#Tasks">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#Tasks">
                 <wadl:method href="#importImage"/>
                 <wadl:method href="#exportImage"/>
                 <wadl:method href="#listTasks"/>
@@ -55,27 +56,27 @@
             images entity.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-schemas-2.0.wadl#Image-schemas">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-schemas-2.0.wadl#Image-schemas">
                 <wadl:method href="#getImagesSchema"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-schemas-2.0.wadl#Image-schema">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-schemas-2.0.wadl#Image-schema">
                 <wadl:method href="#getImageSchema"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-schemas-2.0.wadl#Image-members-schemas">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-schemas-2.0.wadl#Image-members-schemas">
                 <wadl:method href="#getImageMembersSchemas"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-schemas-2.0.wadl#Image-member-schema">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-schemas-2.0.wadl#Image-member-schema">
                 <wadl:method href="#getImageMemberSchema"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-schemas-2.0.wadl#Image-tasks-schemas">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-schemas-2.0.wadl#Image-tasks-schemas">
                 <wadl:method href="#getTasksSchemas"/>
             </wadl:resource>
             <wadl:resource
-                href="../wadls/cloud-images/wadl/image-schemas-2.0.wadl#Image-task-schema">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-schemas-2.0.wadl#Image-task-schema">
                 <wadl:method href="#getTaskSchema"/>
             </wadl:resource>
         </wadl:resources>

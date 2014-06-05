@@ -11,12 +11,16 @@
         persistent volumes. API v1.1 is identical to API v2.</para>
     <section xml:id="compute_versions">
         <title>Versions</title>
-        <para>Get information about a specific version of the
-            API.</para>
+        <para>List versions and get information about a specific
+            version of the API.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#versions">
+                <wadl:method href="#listVersionsv2"/>
+            </wadl:resource>
+            <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#version">
-                <wadl:method href="#versionDetails"/>
+                <wadl:method href="#getVersionDetailsv2"/>
             </wadl:resource>
         </wadl:resources>
     </section>
@@ -29,11 +33,11 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#extensions">
-                <wadl:method href="#listExtensions"/>
+                <wadl:method href="#listExtensionsv2"/>
             </wadl:resource>
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/wadl/os-compute-2.wadl#extension">
-                <wadl:method href="#getExtension"/>
+                <wadl:method href="#getExtensionv2"/>
             </wadl:resource>
         </wadl:resources>
     </section>
