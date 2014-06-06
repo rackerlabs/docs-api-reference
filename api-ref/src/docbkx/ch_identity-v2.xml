@@ -8,9 +8,28 @@
     version="5.0-extension RackBook-2.0" xml:id="identity-v2"
     xlink:href="#identity-v2">
     <title>Cloud Identity API v2.0</title>
-   <!-- <para>Add introduction here.</para>-->
+    <!-- <para>Add introduction here.</para>-->
     <section xml:id="User_Calls">
         <title>Users</title>
+        <para>The operations described in this section enable clients
+            to manage users.</para>
+        <note>
+            <para> Some of the functionality described in this section
+                is provided by the <code>OS-KSADM</code> and
+                    <code>RAX-KSKEY</code> extensions to the core
+                Identity API. You can learn more about API extensions
+                at <link
+                    xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/"
+                    >
+                    https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.
+            </para>
+        </note>
+        <para>When these requests are issued by an account user, they
+            act only upon that account user. You can learn more about
+            account users, also called sub-accounts, at <olink
+                targetdoc="Identity-Developer-Guide"
+                targetptr="Account-Users-d1e910">“Account
+                Users”</olink>.</para>
         <!--- this section comes from 3 WADLs: core identity-admin + extensions OS-KSADM-admin & RAX-KSKEY-admin -->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list users -->
@@ -178,38 +197,35 @@
                 </wadl:method>
             </wadl:resource>
             <!-- reset user's API key credentials -->
-           <!-- <wadl:resource
-                href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-AUTH.wadl#reset_apikey_credentials">
+            <wadl:resource
+                href="../wadls/cloud-identity/wadl/RAX-AUTH.wadl#reset_apikey_credentials">
                 <wadl:method href="#resetUserAPIKeyCredentials"/>
-            </wadl:resource>-->
+            </wadl:resource>
         </wadl:resources>
     </section>
     <section xml:id="Role_Calls">
-        <title>roles-v2.0</title>
+        <title>Roles</title>
+        <para>The operations described in this section enable clients
+            to manage roles.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list roles-v2.0 -->
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#roles-v2.0">
-                <wadl:method href="#listroles-v2.0"/>
+                <wadl:method href="#getRoleByName"/>
             </wadl:resource>
-            <!-- get a global role -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#roles_list-v2.0">
+                <wadl:method href="#listRoles"/>
+                <wadl:method href="#addRole"/>
+            </wadl:resource>
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#roleId-v2.0">
                 <wadl:method href="#getRole"/>
-            </wadl:resource>
-            <!-- add a global role to a user -->
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userRoleById-v2.0">
-                <wadl:method href="#addUserRole"/>
-            </wadl:resource>
-            <!-- delete a global role from a user -->
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userRoleById-v2.0">
-                <wadl:method href="#deleteUserRole"/>
+                <wadl:method href="#deleteRole"/>
             </wadl:resource>
             <!-- list global roles-v2.0 available to a user -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#userRoles">
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#userid">
                 <wadl:method href="#listUserGlobalroles-v2.0">
                     <wadl:doc>
                         <note>
@@ -232,6 +248,8 @@
     </section>
     <section xml:id="Token_Calls">
         <title>Tokens</title>
+        <para>The operations described in this section enable clients
+            to get and validate access tokens.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tokens">
@@ -270,6 +288,8 @@
     </section>
     <section xml:id="Tenant_Calls">
         <title>Tenants</title>
+        <para>The operations described in this section enable clients
+            to manage tenants.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tenants">
