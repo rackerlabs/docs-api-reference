@@ -4,7 +4,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="API_Operations"
     version="5.0" role="api-reference">
     <title>Cloud Identity API v2.0 for Service Developers</title>
-    <para>The operations described in this chapter allow service
+    <para>The operations described in this chapter enable service
         developers to get and validate access tokens and to manage
         users, tenants, roles, and service endpoints.</para>
     <!-- USERS -->
@@ -109,7 +109,7 @@
     <!-- TENANTS -->
     <section xml:id="Tenant_Calls">
         <title>Tenants</title>
-        <para>The operations described in this section allow service
+        <para>The operations described in this section enable service
             developers to manage tenants.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
@@ -217,7 +217,7 @@
     <!-- SERVICE OPERATIONS -->
     <section xml:id="Service_Calls">
         <title>Service operations</title>
-        <para>The operations described in this section allow service
+        <para>The operations described in this section enable service
             developers to manage services. These services correspond
             to the OpenStack Keystone services.</para>
         <note>
