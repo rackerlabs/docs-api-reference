@@ -16,6 +16,31 @@ On Fedora 15 and later::
     
     yum install maven3
     
+Locations of WADL files
+=======================
+
+- Auto Scale: `https://github.com/rackerlabs/otter.git <https://github.com/rackerlabs/otter.git>`_ (Maria Abrahms)
+- Barbican: Coming Soon to: `git@github.com:dwcramer/barbican.git <git@github.com:dwcramer/barbican.git>`_		
+- Cloud Backup:	`git@github.com:rackerlabs/docs-cloud-backup.git <git@github.com:rackerlabs/docs-cloud-backup.git>`_ (Catherine Richardson)	
+- Cloud Big Data: `git@github.com:rackerlabs/docs-cloud-big-data.git <git@github.com:rackerlabs/docs-cloud-big-data.git>`_ (Catherine Richardson)	
+- Cloud Block Storage: `git@github.com:rackerlabs/docs-cloud-block-storage.git <git@github.com:rackerlabs/docs-cloud-block-storage.git>`_ (Catherine Richardson)
+- Cloud Databases: `https://github.com/rackerlabs/docs-cloud-databases.git <https://github.com/rackerlabs/docs-cloud-databases.git>`_ (Mike Asthalter)
+- Cloud DNS: `https://github.com/rackerlabs/docs-cloud-dns.git <https://github.com/rackerlabs/docs-cloud-dns.git>`_ (Mike Asthalter)	
+- Cloud Feeds: `git@github.com:rackerlabs/standard-usage-schemas.git <git@github.com:rackerlabs/standard-usage-schemas.git>`_ (atom_hopper.wadl) (Constanze Kratel)
+- Cloud Files: `git@github.com:rackerlabs/docs-cloud-files.git <git@github.com:rackerlabs/docs-cloud-files.git>`_ (Catherine Richardson)
+- Cloud Identity 3.x: `git@github.rackspace.com:IX/auth-3.0.git <git@github.rackspace.com:IX/auth-3.0.git>`_ (Margaret Eker)
+- Cloud Identity 2.x: `git@github.rackspace.com:IX/auth-2.0.git <git@github.rackspace.com:IX/auth-2.0.git>`_, `https://github.com/rackerlabs/docs-cloud-identity.git <https://github.com/rackerlabs/docs-cloud-identity.git>`_, and `https://raw.githubusercontent.com/rackerlabs/docs-api-reference/master/api-ref/src/wadls/cloud-identity/wadl/RAX-AUTH.wadl <https://raw.githubusercontent.com/rackerlabs/docs-api-reference/master/api-ref/src/wadls/cloud-identity/wadl/RAX-AUTH.wadl>`_ (Margaret Eker)
+- Cloud Images:	`https://github.com/rackerlabs/docs-cloud-images.git <https://github.com/rackerlabs/docs-cloud-images.git>`_ (Cat Lookabaugh)
+- Cloud Load Balancers: `https://github.com/rackerlabs/docs-cloud-load-balancers.git <https://github.com/rackerlabs/docs-cloud-load-balancers.git>`_ (Mike Asthalter)		
+- Cloud Monitoring: `https://github.com/rackerlabs/docs-cloud-monitoring.git <https://github.com/rackerlabs/docs-cloud-monitoring.git>`_ (Maria Abrahms)
+- Cloud Networks: `https://github.com/catlook/networks2.git <https://github.com/catlook/networks2.git>`_, and `https://github.com/rackerlabs/docs-cloud-networks.git <https://github.com/rackerlabs/docs-cloud-networks.git>`_ (Cat Lookabaugh)
+- Cloud Orchestration: `git@github.com:rackerlabs/docs-cloud-orchestration.git <git@github.com:rackerlabs/docs-cloud-orchestration.git>`_  (Mike Asthalter)
+- Cloud Queues:	`git@github.com:rackerlabs/docs-cloud-queues.git <git@github.com:rackerlabs/docs-cloud-queues.git>`_ (Catherine Richardson)
+- Cloud Servers 1.x: likely will not be done. Product will be end-of-lifed this year. (Cat Lookabaugh)
+- Cloud Servers 2.x: `https://github.rackspace.com/IX/cloud-server.git <https://github.rackspace.com/IX/cloud-server.git>`_ (in progress/unpublished) (Cat Lookabaugh)
+- Email & Apps:	`https://github.com/rackerlabs/docs-api-reference/tree/master/api-ref/src/wadls/email-apps/wadl <https://github.com/rackerlabs/docs-api-reference/tree/master/api-ref/src/wadls/email-apps/wadl>`_ (for WADLs that generates API site) and `https://github.rackspace.com:IX/email-and-apps.git <https://github.rackspace.com:IX/email-and-apps.git>`_ (for actual source) (Rose Coste)
+- Object Rocket: (Margaret Eker)
+
 To update or add WADLs to API pages
 ===================================
     
