@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0" xml:id="monitoring-v2">
     <title>Cloud Monitoring API v1.0</title>
     <para>Perform monitoring operations.</para>
-    <section xml:id="alarms">
+    <!--<section xml:id="alarms">
         <title>Alarms</title> 
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
@@ -62,5 +62,5 @@
                 <wadl:method href="#showResource"/>
             </wadl:resource>
         </wadl:resources>
-    </section>
+    </section>-->
 </chapter>
