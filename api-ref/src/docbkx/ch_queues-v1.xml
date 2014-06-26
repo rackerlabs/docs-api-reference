@@ -26,9 +26,11 @@
             <para>The home document schema is currently not ratified
                 in OpenStack and may change.</para>
         </note>
+        <!-- https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl -->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#version"/>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#version"
+            />
         </wadl:resources>
     </section>
     <section xml:id="queue-operations-dle001">
@@ -36,15 +38,15 @@
         <para>Manage queues.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queues">
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queues">
                 <wadl:method href="#listQueues"/>
             </wadl:resource>
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queue"/>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queue_name"/>
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#metadata"/>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#metadata"/>
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#stats"
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#stats"
             />
         </wadl:resources>
     </section>
@@ -60,9 +62,9 @@
         </note>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#messages"/>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#messages"/>
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#message"
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#messageId"
             />
         </wadl:resources>
     </section>
@@ -71,9 +73,9 @@
         <para>Perform claim operations.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claims"/>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claims"/>
             <wadl:resource
-                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claim"
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claimId"
             />
         </wadl:resources>
     </section>
