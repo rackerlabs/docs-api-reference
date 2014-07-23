@@ -119,18 +119,8 @@ The root of the generated HTML (API site) documentation is ``docs-api-reference/
 Test
 ====
             
-Install the python tox package and run ``tox`` from the top-level
-directory to use the same tests that are done as part of our Jenkins
-gating jobs.
-            
-If you like to run individual tests, run::
-            
-* ``tox -e checkniceness`` - to run the niceness tests
-* ``tox -e checksyntax`` - to run syntax checks
-* ``tox -e checkdeletions`` - to check that no deleted files are referenced
-* ``tox -e checkbuild`` - to actually build the manual
-            
-tox uses the `openstack-doc-tools package
-<https://github.com/openstack/openstack-doc-tools>`_ for execution of
-these tests. openstack-doc-tools has a requirement on maven for the
-build check.
+To build locally, run the maven plugin from the directory where the pom.xml file resides::
+
+mvn clean generate-sources
+
+The resulting HTML files are output into a target directory and you can open them locally.
