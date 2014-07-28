@@ -202,6 +202,18 @@
                 <wadl:method href="#updateLoadBalancerMetadataItem"/>
                 <wadl:method href="#deleteLoadBalancerMetadataItem"/>
             </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#nodeId_metadata">
+                <wadl:method href="#showNodeMetadata"/>
+                <wadl:method href="#addNodeMetadataItem"/>
+                <wadl:method href="#bulkDeleteNodeMetadataItems"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#nodeId_metadata_metaId">
+                <wadl:method href="#showNodeMetadataItem"/>
+                <wadl:method href="#updateNodeMetadataItem"/>
+                <wadl:method href="#deleteNodeMetadataItem"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
     <section xml:id="protocols">
