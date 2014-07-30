@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>wtime</command></td>
+<td>Total number of milliseconds spent reading (in milliseconds).</td>
+
+</tr>
+<tr>
+<td><command>read_bytes</command></td>
+<td>Total number of bytes read from disk (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>queue</command></td>
+<td>(to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>name</command></td>
+<td>The device name (TODO: Fix this to be the block device name).</td>
+
+</tr>
+<tr>
+<td><command>reads</command></td>
+<td>Total number of completed read requests.</td>
+
+</tr>
+<tr>
+<td><command>rtime</command></td>
+<td>Total number of milliseconds spent reading (in milliseconds).</td>
+
+</tr>
+<tr>
+<td><command>service_time</command></td>
+<td>(to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>snaptime</command></td>
+<td>(to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>time</command></td>
+<td>Total time spend doing I/O (in milliseconds).</td>
+
+</tr>
+<tr>
+<td><command>write_bytes</command></td>
+<td>Total number of bytes written to disk (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>writes</command></td>
+<td>Total number of completed write requests.</td>
+
+</tr>
+</tbody>
+</informaltable>

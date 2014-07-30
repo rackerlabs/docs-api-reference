@@ -1,0 +1,15 @@
+{
+    "label": "Website check 1",
+    "type": "remote.http",
+    "details": {
+        "url": "http://www.foo.com/test/",
+        "body": "b",
+        "method": "GET"
+    },
+    "monitoring_zones_poll": [
+        "mzxJ4L2IU"
+    ],
+    "timeout": 30,
+    "period": "60",
+    "target_alias": "default"
+}

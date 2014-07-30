@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354040856776</timestamp>
+  <info>
+    <process>
+      <pid>1</pid>
+      <exe_name>/sbin/init</exe_name>
+      <exe_cwd>/</exe_cwd>
+      <exe_root>/</exe_root>
+      <time_total>2080</time_total>
+      <time_sys>2010</time_sys>
+      <time_user>70</time_user>
+      <time_start_time>1354005304000</time_start_time>
+      <state_name>init</state_name>
+      <state_priority>20</state_priority>
+      <state_threads>1</state_threads>
+      <memory_size>24387584</memory_size>
+      <memory_resident>2088960</memory_resident>
+      <memory_share>1335296</memory_share>
+      <memory_major_faults>24</memory_major_faults>
+      <memory_minor_faults>7810</memory_minor_faults>
+      <memory_page_faults>7834</memory_page_faults>
+    </process>
+  </info>
+</agent_host_info>

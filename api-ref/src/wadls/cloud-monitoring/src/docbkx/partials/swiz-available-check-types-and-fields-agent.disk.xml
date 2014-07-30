@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-agent.disk">
+<title>agent.disk</title>
+<bridgehead xml:id="summary-agent.disk">Summary</bridgehead>
+<para>The agent.disk check exposes disk related metrics (service time, wait time, etc.).</para>
+<xi:include href="attributes-agent.disk.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-agent.disk.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<check>
+  <label>Website check 1</label>
+  <type>remote.http</type>
+  <details>
+    <url>http://www.foo.com</url>
+    <body>b</body>
+    <method>GET</method>
+  </details>
+  <monitoring_zones_poll>
+    <monitoring_zone_id>mzxJ4L2IU</monitoring_zone_id>
+  </monitoring_zones_poll>
+  <timeout>30</timeout>
+  <period>60</period>
+  <target_alias>default</target_alias>
+</check>

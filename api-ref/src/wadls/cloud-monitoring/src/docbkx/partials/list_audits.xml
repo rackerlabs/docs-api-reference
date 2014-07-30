@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <audit id="84428400-0b26-11e1-9dd4-d7e69257c9a7">
+      <headers>
+        <host>127.0.0.1</host>
+        <user-agent>ele-client/ae0a53c</user-agent>
+        <accept>application/xml</accept>
+        <content-type>application/xml</content-type>
+        <x-auth-token>917ac3575c29e2f27e7236836a732615d62e416d4aead4d5</x-auth-token>
+        <content-length>254</content-length>
+        <connection>close</connection>
+      </headers>
+      <url>/v1.0/entities</url>
+      <app>entities</app>
+      <query/>
+      <txnId>.rh-nzQM.h-ele.r-Kxysr1TO.c-189.ts-1320879585331.v-ae0a53c</txnId>
+      <payload>{"label":"0NwhqrC05xKh22OEYZhcQdwkw","ip_addresses":{"default":"10.0.0.2"},"metadata":{"all":"kinds","of":"stuff","can":"go","here":"null is not a valid value"}}</payload>
+      <method>POST</method>
+      <account_id>frank</account_id>
+      <who/>
+      <why/>
+      <statusCode>201</statusCode>
+    </audit>
+    <audit id="849f22f0-0b26-11e1-9dd4-d7e69257c9a7">
+      <headers>
+        <host>127.0.0.1</host>
+        <user-agent>ele-client/ae0a53c</user-agent>
+        <accept>application/xml</accept>
+        <content-type>application/xml</content-type>
+        <x-auth-token>917ac3575c29e2f27e7236836a732615d62e416d4aead4d5</x-auth-token>
+        <content-length>51</content-length>
+        <connection>close</connection>
+      </headers>
+      <url>/v1.0/entities/enuAc9qZRB</url>
+      <app>entities</app>
+      <query/>
+      <txnId>.rh-nzQM.h-ele.r-lobnFBE4.c-195.ts-1320879585945.v-ae0a53c</txnId>
+      <payload>{"label":"testing.example.com"}</payload>
+      <method>PUT</method>
+      <account_id>frank</account_id>
+      <who/>
+      <why/>
+      <statusCode>204</statusCode>
+    </audit>
+  </values>
+  <metadata>
+    <count>2</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

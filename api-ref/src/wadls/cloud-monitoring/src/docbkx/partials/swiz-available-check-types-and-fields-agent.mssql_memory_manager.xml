@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-agent.mssql_memory_manager">
+<title>agent.mssql_memory_manager</title>
+<bridgehead xml:id="summary-agent.mssql_memory_manager">Summary</bridgehead>
+<para>The agent.mssql_memory_manager check will return metrics for the Microsoft SQL Server memory manager.</para>
+<xi:include href="attributes-agent.mssql_memory_manager.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-agent.mssql_memory_manager.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

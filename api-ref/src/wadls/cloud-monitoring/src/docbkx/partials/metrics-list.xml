@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <metricinfo>
+      <name>mzdfw.available</name>
+    </metricinfo>
+    <metricinfo>
+      <name>mzdfw.average</name>
+    </metricinfo>
+  </values>
+  <metadata>
+    <count>2</count>
+    <limit />
+    <marker />
+    <next_marker />
+    <next_href />
+  </metadata>
+</container>

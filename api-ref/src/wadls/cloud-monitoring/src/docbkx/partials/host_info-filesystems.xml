@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354040405801</timestamp>
+  <info>
+    <filesystem>
+      <dir_name>/</dir_name>
+      <dev_name>/dev/mapper/dev-root</dev_name>
+      <sys_type_name>ext4</sys_type_name>
+      <options>rw,errors=remount-ro</options>
+      <free>9094752</free>
+      <used>10390396</used>
+      <avail>8104956</avail>
+      <total>19485148</total>
+      <files>1237888</files>
+      <free_files>990331</free_files>
+    </filesystem>
+  </info>
+</agent_host_info>

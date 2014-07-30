@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <notification id="ntAAAA">
+      <label>my webhook #1</label>
+      <type>webhook</type>
+      <details>
+        <url>https://systems.example.org/alert</url>
+      </details>
+    </notification>
+  </values>
+  <metadata>
+    <count>1</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

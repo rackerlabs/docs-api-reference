@@ -1,0 +1,5 @@
+{
+    "check_type": "remote.http",
+    "criteria": "if (metric[\"average\"] < 100) { return OK } return WARNING",
+    "notification_plan_id": "npDaHVH1EE"
+}

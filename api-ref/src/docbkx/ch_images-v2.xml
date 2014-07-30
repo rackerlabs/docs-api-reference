@@ -34,7 +34,8 @@
                 <wadl:method href="#createImageMember"/>
                 <wadl:method href="#listImageMembers"/>
             </wadl:resource>
-            <wadl:resource id="MemberID" path="{member_id}">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#MemberID">
                 <wadl:method href="#getImageMember"/>
                 <wadl:method href="#deleteImageMember"/>
                 <wadl:method href="#updateImageMember"/>
@@ -45,7 +46,8 @@
                 <wadl:method href="#exportImage"/>
                 <wadl:method href="#listTasks"/>
             </wadl:resource>
-            <wadl:resource id="TaskID" path="{taskID}">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-images/master/src/wadl/image-2.0.wadl#TaskID">
                 <wadl:method href="#getTask"/>
             </wadl:resource>
         </wadl:resources>

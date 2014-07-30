@@ -1,0 +1,5 @@
+{
+    "check_type": "remote.ping",
+    "criteria": "if (metric[\"average\"] < 50) { return OK } return WARNING",
+    "notification_plan_id": "npDaHVH1EE"
+}

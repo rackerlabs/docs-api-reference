@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notification_plan>
+  <label>Notification Plan 1</label>
+  <critical_state>
+    <notification_id>ntgF4eFXIL</notification_id>
+  </critical_state>
+  <warning_state>
+    <notification_id>ntgF4eFXIL</notification_id>
+  </warning_state>
+  <ok_state>
+    <notification_id>ntgF4eFXIL</notification_id>
+  </ok_state>
+</notification_plan>

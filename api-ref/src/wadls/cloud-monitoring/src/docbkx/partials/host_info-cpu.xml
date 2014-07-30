@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354038806121</timestamp>
+  <info>
+    <cpu>
+      <name>cpu.0</name>
+      <vendor>Intel</vendor>
+      <model>Core(TM) i7-2760QM CPU @ 2.40GHz</model>
+      <mhz>2394</mhz>
+      <idle>32964780</idle>
+      <irq>2320</irq>
+      <soft_irq>3450</soft_irq>
+      <nice>10</nice>
+      <sys>248460</sys>
+      <user>236100</user>
+      <wait>12190</wait>
+      <total>33467310</total>
+      <total_cores>2</total_cores>
+      <total_sockets>2</total_sockets>
+    </cpu>
+    <cpu>
+      <name>cpu.1</name>
+      <vendor>Intel</vendor>
+      <model>Core(TM) i7-2760QM CPU @ 2.40GHz</model>
+      <mhz>2394</mhz>
+      <idle>33014520</idle>
+      <soft_irq>10940</soft_irq>
+      <sys>240080</sys>
+      <user>237290</user>
+      <wait>12030</wait>
+      <total>33514860</total>
+      <total_cores>2</total_cores>
+      <total_sockets>2</total_sockets>
+    </cpu>
+  </info>
+</agent_host_info>

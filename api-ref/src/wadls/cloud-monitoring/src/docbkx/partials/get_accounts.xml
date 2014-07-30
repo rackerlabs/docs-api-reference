@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<account id="someId">
+  <metadata>
+    <key>aValue</key>
+  </metadata>
+  <webhook_token>token12345</webhook_token>
+</account>

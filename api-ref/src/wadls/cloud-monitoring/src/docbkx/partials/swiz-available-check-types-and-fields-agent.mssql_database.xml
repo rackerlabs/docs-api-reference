@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-agent.mssql_database">
+<title>agent.mssql_database</title>
+<bridgehead xml:id="summary-agent.mssql_database">Summary</bridgehead>
+<para>The agent.mssql_database check will return metrics for a Microsoft SQL Server database.</para>
+<xi:include href="attributes-agent.mssql_database.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-agent.mssql_database.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

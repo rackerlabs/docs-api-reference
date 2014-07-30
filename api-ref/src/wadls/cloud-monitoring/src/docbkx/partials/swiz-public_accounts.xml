@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section[<!-- Some useful entities borrowed from HTML -->
+  <!ENTITY ndash  "&#x2013;">
+  <!ENTITY mdash  "&#x2014;">
+  <!ENTITY hellip "&#x2026;">
+  
+  <!-- Useful for describing APIs -->
+  <!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+  <!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+  <!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+  <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+  
+  
+  <!ENTITY CHECK  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+         <imageobject>
+          <imagedata fileref="img/Check_mark_23x20_02.svg"
+               format="SVG" scale="60"/>
+        </imageobject>
+        </inlinemediaobject>'>
+  <!ENTITY CODES       'Normal Response Code(s):'>
+  <!ENTITY ERROR_CODES 'Error Response Code(s):'>
+  <!ENTITY NO_REQUEST '<para xmlns="http://docbook.org/ns/docbook">
+              This operation does not require a request body.</para>'>
+  <!ENTITY LONG_URI_REFHEAD '
+      <thead xmlns="http://docbook.org/ns/docbook">
+      <tr>
+        <td colspan="1">Verb</td>
+        <td colspan="4">URI</td>
+        <td colspan="3">Description</td>
+      </tr>
+      </thead>'>
+  <!ENTITY URI_REFHEAD '
+      <thead xmlns="http://docbook.org/ns/docbook">
+      <tr>
+        <td colspan="1">Verb</td>
+        <td colspan="1">URI</td>
+        <td colspan="4">Description</td>
+      </tr>
+      </thead>'>
+<!ENTITY MAAS 'Rackspace Cloud Monitoring'>
+]>
+<table xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+    xml:id="section-Public_accounts">
+    <caption>Attributes</caption>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Validation</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><command>metadata</command></td>
+                    <td>Arbitrary key/value pairs.</td>
+                    <td><itemizedlist>
+                            <listitem>
+                                <para>Optional</para>
+                            </listitem>
+                            <listitem>
+                                <para>Hash [String,String between 1
+                                   and 255 characters
+                                   long:String,String between 1 and
+                                   255 characters long]</para>
+                            </listitem>
+                        </itemizedlist></td>
+                </tr>
+                <tr>
+                    <td><command>webhook_token</command></td>
+                    <td/>
+                    <td><itemizedlist>
+                            <listitem>
+                                <para>Optional</para>
+                            </listitem>
+                            <listitem>
+                                <para>String between 10 and 64
+                                   characters long</para>
+                            </listitem>
+                        </itemizedlist></td>
+                </tr>
+            </tbody>
+</table>

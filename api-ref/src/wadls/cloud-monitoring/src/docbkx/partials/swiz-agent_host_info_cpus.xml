@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>stolen</command></td>
+<td>The amount of time a hypervisor is scheduling a different virtual machine.</td>
+
+</tr>
+<tr>
+<td><command>cores_per_socket</command></td>
+<td>Number of cores on the CPU socket (to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>cache_size</command></td>
+<td>Cache size of this CPU core (to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>user</command></td>
+<td>CPU time spent in user space.</td>
+
+</tr>
+<tr>
+<td><command>mhz</command></td>
+<td>CPU clock speed.</td>
+
+</tr>
+<tr>
+<td><command>irq</command></td>
+<td>CPU time spent servicing/handling hardware interrupts.</td>
+
+</tr>
+<tr>
+<td><command>idle</command></td>
+<td>CPU time spent idle.</td>
+
+</tr>
+<tr>
+<td><command>model</command></td>
+<td>CPU Vendor model string.</td>
+
+</tr>
+<tr>
+<td><command>name</command></td>
+<td>CPU name. For example, cpu.0.</td>
+
+</tr>
+<tr>
+<td><command>nice</command></td>
+<td>CPU time spent on low-priority processes.</td>
+
+</tr>
+<tr>
+<td><command>soft_irq</command></td>
+<td>CPU time spent servicing/handling software interrupts.</td>
+
+</tr>
+<tr>
+<td><command>sys</command></td>
+<td>CPU time spent in kernel space.</td>
+
+</tr>
+<tr>
+<td><command>total</command></td>
+<td>Total CPU time.</td>
+
+</tr>
+<tr>
+<td><command>total_cores</command></td>
+<td>Total cores on all sockets.</td>
+
+</tr>
+<tr>
+<td><command>total_sockets</command></td>
+<td>Total number of sockets.</td>
+
+</tr>
+<tr>
+<td><command>vendor</command></td>
+<td>CPU Vendor. For example, AMD or Intel.</td>
+
+</tr>
+<tr>
+<td><command>wait</command></td>
+<td>CPU time spent in wait (on disk).</td>
+
+</tr>
+</tbody>
+</informaltable>

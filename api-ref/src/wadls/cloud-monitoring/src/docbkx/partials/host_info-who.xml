@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354124700977</timestamp>
+  <info>
+    <user>
+      <user>testuser</user>
+      <device>tty1</device>
+      <time>1353953846</time>
+    </user>
+    <user>
+      <user>testuser</user>
+      <device>pts/2</device>
+      <time>1354117532</time>
+      <host>192.168.95.1</host>
+    </user>
+    <user>
+      <user>testuser</user>
+      <device>pts/3</device>
+      <time>1354124463</time>
+      <host>comp8dv7m.local</host>
+    </user>
+    <user>
+      <user>testuser</user>
+      <device>pts/4</device>
+      <time>1354124661</time>
+      <host>comp8dv7m.local</host>
+    </user>
+  </info>
+</agent_host_info>

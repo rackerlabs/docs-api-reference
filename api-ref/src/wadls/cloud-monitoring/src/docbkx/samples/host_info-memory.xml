@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354039061635</timestamp>
+  <info>
+    <agent_host_info_memory>
+      <actual_free>3052249088</actual_free>
+      <actual_used>1516371968</actual_used>
+      <free>2660339712</free>
+      <ram>4360</ram>
+      <swap_free>926932992</swap_free>
+      <swap_page_in>926932992</swap_page_in>
+      <swap_page_out>926932992</swap_page_out>
+      <swap_total>926932992</swap_total>
+      <swap_used>926932992</swap_used>
+      <total>4568621056</total>
+      <used>1908281344</used>
+    </agent_host_info_memory>
+  </info>
+</agent_host_info>

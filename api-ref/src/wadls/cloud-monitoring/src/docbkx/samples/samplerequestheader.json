@@ -1,0 +1,12 @@
+POST https://monitoring.api.rackspacecloud.com/v1.0/<your_account_number>/entities/enHBMKJpe6/test-check/
+X-Auth-Token: <your_auth_token>
+Content-Type: application/json
+Accept: application/xml
+'{ "details" : {  },
+  "label" : "Website check 1",
+  "monitoring_zones_poll" : [ "mzdfw" ],
+  "period" : "60",
+  "target_alias" : "default",
+  "timeout" : 30,
+  "type" : "remote.ping"
+}' 

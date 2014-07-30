@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <overview>
+      <entity>
+        <id>enBBBBIPV4</id>
+        <label>entity b v4</label>
+        <ip_addresses>
+          <default>127.0.0.1</default>
+        </ip_addresses>
+        <metadata/>
+      </entity>
+      <checks>
+        <check>
+          <id>chFour</id>
+          <label>ch a</label>
+          <type>remote.http</type>
+          <details>
+            <url>http://www.foo.com</url>
+            <method>GET</method>
+          </details>
+          <monitoring_zones_poll>mzA</monitoring_zones_poll>
+          <timeout>30</timeout>
+          <period>60</period>
+          <target_alias>default</target_alias>
+          <target_hostname/>
+          <target_resolver/>
+          <disabled>false</disabled>
+        </check>
+      </checks>
+      <alarms>
+        <alarm>
+          <id>alThree</id>
+          <check_id>chFour</check_id>
+          <criteria>if (metric["size"] &gt;= 200) { return new AlarmStatus(CRITICAL); }</criteria>
+          <notification_plan_id>npOne</notification_plan_id>
+        </alarm>
+      </alarms>
+      <latest_alarm_states>
+        <latest_alarm_state>
+          <timestamp>1321898988</timestamp>
+          <entity_id>enBBBBIPV4</entity_id>
+          <alarm_id>alThree</alarm_id>
+          <check_id>chFour</check_id>
+          <status>everything is ok</status>
+          <state>OK</state>
+          <previous_state>WARNING</previous_state>
+          <analyzed_by_monitoring_zone_id/>
+        </latest_alarm_state>
+      </latest_alarm_states>
+    </overview>
+    <overview>
+      <entity>
+        <id>enCCCCIPV4</id>
+        <label>entity c v4</label>
+        <ip_addresses>
+          <default>127.0.0.1</default>
+        </ip_addresses>
+        <metadata/>
+      </entity>
+      <checks/>
+      <alarms/>
+      <latest_alarm_states/>
+    </overview>
+    <overview>
+      <entity>
+        <id>enAAAAIPV4</id>
+        <label>entity a</label>
+        <ip_addresses>
+          <default>127.0.0.1</default>
+        </ip_addresses>
+        <metadata/>
+      </entity>
+      <checks>
+        <check>
+          <id>chOne</id>
+          <label>ch a</label>
+          <type>remote.http</type>
+          <details>
+            <url>http://www.foo.com</url>
+            <method>GET</method>
+          </details>
+          <monitoring_zones_poll>mzA</monitoring_zones_poll>
+          <timeout>30</timeout>
+          <period>60</period>
+          <target_alias>default</target_alias>
+          <target_hostname/>
+          <target_resolver/>
+          <disabled>false</disabled>
+        </check>
+        <check>
+          <id>chThree</id>
+          <label>ch a</label>
+          <type>remote.http</type>
+          <details>
+            <url>http://www.foo.com</url>
+            <method>GET</method>
+          </details>
+          <monitoring_zones_poll>mzA</monitoring_zones_poll>
+          <timeout>30</timeout>
+          <period>60</period>
+          <target_alias>default</target_alias>
+          <target_hostname/>
+          <target_resolver/>
+          <disabled>false</disabled>
+        </check>
+        <check>
+          <id>chTwo</id>
+          <label>ch a</label>
+          <type>remote.http</type>
+          <details>
+            <url>http://www.foo.com</url>
+            <method>GET</method>
+          </details>
+          <monitoring_zones_poll>mzA</monitoring_zones_poll>
+          <timeout>30</timeout>
+          <period>60</period>
+          <target_alias>default</target_alias>
+          <target_hostname/>
+          <target_resolver/>
+          <disabled>false</disabled>
+        </check>
+      </checks>
+      <alarms>
+        <alarm>
+          <id>alOne</id>
+          <label>Alarm 1</label>
+          <check_id>chOne</check_id>
+          <criteria>if (metric["duration"] &gt;= 2) { return new AlarmStatus(OK); } return new AlarmStatus(CRITICAL);</criteria>
+          <notification_plan_id>npOne</notification_plan_id>
+        </alarm>
+        <alarm>
+          <id>alTwo</id>
+          <label>Alarm 2</label>
+          <check_id>chOne</check_id>
+          <criteria>if (metric["size"] &gt;= 200) { return CRITICAL } return OK</criteria>
+          <notification_plan_id>npOne</notification_plan_id>
+        </alarm>
+      </alarms>
+      <latest_alarm_states>
+        <latest_alarm_state>
+          <timestamp>1321898988</timestamp>
+          <entity_id>enAAAAIPV4</entity_id>
+          <alarm_id>alOne</alarm_id>
+          <check_id>chOne</check_id>
+          <status>matched return statement on line 7</status>
+          <state>WARNING</state>
+          <previous_state>OK</previous_state>
+          <analyzed_by_monitoring_zone_id/>
+        </latest_alarm_state>
+        <latest_alarm_state>
+          <timestamp>1321898988</timestamp>
+          <entity_id>enAAAAIPV4</entity_id>
+          <alarm_id>alOne</alarm_id>
+          <check_id>chTwo</check_id>
+          <state>CRITICAL</state>
+          <analyzed_by_monitoring_zone_id/>
+        </latest_alarm_state>
+      </latest_alarm_states>
+    </overview>
+  </values>
+  <metadata>
+    <count>3</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

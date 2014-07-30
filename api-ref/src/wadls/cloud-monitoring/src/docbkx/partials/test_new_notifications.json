@@ -1,0 +1,6 @@
+{
+    "type": "webhook",
+    "details": {
+        "url": "http://my.web-server.com:5981/"
+    }
+}

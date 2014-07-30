@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354039172582</timestamp>
+  <info>
+    <system>
+      <name>Linux</name>
+      <arch>x86_64</arch>
+      <version>2.6.32-44-server</version>
+      <vendor>Ubuntu</vendor>
+      <vendor_version>10.04</vendor_version>
+    </system>
+  </info>
+</agent_host_info>

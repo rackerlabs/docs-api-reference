@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <notification_type id="webhook">
+      <fields>
+        <field>
+          <name>url</name>
+          <description>An HTTP or HTTPS URL to POST to</description>
+          <optional>false</optional>
+        </field>
+      </fields>
+    </notification_type>
+    <notification_type id="email">
+      <fields>
+        <field>
+          <name>address</name>
+          <description>Email address to send notifications to</description>
+          <optional>false</optional>
+        </field>
+      </fields>
+    </notification_type>
+    <notification_type id="pagerduty">
+      <fields>
+        <field>
+          <name>service_key</name>
+          <description>The PagerDuty service key to use.</description>
+          <optional>false</optional>
+        </field>
+      </fields>
+    </notification_type>
+  </values>
+  <metadata>
+    <count>3</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

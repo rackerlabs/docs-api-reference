@@ -1,0 +1,11 @@
+{
+    "label": "Website check 1",
+    "type": "remote.ping",
+    "details": {},
+    "monitoring_zones_poll": [
+        "mzxJ4L2IU"
+    ],
+    "timeout": 30,
+    "period": "60",
+    "target_alias": "default"
+}

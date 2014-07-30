@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alarm_template id="remote.http_body_match_1">
+  <label>Body match - string found</label>
+  <description>Alarm which returns CRITICAL if the provided string is found in the body</description>
+  <check_type>remote.http</check_type>
+  <criteria>if (metric['body_match'] regex '${string}') {
+  return new AlarmStatus(CRITICAL, '${string} found, returning CRITICAL.');
+}
+</criteria>
+  <fields>
+    <field>
+      <name>string</name>
+      <description>String to check for in the body</description>
+      <type>string</type>
+    </field>
+  </fields>
+</alarm_template>

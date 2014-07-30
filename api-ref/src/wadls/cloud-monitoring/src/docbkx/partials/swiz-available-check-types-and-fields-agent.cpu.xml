@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-agent.cpu">
+<title>agent.cpu</title>
+<bridgehead xml:id="summary-agent.cpu">Summary</bridgehead>
+<para>The agent.cpu check will attempt to measure the usage of the CPU on a host.</para>
+<xi:include href="attributes-agent.cpu.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-agent.cpu.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>flags</command></td>
+<td>Operating system specific interface flags.</td>
+
+</tr>
+<tr>
+<td><command>name</command></td>
+<td>Network interface name.</td>
+
+</tr>
+<tr>
+<td><command>address</command></td>
+<td>IPv4 address as a string.</td>
+
+</tr>
+<tr>
+<td><command>destination</command></td>
+<td>Route destination (to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>address6</command></td>
+<td>IPv6 address as a string.</td>
+
+</tr>
+<tr>
+<td><command>broadcast</command></td>
+<td>Broadcast address as a string.</td>
+
+</tr>
+<tr>
+<td><command>hwaddr</command></td>
+<td>Ethernet address as a string.</td>
+
+</tr>
+<tr>
+<td><command>mtu</command></td>
+<td>Ethernet maximum transmission unit.</td>
+
+</tr>
+<tr>
+<td><command>metric</command></td>
+<td>(to be deleted)</td>
+
+</tr>
+<tr>
+<td><command>tx_errors</command></td>
+<td>Total numnber of transmit errors.</td>
+
+</tr>
+<tr>
+<td><command>rx_bytes</command></td>
+<td>Total number of bytes received.</td>
+
+</tr>
+<tr>
+<td><command>netmask</command></td>
+<td>Netmask as a string.</td>
+
+</tr>
+<tr>
+<td><command>tx_overruns</command></td>
+<td>Total number of transmit buffer overruns.</td>
+
+</tr>
+<tr>
+<td><command>speed</command></td>
+<td>Currently not implemented on linux (to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>rx_overruns</command></td>
+<td>Total number of receive buffer overruns.</td>
+
+</tr>
+<tr>
+<td><command>rx_dropped</command></td>
+<td>Total number of dropped packets received.</td>
+
+</tr>
+<tr>
+<td><command>rx_frame</command></td>
+<td>Total number of errors caused by malformed frames.</td>
+
+</tr>
+<tr>
+<td><command>rx_packets</command></td>
+<td>Total number of packets received.</td>
+
+</tr>
+<tr>
+<td><command>rx_errors</command></td>
+<td>Total number of receive errors caused by malformed frames.</td>
+
+</tr>
+<tr>
+<td><command>tx_bytes</command></td>
+<td>Total number of bytes sent.</td>
+
+</tr>
+<tr>
+<td><command>tx_carrier</command></td>
+<td>Total number of carrier errors (usually cable disconnects).</td>
+
+</tr>
+<tr>
+<td><command>tx_collisions</command></td>
+<td>Total number of packet collisions on transmit.</td>
+
+</tr>
+<tr>
+<td><command>tx_dropped</command></td>
+<td>Total number of dropped transmit packets.</td>
+
+</tr>
+<tr>
+<td><command>tx_packets</command></td>
+<td>Total number of packets sent.</td>
+
+</tr>
+<tr>
+<td><command>type</command></td>
+<td>Interface type (for example, Ethernet, Local Loopback, and so on).</td>
+
+</tr>
+</tbody>
+</informaltable>

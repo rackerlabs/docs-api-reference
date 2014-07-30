@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-remote.smtp-banner">
+<title>remote.smtp-banner</title>
+<bridgehead xml:id="summary-remote.smtp-banner">Summary</bridgehead>
+<para>The remote.smtp-banner check will attempt to connect to a SMTP mail server and verify that a HELO/EHLO is received.</para>
+<xi:include href="attributes-remote.smtp-banner.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-remote.smtp-banner.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

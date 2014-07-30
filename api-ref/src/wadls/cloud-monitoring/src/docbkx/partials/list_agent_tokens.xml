@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <agent_token>
+      <token>4c5e28f0-0b3f-11e1-860d-c55c4705a286:1234</token>
+      <label>aLabel</label>
+    </agent_token>
+  </values>
+  <metadata>
+    <count>1</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

@@ -1,0 +1,147 @@
+
+
+<!-- Rackspace Endpoints  -->
+
+<!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v2.0/">
+<!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v2.0/">
+
+
+<!-- Some entities borrowed from HTML -->
+<!ENTITY ndash  "&#x2013;">
+<!ENTITY mdash  "&#x2014;">
+<!ENTITY hellip "&#x2026;">
+
+<!-- graphic symbols -->
+
+<!ENTITY CHECK '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="figures/Check_mark_23x20_02.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+
+<!ENTITY ARROW '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="figures/Arrow_east.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+
+<!-- Product names -->
+<!ENTITY CLOUD 'Rackspace Cloud'>
+<!ENTITY MAAS 'Rackspace Cloud Monitoring'>
+<!ENTITY HOST 'monitoring.api.rackspacecloud.com'>
+<!ENTITY URL 'https://&HOST;/v1.0/'>
+
+<!-- Useful for describing APIs -->
+
+<!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+<!ENTITY CODES       'Normal Response Code(s):'>
+<!ENTITY ERROR_CODES 'Error Response Code(s):'>
+<!ENTITY NO_REQUEST '<para xmlns="http://docbook.org/ns/docbook">
+This operation does not require a request body.</para>'>
+ 
+<!--A collection of common faults, these are pretty much expected in every request.-->
+
+<!ENTITY commonResponse
+            '
+            <response status="200" xmlmns="http://wadl.dev.java.net/2009/02" xml:lang="EN">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" element="Fault"/>
+            <representation mediaType="application/json"/>
+            '>
+
+ <!ENTITY commonFaults
+           '
+     
+<response xmlns="http://wadl.dev.java.net/2009/02" xml:lang="EN">
+            <representation mediaType="application/xml" element="Fault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+            <wadl:doc title="Bad request" xmlns="http://docbook.org/ns/docbook"><para>The system received an invalid value in a request.</para></wadl:doc>
+            <representation mediaType="application/xml" element="badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401" xmlns="http://wadl.dev.java.net/2009/02">
+        <wadl:doc title="Unauthorized" xmlns="http://docbook.org/ns/docbook"><para>The system received a request from a user that is not authenticated.</para></wadl:doc>
+            <representation mediaType="application/xml" element="unauthorizedError"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403" xmlns="http://wadl.dev.java.net/2009/02">
+           <wadl:doc title="Forbidden error" xmlns="http://docbook.org/ns/docbook"><para>The system received a request that the user is not authorized to make.</para></wadl:doc>
+            <representation mediaType="application/xml" element="forbiddenError"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413" xmlns="http://wadl.dev.java.net/2009/02">
+            <wadl:doc title="Request too large" xmlns="http://docbook.org/ns/docbook"><para>The response body is too large.</para></wadl:doc>
+            <representation mediaType="application/xml" element="requestTooLargeError"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+            <wadl:doc title="systemFailureError" xmlns="http://docbook.org/ns/docbook"><para>The system is experiencing heavy load or another system failure.</para></wadl:doc>
+            <representation mediaType="application/xml" element="identity:systemFailureError"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '>
+      <!--
+          Faults on GET
+      -->
+     <!ENTITY getFaults
+           '
+        <response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+           <wadl:doc title="Item not found" xmlns="http://docbook.org/ns/docbook"><para>The URL or entity requested is not found in the system.</para></wadl:doc>
+            <representation mediaType="application/xml" element="identity:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '>
+           
+<!-- Faults on POST/PUT -->
+
+     <!ENTITY postPutFaults
+           '
+        <response status="415" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="identity:badMediaType"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '>
+           
+<!-- EntitiesParams -->    
+
+<!ENTITY EntitiesParam
+           '
+           
+           <param xmlns="http://wadl.dev.java.net/2009/02" name="id" style="plain" type="string" required="true" >           
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The id assigned to the account.</para>
+                    </wadl:doc>
+                </param>
+           <param xmlns="http://wadl.dev.java.net/2009/02" name="label" type="xsd:string" style="plain" path="label" required="true">
+                   <wadl:doc  xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Defines a name for the entity. Value can be between 1 and 255 characters long.</para>
+                   </wadl:doc>
+                   </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="agent_id" type="xsd:string" style="plain" required="false"/>
+                   <wadl:doc  xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Agent to which this entity is bound to. Value can be a string that matches the regex /^[-\.\w]{1,255}$/.</para>
+                   </wadl:doc>
+                   </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="ip_addresses" type="xsd:string" style="plain" required="false"/>
+                   <wadl:doc  xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Hash of IP addresses that can be referenced by checks on this entity. Values can be an array or object with 
+                        from 0 to 64 items. Each item must be an IPv4 or IPv6 address between 1 and 64 characters long.</para>
+                   </wadl:doc>
+                   </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" type="xsd:string" style="plain" required="false"/> 
+                    <wadl:doc  xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Arbitrary key/value pairs that are passed during the alerting phase. Values can be an array or object with 
+                        from 0 to 256 items. The key and value attributes are string values between 1 and 255 characters long.</para>
+                   </wadl:doc>
+                   </param>
+            '>
+
+                
+      

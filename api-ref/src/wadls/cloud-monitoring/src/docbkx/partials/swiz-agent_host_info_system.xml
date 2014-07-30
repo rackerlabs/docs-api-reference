@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>arch</command></td>
+<td>CPU Architecture.</td>
+
+</tr>
+<tr>
+<td><command>description</command></td>
+<td>Long form description (for example, Debian 6.0.6, Microsoft Windows XP). (to be deleted)</td>
+
+</tr>
+<tr>
+<td><command>name</command></td>
+<td>Generic name of the Operating System (for example, Linux, MacOSX, Win32, FreeBSD, and so on).</td>
+
+</tr>
+<tr>
+<td><command>vendor</command></td>
+<td>Vendor name (for example, Microsoft, Debian).</td>
+
+</tr>
+<tr>
+<td><command>vendor_code_name</command></td>
+<td>(to be deleted)</td>
+
+</tr>
+<tr>
+<td><command>vendor_version</command></td>
+<td>Vendor version name (for example, 6.0.6, XP).</td>
+
+</tr>
+<tr>
+<td><command>version</command></td>
+<td>Version (for example, 2.6.32-5-xen-amd64, 2600.xpsp_sp3_gdr).</td>
+
+</tr>
+</tbody>
+</informaltable>

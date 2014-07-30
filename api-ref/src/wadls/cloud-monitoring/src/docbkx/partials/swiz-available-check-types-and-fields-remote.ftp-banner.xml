@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-remote.ftp-banner">
+<title>remote.ftp-banner</title>
+<bridgehead xml:id="summary-remote.ftp-banner">Summary</bridgehead>
+<para>The remote.ftp-banner check will attempt to connect to a FTP server and verify that it responds to the connection.</para>
+<xi:include href="attributes-remote.ftp-banner.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-remote.ftp-banner.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

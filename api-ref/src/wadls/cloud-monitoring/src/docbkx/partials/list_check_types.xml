@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <check_type id="remote.dns">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 53)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>query</name>
+          <description>DNS Query</description>
+          <optional>false</optional>
+        </field>
+        <field>
+          <name>record_type</name>
+          <description>DNS Record Type</description>
+          <optional>false</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.ssh">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 22)</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.smtp">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 25)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ehlo</name>
+          <description>EHLO parameter</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>from</name>
+          <description>From parameter</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>to</name>
+          <description>To parameter (if blank, a "quit" is issued before sending a to line, and the connection is terminated)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>payload</name>
+          <description>Specifies the payload</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>starttls</name>
+          <description>Should the connection be upgraded to TLS/SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.http">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>url</name>
+          <description>Target URL</description>
+          <optional>false</optional>
+        </field>
+        <field>
+          <name>body</name>
+          <description>Body match regular expression (body is limited to 100k)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>headers</name>
+          <description>Arbitrary headers which are sent with the request.</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>body_matches</name>
+          <description>Body match regular expressions (body is limited to 100k, matches are truncated to 80 characters)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>method</name>
+          <description>HTTP method (default: GET)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>auth_user</name>
+          <description>Optional auth user</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>auth_password</name>
+          <description>Optional auth password</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>follow_redirects</name>
+          <description>Follow redirects (default: true)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>payload</name>
+          <description>Specify a request body (limited to 1024 characters). If following a redirect, payload will only be sent to first location</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.tcp">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number</description>
+          <optional>false</optional>
+        </field>
+        <field>
+          <name>banner_match</name>
+          <description>Banner match regex.</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>send_body</name>
+          <description>Send a body. If a banner is provided the body is sent after the banner is verified.</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>body_match</name>
+          <description>Body match regex. Key/Values are captured when matches are specified within the regex. Note: Maximum body size 1024 bytes.</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.ping">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>count</name>
+          <description>Number of pings to send within a single check</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.ftp-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 21)</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.imap-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 143)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.pop3-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 110)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.smtp-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 25)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.postgresql-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 5432)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.telnet-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 23)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>banner_match</name>
+          <description>Banner to check</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.mysql-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 3306)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+    <check_type id="remote.mssql-banner">
+      <category>remote</category>
+      <type>remote</type>
+      <fields>
+        <field>
+          <name>port</name>
+          <description>Port number (default: 1433)</description>
+          <optional>true</optional>
+        </field>
+        <field>
+          <name>ssl</name>
+          <description>Enable SSL</description>
+          <optional>true</optional>
+        </field>
+      </fields>
+    </check_type>
+  </values>
+  <metadata>
+    <count>14</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>
