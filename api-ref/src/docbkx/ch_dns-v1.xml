@@ -37,6 +37,10 @@
                 <wadl:method href="#deleteDomainsAndSubdomains"/>
             </wadl:resource>
             <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#search">
+                <wadl:method href="#searchDomains"/>
+            </wadl:resource>
+            <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-dns/master/src/main/resources/wadl/dns.wadl#domain_id">
                 <wadl:method href="#listDomainsWithoutSubDomains"/>
                 <wadl:method href="#showDomain"/>
