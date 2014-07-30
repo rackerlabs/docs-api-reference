@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-remote.tcp">
+<title>remote.tcp</title>
+<bridgehead xml:id="summary-remote.tcp">Summary</bridgehead>
+<para>The remote.tcp check will attempt to connect to a host and port, and optionally issue a banner match to ensure that the service is responding as specified.  This can be used to test services that are not covered by the existing HTTP, SMTP, SSH, MySQL, etc. checks.</para>
+<xi:include href="attributes-remote.tcp.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-remote.tcp.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

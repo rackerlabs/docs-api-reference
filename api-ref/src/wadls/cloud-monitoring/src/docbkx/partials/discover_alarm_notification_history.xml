@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<alarm_checks_map>
+  <check_ids>
+    <check_id>chOne</check_id>
+    <check_id>chTwo</check_id>
+  </check_ids>
+</alarm_checks_map>

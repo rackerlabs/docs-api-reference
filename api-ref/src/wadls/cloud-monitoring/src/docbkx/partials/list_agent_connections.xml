@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <agent_connection id="cntl4qsIbA">
+      <guid>0b49b96d-24c9-45ca-c585-4040707f4880</guid>
+      <agent_id>00-agent.example.com</agent_id>
+      <process_version>0.1.2.16</process_version>
+      <bundle_version>0.1.2.16</bundle_version>
+      <agent_ip>10.1.2.3</agent_ip>
+    </agent_connection>
+    <agent_connection id="cnyHsfATLd">
+      <guid>0b49b96d-24c9-45ca-c585-4040707f4880</guid>
+      <agent_id>00-agent.example.com</agent_id>
+      <process_version>0.1.2.16</process_version>
+      <bundle_version>0.1.2.16</bundle_version>
+      <agent_ip>10.1.2.3</agent_ip>
+    </agent_connection>
+  </values>
+  <metadata>
+    <count>2</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alarm>
+  <criteria>if (metric["average"] &lt; 100) { return new AlarmStatus(OK); } return new AlarmStatus(WARNING);</criteria>
+</alarm>

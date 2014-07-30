@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <entity id="enAAAAA">
+      <label>Brand New Entity</label>
+      <ip_addresses>
+        <entity_ip_addresses_hash_key>127.0.0.4</entity_ip_addresses_hash_key>
+        <b>127.0.0.5</b>
+        <c>127.0.0.6</c>
+        <test>127.0.0.7</test>
+      </ip_addresses>
+      <metadata>
+        <all>kinds</all>
+        <of>stuff</of>
+        <can>go</can>
+        <here>null is not a valid value</here>
+      </metadata>
+    </entity>
+  </values>
+  <metadata>
+    <count>1</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<suppression>
+  <notification_plans>
+    <notification_plan_id>npfooBar</notification_plan_id>
+  </notification_plans>
+  <checks>
+    <check_id>en123:ch123</check_id>
+  </checks>
+  <start_time>1378492433027</start_time>
+  <end_time>1378492433027</end_time>
+</suppression>

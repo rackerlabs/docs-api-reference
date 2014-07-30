@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_connections>
+  <agent_connection id="cntl4qsIbA">
+    <guid>0b49b96d-24c9-45ca-c585-4040707f4880</guid>
+    <agent_id>00-agent.example.com</agent_id>
+    <endpoint>lon3</endpoint>
+    <process_version>0.1.2.16</process_version>
+    <bundle_version>0.1.2.16</bundle_version>
+    <agent_ip>108.166.120.6</agent_ip>
+  </agent_connection>
+  <agent_connection id="cnyHsfATLd">
+    <guid>0b49b96d-24c9-45ca-c585-4040707f4880</guid>
+    <agent_id>00-agent.example.com</agent_id>
+    <endpoint>ord1</endpoint>
+    <process_version>0.1.2.16</process_version>
+    <bundle_version>0.1.2.16</bundle_version>
+    <agent_ip>108.166.120.6</agent_ip>
+  </agent_connection>
+</agent_connections>

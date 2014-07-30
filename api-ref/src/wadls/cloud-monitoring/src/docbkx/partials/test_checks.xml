@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test_check>
+  <type>remote.http</type>
+  <details>
+    <url>http://www.foo.com</url>
+    <method>GET</method>
+  </details>
+  <monitoring_zones_poll>
+    <monitoring_zone_id>mzA</monitoring_zone_id>
+  </monitoring_zones_poll>
+  <timeout>30</timeout>
+  <target_alias>default</target_alias>
+</test_check>

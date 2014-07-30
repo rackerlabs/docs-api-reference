@@ -1,0 +1,3 @@
+{
+    "criteria": "if (metric[\"average\"] < 100) { return new AlarmStatus(OK); } return new AlarmStatus(WARNING);"
+}

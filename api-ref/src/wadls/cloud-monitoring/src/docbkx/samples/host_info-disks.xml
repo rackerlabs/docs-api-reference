@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354039271000</timestamp>
+  <info>
+    <disk>
+      <read_bytes>213685248</read_bytes>
+      <reads>23758</reads>
+      <rtime>18160</rtime>
+      <write_bytes>8401027072</write_bytes>
+      <writes>2056620</writes>
+      <wtime>3342110</wtime>
+      <time>458730</time>
+      <name>/</name>
+    </disk>
+    <disk>
+      <read_bytes>22974464</read_bytes>
+      <reads>899</reads>
+      <rtime>440</rtime>
+      <write_bytes>15360</write_bytes>
+      <writes>8</writes>
+      <time>400</time>
+      <name>/boot</name>
+    </disk>
+  </info>
+</agent_host_info>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <monitoring_zone id="mzAAAAA">
+      <label>US South (Atlanta) - 5</label>
+      <country_code>US</country_code>
+      <source_ips>
+        <ip>1.2.0.0/24</ip>
+      </source_ips>
+    </monitoring_zone>
+  </values>
+  <metadata>
+    <count>1</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <alarm_template id="remote.http_body_match_1">
+      <label>Body match - string found</label>
+      <description>Alarm which returns CRITICAL if the provided string is found in the body</description>
+      <check_type>remote.http</check_type>
+      <criteria>if (metric['body_match'] regex '${string}') {
+  return new AlarmStatus(CRITICAL, '${string} found, returning CRITICAL.');
+}
+</criteria>
+      <fields>
+        <field>
+          <name>string</name>
+          <description>String to check for in the body</description>
+          <type>string</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.http_body_match_missing_string">
+      <label>Body match - string not found</label>
+      <description>Alarm which returns CRITICAL if the provided string is not found in the body</description>
+      <check_type>remote.http</check_type>
+      <criteria>if (metric['body_match'] == '') {
+  return new AlarmStatus(CRITICAL, 'HTTP response did not contain the correct content.');
+}
+
+return new AlarmStatus(OK, 'HTTP response contains the correct content');
+</criteria>
+      <fields/>
+    </alarm_template>
+    <alarm_template id="remote.http_connection_time">
+      <label>Connection time</label>
+      <description>Alarm which returns WARNING or CRITICAL based on the connection time</description>
+      <check_type>remote.http</check_type>
+      <criteria>if (metric['duration'] &gt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, 'HTTP request took more than ${critical_threshold} milliseconds.');
+}
+
+if (metric['duration'] &gt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, 'HTTP request took more than ${warning_threshold} milliseconds.');
+}
+
+return new AlarmStatus(OK, 'HTTP connection time is normal');
+</criteria>
+      <fields>
+        <field>
+          <name>warning_threshold</name>
+          <description>Warning threshold (in milliseconds) for the connection time</description>
+          <type>integer</type>
+        </field>
+        <field>
+          <name>critical_threshold</name>
+          <description>Critical threshold (in milliseconds) for the connection time</description>
+          <type>integer</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.http_status_code">
+      <label>Status code</label>
+      <description>Alarm which returns WARNING if the server responses with 4xx status code or CRITICAL if it responds with 5xx status code</description>
+      <check_type>remote.http</check_type>
+      <criteria>if (metric['code'] regex '4[0-9][0-9]') {
+  return new AlarmStatus(CRITICAL, 'HTTP server responding with 4xx status');
+}
+
+if (metric['code'] regex '5[0-9][0-9]') {
+  return new AlarmStatus(CRITICAL, 'HTTP server responding with 5xx status');
+}
+
+return new AlarmStatus(OK, 'HTTP server is functioning normally');
+</criteria>
+      <fields/>
+    </alarm_template>
+    <alarm_template id="remote.http_cert_expiration">
+      <label>SSL certificate expiration time</label>
+      <description>Alarm which returns WARNING or CRITICAL based on the certificate expiration date</description>
+      <check_type>remote.http</check_type>
+      <criteria>if (metric['cert_end_in'] &lt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, 'Cert expiring in less than ${critical_threshold} seconds.');
+}
+
+if (metric['cert_end_in'] &lt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, 'Cert expiring in less than ${warning_threshold} seconds.');
+}
+
+return new AlarmStatus(OK, 'HTTP certificate doesn\'t expire soon.');
+</criteria>
+      <fields>
+        <field>
+          <name>warning_threshold</name>
+          <description>Warning threshold (in seconds) for the certificate expiration</description>
+          <type>integer</type>
+        </field>
+        <field>
+          <name>critical_threshold</name>
+          <description>Critical threshold (in seconds) for the certificate expiration</description>
+          <type>integer</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.dns_address_match">
+      <label>DNS record address match</label>
+      <description>Alarm which returns CRITICAL if the DNS record is not resolved to the provided address</description>
+      <check_type>remote.dns</check_type>
+      <criteria># Match if the 127... address was in the resolution
+# if it wasn't than default to CRITICAL
+
+if (metric['answer'] regex '.*${address}.*') {
+  return new AlarmStatus(OK, 'Resolved the correct address!');
+}
+return new AlarmStatus(CRITICAL);
+</criteria>
+      <fields>
+        <field>
+          <name>address</name>
+          <description>Address to which the DNS record must resolve to</description>
+          <type>string</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.ssh_fingerprint_match">
+      <label>SSH fingerprint match</label>
+      <description>Alarm which returns CRITICAL if the SSH fingerprint doesn't match the provided one</description>
+      <check_type>remote.ssh</check_type>
+      <criteria>if (metric['fingerprint'] != '${fingerprint}') {
+  return new AlarmStatus(CRITICAL, 'SSH fingerprint didn\'t match the expected one ${fingerprint}');
+}
+
+return new AlarmStatus(OK, 'Got expected SSH fingerprint (${fingerprint})');
+</criteria>
+      <fields>
+        <field>
+          <name>fingerprint</name>
+          <description>Expected SSH fingerprint</description>
+          <type>string</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.ping_packet_loss">
+      <label>Ping packet loss</label>
+      <description>Alarm which returns WARNING if the packet loss is greater than 5% and CRITICAL if it's greater than 20%</description>
+      <check_type>remote.ping</check_type>
+      <criteria>if (metric['available'] &lt; 80) {
+  return new AlarmStatus(CRITICAL, 'Packet loss is greater than 20%');
+}
+
+if (metric['available'] &lt; 95) {
+  return new AlarmStatus(WARNING, 'Packet loss is greater than 5%');
+}
+
+return new AlarmStatus(OK, 'Packet loss is normal');
+</criteria>
+      <fields/>
+    </alarm_template>
+    <alarm_template id="remote.tcp_connection_time">
+      <label>Connection time</label>
+      <description>Alarm which returns WARNING or CRITICAL based on the connection time</description>
+      <check_type>remote.tcp</check_type>
+      <criteria>if (metric['duration'] &gt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, 'TCP Connection took more than ${critical_threshold} milliseconds.');
+}
+
+if (metric['duration'] &gt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, 'TCP Connection took more than ${warning_threshold} milliseconds.');
+}
+
+return new AlarmStatus(OK, 'TCP connection time is normal');
+</criteria>
+      <fields>
+        <field>
+          <name>warning_threshold</name>
+          <description>Warning threshold (in seconds) for the connection time</description>
+          <type>integer</type>
+        </field>
+        <field>
+          <name>critical_threshold</name>
+          <description>Critical threshold (in seconds) for the connection time</description>
+          <type>integer</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.dns_spf_record_include_match">
+      <label>SPF TXT record</label>
+      <description>Alarm which returns CRITICAL if the SPF record doesn't contain an include clause with the provided domain.</description>
+      <check_type>remote.dns</check_type>
+      <criteria>if (metric['answer'] regex 'v=spf1.* include:${domain} .*[~|-]all') {
+  return new AlarmStatus(OK, 'SPF record with include clause for domain ${domain} exists');
+}
+
+return new AlarmStatus(CRITICAL, 'SPF record doesn\'t contain an include clause for domain ${domain}');
+</criteria>
+      <fields>
+        <field>
+          <name>domain</name>
+          <description>Domain to check for</description>
+          <type>string</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="remote.dns_dkim_public_key_match">
+      <label>DKIM TXT record</label>
+      <description>Alarm which returns CRITICAL if the DKIM record doesn't contain or match the provided public key.</description>
+      <check_type>remote.dns</check_type>
+      <criteria>if (metric['answer'] regex '.*p=${public_key}$') {
+  return new AlarmStatus(OK, 'DKIM record contains a provided public key');
+}
+
+return new AlarmStatus(CRITICAL, 'DKIM record doesn\'t contain a provided public key');
+</criteria>
+      <fields>
+        <field>
+          <name>public_key</name>
+          <description>Public key to check for. Note: Special characters must be escaped.</description>
+          <type>string</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="agent.cpu_usage_average">
+      <label>CPU Usage</label>
+      <description>Alarm which returns CRITICAL, WARNING or OK based upon average CPU usage</description>
+      <check_type>agent.cpu</check_type>
+      <criteria>if (metric['usage_average'] &gt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, 'CPU usage is #{usage_average}%, above your critical threshold of ${critical_threshold}%');
+}
+
+if (metric['usage_average'] &gt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, 'CPU usage is #{usage_average}%, above your warning threshold of ${warning_threshold}%');
+}
+
+return new AlarmStatus(OK, 'CPU usage is #{usage_average}%, below your warning threshold of ${warning_threshold}%');
+</criteria>
+      <fields>
+        <field>
+          <name>critical_threshold</name>
+          <description>CPU usage percentage above which CRITICAL is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+        <field>
+          <name>warning_threshold</name>
+          <description>CPU usage percentage above which WARNING is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="agent.memory_usage">
+      <label>Memory usage</label>
+      <description>Alarm which returns CRITICAL, WARNING or OK based upon memory usage</description>
+      <check_type>agent.memory</check_type>
+      <criteria>if (percentage(metric['actual_used'], metric['total']) &gt; 90) {
+  return new AlarmStatus(CRITICAL, "Memory usage is above your critical threshold of 90%");
+}
+
+if (percentage(metric['actual_used'], metric['total']) &gt; 80) {
+  return new AlarmStatus(WARNING, "Memory usage is above your warning threshold of 80%");
+}
+
+return new AlarmStatus(OK, "Memory usage is below your warning threshold of 80%");
+</criteria>
+      <fields/>
+    </alarm_template>
+    <alarm_template id="agent.filesystem_usage">
+      <label>Filesystem usage</label>
+      <description>Alarm which returns CRITICAL, WARNING or OK based upon filesystem usage</description>
+      <check_type>agent.filesystem</check_type>
+      <criteria>if (percentage(metric['used'], metric['total']) &gt; 90) {
+  return new AlarmStatus(CRITICAL, "Disk usage is above your critical threshold of 90%");
+}
+
+if (percentage(metric['used'], metric['total']) &gt; 80) {
+  return new AlarmStatus(WARNING, "Disk usage is above your warning threshold of 80%");
+}
+
+return new AlarmStatus(OK, "Disk usage is below your warning threshold of 80%");
+</criteria>
+      <fields/>
+    </alarm_template>
+    <alarm_template id="agent.high_load_average">
+      <label>High Load Average</label>
+      <description>Alarm which returns CRITICAL, WARNING or OK based on load average</description>
+      <check_type>agent.load_average</check_type>
+      <criteria>if (metric['5m'] &gt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, '5 minute load average is #{5m}, above your critical threshold of ${critical_threshold}');
+}
+
+if (metric['5m'] &gt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, '5 minute load average is #{5m}, above your warning threshold of ${warning_threshold}');
+}
+
+return new AlarmStatus(OK, '5 minute load average is #{5m}, below your warning threshold of ${warning_threshold}');
+</criteria>
+      <fields>
+        <field>
+          <name>critical_threshold</name>
+          <description>Load average above which CRITICAL is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+        <field>
+          <name>warning_threshold</name>
+          <description>Load average above which WARNING is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="agent.network_transmit_rate">
+      <label>Network transmit rate</label>
+      <description>Alarm which returns CRITICAL, WARNING or OK based upon network transmit rate</description>
+      <check_type>agent.network</check_type>
+      <criteria>if (rate(metric['tx_bytes']) &gt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, "Network transmit rate on ${interface} is above your critical threshold of ${critical_threshold}B/s");
+}
+
+if (rate(metric['tx_bytes']) &gt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, "Network transmit rate on ${interface} is above your warning threshold of ${warning_threshold}B/s");
+}
+
+return new AlarmStatus(OK, "Network transmit rate on ${interface} is below your warning threshold of ${warning_threshold}B/s");
+</criteria>
+      <fields>
+        <field>
+          <name>interface</name>
+          <description>The network interface to alert on</description>
+          <type>string</type>
+        </field>
+        <field>
+          <name>critical_threshold</name>
+          <description>Network transmit rate, in bytes per second, above which CRITICAL is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+        <field>
+          <name>warning_threshold</name>
+          <description>Network transmit rate, in bytes per second, above which WARNING is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="agent.network_receive_rate">
+      <label>Network receive rate</label>
+      <description>Alarm which returns CRITICAL, WARNING or OK based upon network receive rate</description>
+      <check_type>agent.network</check_type>
+      <criteria>if (rate(metric['rx_bytes']) &gt; ${critical_threshold}) {
+  return new AlarmStatus(CRITICAL, "Network receive rate on ${interface} is above your critical threshold of ${critical_threshold}B/s");
+}
+
+if (rate(metric['rx_bytes']) &gt; ${warning_threshold}) {
+  return new AlarmStatus(WARNING, "Network receive rate on ${interface} is above your warning threshold of ${warning_threshold}B/s");
+}
+
+return new AlarmStatus(OK, "Network receive rate on ${interface} is below your warning threshold of ${warning_threshold}B/s");
+</criteria>
+      <fields>
+        <field>
+          <name>interface</name>
+          <description>The network interface to alert on</description>
+          <type>string</type>
+        </field>
+        <field>
+          <name>critical_threshold</name>
+          <description>Network receive rate, in bytes per second, above which CRITICAL is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+        <field>
+          <name>warning_threshold</name>
+          <description>Network receive rate, in bytes per second, above which WARNING is returned</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+      </fields>
+    </alarm_template>
+    <alarm_template id="agent.mysql_threads_connected_threshold">
+      <label>Connected Threads</label>
+      <description>Alarm which returns WARNING if the threads connected is over the specified threshold and OK if it is under the specified threshold.</description>
+      <check_type>agent.mysql</check_type>
+      <criteria>if (metric['threads.connected'] &gt; ${threads.connected.threshold}) {
+	return new AlarmStatus(WARNING, 'Total number of threads connected are above your threshold of ${threads.connected.threshold}');
+}
+return new AlarmStatus(OK, 'Total number of threads connected are below your warning threshold of ${threads.connected.threshold}');
+</criteria>
+      <fields>
+        <field>
+          <name>threads.connected.threshold</name>
+          <description>Warning threshold for the number of connections</description>
+          <type>whole number (may be zero padded)</type>
+        </field>
+      </fields>
+    </alarm_template>
+  </values>
+  <metadata>
+    <count>18</count>
+    <limit/>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

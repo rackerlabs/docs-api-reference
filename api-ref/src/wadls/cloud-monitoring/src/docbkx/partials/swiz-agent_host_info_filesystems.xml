@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>used</command></td>
+<td>Used space on the filesystem (in kilobytes).</td>
+
+</tr>
+<tr>
+<td><command>dir_name</command></td>
+<td>Name of the directory where the filesystem is mounted.</td>
+
+</tr>
+<tr>
+<td><command>avail</command></td>
+<td>Available space on the filesystem (in kilobytes).</td>
+
+</tr>
+<tr>
+<td><command>dev_name</command></td>
+<td>Name of the device from which this filesystem is mounted. For example, /dev/sda1.</td>
+
+</tr>
+<tr>
+<td><command>files</command></td>
+<td>Number of file nodes on the filesystem.</td>
+
+</tr>
+<tr>
+<td><command>free</command></td>
+<td>Free space available on the filesystem (in kilobytes).</td>
+
+</tr>
+<tr>
+<td><command>free_files</command></td>
+<td>Number of free file nodes on the filesystem.</td>
+
+</tr>
+<tr>
+<td><command>options</command></td>
+<td>Filesystem mount options. For example, rw,noexec.</td>
+
+</tr>
+<tr>
+<td><command>sys_type_name</command></td>
+<td>Name of the filesystem. For example, ext3.</td>
+
+</tr>
+<tr>
+<td><command>total</command></td>
+<td>Total space on the filesystem (in kilobytes).</td>
+
+</tr>
+<tr>
+<td><command>type_name</command></td>
+<td>Internally maintained tuple by sigar. Inaccurate. For example tmpfs is not a ram filesystem. "unknown", "none", "local", "remote", "ram", "cdrom", "swap" (to be deleted)</td>
+
+</tr>
+</tbody>
+</informaltable>

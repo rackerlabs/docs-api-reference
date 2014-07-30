@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-remote.imap-banner">
+<title>remote.imap-banner</title>
+<bridgehead xml:id="summary-remote.imap-banner">Summary</bridgehead>
+<para>The remote.imap-banner check will attempt to connect to an IMAP server and verify that it response to the connection</para>
+    <xi:include href="/Users/marg7175/documents/githubTools/ele/docs/src/docbkx/partials/attributes-remote.imap-banner.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

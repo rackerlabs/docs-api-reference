@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_host_info>
+  <timestamp>1354038964857</timestamp>
+  <info>
+    <interface>
+      <name>lo</name>
+      <type>Local Loopback</type>
+      <address>127.0.0.1</address>
+      <netmask>255.0.0.0</netmask>
+      <address6>::1</address6>
+      <broadcast>0.0.0.0</broadcast>
+      <hwaddr>00:00:00:00:00:00</hwaddr>
+      <mtu>16436</mtu>
+      <rx_packets>365761</rx_packets>
+      <rx_bytes>92988980</rx_bytes>
+      <tx_packets>365761</tx_packets>
+      <tx_bytes>92988980</tx_bytes>
+      <flags>73</flags>
+    </interface>
+    <interface>
+      <name>eth0</name>
+      <type>Ethernet</type>
+      <address>192.168.95.128</address>
+      <netmask>255.255.255.0</netmask>
+      <address6>fe80::250:56ff:fe24:bbbb</address6>
+      <broadcast>192.168.95.255</broadcast>
+      <hwaddr>00:00:00:00:00:00</hwaddr>
+      <mtu>1500</mtu>
+      <rx_packets>13172</rx_packets>
+      <rx_bytes>1842916</rx_bytes>
+      <tx_packets>12110</tx_packets>
+      <tx_bytes>6289940</tx_bytes>
+      <flags>2115</flags>
+    </interface>
+  </info>
+</agent_host_info>

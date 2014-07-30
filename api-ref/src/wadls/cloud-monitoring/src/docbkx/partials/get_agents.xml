@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agents>
+  <agent id="00-agent.example.com">
+    <last_connected>1334685407</last_connected>
+  </agent>
+  <agent id="i-need-a-new-agent.example.com">
+    <last_connected>1334685407</last_connected>
+  </agent>
+</agents>

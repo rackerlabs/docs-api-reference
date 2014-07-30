@@ -1,0 +1,6 @@
+{
+    "notification_plans": ["npTechnical"],
+    "alarms": ["en123:al123", "enMonkey:alBaz"],
+    "start_time": 1378492433027,
+    "end_time": 1378492433027
+}

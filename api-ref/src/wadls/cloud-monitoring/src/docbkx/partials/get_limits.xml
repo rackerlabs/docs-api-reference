@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<limit>
+  <resource>
+    <checks>150</checks>
+    <alarms>50</alarms>
+  </resource>
+  <rate>
+    <global>
+      <limit>50000</limit>
+      <used>500</used>
+      <window>24 hours</window>
+    </global>
+    <test_check>
+      <limit>500</limit>
+      <used>5</used>
+      <window>24 hours</window>
+    </test_check>
+    <test_alarm>
+      <limit>500</limit>
+      <used>2</used>
+      <window>24 hours</window>
+    </test_alarm>
+  </rate>
+</limit>

@@ -1,0 +1,3126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entites with xmllint          -->
+<!--                                                       -->
+<!--        xmllint -noent os-compute-1.1.wadl             -->
+<!--*******************************************************-->
+<!DOCTYPE application [<!ENTITY % common  SYSTEM "../docbkx/partials/common.ent">
+%common;]>
+
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+    xmlns:db="http://docbook.org/ns/docbook" xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+    xmlns:raxapi="http://docs.rackspace.com/volume/api/v1" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    xmlns:osapi="http://docs.openstack.org/compute/api/v1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:rax="http://docs.rackspace.com/api" xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0">
+
+    <grammars>
+        <include href="../docbkx/xsd/api.xsd"/>
+        <include href="../docbkx/xsd/api-common.xsd"/>
+    </grammars>
+
+
+    <!--*******************************************************-->
+    <!--             All Resoruces                             -->
+    <!--*******************************************************-->
+
+    <resources base="https://monitoring.api.rackspacecloud.com/">
+        <resource path="v1.0" id="version">
+            <resource path="/{customer_account_number}" id="customer_account_number">
+                <param name="customer_account_number" style="template" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The customer account number.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                    required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>A valid authentication token with administrative access. </para>
+                    </wadl:doc>
+                </param>
+            </resource>
+        </resource>
+
+        <!-- Account -->
+
+        <resource path="/account" id="account">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#listAccount"/>
+            <method href="#updateAccount"/>
+        </resource>
+        <resource path="/limits" id="limits">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#listLimits"/>
+        </resource>
+        <resource path="/audits" id="audits">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#listAudits"/>
+        </resource>
+
+        <!-- Entities -->
+
+        <resource path="/entities" id="entity">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#createEntity"/>
+            <method href="#listEntities"/>
+        </resource>
+        <resource path="/entityId" id="entityId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity lookup. Use the
+                        List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getEntityId"/>
+            <method href="#updateEntity"/>
+            <method href="#deleteEntity"/>
+        </resource>
+
+        <!-- Checks -->
+
+        <resource path="/entities/{entityId}/checks" id="check">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="entityId" style="template" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the monitoring zone. Use the
+                        List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#createCheck"/>
+            <method href="#listChecks"/>
+        </resource>
+        <resource path="/entities/{entityId}/test-check" id="checkTest">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="entityId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the monitoring zone. Use the
+                        List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#checkTestNew"/>
+        </resource>
+        <resource path="/entities/{entityId}/checks/test-check/" id="checkIdTest">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The id for the monitoring zone the check is associated with. Use the List entities operation to
+                        find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <param name="checkId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The id for the check to be tested. Use the List checks operation to find the <code>checkId</code>
+                        if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#checkExistingTest"/>
+        </resource>
+        <resource path="/entities/{entityId}/checks/{checkId}" id="checkId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the monitoring zone. Use the
+                        List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getCheck"/>
+            <method href="#updateCheck"/>
+            <method href="#deleteCheck"/>
+        </resource>
+
+        <!-- Check Types -->
+
+        <resource path="/check_types" id="checkType">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#createCheckType"/>
+            <method href="#listCheckTypes"/>
+        </resource>
+        <resource path="/check_types/checkTypeId" id="checkTypeId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="checkTypeId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the Check type lookup. Use the
+                        List check types operation to find the <code>checkTypeId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getCheckTypeId"/>
+        </resource>
+        <resource path="/check_types" id="checkTypeNA">
+            <method href="#updateCheckType"/>
+            <method href="#deleteCheckType"/>
+        </resource>
+
+        <!-- Metrics resources -->
+
+        <resource path="/entities/{entityId}/checks/{checkId}/metrics" id="listMetrics">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity associated with the
+                        Check. Use the List check types operation to find the <code>checkTypeId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="checkTypeId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id of the Check for the metrics
+                        lookup. Use the List checks operation to find the <code>checkTypeId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#listMetricsbyCheckId"/>
+        </resource>
+        <resource path="/entities/{entityId}/checks/{checkId}" id="fetchMetrics">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="checkTypeId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the Check for the metrics
+                        lookup. Use the List checks operation to find the <code>checkTypeId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="from" style="plain" type="xsd:string" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The timestamp marking the beginning of
+                        the time range. The timestamp should be represented as the number of <emphasis role="bold"
+                            >milliseconds</emphasis> that have elapsed since January 1, 1970. Note that <emphasis
+                            role="italic">Unix time</emphasis> is typically represented in seconds, which means the value
+                        must be converted to milliseconds. Specify <code>from</code>=<code>fromTimeStamp</code>.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="to" style="plain" type="xsd:string" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The timestamp marking the end of the time range. The timestamp should be represented as the number
+                        of <emphasis role="bold">milliseconds</emphasis> that have elapsed since January 1, 1970. Note that
+                            <emphasis role="italic">Unix time</emphasis> is typically represented in seconds, so in many
+                        cases it will be ncessary to convert this to milliseconds. Specify
+                            <code>from</code>=<code>toTimeStamp</code>.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="points" style="plain" type="xsd:string" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The number of points you want in the results. <emphasis role="bold">Either</emphasis>
+                        <property>points</property>
+                        <emphasis role="bold">or</emphasis>
+                        <property>resolution</property> is required. If both are absent, the query validation fails and
+                        returns an error. return an error. Specify <code>points</code>=<code>numberPoints</code>.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="resolution" style="plain" type="xsd:string"
+                required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The granularity of data to query. Valid values include: FULL, MIN5, MIN20, MIN60, MIN240 or
+                        MIN1440. <emphasis role="bold">Either</emphasis>
+                        <property>points</property>
+                        <emphasis role="bold">or</emphasis>
+                        <property>resolution</property> is required. If both are absent, the query will not validate and will
+                        return an error. Specify <code>resolution=<replaceable>granularity</replaceable></code>.</para>
+                    <para>For more information about querying by resolution, see
+                        <xref linkend="metrics-data-granularity"/>.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="select" style="plain" type="xsd:string" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The stats that you want returned for the data. The stats available for selection are average,
+                        variance, min and max. By default, the response includes the average stat only. You can use multiple
+                        select parameters in a single request. For example, <code>select=variance&amp;select=max</code>
+                        displays both variance and max in the response. Specify
+                            <code>select=<replaceable>stats</replaceable></code></para>
+                </wadl:doc>
+            </param>
+            <method href="#fetchDataPoints"/>
+        </resource>
+
+        <!-- Alarms resources -->
+
+        <resource path="/entities/{entityId}/alarms" id="alarms">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity associated with the
+                        Alarm. Use the List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#createAlarm"/>
+            <method href="#listAlarms"/>
+        </resource>
+        <resource path="/entities/{entityId}/test-alarm" id="test_alarm">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity associated with the
+                        Alarm. Use the List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#alarmsTest"/>
+        </resource>
+
+        <resource path="/entities/{entityId}/alarms/{alarmId}" id="alarmId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="alarmId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the alarm lookup. Use the List
+                        alarms operation to find the <code>alarmId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getAlarmId"/>
+            <method href="#updateAlarm"/>
+            <method href="#deleteAlarm"/>
+        </resource>
+        <!-- Notification plan resources -->
+
+        <resource path="/notification_plans" id="notifyPlans">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#createNotifyPlan"/>
+            <method href="#listNotifyPlan"/>
+        </resource>
+
+        <resource path="/notification_plans/notificationPlanId" id="notifyPlanId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="notifyPlanId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the notification plan to
+                        lookup. Use the List notification plan operation to find the <code>notificationPlanId</code> if you
+                        don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getNotifyPlan"/>
+            <method href="#updateNotifyPlan"/>
+            <method href="#deleteNotifyPlan"/>
+        </resource>
+
+        <!-- Monitoring zone resources -->
+
+        <resource path="/monitoring_zones" id="monitoringZones">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#listMonitorZone"/>
+        </resource>
+        <resource path="/monitoring_zones/monitorintZoneId" id="monitoringZonesId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="monitorZoneId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the monitoring zone to lookup.
+                        Use the List monitoring zone operation to find the <code>notificationPlanId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getMonitorZone"/>
+            <resource path="/traceroute" id="traceroutezone">
+                <method href="#tracerouteMonitorZone"/>
+            </resource>
+        </resource>
+
+        <!-- Alarm notification history resources -->
+
+        <resource path="/entities/{entityId}/alarms/{alarmId}/notification_history" id="discoverAlarmHistory">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity associated with the
+                        alarm. Use the List check types operation to find the <code>checkTypeId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="alarmId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id of the alarm to lookup. Use the
+                        List alarms operation to find the <code>alarmId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#discoverNotifyHistory"/>
+            <resource path="/checkId" id="ListAlarmHistory">
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="checkId" style="plain" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the check to lookup. Use
+                            the List checks operation to find the <code>checkTypeId</code> if you don't know it.</para>
+                    </wadl:doc>
+                </param>
+                <method href="#listAlarmNotificationHistory"/>
+                <resource path="/uuid" id="GetAlarmNotHistory">
+                    <method href="#GetAlarmNotifyHistory"/>
+                </resource>
+            </resource>
+        </resource>
+
+        <!-- Notification resources -->
+
+        <resource path="/notifications" id="notifications">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#createNotification"/>
+            <method href="#listNotifications"/>
+        </resource>
+        <resource path="/notifications/test-notification" id="testNotify">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#TestNotification"/>
+        </resource>
+        <resource path="/notifications/{notificationId}/test" id="TestNotifyId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="notifiactionId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>The id for notification to test. Use the List notifications operation to find the
+                            <code>notificationId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#TestNotificationId"/>
+        </resource>
+        <resource path="/notifications/{notificationId}" id="notificationId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the notification Use the List
+                        notifications operation to find the <code>notificationId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getNotification"/>
+            <method href="#updateNotification"/>
+            <method href="#deleteNotification"/>
+        </resource>
+        <!-- Notification type resources -->
+
+        <resource path="notification_types" id="notificationTypes">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#createNotificationType"/>
+            <method href="#listNotificationTypes"/>
+        </resource>
+
+        <resource path="notification_types/{notificationTypeId}" id="notificationTypeId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="notificationId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the Notification type. Use the
+                        List notification types operation to find the <code>notifyID</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getNotificationType"/>
+            <method href="#updateNotificationType"/>
+            <method href="#deleteNotificationType"/>
+        </resource>
+
+        <!-- Changelogs resources -->
+
+        <resource path="/changelogs/alarms" id="changelogs">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The monitoring service records changelogs for
+                    alarm statuses. Use the Changelogs API operation to view changelogs as a
+                    <link linkend="api-time-series-collections">Time Series
+                        Collection</link>. By
+                    default the API queries the last 7 days of changelog information.</para></wadl:doc>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity that you want to
+                        view changelogs for. Use the List entities operation to find the <code>entityId</code> if you don't
+                        know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getchangelogAlarms"/>
+        </resource>
+
+        <!-- Views resources -->
+        <resource path="/views/overview" id="viewsOvw">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#getviewOvw"/>
+        </resource>
+
+        <!-- Alarm example resources -->
+
+        <resource path="/alarm_examples" id="alarmexamples">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+
+            <method href="#getAlarmExamples"/>
+        </resource>
+        <resource path="/alarm_examples//{alarmExampleId}" id="alarmexampleId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="alarmId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the alarm example that you
+                        want to lookup. Use the List alarm examples operation to find the <code>entityId</code> if you don't
+                        know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getAlarmExampleId"/>
+            <method href="#evaluateAlarmExampleId"/>
+        </resource>
+
+        <!-- Suppressions resources -->
+
+        <resource path="/suppressions" id="suppression">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity associated with the
+                        Alarm. Use the List entities operation to find the <code>entityId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#createSuppression"/>
+            <method href="#listSuppressions"/>
+        </resource>
+
+        <resource path="/suppressions/{suppressionId}" id="suppressionId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param name="suppressionId" style="plain" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the suppression lookup. Use
+                        the List suppressions operation to find the <code>suppressionId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getSuppressionId"/>
+            <method href="#updateSuppression"/>
+            <method href="#deleteSuppression"/>
+        </resource>
+
+        <!-- Suppression log -->
+        <resource path="/suppressions_logs" id="suppressionLog">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#getSuppressionLog"/>
+        </resource>
+
+        <resource path="/agents" id="agents">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#getAgents"/>
+        </resource>
+        <resource path="/agents/{agentId}" id="agentId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="agentId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the agent that you want to
+                        lookup. Use the List agents operation to find the <code>agentId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getAgentId"/>
+
+        </resource>
+        <resource path="/agents/{agentId}/connections" id="agentConnections">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="agentId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the agent that you want to
+                        lookup. Use the List agents operation to find the <code>agentId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="connId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the connection that you want
+                        to lookup. Use the List connections operation to find the <code>connId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getAgentConnections"/>
+        </resource>
+        <resource path="/agents/{agentId}/connections/{connId}" id="agentConectionId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="agentId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the agent that you want to
+                        lookup. Use the List agents operation to find the <code>agentId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="connId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the connection that you want
+                        to lookup. Use the List connections operation to find the <code>connId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getAgentConnection"/>
+        </resource>
+
+        <!-- Agent target resource -->
+
+        <resource path="/entities/{entityId}/agent/check_types/{agentCheckType}/targets" id="agentTarget">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#getAgentTarget"/>
+        </resource>
+
+        <!-- Agent token resources  -->
+
+        <resource path="/agent_tokens" id="agentToken">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <method href="#createAgentToken"/>
+            <method href="#listAgentTokens"/>
+        </resource>
+        <resource path="/agent_tokens/{tokenId}" id="agentTokenId">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="agentId" style="query" required="false">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the agent token that you want
+                        to lookup. Use the List tokens operation to find the <code>tokenId</code> if you don't know
+                        it.</para>
+                </wadl:doc>
+            </param>
+            <method href="#getAgentTokenId"/>
+            <method href="#updateAgentToken"/>
+            <method href="#deleteAgentToken"/>
+
+        </resource>
+
+        <!-- Agent host info resources -->
+
+        <resource path="/agents/{agentId}/host_info/" id="AgentHostInfo">
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="X-Auth-Token" style="header" type="xsd:string"
+                required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <para>A valid authentication token with administrative access. </para>
+                </wadl:doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="agentId" style="template" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the agent that you want to
+                        lookup. Use the List agents operation to find the <code>agnetId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
+            <resource path="/cpus" id="AgentHostInfoCPUs">
+                <method href="#GetAgentHostInfoCPUs"/>
+            </resource>
+            <resource path="/disks" id="AgentHostInfoDisks">
+                <method href="#GetAgentHostInfoDisks"/>
+            </resource>
+            <resource path="/filesystems" id="AgentHostInfoFileSystems">
+                <method href="#GetAgentHostInfoProcesses"/>
+            </resource>
+            <resource path="/memory" id="AgentHostInfoMemory">
+                <method href="#GetAgentHostInfoMemory"/>
+            </resource>
+            <resource path="/network_interaces" id="AgentHostInfoNetworkInterfaces">
+                <method href="#GetAgentHostInfoNetworkInterfaces"/>
+            </resource>
+            <resource path="/processes" id="AgentHostInfoProcesses">
+                <method href="#GetAgentHostInfoProcesses"/>
+            </resource>
+            <resource path="/system" id="AgentHostInfoSystem">
+                <method href="#GetAgentHostInfoSystem"/>
+            </resource>
+            <resource path="/who" id="AgentHostInfoWho">
+                <method href="#GetAgentHostInfoWho"/>
+            </resource>
+        </resource>
+
+
+    </resources>
+
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+
+    <!-- Account methods -->
+    <method name="GET" id="listAccount">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get account information">
+            <para role="shortdesc"> Returns information about the specified account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List account information: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_accounts.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="id" style="plain" type="string" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The id assigned to the account.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Lists the collection of metadata associated with the monitoring account, if any. Metadata is
+                            formatted as key/value pairs.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="webhook_token" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Lists the webhook token associated with the monitoring account.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List account information: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_accounts.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="updateAccount">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update properties on an account.">
+            <para role="shortdesc"> Updates account properties. </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update account: XML request">
+                    <xsdxt:code href="../docbkx/partials/update_account.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Update metadata information on the account, or add a new metadata item. Metadata is formatted
+                            in key/value string pairs. The key and value attributes are string values between 1 and 255
+                            characters long. </para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="webhook_token" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>A string value, between 10 and 64 characters long that adds or updates a webhook token for
+                            Rackspace Cloud Monitoring.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update account: JSON request">
+                    <xsdxt:code href="../docbkx/partials/update_account.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="500"/>
+    </method>
+
+    <!-- Limits -->
+    <method name="GET" id="listLimits">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Limits">
+            <para role="shortdesc"> Returns resource and rate limits that apply to the specified account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List limits: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_limits.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List limits: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_limits.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+
+    <!-- Audits -->
+    <method name="GET" id="listAudits">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List audit information">
+            <para role="shortdesc"> Returns audit information for the specified account. </para>
+            <para>&MAAS; records every write operation in an audit. See <link linkend="general-api-info-audits">Audits</link>
+                for more information on how audits are recorded.</para>
+            <para>Audits are accessible as a
+                <link linkend="api-time-series-collections">Time Series
+                    Collection</link>. By default the
+                API queries the last 7 days of audit information.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List audit information: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_audits.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List audit information: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_audits.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Entities methods -->
+    <method name="POST" id="createEntity">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Add an entity">
+            <para role="shortdesc"> Adds an entity to the system. </para>
+            <para>When you create a new entity in the monitoring system, you specify the follow parameters:<itemizedlist>
+                    <listitem>
+                        <para>A meaningful name for the entity.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The IP address(es) for the entity (optional).</para>
+                    </listitem>
+                    <listitem>
+                        <para>The meta-data that the monitoring system uses if an alarm is triggered (optional).</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add an entity: XML request">
+                    <xsdxt:code href="../docbkx/partials/create_entities.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="label" type="xsd:string" style="plain" path="label"
+                    required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Defines a name for the entity. Value can be between 1 and 255 characters long.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="ip_addresses" type="xsd:string" style="plain"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Hash of IP addresses that can be referenced by checks on this entity. Values can be an array or
+                            object with from 0 to 64 items. Each item must be an IPv4 or IPv6 address between 1 and 64
+                            characters long.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Update metadata information on the account, or add a new metadata item. Metadata is formatted
+                            in key/value string pairs. The key and value attributes are string values between 1 and 255
+                            characters long. </para>
+                    </wadl:doc>
+                </param>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add an entity: JSON request">
+                    <xsdxt:code href="../docbkx/partials/create_entities.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="201"/>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listEntities">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List entities">
+            <para role="shortdesc"> Lists the entities associated with this account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List entities for account: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_entities.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List entities for account: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_entities.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getEntityId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get entity by id">
+            <para role="shortdesc"> Returns information about the specified entity. </para>
+            <para>Use this operation to retrieve the current state of an entity.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get entity by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_entities.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get entity by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_entities.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateEntity">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update entity by id">
+            <para role="shortdesc"> Updates the properties for the specified entity. </para>
+            <para>Updates the entity specified by the <code>entityId</code>. You can make partial updates to an entity. When
+                you submit the update request, only specify the parameters that you want to update.</para>
+            <para>For Rackspace Managed Cloud entities, many fields are managed by Rackspace. If you update these entities,
+                you can only update the <code>metadata</code> and <code>agent_id</code> fields using this API
+                operation.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update entity: XML request">
+                    <xsdxt:code href="../docbkx/partials/update_entities.xml"/>
+                </wadl:doc>
+                <!-- Entities request body parameters -->
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="id" style="plain" type="string" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The id assigned to the account.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="label" type="xsd:string" style="plain" path="label"
+                    required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Defines a name for the entity. Value can be between 1 and 255 characters long.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="agent_id" type="xsd:string" style="plain"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Agent to which this entity is bound to. Value can be a string that matches the regex
+                            /^[-\.\w]{1,255}$/.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="ip_addresses" type="xsd:string" style="plain"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Hash of IP addresses that can be referenced by checks on this entity. Values can be an array or
+                            object with from 0 to 64 items. Each item must be an IPv4 or IPv6 address between 1 and 64
+                            characters long.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" type="xsd:string" style="plain"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Arbitrary key/value pairs that are passed during the alerting phase. Values can be an array or
+                            object with from 0 to 256 items. The key and value attributes are string values between 1 and 255
+                            characters long.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update entity: JSON request">
+                    <xsdxt:code href="../docbkx/partials/update_entities.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="DELETE" id="deleteEntity">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete entity by id">
+            <para role="shortdesc"> Deletes the specified entity. </para>
+            <para>Deletes an entity from your account. Also deletes any checks and alarms defined for that entity.</para>
+        </wadl:doc>
+        <response status="204"/>
+
+        <!-- Common Faults --> &commonFaults; </method>
+    
+    <!-- Checks methods -->
+    <method name="POST" id="createCheck">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create a check">
+            <para role="shortdesc"> Creates a &MAAS; check and associate it with an entity. </para>
+            <para>Create a new check and associate it with an entity using the parameters listed in
+                <link linkend="section-Checks">Attributes.</link></para>
+            <para>Create a new check in the monitoring system by specifying the following information using the Check <link linkend="section-Checks">Attributes.</link>:<itemizedlist>
+                    <listitem>
+                        <para>A name for the check</para>
+                    </listitem>
+                    <listitem>
+                        <para>The check's parent entity</para>
+                    </listitem>
+                    <listitem>
+                        <para>The type of check you're creating</para>
+                    </listitem>
+                    <listitem>
+                        <para>Details of the check</para>
+                    </listitem>
+                    <listitem>
+                        <para>The monitoring zones that will launch the check</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para>The check, as created, does not trigger alert messages until you
+                <link linkend="service-alarms">create an alarm</link> to generate notifications, to enable the creation of a
+                single alarm that acts upon multiple checks (e.g. alert if any of ten different servers stops responding) or
+                multiple alarms off of a single check. (e.g. ensure both that a HTTPS server is responding and that it has a
+                valid certificate).</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create a check: XML request">
+                    <xsdxt:code href="../docbkx/partials/create_checks.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create a check: JSON request">
+                    <xsdxt:code href="../docbkx/partials/create_checks.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="201">
+            <wadl:doc title="Created" xmlns="http://docbook.org/ns/docbook">
+                <para>'Location' header contains a link to the newly created check.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="checkTestNew">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Test a check">
+            <para role="shortdesc"> Test a check before creating it. </para>
+            <para>This operation causes &MAAS; to attempt to run the check on the specified monitoring zones and return the
+                results. This operation allows you to test the check parameters in a single step before the check is actually
+                created in the system. <note>
+                    <para>You can copy the results of a test check response and paste it directly into a test alarm.</para>
+                </note>
+            </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a check: XML request">
+                    <xsdxt:code href="../docbkx/partials/test_checks.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a check: JSON request">
+                    <xsdxt:code href="../docbkx/partials/test_checks.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a check: XML response">
+                    <xsdxt:code href="../docbkx/partials/test_checks_response.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a check: JSON response">
+                    <xsdxt:code href="../docbkx/partials/test_checks_response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="checkExistingTest">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Test an existing check">
+            <para role="shortdesc"> Test an existing check inline. </para>
+            <para>This operation causes &MAAS; to attempt to run the check on the specified monitoring zones and return the
+                results. This allows you to test the check parameters.<note>
+                    <para>You can copy the results of a test check response and paste it directly into a test alarm. </para>
+                </note>
+                <note><para>There is no request body, just posting to the url executes the request.</para></note></para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an existing check: XML response">
+                    <xsdxt:code href="../docbkx/partials/test_checks_response.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an existing check: JSON response">
+                    <xsdxt:code href="../docbkx/partials/test_checks_response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listChecks">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List checks for entity">
+            <para role="shortdesc"> Lists the checks associated with a given <code>entityId</code>. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List checks for entity: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_checks.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List checks for entity: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_checks.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getCheck">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get check by id">
+            <para role="shortdesc"> Returns information about the specified check. </para>
+            <para>Use this operation to retrieve the current state of a check.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get check by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_checks.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get check by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_checks.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateCheck">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update check by id">
+            <para role="shortdesc"> Updates the properties for the specified check. </para>
+            <para>Updates the specified check with the attribute values included in the request body. You only have to
+                specify the attributes that you want to update.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update check: XML request">
+                    <xsdxt:code href="../docbkx/partials/update_checks.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update check: JSON request">
+                    <xsdxt:code href="../docbkx/partials/update_checks.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="DELETE" id="deleteCheck">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete a check by id">
+            <para role="shortdesc"> Deletes a check from your account. </para>
+        </wadl:doc>
+        <response status="204"/>
+
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Check Type methods -->
+    <method name="POST" id="createCheckType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create a Check type">
+            <para role="shortdesc"> Users cannot create Check types. </para>
+        </wadl:doc>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listCheckTypes">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Check types">
+            <para role="shortdesc"> Lists all available check types. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Check types: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_check_types.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Check types: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_check_types.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getCheckTypeId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get check by id">
+            <para role="shortdesc"> Retrieve information for a single check type. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get Check type by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_check_types.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get Check type by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_check_types.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateCheckType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update Check type">
+            <para role="shortdesc"> Users cannot update Check types. </para>
+        </wadl:doc>
+    </method>
+    <method name="DELETE" id="deleteCheckType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete a Check type">
+            <para role="shortdesc"> Users cannot delete Check types. </para>
+        </wadl:doc>
+    </method>
+
+    <!-- Metrics methods -->
+    <method name="GET" id="listMetricsbyCheckId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Check types">
+            <para role="shortdesc"> Lists the metrics associated with the specified <code>checkId</code>. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>This operation returns a response body that
+                    lists the metrics associated with your check. A single check usually generates several metrics. For
+                    example, http checks generate the following metrics: bytes, code, duration, truncated, tt_connect,
+                    tt_firstbyte. </para>
+                <para>Metrics generated by remote checks are generated for each monitoring zone where the check is
+                    issued.</para>
+                <para>Metric names use the syntax:</para>
+                <para><replaceable>monitoringZone</replaceable>.<replaceable>metricName</replaceable></para>
+                <para>where:</para>
+                <variablelist>
+                    <varlistentry>
+                        <term><replaceable>monitoringZone</replaceable></term>
+                        <listitem>
+                            <para>is the monitoring zone where the check was issued.</para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term><replaceable>metricName</replaceable></term>
+                        <listitem>
+                            <para>is the name of the metric.</para>
+                        </listitem>
+                    </varlistentry>
+                </variablelist>
+                <para>For example a metric called <literal>tt_connect</literal>, generated from the <literal>DFW</literal>
+                    monitoring zone, is labeled as <literal>mzdfw.tt_connect</literal>.</para>
+                <note>
+                    <para>Metrics generated by agent checks have no monitoring zone.</para>
+                </note></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Check types: XML response">
+                    <xsdxt:code href="../docbkx/partials/metrics-list.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Check types: JSON response">
+                    <xsdxt:code href="../docbkx/partials/metrics-list.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="fetchDataPoints">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get metrics by entity and check ids">
+            <para role="shortdesc"> Queries for all data points of <code>metricName</code> between two points in time.
+            </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Fetch data points: full resolution: XML response">
+                    <xsdxt:code href="../docbkx/partials/metrics-data-full-response.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Fetch data points: full resolution: JSON response">
+                    <xsdxt:code href="../docbkx/partials/metrics-data-full-response.json"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Fetch data points: rollup response in XML response">
+                    <xsdxt:code href="../docbkx/partials/metrics-data-rollup-response.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="numPoints" style="plain" type="xsd:string"
+                    required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The number of points. The value is <code>1</code> for full resolution data.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="average" style="plain" type="integer" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Numerical value. This parameter returns the value of raw sample itself.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="timestamp" style="plain" type="xsd:string"
+                    required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Returns the time when the metric was collected.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Fetch data points: rollup response in JSON response">
+                    <xsdxt:code href="../docbkx/partials/metrics-data-rollup-response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Alarm methods -->
+    <method name="POST" id="createAlarm">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create alarm">
+            <para role="shortdesc"> Creates a new alarm for the specified entity. Specify the alarm's characteristics using a
+                valid set of parameters from the <link linkend="alarms_attributes">Attributes</link> table. </para>
+        </wadl:doc>
+        <response status="201">
+            <wadl:doc title="Accepted" xmlns="http://docbook.org/ns/docbook">
+                <para>'Location' header contains a link to the newly created alarm.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create an alarm: XML response">
+                    <xsdxt:code href="../docbkx/partials/create_alarms.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="id" style="header" type="URI">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Returns a link to the newly created check.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create an alarm: JSON response">
+                    <xsdxt:code href="../docbkx/partials/create_alarms.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listAlarms">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List alarms">
+            <para role="shortdesc"> List the alarms on the specified <code>entityId</code>. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Alarms: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_alarms.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Alarms: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_alarms.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="alarmsTest">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Test an alarm">
+            <para role="shortdesc"> Test an alarm before putting it in production. </para>
+        </wadl:doc>
+
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an alarm: XML request">
+                    <xsdxt:code href="../docbkx/partials/test_alarms.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an alarm: JSON request">
+                    <xsdxt:code href="../docbkx/partials/test_alarms.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an alarm: XML response">
+                    <xsdxt:code href="../docbkx/partials/test_alarms_response.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an alarm: JSON response">
+                    <xsdxt:code href="../docbkx/partials/test_alarms_response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getAlarmId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get alarm by id">
+            <para role="shortdesc"> Get information for a single alarm. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get alarms by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_alarms.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get alarms by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_alarms.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateAlarm">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update alarm by id">
+            <para role="shortdesc"> Updates the specified alarm with the properties submitted with the request. </para>
+            <para>You can make partial updates to a notification plan. When you submit the update request, only include the
+                parameters for values you want to change.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update alarm by id: XML request">
+                    <xsdxt:code href="../docbkx/partials/update_alarms.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="label" style="plain" type="string" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Friendly name for the notification plan, between 1 and 255 characters long.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="critical_state" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>An array that defines the
+                            notification list to send to when the state is <code>CRITICAL</code>.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Update metadata information on the account, or add a new metadata item. Metadata is formatted
+                            in key/value string pairs. The key and value attributes are string values between 1 and 255
+                            characters long. </para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="ok_state" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>An array that defines the notification list to send to when the state is <code>OK</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="warning_state" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>An array that defines the notification list to send to when the state is <code>WARNING</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update alarm by id: JSON request">
+                    <xsdxt:code href="../docbkx/partials/update_alarms.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="204"/>
+
+    </method>
+    <method name="DELETE" id="deleteAlarm">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete alarm">
+            <para role="shortdesc"> Delete an alarm from your account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Notification plan methods -->
+    <method name="POST" id="createNotifyPlan">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create notification plan">
+            <para role="shortdesc"> Creates a notification plan. </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create motification plan: XML request">
+                    <xsdxt:code href="../docbkx/partials/create_notification_plans.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="label" style="plain" type="string" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Friendly name for the notification plan, between 1 and 255 characters long.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="critical_state" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>An array that defines the
+                            notification list to send to when the state is <code>CRITICAL</code>.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Update metadata information on the account, or add a new metadata item. Metadata is formatted
+                            in key/value string pairs. The key and value attributes are string values between 1 and 255
+                            characters long. </para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="ok_state" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>An array that defines the notification list to send to when the state is <code>OK</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="warning_state" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>An array that defines the notification list to send to when the state is <code>WARNING</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create notification plan: JSON request">
+                    <xsdxt:code href="../docbkx/partials/create_notification_plans.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+
+        <response status="201">
+            <wadl:doc title="Accepted" xmlns="http://docbook.org/ns/docbook">
+                <para>'Location' header contains a link to the newly created notification plan.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listNotifyPlan">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List notification plan">
+            <para role="shortdesc"> Lists the notification plans for the &MAAS; account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List notification plans: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_notification_plans.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List notification plans: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_notification_plans.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getNotifyPlan">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get notification plan by id">
+            <para role="shortdesc"> Returns information about the specified notification plan. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get notification plan by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_notification_plans.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get notification plan by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_notification_plans.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateNotifyPlan">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update notification plan by id">
+            <para role="shortdesc"> Updates the notification plan properties. </para>
+            <para>You can make partial updates to a notification plan. When you submit the update request, only specify the
+                parameters you want to update.</para>
+        </wadl:doc>
+    </method>
+    <method name="DELETE" id="deleteNotifyPlan">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete notification plan">
+            <para role="shortdesc"> Delete a notification plan from your account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Monitoring zone methods -->
+    <method name="GET" id="listMonitorZone">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List monitoring zone">
+            <para role="shortdesc"> Lists the monitoring zones for the &MAAS; account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List monitoring zones: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_monitoring_zones.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List monitoring zones: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_monitoring_zones.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getMonitorZone">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get monitoring zone by id">
+            <para role="shortdesc"> Returns information about the specified monitoring zone. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get monitoring zone by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_monitoring_zones.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get monitoring zone by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_monitoring_zones.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="tracerouteMonitorZone">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Perform a tracerouts from a monitoring zone">
+            <para role="shortdesc"> Performs a traceroute from a collector in the specified monitoring zones. </para>
+            <para>This API operation lets you run a traceroute from a monitoring zone to a Hostname or IP address. Like all
+                Cloud Monitoring features, the Traceroute API is fully dual stack, supporting both IPv4 and IPv6. The
+                Traceroute API can be used to debug networking issues between the Cloud Monitoring collectors and your
+                infrastructure. </para>
+            <para>Note that hop numbers can repeat, which indicates a split in the route.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Traceroute: XML request">
+                    <xsdxt:code href="../docbkx/partials/run_traceroute.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="target" style="plain" type="string" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Valid fully-qualified domain name (FQDN), IPv4 or IPv6 address.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="target_resolver" style="plain" type="string"
+                    required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Target resolver type. Value can be either IPv4 or IPv6. This attribute is applicable only if a
+                            hostname value is specified in the <code>target</code> parameter.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Traceroute: JSON response">
+                    <xsdxt:code href="../docbkx/partials/run_traceroute.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Traceroute: XML response">
+                    <xsdxt:code href="../docbkx/partials/response_traceroute.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Traceroute: JSON response">
+                    <xsdxt:code href="../docbkx/partials/response_traceroute.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+
+    <!-- Alarm notification history resources -->
+    <method name="GET" id="discoverNotifyHistory">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Discover alarm notification history">
+            <para role="shortdesc"> List checks for which alarm notification history is available. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Alarm notification history discovery: XML response">
+                    <xsdxt:code href="../docbkx/partials/discover_alarm_notification_history.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Alarm notification history discovery: JSON response">
+                    <xsdxt:code href="../docbkx/partials/discover_alarm_notification_history.json"/>
+                </wadl:doc>
+            </representation>
+        </response> &commonFaults; </method>
+    <method name="GET" id="listAlarmNotificationHistory">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List alarm notification history">
+            <para role="shortdesc"> Lists alarm notification history for a given entity, alarm and check. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List alarm notification history: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_alarm_notification_history.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List alarm notification history: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_alarm_notification_history.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="GetAlarmNotifyHistory">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get alarm notification history">
+            <para role="shortdesc"> Retrieve the alarm notification history for the specified alarm. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List alarm notification history: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_alarm_notification_history.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List alarm notification history: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_alarm_notification_history.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Notifications methods -->
+    <method name="POST" id="createNotification">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create a notification">
+            <para role="shortdesc"> Creates a notification. </para>
+            <para>Create a new check and associate it with an entity using the parameters listed in
+                <link linkend="section-Checks">Attributes.</link></para>
+            <para>Create a new notification in the monitoring system by specifying the following information:<link linkend="swiz-notifications.xml-2">attributes.</link>:<itemizedlist>
+                    <listitem>
+                        <para>A name for the notification.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The type of notification you are creating.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Details of the notification</para>
+                    </listitem>
+                </itemizedlist></para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create webhook notification: XML request">
+                    <xsdxt:code href="../docbkx/partials/create_webhook_notifications.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create webhook notification: JSON request">
+                    <xsdxt:code href="../docbkx/partials/create_webhook_notifications.json"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create email notification: XML request">
+                    <xsdxt:code href="../docbkx/partials/create_email_notifications.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create email notification: JSON request">
+                    <xsdxt:code href="../docbkx/partials/create_email_notifications.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="201">
+            <wadl:doc title="Accepted" xmlns="http://docbook.org/ns/docbook">
+                <para>'Location' header contains a link to the newly created check.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listNotifications">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Notifications">
+            <para role="shortdesc"> Lists the notifications for the account. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List notifications: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_notifications.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List notifications: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_notifications.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="TestNotification">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Test a notification">
+            <para role="shortdesc"> Test a notification. </para>
+            <para>This operation allows you to test a notification before creating it. The actual notification comes from the
+                same server where the actual alert messages come from. This allow you to, among other things, verify that
+                your firewall is configured properly. <note>
+                    <para>You can copy the results of a test notification response and paste it directly into a test
+                        notification.</para>
+                </note>
+            </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test notification: XML request">
+                    <xsdxt:code href="../docbkx/partials/test_new_notifications.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a notification: JSON request">
+                    <xsdxt:code href="../docbkx/partials/test_new_notifications.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a notification: XML response">
+                    <xsdxt:code href="../docbkx/partials/test_new_notifications_response.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test a notification: JSON response">
+                    <xsdxt:code href="../docbkx/partials/test_new_notifications_response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="TestNotificationId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Test an existing notification">
+            <para role="shortdesc"> Tests an existing notification. </para>
+            <para>This operation allows you to test an existing notification. The notification comes from the same server
+                that the alert messages come from. One use for this test is to verify that your firewall is configured
+                properly.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an existing notification: XML response">
+                    <xsdxt:code href="../docbkx/partials/test_new_notifications_response.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Test an existing notification: JSON response">
+                    <xsdxt:code href="../docbkx/partials/test_new_notifications_response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getNotification">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get notification by id">
+            <para role="shortdesc"> Returns information about the specified notification. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get notification by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_notifications.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get notification by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_notifications.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateNotification">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update notification">
+            <para role="shortdesc"> Updates the specified notification with update attribute values submitted with the
+                request. </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update notification: XML request">
+                    <xsdxt:code href="../docbkx/partials/update_notifications.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update notification: JSON request">
+                    <xsdxt:code href="../docbkx/partials/update_notifications.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method name="DELETE" id="deleteNotification">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete a notification">
+            <para role="shortdesc"> Deletes a notification from the user account. </para>
+        </wadl:doc>
+        <response status="204"/>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Notification Types methods -->
+    <method name="POST" id="createNotificationType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create a notification type">
+            <para role="shortdesc"> Users cannot create notification types. </para>
+        </wadl:doc>
+    </method>
+    <method name="GET" id="listNotificationTypes">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List notification types">
+            <para role="shortdesc"> Lists available notification types. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List notification types: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_notification_types.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List notification types: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_notification_types.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getNotificationType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get notification type by id">
+            <para role="shortdesc"> Returns information about the specified Notification type. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get notification type by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_notification_types.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get notification type by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_notification_types.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateNotificationType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update notification type">
+            <para role="shortdesc"> Users cannot update notification types. </para>
+        </wadl:doc>
+    </method>
+    <method name="DELETE" id="deleteNotificationType">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete a notification type">
+            <para role="shortdesc"> Users cannot delete a notification type. </para>
+        </wadl:doc>
+        <response status="204"/>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Changelog methods -->
+    <method name="GET" id="getchangelogAlarms">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List types">
+            <para role="shortdesc"> Lists alarm changelogs for this account, filtered by a given <code>entityId</code>. </para>
+            <para>To filter returned changelogs by a given entityId, include a query string with an <code>entityId</code>
+                parameter in the request.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Alarm changelog list: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_alarm_changelogs.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Alarm changelog list: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_alarm_changelogs.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Views methods -->
+    <method name="GET" id="getviewOvw">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get overview view">
+            <para role="shortdesc"> Returns the overview view for this account. </para>
+            <para>Views contain a combination of data that usually includes multiple, different objects. The primary purpose
+                of a view is to save API calls and make data retrieval more efficient. Instead of doing multiple API calls
+                and then combining the result yourself, you can perform a single API call against the view endpoint.</para>
+            <para>The overview view includes a list of entities on your account and each entity's child check and alarm
+                objects. Along with the child check and alarm objects, the view also includes the latest computed state for
+                each check and alarm pair. If the latest state for a check and alarm pair is not available, the alarm hasn't
+                been evaluated yet and the current state for pair is 'UNKNOWN'.</para>
+            <note>
+                <para>In a request, you can filter for returned entities by URI or entityId, but you cannnot use both filter
+                    types in the same request. When filtering by entityId, an HTTP 404 error is returned if any supplied
+                    entityIds are unknown or incorrect, When filtering requests by Entity URI, unknown URIs areignored, and
+                    entities are returned for any correct URIs. An HTTP 404 error is returned only if no known URIs are
+                    supplied.</para>
+            </note>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get overview view: XML response">
+                    <xsdxt:code href="../docbkx/partials/views_overview.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get overview view: JSON response">
+                    <xsdxt:code href="../docbkx/partials/views_overview.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Alarm example methods -->
+    <method name="GET" id="getAlarmExamples">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List alarm examples">
+            <para role="shortdesc"> Returns a list of alarm examples. </para>
+            <para>The alarm examples list provides a complete view of all the example alarms. The list includes additional
+                information for each alarm such as a list of fields with description and type.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List alarm examples: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_alarm_examples.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List alarm examples: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_alarm_examples.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getAlarmExampleId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get alarm example by id">
+            <para role="shortdesc"> Returns the alarm example for the specified <code>alarmExampleId</code>. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get alarm example by id response: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_alarm_examples.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get alarm example by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_alarm_examples.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="POST" id="evaluateAlarmExampleId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Evaluate alarm example">
+            <para role="shortdesc"> Evaluates the template of a specified alarm example. </para>
+            <para>The Evaluate alarm example operation evaluates the template of a single alarm example by posting the alarm
+                to an endpoint. The operation uses the arbitrary key/value pairs as specified by the fields section of the
+                List alarm example by id API operation.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get alarm example by id: JSON request">
+                    <para> This example evaluates a remote.http body match against '12345'. &POST; to
+                            &URL;<replaceable>tenantId</replaceable>/alarm_examples/remote.http_body_match_1 </para>
+                    <xsdxt:code href="../docbkx/partials/evaluate_alarm_examples_request.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get alarm example by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/evaluate_alarm_examples_response.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Suppressions methods -->
+    <method name="POST" id="createSuppression">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create alarm">
+            <para role="shortdesc"> Creates a new suppression. </para>
+            <para>Specify the characteristics for the suppression using a valid set of parameters from the
+                <link linkend="swiz-suppressions.xml">Suppressions attributes</link> table.</para>
+            <para>The different lists (notification_plans, entities, checks, and alarms) represent the different levels at
+                which suppressions can be defined. When creating a suppression, carefully consider which scopes you want to
+                use in order to avoid accidentally suppressing an alarm you did not mean to. Here are several examples of how
+                suppressions are scoped and targeted:</para>
+            <note>
+                <para>When creating a suppression, the <emphasis role="bold">start_time</emphasis> can only be set to 0 or a
+                    time in the future. There is some wiggle room allocated to account for the time it takes to receive and
+                    process a request, meaning that if the <emphasis role="bold">start_time</emphasis> is less than 60
+                    seconds in the past, it will be considered to be <emphasis>now</emphasis> instead of causing a validation
+                    error. If you want the suppression to begin immediately, set the <emphasis role="bold"
+                        >start_time</emphasis> to 0. </para>
+            </note>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create suppressiom: XML request">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions.xml"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create a suppression: JSON request">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="201">
+            <wadl:doc title="Accepted" xmlns="http://docbook.org/ns/docbook">
+                <para>'Location' header contains a link to the newly created alarm.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create an alarm: XML response">
+                    <xsdxt:code href="../docbkx/partials/create_alarms.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="id" style="header" type="URI">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Returns a link to the newly created check.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create an alarm: JSON response">
+                    <xsdxt:code href="../docbkx/partials/create_alarms.json"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    title="Suppress notifications for alarms on ch123 on en123 that use npfooBar JSON example">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions_1.json"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    title="Suppress notifications for en123 for all notification plans JSON example">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions_2.json"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    title="Suppress only ch123 on en123 for all notification plans JSON example">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions_3.json"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    title="Suppress all notifications for enMonkey and notifications for ch123 on en123 for all notification plans JSON example">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions_4.json"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    title="Suppress all notifications for npTechnical JSON example">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions_5.json"/>
+                </wadl:doc>
+            </representation>
+
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                    title="Suppress al123 on en123 and alBaz on enMonkey for the npTechnical notification plan JSON example">
+                    <xsdxt:code href="../docbkx/partials/create_suppressions_6.json"/>
+                </wadl:doc>
+            </representation>
+
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listSuppressions">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List suppressions">
+            <para role="shortdesc"> Lists the suppressions. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Suppressions: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_suppressions.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Suppressions: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_suppressions.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getSuppressionId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Gets a suppression by id">
+            <para role="shortdesc"> Retrieves the current state of the specified suppression. </para>
+            <para>This operation returns the suppression specified by the <code>suppressionId</code>.</para>
+        </wadl:doc>
+
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get a suppression: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_suppressions.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get a suppression: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_suppressions.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateSuppression">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update suppression">
+            <para role="shortdesc"> Updates the suppression specified by the <code>suppressionId</code>. </para>
+            <para>You can complete partial updates for a suppression. When you submit the request only include values for the
+                attributes you want to update. The values on omitted parameters are not updated. Note that updating a list
+                completely replaces the previous list.</para>
+            <note>
+                <para>Keep the following points in mind when updating a suppression:<itemizedlist>
+                        <listitem>
+                            <para>Until the <emphasis role="bold">start_time</emphasis>, you can modify any field on the
+                                suppression; however, after that time has passed and the suppression has begun only the
+                                    <emphasis role="bold">end_time</emphasis> can be updated.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The <emphasis role="bold">end_time</emphasis> can only be set to 0 or a time in the future.
+                                As with the <emphasis role="bold">start_time</emphasis>, there is an allowance of 60 seconds
+                                made to account for the time it takes to receive and process a request. This means that if
+                                the provided <emphasis role="bold">end_time</emphasis> is less than 60 seconds in the past,
+                                it will be considered to be <emphasis>now</emphasis> instead of causing a validation error.
+                                If you want the suppression to end immediately, set the <emphasis role="bold"
+                                    >end_time</emphasis> to 0.</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </note>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update suppression: XML request">
+                    <xsdxt:code href="../docbkx/partials/update_suppressions.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update suppression JSON request">
+                    <xsdxt:code href="../docbkx/partials/update_suppressions.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
+                <para>Request completed.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="DELETE" id="deleteSuppression">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete suppression">
+            <para role="shortdesc"> Delete a suppression from your account. </para>
+            <para>You can delete a suppression at any point, even while it is active. If an active suppression is deleted, it
+                ends immediately. </para>
+        </wadl:doc>
+        <response status="204"/>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Suppresion logs method -->
+    <method name="GET" id="getSuppressionLog">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get suppression log">
+            <para role="shortdesc"> Lists suppression logs for this account. </para>
+            <note>
+                <para>When a suppression log is written, the corresponding alarm changelog will be updated. Though no
+                    notification will be sent, the notification history will be updated to include a message saying that the
+                    notification was suppressed. </para>
+            </note>
+        </wadl:doc>
+        <response status="200">
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List suppression log list: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_suppression_logs.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List suppression log list: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_suppression_logs.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Agent target method -->
+    <method name="GET" id="getAgentTarget">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List agent check targets">
+            <para role="shortdesc"> Lists agent check targets for this account. </para>
+            <para>Enumerate the devices allowed for the specified agent check type on the server where the agent is
+                installed. See a list of agent check types in <xref linkend="appendix-check-types-agent"/>.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agent check types: XML response">
+                    <xsdxt:code href="../docbkx/partials/agent-check-targets-disk.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agent check types: JSON response">
+                    <xsdxt:code href="../docbkx/partials/agent-check-targets-disk.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Agent methods -->
+    <method name="GET" id="getAgents">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List agents">
+            <para role="shortdesc"> Lists all agents that have connected in the last 30 days. </para>
+            <para>This operation lists the Agent IDs that have been connected to your account and when they were last
+                connected. If an agent ID does not connect to the account for 30 days, the agent ID is automatically deleted
+                from this list. Time is shown in Coordinated Universal Time (UTC) as the number of milliseconds that have
+                elapsed since January 1, 1970.</para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agents: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_agents.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agents: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_agents.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getAgentId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get agent by id">
+            <para role="shortdesc"> Returns information about the agent specified by <code>agentId</code>. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get agent response: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_agent.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get agent JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_agent.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getAgentConnections">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List agent connections">
+            <para role="shortdesc"> Lists the connections for the specified agent. </para>
+            <para>This operation lists the connections that are currently active for an agent. Agents are connected to three
+                monitoring zones when operating normally.</para>
+        </wadl:doc>
+
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agent connections: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_agent_connections.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="id" style="plain" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>Agent connection ID.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="guid" style="plain" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>When an agent starts, the agent
+                            generates a session GUID to uniquely identify itself to the service. Note that the generated GUID
+                            is simply a string and does not always conform to the UUID standard format.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="agent_id" style="plain" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The ID of the agent.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="datacenter" style="plain" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The datacenter of the agent
+                            connection end point.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="process_version" style="plain" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>Process version of the agent.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="bundle_version" style="plain">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>Bundle version of the agent.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="agent_ip" style="plain">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The remote IP of the agent.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="agent_port" style="plain">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The remote port number of the
+                            agent.</para>
+                    </wadl:doc>
+                </param>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="metadata" style="plain" type="string" required="false">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Lists the collection of metadata associated with the agent, if any. Metadata is formatted as
+                            key/value pairs.</para>
+                    </wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agent connections: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_agent_connections.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getAgentConnection">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List agent connection by id">
+            <para role="shortdesc"> Get information about a specific connection for the specified agent. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Agent token methods -->
+    <method name="POST" id="createAgentToken">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create token">
+            <para role="shortdesc"> Creates an agent token. </para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create token request: XML response">
+                    <xsdxt:code href="../docbkx/partials/create_agent_tokens.xml"/>
+                </wadl:doc>
+                <param xmlns="http://wadl.dev.java.net/2009/02" name="label" style="plain" type="string" required="true">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>A friendly name for the token. Value can be between 1 and 255 characters long.</para>
+                    </wadl:doc>
+                </param>
+
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create token: JSON response">
+                    <xsdxt:code href="../docbkx/partials/create_agent_tokens.json"/>
+                </wadl:doc>
+            </representation>
+        </request>
+        <response status="201">
+            <wadl:doc title="Accepted" xmlns="http://docbook.org/ns/docbook">
+                <para>'Location' header contains a link to the newly created check.</para></wadl:doc>
+        </response>
+
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="listAgentTokens">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List tokens for agent tokens">
+            <para role="shortdesc"> List the agent tokens. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agent tokens: XML response">
+                    <xsdxt:code href="../docbkx/partials/list_agent_tokens.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List agent tokens: JSON response">
+                    <xsdxt:code href="../docbkx/partials/list_agent_tokens.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="getAgentTokenId">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get agent token by id">
+            <para role="shortdesc"> Get information for the specified agent token. </para>
+        </wadl:doc>
+
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get agent token by id: XML response">
+                    <xsdxt:code href="../docbkx/partials/get_agent_tokens.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Get agent token by id: JSON response">
+                    <xsdxt:code href="../docbkx/partials/get_agent_tokens.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="PUT" id="updateAgentToken">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update agent token">
+            <para role="shortdesc"> Update a token with the specified <code>tokenId</code> (label). </para>
+        </wadl:doc>
+        <response status="204">
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update agent token: XML response">
+                    <xsdxt:code href="../docbkx/partials/update_agent_tokens.xml"/>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update agent token: JSON response">
+                    <xsdxt:code href="../docbkx/partials/update_agent_tokens.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="DELETE" id="deleteAgentToken">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete agent token">
+            <para role="shortdesc"> Delete the agent token with the specified <code>tokenId</code> (label). </para>
+        </wadl:doc>
+        <response status="204"/>
+        <!-- Common Faults --> &commonFaults; </method>
+
+    <!-- Agent Host Info methods -->
+    <method name="GET" id="GetAgentHostInfoCPUs">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get CPU information">
+            <para role="shortdesc"> Get information about the host CPUs. </para>
+            <!--<xi:include href="../.."-->
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+
+
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-cpu.xml"/>
+                </wadl:doc>
+                <param name="stolen" style="plain" required="false" path="$.stolen">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>The amount of time a hypervisor is scheduling a different virtual
+                        machine.</para></wadl:doc>
+                </param>
+                <param name="cores_per_socket" style="plain" required="false" path="$.cores_per_socket">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>Number of cores on the CPU socket (to be deleted).</para></wadl:doc>
+                </param>
+                <param name="cache_size" style="plain" required="false" path="$.cache_size">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>Cache size of this CPU core (to be deleted).</para></wadl:doc>
+                </param>
+                <param name="user" style="plain" required="false" path="$.user">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU time spent in user space.</para></wadl:doc>
+                </param>
+                <param name="mhz" style="plain" required="false" path="$.mhz">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU clock speed.</para></wadl:doc>
+                </param>
+                <param name="irq" style="plain" required="false" path="$.irq">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU time spent servicing/handling hardware interrupts.</para></wadl:doc>
+                </param>
+                <param name="idle" style="plain" required="false" path="$.idle">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU time spent idle.</para></wadl:doc>
+                </param>
+                <param name="model" style="plain" required="false" path="$.model">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU Vendor model string.</para></wadl:doc>
+                </param>
+                <param name="name" style="plain" required="false" path="$.name">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU name. For example, cpu.0.</para></wadl:doc>
+                </param>
+                <param name="nice" style="plain" path="$.nice">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU time spent on low-priority processes.</para></wadl:doc>
+                </param>
+                <param name="soft_irq" style="plain" required="false" path="$.soft_irq">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU time spent servicing/handling software interrupts.</para></wadl:doc>
+                </param>
+                <param name="sys" style="plain" path="$.sys">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU time spent in kernel space.</para></wadl:doc>
+                </param>
+                <param name="total" style="plain" required="false" path="$.total">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>Total CPU time.</para></wadl:doc>
+                </param>
+                <param name="total_cores" style="plain" required="false" path="$.total_cores">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>Total cores on all sockets.</para></wadl:doc>
+                </param>
+                <param name="total_sockets" style="plain" required="false" path="$.total_sockets">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>Total number of sockets.</para></wadl:doc>
+                </param>
+                <param name="vendor" style="plain" required="false" path="$.vendor">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>The container for import input parameters.</para></wadl:doc>
+                </param>
+                <param name="wait" style="plain" required="false" path="$.wait">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"><para>CPU Vendor. For example, AMD or Intel.</para></wadl:doc>
+                </param>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-cpu.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="GetAgentHostInfoDisks">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get disk information">
+            <para role="shortdesc"> Get information about the disks available on the host. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-disks.xml"/>
+                    <para>The following table describes the response body parameters.</para>
+                    <informaltable rules="all" width="100%" xmlns="http://docbook.org/ns/docbook"
+                        xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>wtime</command></td>
+                                <td>Total number of milliseconds spent reading (in milliseconds).</td> </tr>
+                            <tr>
+                                <td><command>read_bytes</command></td>
+                                <td>Total number of bytes read from disk (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>queue</command></td>
+                                <td>(to be deleted).</td> </tr>
+                            <tr>
+                                <td><command>name</command></td>
+                                <td>The device name (TODO: Fix this to be the block device name).</td> </tr>
+                            <tr>
+                                <td><command>reads</command></td>
+                                <td>Total number of completed read requests.</td> </tr>
+                            <tr>
+                                <td><command>rtime</command></td>
+                                <td>Total number of milliseconds spent reading (in milliseconds).</td> </tr>
+                            <tr>
+                                <td><command>service_time</command></td>
+                                <td>(to be deleted).</td> </tr>
+                            <tr>
+                                <td><command>snaptime</command></td>
+                                <td>(to be deleted).</td> </tr>
+                            <tr>
+                                <td><command>time</command></td>
+                                <td>Total time spend doing I/O (in milliseconds).</td> </tr>
+                            <tr>
+                                <td><command>write_bytes</command></td>
+                                <td>Total number of bytes written to disk (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>writes</command></td>
+                                <td>Total number of completed write requests.</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-disks.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+        <!-- Common Faults --> &commonFaults; </method>
+    <method name="GET" id="GetAgentHostInfofilesystems">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get host filesystem information">
+            <para role="shortdesc"> Get information about the filesystems on the host. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-filesystems.xml"/>
+                    <para>The following table describes the response body parameters.</para>
+                    <informaltable rules="all" width="100%" xmlns="http://docbook.org/ns/docbook"
+                        xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>used</command></td>
+                                <td>Used space on the filesystem (in kilobytes).</td> </tr>
+                            <tr>
+                                <td><command>dir_name</command></td>
+                                <td>Name of the directory where the filesystem is mounted.</td> </tr>
+                            <tr>
+                                <td><command>avail</command></td>
+                                <td>Available space on the filesystem (in kilobytes).</td> </tr>
+                            <tr>
+                                <td><command>dev_name</command></td>
+                                <td>Name of the device from which this filesystem is mounted. For example, /dev/sda1.</td> </tr>
+                            <tr>
+                                <td><command>files</command></td>
+                                <td>Number of file nodes on the filesystem.</td> </tr>
+                            <tr>
+                                <td><command>free</command></td>
+                                <td>Free space available on the filesystem (in kilobytes).</td> </tr>
+                            <tr>
+                                <td><command>free_files</command></td>
+                                <td>Number of free file nodes on the filesystem.</td> </tr>
+                            <tr>
+                                <td><command>options</command></td>
+                                <td>Filesystem mount options. For example, rw,noexec.</td> </tr>
+                            <tr>
+                                <td><command>sys_type_name</command></td>
+                                <td>Name of the filesystem. For example, ext3.</td> </tr>
+                            <tr>
+                                <td><command>total</command></td>
+                                <td>Total space on the filesystem (in kilobytes).</td> </tr>
+                            <tr>
+                                <td><command>type_name</command></td>
+                                <td>Internally maintained tuple by sigar. Inaccurate. For example tmpfs is not a ram
+                                    filesystem. "unknown", "none", "local", "remote", "ram", "cdrom", "swap" (to be
+                                    deleted)</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-filesystems.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+    <method name="GET" id="GetAgentHostInfoMemory">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get host memory information">
+            <para role="shortdesc"> Get information about the host memory use. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-memory.xml"/>
+                    <para>This table describes the response body parameters.</para>
+                    <informaltable rules="all" width="100%"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>ram</command></td>
+                                <td>Megabytes of RAM available to the system (in megabytes).</td> </tr>
+                            <tr>
+                                <td><command>actual_free</command></td>
+                                <td>Free memory. Counts purgeable OS caches as free (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>actual_used</command></td>
+                                <td>Used memory. Counts purgeable OS caches as free (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>free</command></td>
+                                <td>Free memory which counts purgeable OS caches as used (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>swap_free</command></td>
+                                <td>Free swap space (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>swap_page_in</command></td>
+                                <td>Count of pages swapped in.</td> </tr>
+                            <tr>
+                                <td><command>swap_page_out</command></td>
+                                <td>Count of pages swapped out.</td> </tr>
+                            <tr>
+                                <td><command>swap_total</command></td>
+                                <td>Total swap space (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>swap_used</command></td>
+                                <td>Used swap space (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>total</command></td>
+                                <td>Total memory (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>used</command></td>
+                                <td>Used memory which counts purgeable OS caches as used (in bytes).</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-memory.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+    <method name="GET" id="GetAgentHostInfoNetworkInterfaces">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get host network interface information">
+            <para role="shortdesc"> Get information about the host network interfaces. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-network_interfaces.xml"/>
+                    <para>The following table describes the response body parameters.</para>
+                    <informaltable rules="all" width="100%" xmlns="http://docbook.org/ns/docbook"
+                        xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>flags</command></td>
+                                <td>Operating system specific interface flags.</td> </tr>
+                            <tr>
+                                <td><command>name</command></td>
+                                <td>Network interface name.</td> </tr>
+                            <tr>
+                                <td><command>address</command></td>
+                                <td>IPv4 address as a string.</td> </tr>
+                            <tr>
+                                <td><command>destination</command></td>
+                                <td>Route destination (to be deleted).</td> </tr>
+                            <tr>
+                                <td><command>address6</command></td>
+                                <td>IPv6 address as a string.</td> </tr>
+                            <tr>
+                                <td><command>broadcast</command></td>
+                                <td>Broadcast address as a string.</td> </tr>
+                            <tr>
+                                <td><command>hwaddr</command></td>
+                                <td>Ethernet address as a string.</td> </tr>
+                            <tr>
+                                <td><command>mtu</command></td>
+                                <td>Ethernet maximum transmission unit.</td> </tr>
+                            <tr>
+                                <td><command>metric</command></td>
+                                <td>(to be deleted)</td> </tr>
+                            <tr>
+                                <td><command>tx_errors</command></td>
+                                <td>Total numnber of transmit errors.</td> </tr>
+                            <tr>
+                                <td><command>rx_bytes</command></td>
+                                <td>Total number of bytes received.</td> </tr>
+                            <tr>
+                                <td><command>netmask</command></td>
+                                <td>Netmask as a string.</td> </tr>
+                            <tr>
+                                <td><command>tx_overruns</command></td>
+                                <td>Total number of transmit buffer overruns.</td> </tr>
+                            <tr>
+                                <td><command>speed</command></td>
+                                <td>Currently not implemented on linux (to be deleted).</td> </tr>
+                            <tr>
+                                <td><command>rx_overruns</command></td>
+                                <td>Total number of receive buffer overruns.</td> </tr>
+                            <tr>
+                                <td><command>rx_dropped</command></td>
+                                <td>Total number of dropped packets received.</td> </tr>
+                            <tr>
+                                <td><command>rx_frame</command></td>
+                                <td>Total number of errors caused by malformed frames.</td> </tr>
+                            <tr>
+                                <td><command>rx_packets</command></td>
+                                <td>Total number of packets received.</td> </tr>
+                            <tr>
+                                <td><command>rx_errors</command></td>
+                                <td>Total number of receive errors caused by malformed frames.</td> </tr>
+                            <tr>
+                                <td><command>tx_bytes</command></td>
+                                <td>Total number of bytes sent.</td> </tr>
+                            <tr>
+                                <td><command>tx_carrier</command></td>
+                                <td>Total number of carrier errors (usually cable disconnects).</td> </tr>
+                            <tr>
+                                <td><command>tx_collisions</command></td>
+                                <td>Total number of packet collisions on transmit.</td> </tr>
+                            <tr>
+                                <td><command>tx_dropped</command></td>
+                                <td>Total number of dropped transmit packets.</td> </tr>
+                            <tr>
+                                <td><command>tx_packets</command></td>
+                                <td>Total number of packets sent.</td> </tr>
+                            <tr>
+                                <td><command>type</command></td>
+                                <td>Interface type (for example, Ethernet, Local Loopback, and so on).</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-network_interfaces.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+    <method name="GET" id="GetAgentHostInfoProcesses">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get host process information">
+            <para role="shortdesc"> Get information about the host processes. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-processes.xml"/>
+                    <para>The following table shows the response body parameters.</para>
+                    <informaltable rules="all" width="100%"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>state_nice</command></td>
+                                <td>Nice value set on the process. If nice is not set, the value will be null (higher numbers
+                                    are lower priority).</td> </tr>
+                            <tr>
+                                <td><command>cred_group</command></td>
+                                <td>Group of user who owns the process</td> </tr>
+                            <tr>
+                                <td><command>state_threads</command></td>
+                                <td>Number of threads the process owns.</td> </tr>
+                            <tr>
+                                <td><command>exe_cwd</command></td>
+                                <td>Current working directory of the process.</td> </tr>
+                            <tr>
+                                <td><command>cred_user</command></td>
+                                <td>User who owns the process</td> </tr>
+                            <tr>
+                                <td><command>memory_resident</command></td>
+                                <td>Total resident memory of the process (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>pid</command></td>
+                                <td>Process ID.</td> </tr>
+                            <tr>
+                                <td><command>memory_page_faults</command></td>
+                                <td>Total number of faults.</td> </tr>
+                            <tr>
+                                <td><command>memory_minor_faults</command></td>
+                                <td>Total number of major page faults. Major faults generally involve disk latency.</td> </tr>
+                            <tr>
+                                <td><command>memory_major_faults</command></td>
+                                <td>Total number of minor page faults. Minor faults generally do not involve disk
+                                    latency.</td> </tr>
+                            <tr>
+                                <td><command>memory_share</command></td>
+                                <td>Total resident memory that is shared with other processes (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>exe_name</command></td>
+                                <td>Path to the executable.</td> </tr>
+                            <tr>
+                                <td><command>exe_root</command></td>
+                                <td>Root namespace of the process.</td> </tr>
+                            <tr>
+                                <td><command>memory_size</command></td>
+                                <td>Total address space of the process (in bytes).</td> </tr>
+                            <tr>
+                                <td><command>state_name</command></td>
+                                <td>Name of the executable.</td> </tr>
+                            <tr>
+                                <td><command>state_ppid</command></td>
+                                <td>Parent process ID.</td> </tr>
+                            <tr>
+                                <td><command>state_priority</command></td>
+                                <td>Priority of the process (higher numbers are lower priority).</td> </tr>
+                            <tr>
+                                <td><command>state_processor</command></td>
+                                <td>CPU ID of the processor running the process (to be deleted).</td> </tr>
+                            <tr>
+                                <td><command>state_tty</command></td>
+                                <td>(to be deleted)</td> </tr>
+                            <tr>
+                                <td><command>time_start_time</command></td>
+                                <td>Start time of the process (Epoch timestamp in milliseconds).</td> </tr>
+                            <tr>
+                                <td><command>time_sys</command></td>
+                                <td>Total time executing system calls (in milliseconds).</td> </tr>
+                            <tr>
+                                <td><command>time_total</command></td>
+                                <td>Total time executing (in milliseconds).</td> </tr>
+                            <tr>
+                                <td><command>time_user</command></td>
+                                <td>Total time executing in user mode (in milliseconds).</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-processes.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+
+    </method>
+    <method name="GET" id="GetAgentHostInfoSystem">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get host system information">
+            <para role="shortdesc"> Get system information for the host. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-system.xml"/>
+                    <para>The following table shows the response body parameters.</para>
+                    <informaltable rules="all" width="100%" xmlns="http://docbook.org/ns/docbook"
+                        xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>arch</command></td>
+                                <td>CPU Architecture.</td> </tr>
+                            <tr>
+                                <td><command>description</command></td>
+                                <td>Long form description (for example, Debian 6.0.6, Microsoft Windows XP). (to be
+                                    deleted)</td> </tr>
+                            <tr>
+                                <td><command>name</command></td>
+                                <td>Generic name of the Operating System (for example, Linux, MacOSX, Win32, FreeBSD, and so
+                                    on).</td> </tr>
+                            <tr>
+                                <td><command>vendor</command></td>
+                                <td>Vendor name (for example, Microsoft, Debian).</td> </tr>
+                            <tr>
+                                <td><command>vendor_code_name</command></td>
+                                <td>(to be deleted)</td> </tr>
+                            <tr>
+                                <td><command>vendor_version</command></td>
+                                <td>Vendor version name (for example, 6.0.6, XP).</td> </tr>
+                            <tr>
+                                <td><command>version</command></td>
+                                <td>Version (for example, 2.6.32-5-xen-amd64, 2600.xpsp_sp3_gdr).</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-system.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+    <method name="GET" id="GetAgentHostInfoWho">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get information about host users">
+            <para role="shortdesc"> Get information on users who are logged into the host. </para>
+        </wadl:doc>
+        <response status="200">
+            <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
+            <representation mediaType="application/xml" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-who.xml"/>
+                    <para>The following table describes the response body parameters.</para>
+                    <informaltable rules="all" width="100%" xmlns="http://docbook.org/ns/docbook"
+                        xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+                            <tr><td>Name</td><td>Description</td></tr>
+                        </thead>
+                        <tbody><tr>
+                                <td><command>device</command></td>
+                                <td>Device they are attached to (for example, pts/1).</td> </tr>
+                            <tr>
+                                <td><command>host</command></td>
+                                <td>Originating host of the login (for example, 127.0.0.1).</td> </tr>
+                            <tr>
+                                <td><command>time</command></td>
+                                <td>Login time as a unix timestamp (in seconds).</td> </tr>
+                            <tr>
+                                <td><command>user</command></td>
+                                <td>Username as a string.</td> </tr>
+                        </tbody>
+                    </informaltable>
+                </wadl:doc>
+
+            </representation>
+            <representation mediaType="application/json" xml:lang="EN" element="csapi">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:code href="../docbkx/partials/host_info-who.json"/>
+                </wadl:doc>
+            </representation>
+        </response>
+    </method>
+
+</application>

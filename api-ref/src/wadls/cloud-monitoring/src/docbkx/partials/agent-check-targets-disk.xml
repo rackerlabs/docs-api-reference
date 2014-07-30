@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agent_check_target>
+  <targets>
+    <targets>/</targets>
+    <targets>/proc</targets>
+    <targets>/sys</targets>
+    <targets>/sys/fs/fuse/connections</targets>
+    <targets>/sys/kernel/debug</targets>
+    <targets>/sys/kernel/security</targets>
+    <targets>/dev</targets>
+    <targets>/dev/pts</targets>
+    <targets>/dev/shm</targets>
+    <targets>/var/run</targets>
+    <targets>/var/lock</targets>
+    <targets>/lib/init/rw</targets>
+    <targets>/var/lib/ureadahead/debugfs</targets>
+    <targets>/boot</targets>
+    <targets>/mnt/hgfs</targets>
+    <targets>/var/run/vmblock-fuse</targets>
+  </targets>
+</agent_check_target>

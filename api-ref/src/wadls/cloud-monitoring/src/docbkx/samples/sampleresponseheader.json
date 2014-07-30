@@ -1,0 +1,30 @@
+<checks_data>
+    <check_data>
+        <timestamp>1332542815237</timestamp>
+        <monitoring_zone_id>mzdfw</monitoring_zone_id>
+        <available>false</available>
+        <status>cnt=5,avail=0,min=-nan,max=-nan,avg=-nan</status>
+        <metrics>
+            <average>
+                <type>n</type>
+                <data/>
+            </average>
+            <minimum>
+                <type>n</type>
+                <data/>
+            </minimum>
+            <available>
+                <type>n</type>
+                <data>0.000000000000e+00</data>
+            </available>
+            <maximum>
+                <type>n</type>
+                <data/>
+            </maximum>
+            <count>
+                <type>i</type>
+                <data>5</data>
+            </count>
+        </metrics>
+    </check_data>
+</checks_data>

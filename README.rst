@@ -33,6 +33,7 @@ Locations of WADL files
 - Cloud Images:	`https://github.com/rackerlabs/docs-cloud-images <https://github.com/rackerlabs/docs-cloud-images>`_ (Cat Lookabaugh)
 - Cloud Load Balancers: `https://github.com/rackerlabs/docs-cloud-load-balancers <https://github.com/rackerlabs/docs-cloud-load-balancers>`_ (Mike Asthalter)		
 - Cloud Monitoring: `https://github.com/rackerlabs/docs-cloud-monitoring <https://github.com/rackerlabs/docs-cloud-monitoring>`_ (Maria Abrahms)
+- Temp Cloud Monitoring: `https://github.com/meker12/ele/blob/master/docs/src/wadl/cloud_monitoring.wadl <https://github.com/meker12/ele/blob/master/docs/src/wadl/cloud_monitoring.wadl>`_ (Margaret Eker)
 - Cloud Networks: `https://github.com/catlook/networks2 <https://github.com/catlook/networks2>`_, and `https://github.com/rackerlabs/docs-cloud-networks <https://github.com/rackerlabs/docs-cloud-networks>`_ (Cat Lookabaugh)
 - Cloud Orchestration: `https://github.com/rackerlabs/docs-cloud-orchestration <https://github.com/rackerlabs/docs-cloud-orchestration>`_  (Mike Asthalter)
 - Cloud Queues:	`https://github.com/rackerlabs/docs-cloud-queues <https://github.com/rackerlabs/docs-cloud-queues>`_ (Catherine Richardson)
@@ -48,7 +49,8 @@ To update or add WADLs to API pages
         
 #. To add a WADL for a product, go to the ``docs-api-reference/api-ref/src/docbkx`` folder.
         
-#. If a ch_{product}-{version}.xml file exists for your product already (such as ch_dns-v1.xml), open it. If not, create a file for your product that uses the ch_{product}-{version}.xml naming convention and open it.
+#. If a ch_{product}-{version}.xml file exists under api-ref/src/docbkx for your product already (such as ch_dns-v1.xml), open it. 
+#. If not, create a file for your product that uses the ch_{product}-{version}.xml naming convention and open it.
         
 #. Update this file to point to your WADL in your repository. To do so, you need the *raw* link to the WADL.
    To get that, navigate to your WADL file in your project repository, click on the file name to open a view of the

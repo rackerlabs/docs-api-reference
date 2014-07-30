@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alarm>
+  <check_id>chAAAA</check_id>
+  <criteria>if (metric["duration"] &gt;= 2) { return new AlarmStatus(OK); } return new AlarmStatus(CRITICAL);</criteria>
+  <notification_plan_id>npAAAAA</notification_plan_id>
+</alarm>

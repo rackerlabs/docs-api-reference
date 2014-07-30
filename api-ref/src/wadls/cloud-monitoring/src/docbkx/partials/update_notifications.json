@@ -1,0 +1,6 @@
+{
+    "type": "webhook",
+    "details": {
+        "url": "https://systems.example.org/new_alert"
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <entity key="enAAAAA">
+      <label>Brand New Entity</label>
+      <ip_addresses>
+        <a>127.0.0.4</a>
+        <b>127.0.0.5</b>
+        <c>127.0.0.6</c>
+        <test>127.0.0.7</test>
+      </ip_addresses>
+      <metadata>
+        <all>kinds</all>
+        <of>stuff</of>
+        <can>go</can>
+        <here>null is not a valid value</here>
+      </metadata>
+    </entity>
+  </values>
+  <metadata>
+    <count>1</count>
+    <limit>1</limit>
+    <marker/>
+    <next_marker>enBBBB</next_marker>
+    <next_href>https://cmbeta.api.rackspacecloud.com/v1.0/entities?limit=1&marker=enBBBB</next_href>
+  </metadata>
+</container>

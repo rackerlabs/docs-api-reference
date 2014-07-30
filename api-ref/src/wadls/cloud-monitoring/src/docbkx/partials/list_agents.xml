@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <agent id="00-agent.example.com">
+      <last_connected>1334685407</last_connected>
+    </agent>
+    <agent id="i-need-a-new-agent.example.com">
+      <last_connected>1334685407</last_connected>
+    </agent>
+  </values>
+  <metadata>
+    <count>2</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

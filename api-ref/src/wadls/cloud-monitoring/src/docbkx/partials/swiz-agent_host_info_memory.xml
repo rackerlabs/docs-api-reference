@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>ram</command></td>
+<td>Megabytes of RAM available to the system (in megabytes).</td>
+
+</tr>
+<tr>
+<td><command>actual_free</command></td>
+<td>Free memory. Counts purgeable OS caches as free (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>actual_used</command></td>
+<td>Used memory. Counts purgeable OS caches as free (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>free</command></td>
+<td>Free memory which counts purgeable OS caches as used (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>swap_free</command></td>
+<td>Free swap space (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>swap_page_in</command></td>
+<td>Count of pages swapped in.</td>
+
+</tr>
+<tr>
+<td><command>swap_page_out</command></td>
+<td>Count of pages swapped out.</td>
+
+</tr>
+<tr>
+<td><command>swap_total</command></td>
+<td>Total swap space (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>swap_used</command></td>
+<td>Used swap space (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>total</command></td>
+<td>Total memory (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>used</command></td>
+<td>Used memory which counts purgeable OS caches as used (in bytes).</td>
+
+</tr>
+</tbody>
+</informaltable>

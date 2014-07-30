@@ -1,66 +1,390 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xmlns="http://docbook.org/ns/docbook"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:linkend="http://www.w3.org/1999/linkend"
-    xmlns:xref="http://www.w3.org/1999/xref"
-    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref" xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="monitoring-v2">
     <title>Cloud Monitoring API v1.0</title>
-    <para>Perform monitoring operations.</para>
-    <!--<section xml:id="alarms">
-        <title>Alarms</title> 
+    <para>Perform monitoring operations. This is an API reference only. For additional information on using the Cloud
+        Monitoring API, including authentication, role based access control, endpoint access, request/response types,
+        versions, paginated collections, time series collections, audits, resource limits, rate limits, and faults (error
+        messages), please consult the 
+        <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html">Rackspace Cloud Monitoring Developer Guide</link>.</para>
+    <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    <section xml:id="service-account">
+        <title>Account</title>
+        <para>An account contains attributes describing a customer's account. This description contains mostly read only
+            data; however, a few properties can be modified with the API.</para>
+        <!-- Account API operations from WADL -->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#alarms">
-                <wadl:method href="#listAlarms"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#account">
+                <wadl:method href="#listAccount"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#account">
+                <wadl:method href="#updateAccount"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#limits">
+                <wadl:method href="#listLimits"/>
+            </wadl:resource>
+        </wadl:resources>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#audits">
+                <wadl:method href="#listAudits"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="EntitiesAPIoperations">
+        <!-- Entities API operations from WADL -->
+        <title>Entities API operations</title>
+        <para>Use the Entities API operations to create, view, update and delete entities.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#entity">
+                <wadl:method href="#createEntity"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#entity">
+                <wadl:method href="#listEntities"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#entityId">
+                <wadl:method href="#getEntityId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#entityId">
+                <wadl:method href="#updateEntity"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#entityId">
+                <wadl:method href="#deleteEntity"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="CheckAPIops">
+        <title>Check API operations</title>
+        <para xml:id="Check_API_ops">Use the Check API operations to create, view, and manage Check resources</para>
+        <!-- Check API operations from WADL -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#check">
+                <wadl:method href="#createCheck"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#check">
+                <wadl:method href="#listChecks"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkTest">
+                <wadl:method href="#checkTestNew"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkIdTest">
+                <wadl:method href="#checkExistingTest"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkId">
+                <wadl:method href="#getCheck"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkId">
+                <wadl:method href="#updateCheck"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkId">
+                <wadl:method href="#deleteCheck"/>
+            </wadl:resource>
+        </wadl:resources>
+
+    </section>
+    <section xml:id="CheckTypeAPIops">
+        <title>Check Types API operations</title>
+        <para>Use the Check type API operations to create, view, and manage Check type resources.</para>
+        <!-- Check Type API operations from WADL -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkType">
+                <wadl:method href="#createCheckType"/>
+                <wadl:method href="#listCheckTypes"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkTypeId">
+                <wadl:method href="#getCheckTypeId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#checkTypeNA">
+                <wadl:method href="#updateCheckType"/>
+                <wadl:method href="#deleteCheckType"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="metrics-api-ops">
+        <title>Metrics API operations</title>
+        <para>Use the Metrics API operations to create, view, and manage Metrics resources.</para>
+        <!-- Check Type API operations from WADL -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#listMetrics">
+                <wadl:method href="#listMetricsbyCheckId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#fetchMetrics">
+                <wadl:method href="#fetchDataPoints"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="alarm-api-ops">
+        <title>Alarms API operations</title>
+        <para>You can create, view, and manage Alarm resources with the Alarm API operations.</para>
+        <!-- Alarms API operations from WADL -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarms">
                 <wadl:method href="#createAlarm"/>
             </wadl:resource>
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#alarm_id">
-                <wadl:method href="#showAlarm"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarms">
+                <wadl:method href="#listAlarms"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#test_alarm">
+                <wadl:method href="#alarmsTest"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarmId">
+                <wadl:method href="#getAlarmId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarmId">
                 <wadl:method href="#updateAlarm"/>
             </wadl:resource>
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#state">
-                <wadl:method href="#updateAlarmState"/>
-                <wadl:method href="#showAlarmState"/>
-            </wadl:resource>
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#history">
-                <wadl:method href="#showAlarmHistory"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarmId">
+                <wadl:method href="#deleteAlarm"/>
             </wadl:resource>
         </wadl:resources>
     </section>
-    <section xml:id="meters">
-        <title>Meters</title>
+    <section xml:id="service-notification-plans-api-ops">
+        <title>Notification plan API operatations</title>
+        <para>Use the Notification plan API operations to create, view, and manage notification plan resources.</para>
+        <!-- Notification plan API operations from WADL -->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#meters">
-                <wadl:method href="#listMeters"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifyPlans">
+                <wadl:method href="#createNotifyPlan"/>
             </wadl:resource>
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#meter_name">
-                <wadl:method href="#showMeter"/>
-                <wadl:method href="#createMeter"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifyPlans">
+                <wadl:method href="#listNotifyPlan"/>
             </wadl:resource>
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#statistics">
-                <wadl:method href="#showMeterStatistics"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifyPlanId">
+                <wadl:method href="#getNotifyPlan"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifyPlanId">
+                <wadl:method href="#updateNotifyPlan"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifyPlanId">
+                <wadl:method href="#deleteNotifyPlan"/>
             </wadl:resource>
         </wadl:resources>
     </section>
-    <section xml:id="resources">
-        <title>Resources</title>
+    <section xml:id="service-monitoring-zones-api-ops">
+        <title>Monitoring zones API operatations</title>
+        <para>Use the Monitoring zones API operations to get information about monitoring zones and to run traceroutes. Users
+            cannot create, update, or delete monitoring zones.</para>
+        <!-- Notification plan API operations from WADL -->
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#resources">
-                <wadl:method href="#listResources"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#monitoringZones">
+                <wadl:method href="#listMonitorZone"/>
             </wadl:resource>
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#resource_id">
-                <wadl:method href="#showResource"/>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#monitoringZonesId">
+                <wadl:method href="#getMonitorZone"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#traceroutezone">
+                <wadl:method href="#tracerouteMonitorZone"/>
             </wadl:resource>
         </wadl:resources>
-    </section>-->
+    </section>
+    <section xml:id="alarm-notify-history-api-ops">
+        <title>Alarms notification history API operations</title>
+        <para>Use the Alarms notification history API operations to view the notification history for alarms and
+            checks.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#discoverAlarmHistory">
+                <wadl:method href="#discoverNotifyHistory"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#ListAlarmHistory">
+                <wadl:method href="#getMonitorZone"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#GetAlarmNotHistory">
+                <wadl:method href="#GetAlarmNotifyHistory"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="notification-api-ops">
+        <title>Notification API operations</title>
+        <para>Use the Notification API operations to create, view, and manage notifications.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifications">
+                <wadl:method href="#createNotification"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notifications">
+                <wadl:method href="#listNotifications"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#testNotify">
+                <wadl:method href="#TestNotification"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notificationId">
+                <wadl:method href="#getNotification"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notificationId">
+                <wadl:method href="#updateNotification"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notificationId">
+                <wadl:method href="#deleteNotification"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="notification-types-api-ops">
+        <title>Notification type API operations</title>
+        <para>Use the Notification types API operations to view and manage notifications. Users cannot create, update, or
+            delete notification types.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notificationTypes">
+                <wadl:method href="#createNotificationType"/>
+                <wadl:method href="#listNotificationTypes"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#notificationTypeId">
+                <wadl:method href="#getNotificationType"/>
+                <wadl:method href="#updateNotificationType"/>
+                <wadl:method href="#deleteNotificationType"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="service-changelogs-api-ops">
+        <title>Change logs API operations</title>
+        <para>The monitoring service records changelogs for alarm statuses. Changelogs are accessible as a Time Series
+            Collection. By default the API queries the last 7 days of changelog information.</para>
+
+        <!-- Include wadl resources -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#changelogs">
+                <wadl:method href="#getchangelogAlarms"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="service-views">
+        <title>Views</title>
+        <para>Views contain a combination of data that usually includes multiple, different objects. The primary purpose of a
+            view is to save API calls and make data retrieval more efficient. Instead of doing multiple API calls and then
+            combining the result yourself, you can perform a single API call against the view endpoint. </para>
+        <!-- Views API operations from WADL -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#viewsOvw">
+                <wadl:method href="#getviewOvw"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="service-alarm-examples">
+        <title>Alarm examples</title>
+        <para>Use the Alarm examples API operations to view examples alarms for the various checks in the system. The
+            examples are presented as a template with parameters. Each of the parameters is documented with a type, name and
+            description.</para>
+        <!-- Alarm Examples API operations from WADL -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarmexamples">
+                <wadl:method href="#getAlarmExamples"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarmexampleId">
+                <wadl:method href="#getAlarmExampleId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#alarmexampleId">
+                <wadl:method href="#evaluateAlarmExampleId"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="suppressionsAPIops">
+        <title>Suppressions API operations</title>
+        <para>Use the Suppressions API operations to create, view, update, and manage suppression templates.</para>
+        <!-- Suppressions WADL content -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#suppression">
+                <wadl:method href="#createSuppression"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#suppression">
+                <wadl:method href="#listSuppressions"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#suppressionId">
+                <wadl:method href="#getSuppressionId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#suppressionId">
+                <wadl:method href="#updateSuppression"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#suppressionId">
+                <wadl:method href="#deleteSuppression"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="service-suppression-logs-list">
+        <title>List suppression logs</title>
+        <para>Suppression logs store the last 30 days of suppressed state changes for all suppressions on an account.</para>
+        <!-- Suppression logs WADL content -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#suppressionLog">
+                <wadl:method href="#getSuppressionLog"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="AgentsAPIops">
+        <title>Agents API operations</title>
+        <para>Use the Agents API operations to get information about agents and agent connections.</para>
+        <!-- Agents WADL content -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agents">
+                <wadl:method href="#getAgents"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agentId">
+                <wadl:method href="#getAgentId"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agentConnections">
+                <wadl:method href="#getAgentConnections"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agentConectionId">
+                <wadl:method href="#getAgentConnection"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="AgentTokenAPIops">
+        <title>Agent token API operations</title>
+        <para>Use the Agent token API operations to create, view, and manage agent tokens.</para>
+        <!-- Agent token WADL content -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agentToken">
+                <wadl:method href="#createAgentToken"/>
+                <wadl:method href="#listAgentTokens"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agentTokenId">
+                <wadl:method href="#getAgentTokenId"/>
+                <wadl:method href="#updateAgentToken"/>
+                <wadl:method href="#deleteAgentToken"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="AgentHostInfoAPIops">
+        <title>Agent Host Info API operations</title>
+        <para>Use the Agent Host Info API operations to get information about the host environment, resources, and logged in
+            users.</para>
+        <!-- Agent Host Info WADL content -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoCPUs">
+                <wadl:method href="#GetAgentHostInfoCPUs"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoDisks">
+                <wadl:method href="#GetAgentHostInfoDisks"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoFileSystems">
+                <wadl:method href="#GetAgentHostInfoProcesses"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoMemory">
+                <wadl:method href="#GetAgentHostInfoMemory"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoNetworkInterfaces">
+                <wadl:method href="#GetAgentHostInfoNetworkInterfaces"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoProcesses">
+                <wadl:method href="#GetAgentHostInfoProcesses"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoSystem">
+                <wadl:method href="#GetAgentHostInfoSystem"/>
+            </wadl:resource>
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#AgentHostInfoWho">
+                <wadl:method href="#GetAgentHostInfoWho"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="service-agent-targets-summary">
+        <title>Agent targets API operations</title>
+        <para>Each agent check type gathers data for a related set of target devices on the server where the agent is
+            installed. For example, agent.network gathers data for network devices. The actual list of target devices is
+            specific to the configuration of the host server. By focusing on specific targets, you can efficiently narrow the
+            metric data that the agent gathers.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../wadls/cloud-monitoring/src/wadl/cloud_monitoring.wadl#agentTarget">
+                <wadl:method href="#getAgentTarget"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
 </chapter>

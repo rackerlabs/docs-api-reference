@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<check_type id="remote.dns">
+  <category>remote</category>
+  <type>remote</type>
+  <fields>
+    <field>
+      <name>port</name>
+      <description>Port number (default: 53)</description>
+      <optional>true</optional>
+    </field>
+    <field>
+      <name>query</name>
+      <description>DNS Query</description>
+      <optional>false</optional>
+    </field>
+    <field>
+      <name>record_type</name>
+      <description>DNS Record Type</description>
+      <optional>false</optional>
+    </field>
+  </fields>
+</check_type>

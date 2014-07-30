@@ -1,0 +1,7 @@
+{
+    "label": "my email #1",
+    "type": "email",
+    "details": {
+        "address": "test@example.com"
+    }
+}

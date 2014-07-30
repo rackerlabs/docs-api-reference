@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-agent.filesystem">
+<title>agent.filesystem</title>
+<bridgehead xml:id="summary-agent.filesystem">Summary</bridgehead>
+<para>The agent.filesystem check exposes file system related metrics (free space, used space, etc.)</para>
+<xi:include href="attributes-agent.filesystem.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-agent.filesystem.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

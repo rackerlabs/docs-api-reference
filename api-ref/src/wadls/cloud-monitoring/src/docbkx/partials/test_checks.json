@@ -1,0 +1,12 @@
+{
+    "type": "remote.http",
+    "details": {
+        "url": "http://www.foo.com",
+        "method": "GET"
+    },
+    "monitoring_zones_poll": [
+        "mzA"
+    ],
+    "timeout": 30,
+    "target_alias": "default"
+}

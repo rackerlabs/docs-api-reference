@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+  <values>
+    <alarm id="alAAAA">
+      <check_id>chAAAA</check_id>
+      <criteria>if (metric["duration"] &gt;= 2) { return new AlarmStatus(OK); } return new AlarmStatus(CRITICAL);</criteria>
+    </alarm>
+  </values>
+  <metadata>
+    <count>1</count>
+    <limit>50</limit>
+    <marker/>
+    <next_marker/>
+    <next_href/>
+  </metadata>
+</container>

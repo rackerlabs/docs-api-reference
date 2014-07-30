@@ -1,0 +1,12 @@
+{
+    "label": "Notification Plan 1",
+    "critical_state": [
+        "ntgF4eFXIL"
+    ],
+    "warning_state": [
+        "ntgF4eFXIL"
+    ],
+    "ok_state": [
+        "ntgF4eFXIL"
+    ]
+}

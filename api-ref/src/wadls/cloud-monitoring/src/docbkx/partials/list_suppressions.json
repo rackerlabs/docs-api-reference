@@ -1,0 +1,20 @@
+{
+    "values": [
+        {
+            "id": "spAAAAA",
+            "notification_plans": ['npfooBar'],
+            "entities": [],
+            "checks": ['en123:ch123'],
+            "alarms": [],
+            "start_time": 1378492433027,
+            "end_time": 1378492433027
+        }
+    ],
+    "metadata": {
+        "count": 1,
+        "limit": 50,
+        "marker": null,
+        "next_marker": null,
+        "next_href": null
+    }
+}

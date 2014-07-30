@@ -1,0 +1,24 @@
+{
+    "values": [
+        {
+            "key": "enBBBB",
+            "label": "Brand New Entity 2",
+            "ip_addresses": {
+                "a": "127.0.0.4",
+                "b": "127.0.0.5",
+                "c": "127.0.0.6",
+                "test": "127.0.0.7"
+            },
+            "metadata": {
+                "all": "kinds"
+            }
+        }
+    ],
+    "metadata": {
+        "count": 1,
+        "limit": 1,
+        "marker": "enBBBB",
+        "next_marker": null,
+        "next_href": null
+    }
+}

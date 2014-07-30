@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-remote.smtp">
+<title>remote.smtp</title>
+<bridgehead xml:id="summary-remote.smtp">Summary</bridgehead>
+<para>The remote.smtp check will attempt to connect to a SMTP mail server, send an email from the 'from' parameter, to the 'to' parameter, with a payload specified by the 'payload' parameter setting the EHLO from host to the value in 'ehlo'</para>
+<xi:include href="attributes-remote.smtp.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

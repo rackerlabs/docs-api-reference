@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="section-ct-agent.apache">
+<title>agent.apache</title>
+<bridgehead xml:id="summary-agent.apache">Summary</bridgehead>
+<para>The agent.apache check will retrieve Apache HTTP server metrics</para>
+<xi:include href="attributes-agent.apache.xml"><xi:fallback></xi:fallback></xi:include>
+<xi:include href="metrics-agent.apache.xml"><xi:fallback></xi:fallback></xi:include>
+</section>

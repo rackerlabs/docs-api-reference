@@ -1,0 +1,5 @@
+{
+    "check_id": "chAAAA",
+    "criteria": "if (metric[\"duration\"] >= 2) { return new AlarmStatus(OK); } return new AlarmStatus(CRITICAL);",
+    "notification_plan_id": "npAAAAA"
+}

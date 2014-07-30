@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>state_nice</command></td>
+<td>Nice value set on the process. If nice is not set, the value will be null (higher numbers are lower priority).</td>
+
+</tr>
+<tr>
+<td><command>cred_group</command></td>
+<td>Group of user who owns the process</td>
+
+</tr>
+<tr>
+<td><command>state_threads</command></td>
+<td>Number of threads the process owns.</td>
+
+</tr>
+<tr>
+<td><command>exe_cwd</command></td>
+<td>Current working directory of the process.</td>
+
+</tr>
+<tr>
+<td><command>cred_user</command></td>
+<td>User who owns the process</td>
+
+</tr>
+<tr>
+<td><command>memory_resident</command></td>
+<td>Total resident memory of the process (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>pid</command></td>
+<td>Process ID.</td>
+
+</tr>
+<tr>
+<td><command>memory_page_faults</command></td>
+<td>Total number of faults.</td>
+
+</tr>
+<tr>
+<td><command>memory_minor_faults</command></td>
+<td>Total number of major page faults. Major faults generally involve disk latency.</td>
+
+</tr>
+<tr>
+<td><command>memory_major_faults</command></td>
+<td>Total number of minor page faults. Minor faults generally do not involve disk latency.</td>
+
+</tr>
+<tr>
+<td><command>memory_share</command></td>
+<td>Total resident memory that is shared with other processes (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>exe_name</command></td>
+<td>Path to the executable.</td>
+
+</tr>
+<tr>
+<td><command>exe_root</command></td>
+<td>Root namespace of the process.</td>
+
+</tr>
+<tr>
+<td><command>memory_size</command></td>
+<td>Total address space of the process (in bytes).</td>
+
+</tr>
+<tr>
+<td><command>state_name</command></td>
+<td>Name of the executable.</td>
+
+</tr>
+<tr>
+<td><command>state_ppid</command></td>
+<td>Parent process ID.</td>
+
+</tr>
+<tr>
+<td><command>state_priority</command></td>
+<td>Priority of the process (higher numbers are lower priority).</td>
+
+</tr>
+<tr>
+<td><command>state_processor</command></td>
+<td>CPU ID of the processor running the process (to be deleted).</td>
+
+</tr>
+<tr>
+<td><command>state_tty</command></td>
+<td>(to be deleted)</td>
+
+</tr>
+<tr>
+<td><command>time_start_time</command></td>
+<td>Start time of the process (Epoch timestamp in milliseconds).</td>
+
+</tr>
+<tr>
+<td><command>time_sys</command></td>
+<td>Total time executing system calls (in milliseconds).</td>
+
+</tr>
+<tr>
+<td><command>time_total</command></td>
+<td>Total time executing (in milliseconds).</td>
+
+</tr>
+<tr>
+<td><command>time_user</command></td>
+<td>Total time executing in user mode (in milliseconds).</td>
+
+</tr>
+</tbody>
+</informaltable>

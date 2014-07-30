@@ -1,0 +1,3 @@
+{
+  "bound_criteria": "if (metric['body_match'] regex '12345') {\n  return new AlarmStatus(CRITICAL, '12345 found, returning CRITICAL.');\n}\n"
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<traceroute>
+  <target>google.com</target>
+  <target_resolver>IPv4</target_resolver>
+</traceroute>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alarm>
+  <check_type>remote.http</check_type>
+  <criteria>if (metric["average"] &lt; 100) { return OK } return WARNING</criteria>
+  <notification_plan_id>npDaHVH1EE</notification_plan_id>
+</alarm>

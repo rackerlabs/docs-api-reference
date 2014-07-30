@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container>
+    <values>
+        <rollupmetric>
+            <numPoints>1</numPoints>
+            <average>4</average>
+            <timestamp>1335744000000</timestamp>
+        </rollupmetric>
+        <rollupmetric>
+            <numPoints>1</numPoints>
+            <average>6</average>
+            <timestamp>1335744000030</timestamp>
+        </rollupmetric>
+    </values>
+    <metadata>
+        <count>2</count>
+        <limit />
+        <marker />
+        <next_marker />
+        <next_href />
+    </metadata>
+</container>

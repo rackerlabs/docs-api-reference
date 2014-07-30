@@ -1,0 +1,20 @@
+[
+    {
+        "id": "cntl4qsIbA",
+        "guid": "0b49b96d-24c9-45ca-c585-4040707f4880",
+        "agent_id": "00-agent.example.com",
+        "endpoint": "lon3",
+        "process_version": "0.1.2.16",
+        "bundle_version": "0.1.2.16",
+        "agent_ip": "108.166.120.6"
+    },
+    {
+        "id": "cnyHsfATLd",
+        "guid": "0b49b96d-24c9-45ca-c585-4040707f4880",
+        "agent_id": "00-agent.example.com",
+        "endpoint": "ord1",
+        "process_version": "0.1.2.16",
+        "bundle_version": "0.1.2.16",
+        "agent_ip": "108.166.120.6"
+    }
+]

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test_run_alarm>
+  <criteria>if (metric["code"] == "404") { return new AlarmStatus(CRITICAL, "not found"); } return new AlarmStatus(OK);</criteria>
+  <checks_data>
+    <check_data>
+      <timestamp>1319222001982</timestamp>
+      <monitoring_zone_id>mzxJ4L2IU</monitoring_zone_id>
+      <available>true</available>
+      <status>code=200,rt=0.257s,bytes=0</status>
+      <metrics>
+        <bytes>
+          <type>i</type>
+          <data>0</data>
+        </bytes>
+        <tt_firstbyte>
+          <type>I</type>
+          <data>257</data>
+        </tt_firstbyte>
+        <tt_connect>
+          <type>I</type>
+          <data>128</data>
+        </tt_connect>
+        <code>
+          <type>s</type>
+          <data>200</data>
+        </code>
+        <duration>
+          <type>I</type>
+          <data>257</data>
+        </duration>
+      </metrics>
+    </check_data>
+  </checks_data>
+</test_run_alarm>

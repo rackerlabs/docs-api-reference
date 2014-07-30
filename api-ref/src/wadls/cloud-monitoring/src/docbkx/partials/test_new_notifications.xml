@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test_notification>
+  <type>webhook</type>
+  <details>
+    <url>http://my.web-server.com:5981/</url>
+  </details>
+</test_notification>

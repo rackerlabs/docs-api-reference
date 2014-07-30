@@ -1,0 +1,132 @@
+AlarmDsl      <- Ws *SetStatement Ws *IfStatement Ws *Return
+
+
+MetricName    <- :'metric[' ( ( :'"' Name :'"' ) | ( :"'" Name :"'" ) ) :']'
+
+Param        <- Ws (MetricName | Number) Ws
+FunctionName <- +([a-zA-Z_])
+
+Metric       <= FunctionName :'(' ( Param | Param *( :',' Ws Param ) ) :')'
+                | MetricName
+
+
+Name          <- +([a-zA-Z_-]
+                 | ' ' 
+                 | [0-9]
+                 | '.' 
+                 | '/')
+
+
+InExp         <= Metric Ws Rhs
+
+Rhs           <- NOp Ws NValue
+               | TOp Ws TValue
+               | CTOp Ws String
+
+CondExp       <= Ws (:'(' Ws InExp Ws :')'
+                 |  InExp ) Ws
+
+Conj          <- "&&" 
+                 | "||"
+
+IfStatement   <- :'if' Ws
+                 :'(' Ws CondExp 
+                 *(Conj Ws CondExp) 
+                 :')' Ws Block Ws
+
+Block         <- :'{' Ws Return Ws :'}'
+
+# Number comparators
+NValue         <- Number
+                  | Metric
+
+# Text metrics, not the same comparators
+TValue       <- String
+                | Metric
+
+String   <- ( :'"'
+              *( :'\\' ( Unicode | Escaped )
+              | !'\\' !'"' . )
+              :'"' )
+            |
+            ( :"'"
+              *( :'\\' ( Unicode | Escaped )
+              | !'\\' !"'" . )
+              :"'" )
+
+
+Unicode <- 'u' [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F]
+
+Escaped <- ["'/\\bfnrt]
+
+Number  <- ?'-'
+           ('0' | [1-9] *[0-9])
+           ?('.' +[0-9])
+           ?([eE] ?[+-] +[0-9])
+
+WholeNumber <- [1-9] *[0-9]
+
+AlarmStatusArgs <- AlertStates ?( Ws :',' Ws AlertStateReason )
+
+DeprecatedAlarmStatus <- AlarmStatusArgs
+
+AlarmStatus <- :'new' Ws :'AlarmStatus(' Ws AlarmStatusArgs Ws :')' Ws :';'
+
+Return        <- :'return ' Ws ( AlarmStatus | DeprecatedAlarmStatus ) Ws
+
+AlertStates   <- 'CRITICAL'
+                 | 'OK'
+                 | 'WARNING'
+
+AlertStateReason <- String
+
+# Number operators that take metric or constant numbers on both sides
+NOp            <- ('>='
+                  | '<='
+                  | '>'
+                  | '<'
+                  | '=='
+                  | '!=') Ws
+
+# Text operators that take metric or constant strings on both sides
+TOp         <- ('==' | '!=') Ws
+
+# Text operators that only take constant strings on the rhs
+CTOp         <- ('nregex' | 'regex') Ws
+
+
+SetStatement    <- :':set' Ws InSetStatement Ws
+
+
+InSetStatement  <= SetConsistencyLevel
+                   | SetConsecutiveCount
+                   | SetDimensionFilter
+
+
+ConsistencyLevel <- 'ONE'
+                    | 'QUORUM'
+                    | 'ALL'
+
+
+# Should these just be on the alarm itself?
+# Like check type filtering...
+SetConsistencyLevel  <- :'consistencyLevel' Ws :'=' Ws ConsistencyLevel
+
+SetConsecutiveCount  <- :'consecutiveCount' Ws :'=' Ws WholeNumber
+
+# We just parse out a string here, then validate it later so we can provide an
+# actually useful error message.
+SetDimensionFilter   <- :'dimensionFilter' Ws :'=' Ws String
+
+
+SComment      <: '#' *(!EndOfLine .) (EndOfLine | !.)
+
+
+MComment      <: '/*' *(MComment | !'*/' . ) '*/'
+
+
+EndOfLine     <: '\r\n' | '\n' | '\r'
+
+Wsp           <: *[ \t]
+
+Ws            <: *(EndOfLine | SComment | MComment | [ \t])

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<check id="chAAAA">
+  <label>Website check 1</label>
+  <type>remote.http</type>
+  <details>
+    <url>http://www.foo.com</url>
+    <method>GET</method>
+    <follow_redirects>true</follow_redirects>
+    <include_body>false</include_body>
+  </details>
+  <monitoring_zones_poll>
+    <monitoring_zone_id>mzA</monitoring_zone_id>
+  </monitoring_zones_poll>
+  <timeout>30</timeout>
+  <period>100</period>
+  <target_alias>entity_ip_addresses_hash_key</target_alias>
+</check>

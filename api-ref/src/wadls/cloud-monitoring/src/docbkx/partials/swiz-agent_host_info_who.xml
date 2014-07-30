@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><informaltable rules="all" width="70%" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"><thead>
+<tr><td>Name</td><td>Description</td></tr>
+</thead>
+<tbody><tr>
+<td><command>device</command></td>
+<td>Device they are attached to (for example, pts/1).</td>
+
+</tr>
+<tr>
+<td><command>host</command></td>
+<td>Originating host of the login (for example, 127.0.0.1).</td>
+
+</tr>
+<tr>
+<td><command>time</command></td>
+<td>Login time as a unix timestamp (in seconds).</td>
+
+</tr>
+<tr>
+<td><command>user</command></td>
+<td>Username as a string.</td>
+
+</tr>
+</tbody>
+</informaltable>
