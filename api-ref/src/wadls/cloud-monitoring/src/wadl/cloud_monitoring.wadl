@@ -785,6 +785,9 @@
     <method name="GET" id="listAccount">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Get account information">
             <para role="shortdesc"> Returns information about the specified account. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -855,6 +858,9 @@
     <method name="GET" id="listLimits">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Limits">
             <para role="shortdesc"> Returns resource and rate limits that apply to the specified account. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -877,10 +883,11 @@
             <para role="shortdesc"> Returns audit information for the specified account. </para>
             <para>&MAAS; records every write operation in an audit. See <link linkend="general-api-info-audits">Audits</link>
                 for more information on how audits are recorded.</para>
-            <para>Audits are accessible as a
-                <link linkend="api-time-series-collections">Time Series
-                    Collection</link>. By default the
-                API queries the last 7 days of audit information.</para>
+            <para>Audits are accessible as a <link linkend="api-time-series-collections">Time Series Collection</link>. By
+                default the API queries the last 7 days of audit information.</para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -953,6 +960,9 @@
     <method name="GET" id="listEntities">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List entities">
             <para role="shortdesc"> Lists the entities associated with this account. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1055,7 +1065,7 @@
         <response status="204"/>
 
         <!-- Common Faults --> &commonFaults; </method>
-    
+
     <!-- Checks methods -->
     <method name="POST" id="createCheck">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create a check">
@@ -1168,6 +1178,9 @@
     <method name="GET" id="listChecks">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List checks for entity">
             <para role="shortdesc"> Lists the checks associated with a given <code>entityId</code>. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1241,6 +1254,9 @@
     <method name="GET" id="listCheckTypes">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Check types">
             <para role="shortdesc"> Lists all available check types. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1289,6 +1305,9 @@
     <method name="GET" id="listMetricsbyCheckId">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Check types">
             <para role="shortdesc"> Lists the metrics associated with the specified <code>checkId</code>. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1408,6 +1427,9 @@
     <method name="GET" id="listAlarms">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List alarms">
             <para role="shortdesc"> List the alarms on the specified <code>entityId</code>. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1596,6 +1618,9 @@
     <method name="GET" id="listNotifyPlan">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List notification plan">
             <para role="shortdesc"> Lists the notification plans for the &MAAS; account. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
@@ -1651,6 +1676,9 @@
     <method name="GET" id="listMonitorZone">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List monitoring zone">
             <para role="shortdesc"> Lists the monitoring zones for the &MAAS; account. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
@@ -1757,6 +1785,9 @@
     <method name="GET" id="listAlarmNotificationHistory">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List alarm notification history">
             <para role="shortdesc"> Lists alarm notification history for a given entity, alarm and check. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1841,6 +1872,9 @@
     <method name="GET" id="listNotifications">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List Notifications">
             <para role="shortdesc"> Lists the notifications for the account. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -1971,6 +2005,9 @@
     <method name="GET" id="listNotificationTypes">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List notification types">
             <para role="shortdesc"> Lists available notification types. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -2235,6 +2272,9 @@
     <method name="GET" id="listSuppressions">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List suppressions">
             <para role="shortdesc"> Lists the suppressions. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook">
@@ -2515,6 +2555,9 @@
     <method name="GET" id="listAgentTokens">
         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List tokens for agent tokens">
             <para role="shortdesc"> List the agent tokens. </para>
+            <para>This operation can be paginated. For information, see
+                <link xlink:href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/api-paginated-collections.html">Rackspace Cloud Monitoring Developer Guide Paginated collections</link>
+            </para>
         </wadl:doc>
         <response status="200">
             <wadl:doc title="OK" xmlns="http://docbook.org/ns/docbook"><para>The request completed.</para></wadl:doc>
@@ -2680,37 +2723,48 @@
                         </thead>
                         <tbody><tr>
                                 <td><command>wtime</command></td>
-                                <td>Total number of milliseconds spent reading (in milliseconds).</td> </tr>
+                                <td>Total number of milliseconds spent reading (in milliseconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>read_bytes</command></td>
-                                <td>Total number of bytes read from disk (in bytes).</td> </tr>
+                                <td>Total number of bytes read from disk (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>queue</command></td>
-                                <td>(to be deleted).</td> </tr>
+                                <td>(to be deleted).</td>
+                            </tr>
                             <tr>
                                 <td><command>name</command></td>
-                                <td>The device name (TODO: Fix this to be the block device name).</td> </tr>
+                                <td>The device name (TODO: Fix this to be the block device name).</td>
+                            </tr>
                             <tr>
                                 <td><command>reads</command></td>
-                                <td>Total number of completed read requests.</td> </tr>
+                                <td>Total number of completed read requests.</td>
+                            </tr>
                             <tr>
                                 <td><command>rtime</command></td>
-                                <td>Total number of milliseconds spent reading (in milliseconds).</td> </tr>
+                                <td>Total number of milliseconds spent reading (in milliseconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>service_time</command></td>
-                                <td>(to be deleted).</td> </tr>
+                                <td>(to be deleted).</td>
+                            </tr>
                             <tr>
                                 <td><command>snaptime</command></td>
-                                <td>(to be deleted).</td> </tr>
+                                <td>(to be deleted).</td>
+                            </tr>
                             <tr>
                                 <td><command>time</command></td>
-                                <td>Total time spend doing I/O (in milliseconds).</td> </tr>
+                                <td>Total time spend doing I/O (in milliseconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>write_bytes</command></td>
-                                <td>Total number of bytes written to disk (in bytes).</td> </tr>
+                                <td>Total number of bytes written to disk (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>writes</command></td>
-                                <td>Total number of completed write requests.</td> </tr>
+                                <td>Total number of completed write requests.</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
@@ -2738,39 +2792,50 @@
                         </thead>
                         <tbody><tr>
                                 <td><command>used</command></td>
-                                <td>Used space on the filesystem (in kilobytes).</td> </tr>
+                                <td>Used space on the filesystem (in kilobytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>dir_name</command></td>
-                                <td>Name of the directory where the filesystem is mounted.</td> </tr>
+                                <td>Name of the directory where the filesystem is mounted.</td>
+                            </tr>
                             <tr>
                                 <td><command>avail</command></td>
-                                <td>Available space on the filesystem (in kilobytes).</td> </tr>
+                                <td>Available space on the filesystem (in kilobytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>dev_name</command></td>
-                                <td>Name of the device from which this filesystem is mounted. For example, /dev/sda1.</td> </tr>
+                                <td>Name of the device from which this filesystem is mounted. For example, /dev/sda1.</td>
+                            </tr>
                             <tr>
                                 <td><command>files</command></td>
-                                <td>Number of file nodes on the filesystem.</td> </tr>
+                                <td>Number of file nodes on the filesystem.</td>
+                            </tr>
                             <tr>
                                 <td><command>free</command></td>
-                                <td>Free space available on the filesystem (in kilobytes).</td> </tr>
+                                <td>Free space available on the filesystem (in kilobytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>free_files</command></td>
-                                <td>Number of free file nodes on the filesystem.</td> </tr>
+                                <td>Number of free file nodes on the filesystem.</td>
+                            </tr>
                             <tr>
                                 <td><command>options</command></td>
-                                <td>Filesystem mount options. For example, rw,noexec.</td> </tr>
+                                <td>Filesystem mount options. For example, rw,noexec.</td>
+                            </tr>
                             <tr>
                                 <td><command>sys_type_name</command></td>
-                                <td>Name of the filesystem. For example, ext3.</td> </tr>
+                                <td>Name of the filesystem. For example, ext3.</td>
+                            </tr>
                             <tr>
                                 <td><command>total</command></td>
-                                <td>Total space on the filesystem (in kilobytes).</td> </tr>
+                                <td>Total space on the filesystem (in kilobytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>type_name</command></td>
                                 <td>Internally maintained tuple by sigar. Inaccurate. For example tmpfs is not a ram
                                     filesystem. "unknown", "none", "local", "remote", "ram", "cdrom", "swap" (to be
-                                    deleted)</td> </tr>
+                                    deleted)</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
@@ -2797,37 +2862,48 @@
                         </thead>
                         <tbody><tr>
                                 <td><command>ram</command></td>
-                                <td>Megabytes of RAM available to the system (in megabytes).</td> </tr>
+                                <td>Megabytes of RAM available to the system (in megabytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>actual_free</command></td>
-                                <td>Free memory. Counts purgeable OS caches as free (in bytes).</td> </tr>
+                                <td>Free memory. Counts purgeable OS caches as free (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>actual_used</command></td>
-                                <td>Used memory. Counts purgeable OS caches as free (in bytes).</td> </tr>
+                                <td>Used memory. Counts purgeable OS caches as free (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>free</command></td>
-                                <td>Free memory which counts purgeable OS caches as used (in bytes).</td> </tr>
+                                <td>Free memory which counts purgeable OS caches as used (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>swap_free</command></td>
-                                <td>Free swap space (in bytes).</td> </tr>
+                                <td>Free swap space (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>swap_page_in</command></td>
-                                <td>Count of pages swapped in.</td> </tr>
+                                <td>Count of pages swapped in.</td>
+                            </tr>
                             <tr>
                                 <td><command>swap_page_out</command></td>
-                                <td>Count of pages swapped out.</td> </tr>
+                                <td>Count of pages swapped out.</td>
+                            </tr>
                             <tr>
                                 <td><command>swap_total</command></td>
-                                <td>Total swap space (in bytes).</td> </tr>
+                                <td>Total swap space (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>swap_used</command></td>
-                                <td>Used swap space (in bytes).</td> </tr>
+                                <td>Used swap space (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>total</command></td>
-                                <td>Total memory (in bytes).</td> </tr>
+                                <td>Total memory (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>used</command></td>
-                                <td>Used memory which counts purgeable OS caches as used (in bytes).</td> </tr>
+                                <td>Used memory which counts purgeable OS caches as used (in bytes).</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
@@ -2855,79 +2931,104 @@
                         </thead>
                         <tbody><tr>
                                 <td><command>flags</command></td>
-                                <td>Operating system specific interface flags.</td> </tr>
+                                <td>Operating system specific interface flags.</td>
+                            </tr>
                             <tr>
                                 <td><command>name</command></td>
-                                <td>Network interface name.</td> </tr>
+                                <td>Network interface name.</td>
+                            </tr>
                             <tr>
                                 <td><command>address</command></td>
-                                <td>IPv4 address as a string.</td> </tr>
+                                <td>IPv4 address as a string.</td>
+                            </tr>
                             <tr>
                                 <td><command>destination</command></td>
-                                <td>Route destination (to be deleted).</td> </tr>
+                                <td>Route destination (to be deleted).</td>
+                            </tr>
                             <tr>
                                 <td><command>address6</command></td>
-                                <td>IPv6 address as a string.</td> </tr>
+                                <td>IPv6 address as a string.</td>
+                            </tr>
                             <tr>
                                 <td><command>broadcast</command></td>
-                                <td>Broadcast address as a string.</td> </tr>
+                                <td>Broadcast address as a string.</td>
+                            </tr>
                             <tr>
                                 <td><command>hwaddr</command></td>
-                                <td>Ethernet address as a string.</td> </tr>
+                                <td>Ethernet address as a string.</td>
+                            </tr>
                             <tr>
                                 <td><command>mtu</command></td>
-                                <td>Ethernet maximum transmission unit.</td> </tr>
+                                <td>Ethernet maximum transmission unit.</td>
+                            </tr>
                             <tr>
                                 <td><command>metric</command></td>
-                                <td>(to be deleted)</td> </tr>
+                                <td>(to be deleted)</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_errors</command></td>
-                                <td>Total numnber of transmit errors.</td> </tr>
+                                <td>Total numnber of transmit errors.</td>
+                            </tr>
                             <tr>
                                 <td><command>rx_bytes</command></td>
-                                <td>Total number of bytes received.</td> </tr>
+                                <td>Total number of bytes received.</td>
+                            </tr>
                             <tr>
                                 <td><command>netmask</command></td>
-                                <td>Netmask as a string.</td> </tr>
+                                <td>Netmask as a string.</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_overruns</command></td>
-                                <td>Total number of transmit buffer overruns.</td> </tr>
+                                <td>Total number of transmit buffer overruns.</td>
+                            </tr>
                             <tr>
                                 <td><command>speed</command></td>
-                                <td>Currently not implemented on linux (to be deleted).</td> </tr>
+                                <td>Currently not implemented on linux (to be deleted).</td>
+                            </tr>
                             <tr>
                                 <td><command>rx_overruns</command></td>
-                                <td>Total number of receive buffer overruns.</td> </tr>
+                                <td>Total number of receive buffer overruns.</td>
+                            </tr>
                             <tr>
                                 <td><command>rx_dropped</command></td>
-                                <td>Total number of dropped packets received.</td> </tr>
+                                <td>Total number of dropped packets received.</td>
+                            </tr>
                             <tr>
                                 <td><command>rx_frame</command></td>
-                                <td>Total number of errors caused by malformed frames.</td> </tr>
+                                <td>Total number of errors caused by malformed frames.</td>
+                            </tr>
                             <tr>
                                 <td><command>rx_packets</command></td>
-                                <td>Total number of packets received.</td> </tr>
+                                <td>Total number of packets received.</td>
+                            </tr>
                             <tr>
                                 <td><command>rx_errors</command></td>
-                                <td>Total number of receive errors caused by malformed frames.</td> </tr>
+                                <td>Total number of receive errors caused by malformed frames.</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_bytes</command></td>
-                                <td>Total number of bytes sent.</td> </tr>
+                                <td>Total number of bytes sent.</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_carrier</command></td>
-                                <td>Total number of carrier errors (usually cable disconnects).</td> </tr>
+                                <td>Total number of carrier errors (usually cable disconnects).</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_collisions</command></td>
-                                <td>Total number of packet collisions on transmit.</td> </tr>
+                                <td>Total number of packet collisions on transmit.</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_dropped</command></td>
-                                <td>Total number of dropped transmit packets.</td> </tr>
+                                <td>Total number of dropped transmit packets.</td>
+                            </tr>
                             <tr>
                                 <td><command>tx_packets</command></td>
-                                <td>Total number of packets sent.</td> </tr>
+                                <td>Total number of packets sent.</td>
+                            </tr>
                             <tr>
                                 <td><command>type</command></td>
-                                <td>Interface type (for example, Ethernet, Local Loopback, and so on).</td> </tr>
+                                <td>Interface type (for example, Ethernet, Local Loopback, and so on).</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
@@ -2956,74 +3057,97 @@
                         <tbody><tr>
                                 <td><command>state_nice</command></td>
                                 <td>Nice value set on the process. If nice is not set, the value will be null (higher numbers
-                                    are lower priority).</td> </tr>
+                                    are lower priority).</td>
+                            </tr>
                             <tr>
                                 <td><command>cred_group</command></td>
-                                <td>Group of user who owns the process</td> </tr>
+                                <td>Group of user who owns the process</td>
+                            </tr>
                             <tr>
                                 <td><command>state_threads</command></td>
-                                <td>Number of threads the process owns.</td> </tr>
+                                <td>Number of threads the process owns.</td>
+                            </tr>
                             <tr>
                                 <td><command>exe_cwd</command></td>
-                                <td>Current working directory of the process.</td> </tr>
+                                <td>Current working directory of the process.</td>
+                            </tr>
                             <tr>
                                 <td><command>cred_user</command></td>
-                                <td>User who owns the process</td> </tr>
+                                <td>User who owns the process</td>
+                            </tr>
                             <tr>
                                 <td><command>memory_resident</command></td>
-                                <td>Total resident memory of the process (in bytes).</td> </tr>
+                                <td>Total resident memory of the process (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>pid</command></td>
-                                <td>Process ID.</td> </tr>
+                                <td>Process ID.</td>
+                            </tr>
                             <tr>
                                 <td><command>memory_page_faults</command></td>
-                                <td>Total number of faults.</td> </tr>
+                                <td>Total number of faults.</td>
+                            </tr>
                             <tr>
                                 <td><command>memory_minor_faults</command></td>
-                                <td>Total number of major page faults. Major faults generally involve disk latency.</td> </tr>
+                                <td>Total number of major page faults. Major faults generally involve disk latency.</td>
+                            </tr>
                             <tr>
                                 <td><command>memory_major_faults</command></td>
                                 <td>Total number of minor page faults. Minor faults generally do not involve disk
-                                    latency.</td> </tr>
+                                    latency.</td>
+                            </tr>
                             <tr>
                                 <td><command>memory_share</command></td>
-                                <td>Total resident memory that is shared with other processes (in bytes).</td> </tr>
+                                <td>Total resident memory that is shared with other processes (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>exe_name</command></td>
-                                <td>Path to the executable.</td> </tr>
+                                <td>Path to the executable.</td>
+                            </tr>
                             <tr>
                                 <td><command>exe_root</command></td>
-                                <td>Root namespace of the process.</td> </tr>
+                                <td>Root namespace of the process.</td>
+                            </tr>
                             <tr>
                                 <td><command>memory_size</command></td>
-                                <td>Total address space of the process (in bytes).</td> </tr>
+                                <td>Total address space of the process (in bytes).</td>
+                            </tr>
                             <tr>
                                 <td><command>state_name</command></td>
-                                <td>Name of the executable.</td> </tr>
+                                <td>Name of the executable.</td>
+                            </tr>
                             <tr>
                                 <td><command>state_ppid</command></td>
-                                <td>Parent process ID.</td> </tr>
+                                <td>Parent process ID.</td>
+                            </tr>
                             <tr>
                                 <td><command>state_priority</command></td>
-                                <td>Priority of the process (higher numbers are lower priority).</td> </tr>
+                                <td>Priority of the process (higher numbers are lower priority).</td>
+                            </tr>
                             <tr>
                                 <td><command>state_processor</command></td>
-                                <td>CPU ID of the processor running the process (to be deleted).</td> </tr>
+                                <td>CPU ID of the processor running the process (to be deleted).</td>
+                            </tr>
                             <tr>
                                 <td><command>state_tty</command></td>
-                                <td>(to be deleted)</td> </tr>
+                                <td>(to be deleted)</td>
+                            </tr>
                             <tr>
                                 <td><command>time_start_time</command></td>
-                                <td>Start time of the process (Epoch timestamp in milliseconds).</td> </tr>
+                                <td>Start time of the process (Epoch timestamp in milliseconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>time_sys</command></td>
-                                <td>Total time executing system calls (in milliseconds).</td> </tr>
+                                <td>Total time executing system calls (in milliseconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>time_total</command></td>
-                                <td>Total time executing (in milliseconds).</td> </tr>
+                                <td>Total time executing (in milliseconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>time_user</command></td>
-                                <td>Total time executing in user mode (in milliseconds).</td> </tr>
+                                <td>Total time executing in user mode (in milliseconds).</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
@@ -3052,27 +3176,34 @@
                         </thead>
                         <tbody><tr>
                                 <td><command>arch</command></td>
-                                <td>CPU Architecture.</td> </tr>
+                                <td>CPU Architecture.</td>
+                            </tr>
                             <tr>
                                 <td><command>description</command></td>
                                 <td>Long form description (for example, Debian 6.0.6, Microsoft Windows XP). (to be
-                                    deleted)</td> </tr>
+                                    deleted)</td>
+                            </tr>
                             <tr>
                                 <td><command>name</command></td>
                                 <td>Generic name of the Operating System (for example, Linux, MacOSX, Win32, FreeBSD, and so
-                                    on).</td> </tr>
+                                    on).</td>
+                            </tr>
                             <tr>
                                 <td><command>vendor</command></td>
-                                <td>Vendor name (for example, Microsoft, Debian).</td> </tr>
+                                <td>Vendor name (for example, Microsoft, Debian).</td>
+                            </tr>
                             <tr>
                                 <td><command>vendor_code_name</command></td>
-                                <td>(to be deleted)</td> </tr>
+                                <td>(to be deleted)</td>
+                            </tr>
                             <tr>
                                 <td><command>vendor_version</command></td>
-                                <td>Vendor version name (for example, 6.0.6, XP).</td> </tr>
+                                <td>Vendor version name (for example, 6.0.6, XP).</td>
+                            </tr>
                             <tr>
                                 <td><command>version</command></td>
-                                <td>Version (for example, 2.6.32-5-xen-amd64, 2600.xpsp_sp3_gdr).</td> </tr>
+                                <td>Version (for example, 2.6.32-5-xen-amd64, 2600.xpsp_sp3_gdr).</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
@@ -3100,16 +3231,20 @@
                         </thead>
                         <tbody><tr>
                                 <td><command>device</command></td>
-                                <td>Device they are attached to (for example, pts/1).</td> </tr>
+                                <td>Device they are attached to (for example, pts/1).</td>
+                            </tr>
                             <tr>
                                 <td><command>host</command></td>
-                                <td>Originating host of the login (for example, 127.0.0.1).</td> </tr>
+                                <td>Originating host of the login (for example, 127.0.0.1).</td>
+                            </tr>
                             <tr>
                                 <td><command>time</command></td>
-                                <td>Login time as a unix timestamp (in seconds).</td> </tr>
+                                <td>Login time as a unix timestamp (in seconds).</td>
+                            </tr>
                             <tr>
                                 <td><command>user</command></td>
-                                <td>Username as a string.</td> </tr>
+                                <td>Username as a string.</td>
+                            </tr>
                         </tbody>
                     </informaltable>
                 </wadl:doc>
