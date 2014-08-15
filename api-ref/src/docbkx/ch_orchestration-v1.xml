@@ -15,6 +15,7 @@
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#stacks">
                 <wadl:method href="#stack_create"/>
+                <wadl:method href="#stack_adopt"/>
                 <wadl:method href="#stack_list"/>
             </wadl:resource>
             <wadl:resource
@@ -27,9 +28,17 @@
                 <wadl:method href="#stack_update"/>
                 <wadl:method href="#stack_delete"/>
             </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#preview">
+                <wadl:method href="#stack_preview"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#abandon">
+                <wadl:method href="#stack_abandon"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
-    <section xml:id="stack-actions">
+ <!--     <section xml:id="stack-actions">
         <title>Stack actions</title>
         <para>Perform non-life cycle operations on the stack. Specify
             the action in the request body.</para>
@@ -40,7 +49,7 @@
                 <wadl:method href="#stack_action_resume"/>
             </wadl:resource>
         </wadl:resources>
-    </section>
+    </section>  -->
     <section xml:id="stack-resources">
         <title>Stack resources</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -56,10 +65,10 @@
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#resource_name">
                 <wadl:method href="#resource_show"/>
             </wadl:resource>
-            <wadl:resource
+            <!--     <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#metadata">
                 <wadl:method href="#resource_metadata"/>
-            </wadl:resource>
+            </wadl:resource>  -->
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#resource_types">
                 <wadl:method href="#resource_type_list"/>
@@ -113,7 +122,7 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#build_info">
-                <wadl:method href="#build_info_show"/>
+                <wadl:method href="#build_info_get"/>
             </wadl:resource>
         </wadl:resources>
     </section>

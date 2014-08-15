@@ -95,8 +95,11 @@
         <title>Usage</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#LB-usage">
+                <wadl:method href="#showHistoricalUsage"/>
+            </wadl:resource>
+            <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#usage">
-                <wadl:method href="#showHistoryUsage"/>
                 <wadl:method href="#showAccountLevelUsage"/>
             </wadl:resource>
             <wadl:resource
@@ -115,10 +118,13 @@
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#accesslist">
                 <wadl:method href="#showAccessList"/>
-                <wadl:method href="#createAccessList"/>
-                <wadl:method href="#deleteNetwork"/>
+                <wadl:method href="#createAccessList"/>        
                 <wadl:method href="#deleteAccessList"/>
                 <wadl:method href="#bulkDeleteNetworks"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#networkItemId">
+                <wadl:method href="#deleteNetwork"/>
             </wadl:resource>
         </wadl:resources>
     </section>
