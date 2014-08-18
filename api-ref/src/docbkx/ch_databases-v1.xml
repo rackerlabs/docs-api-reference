@@ -46,13 +46,11 @@
     <section xml:id="Database_Instances">
         <title>Database instances</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instances">
+            
                 <wadl:resource
                     href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instances">
                     <wadl:method href="#createInstance"/>
                     <wadl:method href="#getInstance"/>
-                    <wadl:method href="#restoreBackup"/>
                 </wadl:resource>
                 <wadl:resource
                     href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instanceId">
@@ -61,9 +59,14 @@
                     <wadl:method href="#deleteInstance"/>
                 </wadl:resource>
                 <wadl:resource
-                    href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#root"
-                />
-            </wadl:resource>
+                    href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#configuration">
+                    <wadl:method href="#getDefaultConfig"/>
+                </wadl:resource>
+                <wadl:resource
+                    href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#root">
+                    <wadl:method href="#createRoot"/>
+                    <wadl:method href="#isRootEnabled"/>
+                </wadl:resource>  
         </wadl:resources>
     </section>
     <section xml:id="Database_Instances_Actions">
@@ -114,37 +117,7 @@
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#dbName">
                 <wadl:method href="#revokeUserAccess"/>
-            </wadl:resource>
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#root">
-                <wadl:method href="#createRoot"/>
-                <wadl:method href="#isRootEnabled"/>
-            </wadl:resource>
-        </wadl:resources>
-    </section>
-    <section xml:id="configuration">
-        <title>Configurations</title>
-        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#configuration">
-                <wadl:method href="#getDefaultConfig"/>
-            </wadl:resource>
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#configurations">
-                <wadl:method href="#getConfigurations"/>
-                <wadl:method href="#createConfiguration"/>
-            </wadl:resource>
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#configId">
-                <wadl:method href="#getConfigurationById"/>
-                <wadl:method href="#updateSomeConfigParmsById"/>
-                <wadl:method href="#replaceAllConfigParmsById"/>
-                <wadl:method href="#deleteConfigGroup"/>
-            </wadl:resource>
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instances2">
-                <wadl:method href="#getInstancesForConfiguration"/>
-            </wadl:resource>
+            </wadl:resource>  
         </wadl:resources>
     </section>
     <section xml:id="flavors">
@@ -177,14 +150,44 @@
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#backupsB">
                 <wadl:method href="#getBackupsByInstance"/>
             </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instances">
+                <wadl:method href="#restoreBackup"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
-    <section xml:id="datastores">
-        <title>Datastores</title>
+    <section xml:id="configuration">
+        <title>Configurations</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#datastores">
-                <wadl:method href="#getDatastoreTypes"/>
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#configurations">
+                <wadl:method href="#getConfigurations"/>
+                <wadl:method href="#createConfiguration"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#configId">
+                <wadl:method href="#getConfigurationById"/>
+                <wadl:method href="#updateSomeConfigParmsById"/>
+                <wadl:method href="#replaceAllConfigParmsById"/>
+                <wadl:method href="#deleteConfigGroup"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instances2">
+                <wadl:method href="#getInstancesForConfiguration"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="configuration_parms">
+        <title>Configuration Parameters</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#parameters">
+                <wadl:method href="#getConfigurationParameters"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#parameterId">
+                <wadl:method href="#getConfigurationParameterDetails"
+                />
             </wadl:resource>
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#parameters2">
@@ -198,6 +201,16 @@
                     href="#getConfigurationParameterDetailsWithoutDatastore"
                 />
             </wadl:resource>
+        </wadl:resources>
+    </section>   
+    <section xml:id="datastores">
+        <title>Datastores</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#datastores">
+                <wadl:method href="#getDatastoreTypes"/>
+            </wadl:resource>
+            
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#datastoreId">
                 <wadl:method href="#getDatastoreTypesById"/>
@@ -209,19 +222,10 @@
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#versionId">
                 <wadl:method href="#getDatastoreVersionByVersionId"/>
-            </wadl:resource>
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#parameters">
-                <wadl:method href="#getConfigurationParameters"/>
-            </wadl:resource>
-            <wadl:resource
-                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#parameterId">
-                <wadl:method href="#getConfigurationParameterDetails"
-                />
-            </wadl:resource>
+            </wadl:resource>     
         </wadl:resources>
     </section>
-    <section xml:id="Database_Instance_Management">
+    <!--   <section xml:id="Database_Instance_Management">
         <title>Database instance management</title>
         <para>Manage database instances.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
@@ -294,5 +298,5 @@
                 <wadl:method href="#getaccountbyid"/>
             </wadl:resource>
         </wadl:resources>
-    </section>
+    </section> -->
 </chapter>
