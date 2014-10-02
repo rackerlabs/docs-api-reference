@@ -17,11 +17,7 @@
             <para> Some of the functionality described in this section
                 is provided by the <code>OS-KSADM</code> and
                     <code>RAX-KSKEY</code> extensions to the core
-                Identity API. You can learn more about API extensions
-                at <link
-                    xlink:href="https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/"
-                    >
-                    https://github.com/openstack/identity-api/tree/master/openstack-identity-api/src/docbkx/</link>.
+                Identity API.
             </para>
         </note>
         <para>When these requests are issued by an account user, they
@@ -98,15 +94,12 @@
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#users-v2.0">
                 <wadl:method href="#addUser">
                     <wadl:doc>
-                        <note>
                             <para>This call is available only to users
                                 who hold the admin role
                                    (<code>identity:user-admin</code>).
                                 Using the admin role, you can create a
                                 user who holds the user role
                                    (<code>identity:default</code>).</para>
-                        </note>
-                        <warning>
                             <para>If you use this <code>POST
                                    /users</code> call to create a
                                 user, that user will have access to
@@ -117,7 +110,6 @@
                                 is the user who initiated the account
                                 by completing the Sign-Up
                                 process.</para>
-                        </warning>
                     </wadl:doc>
                 </wadl:method>
             </wadl:resource>
@@ -126,14 +118,12 @@
                 href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userById-v2.0">
                 <wadl:method href="#updateUser">
                     <wadl:doc>
-                        <note>
-                            <para>Users who hold the admin role can
+                        <para>Users who hold the admin role can
                                 update users who hold the user role
                                    (<code>identity:default</code>) or
                                 the admin role
                                    (<code>identity:user-admin</code>)
                                 for the same tenant.</para>
-                        </note>
                     </wadl:doc>
                 </wadl:method>
             </wadl:resource>
@@ -177,13 +167,12 @@
             </wadl:resource>-->
             <!-- get user's API key credentials -->
             <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSKEY-admin.wadl#userCredentialsByType">
+                href="..//wadls/cloud-identity/wadl/RAX-KSKEY-admin.wadl#userCredentialsByType">
                 <wadl:method href="#getUserCredential">
                     <wadl:doc>
-                        <note>
                             <para>
-                                <emphasis role="italic">You can see
-                                   only yourself.</emphasis></para>
+                                <i>You can see
+                                   only yourself.</i></para>
                             <para>This call is available to users who
                                 hold either the admin role
                                    (<code>identity:user-admin</code>)
@@ -192,7 +181,6 @@
                                 either case, the credentials returned
                                 are only those of the user who issued
                                 the request.</para>
-                        </note>
                     </wadl:doc>
                 </wadl:method>
             </wadl:resource>
@@ -224,8 +212,7 @@
                 <wadl:method href="#deleteRole"/>
             </wadl:resource>
             <!-- list global roles-v2.0 available to a user -->
-            <wadl:resource
-                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#userid">
+            <wadl:resource href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#userid">
                 <wadl:method href="#listUserGlobalroles-v2.0">
                     <wadl:doc>
                         <note>
@@ -256,7 +243,6 @@
                 <!-- authenticate token -->
                 <wadl:method href="#authenticate">
                     <wadl:doc>
-                        <note>
                             <para>This call is available to users who
                                 have authenticated as a holder of
                                 either the admin role or the user
@@ -275,7 +261,6 @@
                                    <code>identity:default</code>.</para>
                                 </listitem>
                             </itemizedlist>
-                        </note>
                     </wadl:doc>
                 </wadl:method>
             </wadl:resource>
