@@ -65,10 +65,10 @@
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#resource_name">
                 <wadl:method href="#resource_show"/>
             </wadl:resource>
-            <!--     <wadl:resource
+            <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#metadata">
                 <wadl:method href="#resource_metadata"/>
-            </wadl:resource>  -->
+            </wadl:resource>
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-orchestration/master/wadl/orchestration-api.wadl#resource_types">
                 <wadl:method href="#resource_type_list"/>
