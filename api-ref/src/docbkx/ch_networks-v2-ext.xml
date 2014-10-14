@@ -7,7 +7,7 @@
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RackBook-2.0" xml:id="networks-v2-ext">
     <title>Cloud Networks API v2.0 extensions</title>
- <!--   <section xml:id="quotas-ext">
+    <!--   <section xml:id="quotas-ext">
         <title>Quotas extension</title>
         <para>List, show information for, update, and reset
             quotas.</para>
@@ -26,17 +26,18 @@
             href="../wadls/networks/wadl/ports-binding-ext.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>-->
-    <section xml:id="layer-3">
+<!-- These are not currently supported. -->
+    <!--<section xml:id="layer-3">
         <title>Layer-3</title>
         <wadl:resources
-            href="https://raw.github.com/catlook/networks2/master/src/wadl/layer3.wadl"
+            href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/layer3.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
     </section>
     <section xml:id="security_groups">
         <title>Security groups and rules</title>
         <wadl:resources
-            href="https://raw.github.com/catlook/networks2/master/src/wadl/security-groups.wadl"
+            href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/security-groups.wadl"
             xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
-    </section>
+    </section>-->
     <xi:include href="section_networks_nova_ext.xml"/>
 </chapter>
