@@ -167,7 +167,9 @@
             </wadl:resource>-->
             <!-- get user's API key credentials -->
             <wadl:resource
+
                 href="..//wadls/cloud-identity/wadl/RAX-KSKEY-admin.wadl#userCredentialsByType">
+
                 <wadl:method href="#getUserCredential">
                     <wadl:doc>
                             <para>
