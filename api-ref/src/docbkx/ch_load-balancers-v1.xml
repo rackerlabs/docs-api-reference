@@ -192,6 +192,22 @@
             </wadl:resource>
         </wadl:resources>
     </section>
+    <section xml:id="certificate_mappings">
+        <title>Certificate mappings</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#certificateMappings">
+                <wadl:method href="#listCertificateMappings"/>
+                <wadl:method href="#addCertificateMapping"/>        
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-load-balancers/master/src/resources/wadl/rax-cloudLoadBalancers-api-v1.wadl#certificateMappingId">
+                <wadl:method href="#showCertificateMapping"/>
+                <wadl:method href="#updateCertificateMapping"/>
+                <wadl:method href="#deleteCertificateMapping"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
     <section xml:id="metadata">
         <title>Metadata</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
