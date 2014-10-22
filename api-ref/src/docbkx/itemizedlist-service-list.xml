@@ -31,6 +31,7 @@
         <para><link xlink:href="api-ref-files.html">Cloud Files
                 API</link></para>
     </listitem>
+<!-- commented out per Meker12 10/22/14 -->
 <!--    <listitem>
         <para><link xlink:href="api-ref-identity.html">Cloud Identity API</link></para>
     </listitem>-->
