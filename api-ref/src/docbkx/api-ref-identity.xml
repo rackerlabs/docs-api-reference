@@ -19,5 +19,5 @@
      <xi:include href="itemizedlist-service-list.xml"/>
     </annotation>
   </info>
-  <xi:include href="ch_rax-identity-v2.xml"/>
+  <!--<xi:include href="ch_rax-identity-v2.xml"/>-->
 </book>

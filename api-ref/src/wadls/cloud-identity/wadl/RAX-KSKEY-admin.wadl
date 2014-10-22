@@ -76,12 +76,12 @@
                                 </param> -->
                             <method href="#listCredentials"/>
                         </resource>
-                        <resource id="userCredentialsByType"
+                        <!--<resource id="userCredentialsByType"
                             path="RAX-KSKEY:apiKeyCredentials">
                             <method href="#updateUserCredential"/>
                             <method href="#deleteUserCredential"/>
                             <method href="#getUserCredential"/>
-                        </resource>
+                        </resource>-->
                     </resource>
                 </resource>
             </resource>
