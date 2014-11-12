@@ -14,27 +14,27 @@
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list networks -->
             <wadl:resource
-                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networksnova">
+                href="https://raw.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networksnova">
                 <wadl:method href="#listNetworks"/>
             </wadl:resource>
             <!-- create networks -->
             <wadl:resource
-                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networksnova">
+                href="https://raw.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networksnova">
                 <wadl:method href="#createNetworks"/>
             </wadl:resource>
             <!-- provision server and attach networks -->
             <wadl:resource
-                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#serversnova">
+                href="https://raw.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#serversnova">
                 <wadl:method href="#attachNetworks"/>
             </wadl:resource>
             <!-- show network -->
             <wadl:resource
-                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networkID">
+                href="https://raw.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networkID">
                 <wadl:method href="#showNetwork"/>
             </wadl:resource>
             <!-- delete network -->
             <wadl:resource
-                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networkID">
+                href="https://raw.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networkID">
                 <wadl:method href="#deleteNetwork"/>
             </wadl:resource>
         </wadl:resources>
