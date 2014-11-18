@@ -14,23 +14,29 @@
         <para>List, show information for, create, update, and delete networks.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list networks -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/networks.wadl#Networks">
+            <!--<wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/networks.wadl#Networks">-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/networks.wadl#Networks">
                 <wadl:method href="listNetworks"/>
             </wadl:resource>
             <!-- create network -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/networks.wadl#Networks">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/networks.wadl#Networks">
                 <wadl:method href="createNetwork"/>
             </wadl:resource>
             <!-- show network -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/networks.wadl#networkID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/networks.wadl#networkID">
                 <wadl:method href="showNetwork"/>
             </wadl:resource>
             <!-- update network -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/networks.wadl#networkID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/networks.wadl#networkID">
                 <wadl:method href="updateNetwork"/>
             </wadl:resource>
             <!-- delete network -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/networks.wadl#networkID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/networks.wadl#networkID">
                 <wadl:method href="deleteNetwork"/>
             </wadl:resource>
         </wadl:resources>
@@ -40,23 +46,29 @@
         <para>List, show information for, create, update, and delete subnet resources.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list subnets -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/subnets.wadl#Subnets">
+            <!--<wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/subnets.wadl#Subnets">-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/subnets.wadl#Subnets">
                 <wadl:method href="listSubnets"/>
             </wadl:resource>
             <!-- create subnet -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/subnets.wadl#Subnets">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/subnets.wadl#Subnets">
                 <wadl:method href="createSubnet"/>
             </wadl:resource>
             <!-- show subnet -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/subnets.wadl#subnetID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/subnets.wadl#subnetID">
                 <wadl:method href="showSubnet"/>
             </wadl:resource>
             <!-- update subnet -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/subnets.wadl#subnetID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/subnets.wadl#subnetID">
                 <wadl:method href="updateSubnet"/>
             </wadl:resource>
             <!-- remove subnet -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/subnets.wadl#subnetID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/subnets.wadl#subnetID">
                 <wadl:method href="removeSubnet"/>
             </wadl:resource>
         </wadl:resources>
@@ -66,23 +78,29 @@
         <para>List, show information for, create, update, and delete ports.</para>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <!-- list ports -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/ports.wadl#Ports">
+            <!--<wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/ports.wadl#Ports">-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/ports.wadl#Ports">
                 <wadl:method href="listPorts"/>
             </wadl:resource>
             <!-- create port -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/ports.wadl#Ports">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/ports.wadl#Ports">
                 <wadl:method href="createPort"/>
             </wadl:resource>
             <!-- show port -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/ports.wadl#portID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/ports.wadl#portID">
                 <wadl:method href="showPort"/>
             </wadl:resource>
             <!-- update port -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/ports.wadl#portID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/ports.wadl#portID">
                 <wadl:method href="updatePort"/>
             </wadl:resource>
             <!-- remove port -->
-            <wadl:resource href="https://raw.githubusercontent.com/catlook/networks2/master/src/wadl/ports.wadl#portID">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-networks/master/src/wadl/ports.wadl#portID">
                 <wadl:method href="removePort"/>
             </wadl:resource>
         </wadl:resources>
