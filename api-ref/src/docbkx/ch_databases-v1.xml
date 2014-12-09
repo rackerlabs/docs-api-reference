@@ -156,6 +156,22 @@
             </wadl:resource>
         </wadl:resources>
     </section>
+    <section xml:id="replication">
+        <title>Replication</title>
+        <wadl:resources>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instances">
+                <wadl:method href="#createReplica"/>
+                <wadl:method href="#getReplicasOrReplicaSources"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#instanceId">
+                <wadl:method href="#getReplicaSource"/>
+                <wadl:method href="#getReplica"/>
+                <wadl:method href="#detachReplica"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
     <section xml:id="configuration">
         <title>Configurations</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
