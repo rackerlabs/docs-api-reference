@@ -1,10 +1,14 @@
 {
     "values": [
         {
-            "name": "mzdfw.available"
+            "name": "mzdfw.available",
+            "unit": "percent",
+            "type": "D"
         },
         {
-            "name": "mzdfw.average"
+            "name": "mzdfw.average",
+            "unit": "seconds",
+            "type": "D"
         }
     ],
     "metadata": {

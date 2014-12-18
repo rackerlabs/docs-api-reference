@@ -215,13 +215,18 @@
                 </wadl:doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02" name="entityId" style="query" required="true">
-                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id for the entity associated with the
-                        Check. Use the List check types operation to find the <code>checkTypeId</code> if you don't know
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The ID for the entity associated with the
+                        Check. Use the List check types operation to find the <code>entityId</code> if you don't know
                         it.</para>
                 </wadl:doc>
             </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02" name="checkId" style="query" required="true">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The ID for the Check. Use the List checks
+                        operation to find the <code>checkId</code> if you don't know it.</para>
+                </wadl:doc>
+            </param>
             <param xmlns="http://wadl.dev.java.net/2009/02" name="checkTypeId" style="plain" required="true">
-                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The id of the Check for the metrics
+                <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"><para>The ID of the Check for the metrics
                         lookup. Use the List checks operation to find the <code>checkTypeId</code> if you don't know
                         it.</para>
                 </wadl:doc>

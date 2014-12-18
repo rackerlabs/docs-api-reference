@@ -3,9 +3,13 @@
   <values>
     <metricinfo>
       <name>mzdfw.available</name>
+      <unit>percent</unit>
+      <type>D</type>
     </metricinfo>
     <metricinfo>
       <name>mzdfw.average</name>
+      <unit>seconds</unit>
+      <type>D</type>
     </metricinfo>
   </values>
   <metadata>
