@@ -55,7 +55,8 @@
               <profileSecurity>reviewer</profileSecurity>
               <highlightSource>false</highlightSource>
               <enableGoogleAnalytics>1</enableGoogleAnalytics>
-              <googleAnalyticsId>UA-17511903-1</googleAnalyticsId>
+              <googleAnalyticsId>UA-23102455-4</googleAnalyticsId>
+              <googleAnalyticsDomain>rackspace.com</googleAnalyticsDomain>
               <branding>rackspace</branding>
             </configuration>
           </execution>
