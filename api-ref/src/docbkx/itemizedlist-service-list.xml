@@ -59,4 +59,7 @@
     <listitem>
         <para><link xlink:href="api-ref-servers-ext.html">Cloud Servers API extensions</link></para>
     </listitem>
+<!--    <listitem>
+        <para><link xlink:href="api-ref-rax-content-delivery.html">Rackspace Content Delivery Network</link></para>
+    </listitem>-->
 </itemizedlist>

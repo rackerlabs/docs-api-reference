@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="raxcdn-v1">
+    <title>Rackspace Content Delivery Network API v1</title>
+    <section xml:id="raxcdn-sect1">
+        <title>something meaningful</title>
+        <para>What kinds of functions are covered</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#resourceid1">
+                <wadl:method href="#method1"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#resourceid2">
+                <wadl:method href="#method2"/>
+                <wadl:method href="#method3"/>
+                <wadl:method href="#method4"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>
