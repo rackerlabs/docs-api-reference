@@ -50,7 +50,7 @@
                 api-ref-orchestration.xml, <!-- orchestration --> 
                 api-ref-queues.xml, <!-- queues -->
                 <!-- api-ref-servers.xml, --> <!-- servers --> 
-                <!-- api-ref-content-delivery.xml, --> <!-- rax content delivery network --> 
+                api-ref-raxCDN.xml <!-- rax content delivery network --> 
                 api-ref-servers-ext.xml <!-- servers extensions -->
               </includes>
               <profileSecurity>reviewer</profileSecurity>
