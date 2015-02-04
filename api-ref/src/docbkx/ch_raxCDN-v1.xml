@@ -10,7 +10,8 @@
     <para>Use the Rackspace CDN API to manage your
         CDN-enabled domains and the origins and assets associated with those domains.</para>
     
-    <section xml:id="raxcdn_BaseOperations">
+    
+   <section xml:id="raxcdn_BaseOperations">
         <title>Base</title>
         <!--<para xmlns:svg="http://www.w3.org/2000/svg">The section describes the base operations for
             the Rackspace CDN API.</para>-->

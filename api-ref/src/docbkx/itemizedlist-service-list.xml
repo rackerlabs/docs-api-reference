@@ -60,6 +60,6 @@
         <para><link xlink:href="api-ref-servers-ext.html">Cloud Servers API extensions</link></para>
     </listitem>
     <listitem>
-        <para><link xlink:href="api-ref-raxCDN.html">Rackspace CDN</link></para>
+        <para><link xlink:href="api-ref-raxcdn.html">Rackspace CDN</link></para>
     </listitem>
 </itemizedlist>
