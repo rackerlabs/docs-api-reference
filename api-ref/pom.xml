@@ -33,7 +33,7 @@
             <phase>generate-sources</phase>
             <configuration>
               <includes> api-ref.xml, <!-- comprehensive -->
-                api-ref-auto-scale.xml, <!--,      auto scale -->
+                api-ref-auto-scale.xml, <!-- auto scale -->
                 api-ref-backup.xml, <!-- backup -->
                 api-ref-big-data.xml, <!-- big data -->
                 api-ref-blockstorage.xml, <!-- block storage -->
@@ -50,7 +50,7 @@
                 api-ref-orchestration.xml, <!-- orchestration --> 
                 api-ref-queues.xml, <!-- queues -->
                 <!-- api-ref-servers.xml, --> <!-- servers --> 
-                api-ref-raxcdn.xml, <!-- rax content delivery network --> 
+                api-ref-raxCDN.xml <!-- rax content delivery network --> 
                 api-ref-servers-ext.xml <!-- servers extensions -->
               </includes>
               <profileSecurity>reviewer</profileSecurity>
