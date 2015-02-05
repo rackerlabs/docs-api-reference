@@ -6,9 +6,9 @@
   xmlns:xref="http://www.w3.org/1999/xref"
   xmlns:wadl="http://wadl.dev.java.net/2009/02"
   version="5.0-extension RackBook-2.0"
-  xml:id="api.rackspace.com-images">
+  xml:id="api.rackspace.com-raxcdn">
   <info>
-    <title>Rackspace Content Delivery Network APIs</title>
+    <title>Rackspace CDN API</title>
     <copyright>
       <year>2010-2015</year>
     </copyright>
@@ -19,5 +19,5 @@
       <xi:include href="itemizedlist-service-list.xml"/>
     </annotation>
   </info>
-  <xi:include href="ch_rax_content_delivery.xml"/>
+  <xi:include href="ch_raxcdn-v1.xml"/>
 </book>

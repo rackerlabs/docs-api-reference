@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="raxcdn-v1">
+    <title>Rackspace CDN API v1.0</title>
+    <para>Use the Rackspace CDN API to manage your
+        CDN-enabled domains and the origins and assets associated with those domains.</para>
+    
+    
+   <section xml:id="raxcdn_BaseOperations">
+        <title>Base</title>
+        <!--<para xmlns:svg="http://www.w3.org/2000/svg">The section describes the base operations for
+            the Rackspace CDN API.</para>-->
+        <!-- https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource 
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#version">
+                <wadl:method href="#getHomeDocument"/>
+            </wadl:resource>
+            <wadl:resource 
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#ping">
+                <wadl:method href="#getPing"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+        
+    <section xml:id="raxcdn_ServicesOperations">
+        <title>Services</title>
+       <!-- <para>The section describes the services operations for the Rackspace CDN API.</para>-->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#services">
+                <wadl:method href="#getAllServices"/>
+                <wadl:method href="#createService"/>
+            </wadl:resource>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#service_id">
+                <wadl:method href="#getService"/>
+                <wadl:method href="#patchService"/>
+                <wadl:method href="#deleteService"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    
+    <section xml:id="raxcdn_ServiceAssetsOperations" xmlns:svg="http://www.w3.org/2000/svg">
+        <title>Service assets</title>
+       <!-- <para>A service distributes assets across the network. Service assets let you interrogate
+            properties about these assets and perform certain actions on them. </para>
+        <para>The section describes the service assets operation for the Rackspace CDN API.</para>-->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#assets">
+                <wadl:method href="#deleteCachedAsset"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    
+    <section xml:id="raxcdn_FlavorsOperations" xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <title>Flavors</title>
+        <!--<para>A flavor is a mapping configuration to a CDN provider.</para>
+        <para>The section describes the Flavors operations for the Rackspace CDN API.</para>-->
+        <wadl:resources>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#flavors">
+                <wadl:method href="#getFlavors"/>
+            </wadl:resource>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-cdn/master/src/wadl/cdn-devguide.wadl#flavor_id">
+                <wadl:method href="#getFlavorDetails"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    
+</chapter>
