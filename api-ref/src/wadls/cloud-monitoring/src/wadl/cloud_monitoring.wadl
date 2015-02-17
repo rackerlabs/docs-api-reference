@@ -2180,7 +2180,7 @@
 
     <!-- Suppressions methods -->
     <method name="POST" id="createSuppression">
-        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create alarm">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create suppression">
             <para role="shortdesc"> Creates a new suppression. </para>
             <para>Specify the characteristics for the suppression using a valid set of parameters from the
                 <link linkend="swiz-suppressions.xml">Suppressions attributes</link> table.</para>
