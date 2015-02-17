@@ -131,6 +131,10 @@
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#flavorId">
                 <wadl:method href="#getFlavorById"/>
             </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#flavors2">
+                <wadl:method href="#getFlavorsByDatastoreVersion"/>
+            </wadl:resource>
         </wadl:resources>
     </section>
     <section xml:id="backups">
@@ -215,6 +219,12 @@
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#parameter2Id">
                 <wadl:method
                     href="#getConfigurationParameterDetailsWithoutDatastore"
+                />
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#flavorId2">
+                <wadl:method
+                    href="#getVerboseDefaultConfigurationParameters"
                 />
             </wadl:resource>
         </wadl:resources>
