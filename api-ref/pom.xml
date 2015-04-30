@@ -22,7 +22,7 @@
     <plugins>
       <plugin>
         <groupId>com.rackspace.cloud.api</groupId>
-        <artifactId>clouddocs-maven-plugin</artifactId>
+        <artifactId>rackspace-docs-maven-plugin</artifactId>
         <!-- version is set in ../pom.xml file -->
         <executions>
           <execution>
