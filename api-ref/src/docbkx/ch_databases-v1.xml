@@ -138,7 +138,7 @@
         </wadl:resources>
     </section>
     <section xml:id="backups">
-        <title>Backups</title>
+        <title>On Demand Backups</title>
         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#backups">
@@ -160,6 +160,21 @@
             </wadl:resource>
         </wadl:resources>
     </section>
+    <section xml:id="scheduled_backups">
+        <title>Scheduled Backups</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#automatedbackups">
+                <wadl:method href="#createAutoBackup"/>
+                <wadl:method href="#getAutomatedBackups"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#backup2Id">
+                <wadl:method href="#getAutomatedBackupById"/>
+                <wadl:method href="#deleteAutomatedBackupById"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
     <section xml:id="replication">
         <title>Replication</title>
         <wadl:resources>
@@ -177,6 +192,30 @@
             <wadl:resource
                 href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#replicas">
                 <wadl:method href="#getReplicasBySourceInstance"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="high_availability">
+        <title>High Availability</title>
+        <wadl:resources>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#ha">
+                <wadl:method href="#createHa"/>
+                <wadl:method href="#getHa"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#haId">
+                <wadl:method href="#getInstanceByHaId"/>
+                <wadl:method href="#deleteInstanceByHaId"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#acls">
+                <wadl:method href="#addAclToHaInstance"/>
+                <wadl:method href="#listAclsForHaInstance"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-databases/master/xsd/dbaas.wadl#address">
+                <wadl:method href="#deleteAclsFromHaInstance"/>
             </wadl:resource>
         </wadl:resources>
     </section>
