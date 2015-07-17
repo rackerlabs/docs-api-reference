@@ -35,7 +35,8 @@
               <includes> api-ref.xml, <!-- comprehensive and servers -->
                 api-ref-auto-scale.xml, <!-- auto scale -->
                 api-ref-backup.xml, <!-- backup -->
-                api-ref-big-data.xml, <!-- big data -->
+                api-ref-big-data.xml, <!-- big data v1.0 -->
+                api-ref-big-data-v2.xml, <!-- big data v2 -->
                 api-ref-blockstorage.xml, <!-- block storage -->
                 api-ref-databases.xml,<!-- databases -->
                 api-ref-dns.xml, <!-- dns --> 
