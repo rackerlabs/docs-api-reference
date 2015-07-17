@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="big-data-v2">
+    <title>Cloud Big Data API v2</title>
+    <section xml:id="cbdv2CredentialsOperations">
+        <title>Credentials</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#credentials"/>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#credentialTypes"/>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#credential"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2DistrosOperations">
+        <title>Distros</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#distros"/>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#distro"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2StackOperations">
+        <title>Stacks</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#stacks"/>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#stack"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2ClustersOperations">
+        <title>Clusters</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#clusters"/>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#cluster"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2NodesOperations">
+        <title>Nodes</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#nodes"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2ScriptsOperations">
+        <title>Scripts</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#scripts"/>
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#script"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2FlavorsOperations">
+        <title>Flavors</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#flavors"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="cbdv2ResourceLimitsOperations">
+        <title>Resource limits</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-big-data/master/src/wadl/cbd-devguide-2.wadl#limits"/>
+        </wadl:resources>
+    </section>
+</chapter>
