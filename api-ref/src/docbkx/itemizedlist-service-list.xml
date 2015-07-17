@@ -28,11 +28,10 @@
         <para><link xlink:href="api-ref-feeds.html">Cloud Feeds API</link></para>
     </listitem> -->
     <listitem>
-        <para><link xlink:href="api-ref-files.html">Cloud Files
-                API</link></para>
+        <para><link xlink:href="api-ref-files.html">Cloud Files API</link></para>
     </listitem>
-<!-- commented out per Meker12 10/22/14 -->
-<!--    <listitem>
+    <!-- commented out per Meker12 10/22/14 -->
+    <!--    <listitem>
         <para><link xlink:href="api-ref-identity.html">Cloud Identity API</link></para>
     </listitem>-->
     <listitem>
@@ -56,9 +55,10 @@
     <listitem>
         <para><link xlink:href="api-ref.html">Cloud Servers API</link></para>
     </listitem>
-    <listitem>
+    <!-- per Cat extension now included with server ops -->
+    <!--<listitem>
         <para><link xlink:href="api-ref-servers-ext.html">Cloud Servers API extensions</link></para>
-    </listitem>
+    </listitem>-->
     <listitem>
         <para><link xlink:href="api-ref-raxCDN.html">Rackspace CDN</link></para>
     </listitem>
