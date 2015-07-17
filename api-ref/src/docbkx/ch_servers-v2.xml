@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref" xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="images-v2">
+    <title>Cloud Servers API v2</title>
+    <section xml:id="basic-servers">
+        <title>Basic server operations</title>
+        <para>This section describes the basic API operations for servers: create, read, update, and delete.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#Servers">
+                <wadl:method href="#createServer"/>
+                <wadl:method href="#listServers"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#ServersDet">
+                <wadl:method href="listServersDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#Server_id">
+                <wadl:method href="getServer"/>
+                <wadl:method href="updateServer"/>
+                <wadl:method href="deleteServer"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="server-address">
+        <title>Server address operations</title>
+        <para>This section describes the API operations for server addresses.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#IPs">
+                <wadl:method href="listServerAddresses"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#Network_label">
+                <wadl:method href="listServerAddressesbyNetwork"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="server-actions">
+        <title>Server action operations</title>
+        <para>This section describes the API operations for server actions.</para>
+        <note>
+            <para>The base URI is the same for all server actions. The request body identifies which action to take.</para>
+        </note>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#Actions">
+                <wadl:method href="changePassword"/>
+                <wadl:method href="rebootServer"/>
+                <wadl:method href="rebuildServer"/>
+                <wadl:method href="resizeServer"/>
+                <wadl:method href="confirmResizeServer"/>
+                <wadl:method href="revertResizeServer"/>
+                <wadl:method href="rescueServer"/>
+                <wadl:method href="unrescueServer"/>
+                <wadl:method href="createImage"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="server-metadata">
+        <title>Server metadata operations</title>
+        <para>This section describes the metadata API operations for servers.</para>
+        <para>Metadata provides additional information about your provisioned resources. It follows the format of '"metadata
+            key":"metadata value"' (for example, <literal>"Label" : "Web"</literal>). Metadata API operations allow you to
+            add, delete, and manipulate metadata for servers and images. Metadata can be configured by the provider or by the
+            user to provide extra functionality or labeling, or to provide information for 3rd party applications to use. </para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#Metadata">
+                <wadl:method href="listMetadata"/>
+                <wadl:method href="setMetadata"/>
+                <wadl:method href="updateMetadata"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#MetadataKey">
+                <wadl:method href="showMetadataItem"/>
+                <wadl:method href="setMetadataItem"/>
+                <wadl:method href="deleteMetadataItem"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="server-volumes">
+        <title>Server volume attachment operations</title>
+        <para>This section describes the volume attachment API operations for servers.</para>
+        <para>For information about creating and managing volumes, see
+            <link xlink:href="http://docs.rackspace.com/cbs/api/v1.0/cbs-devguide/content/index.html"><citetitle>Rackspace Cloud 
+                    Block Storage Developer Guide</citetitle></link>.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#VolumeAttach">
+                <wadl:method href="createVolumeAttachment"/>
+                <wadl:method href="listVolumeAttachments"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/servers.wadl#VolumeAttachmentId">
+                <wadl:method href="showVolumeAttachmentDetails"/>
+                <wadl:method href="deleteVolumeAttachment"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="support-flavors">
+        <title>Flavor operations</title>
+        <para>This section describes the API operations for flavors.</para>
+        <para>A flavor is a resource configuration for a server. Each flavor is a unique combination of disk, memory, vCPUs,
+            and network bandwidth.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Flavors">
+                <wadl:method href="listFlavors"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#FlavorsDet">
+                <wadl:method href="listFlavorsWithDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Flavor_id">
+                <wadl:method href="showFlavorDetails"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="support-images">
+        <title>Image operations</title>
+        <para>This section describes the API operations for images.</para>
+        <para>An image is a collection of files for a specific operating system (OS) that you use to create or rebuild a
+            server. Rackspace provides prebuilt images.</para>
+        <para>With standard servers, the entire disk (O/S and data) is captured in the image. With Compute, Memory, and IO
+            servers, only the system disk is captured in the image. The data disks should be backed up using Cloud Backup or
+            Cloud Block Storage to ensure availability in case you need to rebuild or restore a server.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Images">
+                <wadl:method href="listImages"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#ImagesDet">
+                <wadl:method href="listImagesWithDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Image_id">
+                <wadl:method href="showImageDetails"/>
+                <wadl:method href="deleteImage"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="support-image-metadata">
+        <title>Image metadata operations</title>
+        <para>This section describes the API operations for image metadata.</para>
+        <para>Image metadata is a collection of information about an image.</para>
+        <para>Some metadata is provided with Rackspace images or set by default when you create an image. You can also add
+            custom metadata elements, and modify or delete metadata elements that you added.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#ImageMeta">
+                <wadl:method href="showImageMetadata"/>
+                <wadl:method href="setImageMetadata"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#ImageMetaKey">
+                <wadl:method href="showImageMetadataItem"/>
+                <wadl:method href="setImageMetadataItem"/>
+                <wadl:method href="deleteImageMetadataItem"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="support-limits">
+        <title>Limits operations</title>
+        <para>This section describes the API operations for limits.</para>
+        <para>Accounts are configured with thresholds, or limits, that manage capacity and prevent abuse of the
+            system.</para>
+        <para>The system recognizes the following types of limits: <itemizedlist xml:id="limit_list">
+                <listitem>
+                    <para><emphasis role="italic">rate limits</emphasis>. Control the frequency at which the user can issue
+                        specific API requests<!--See insertlinkhere-->.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="italic">absolute limits</emphasis>. Control the total number of specific objects
+                        that the user can process simultaneously<!--See insertlinkhere-->. </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Limits">
+                <wadl:method href="listRateAbsoluteLimits"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="support-extensions">
+        <title>Extensions operations</title>
+        <para>This section describes the API operations for extensions.</para>
+        <para>Extensions provide new or modified functionality, and Rackspace has implemented several extensions. You can
+            list available extensions and get details for a specific extension.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Extensions">
+                <wadl:method href="listExtensions"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/supporting.wadl#Alias">
+                <wadl:method href="getExtension"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext_scheduled_images">
+        <title>Scheduled images operations</title>
+        <para>This section describes the API operations for scheduled images.</para>
+        <para>Rather than manually capturing images, use this extension to schedule automatic images according to a schedule
+            that you define.</para>
+        <para>You may schedule daily or weekly images of your server automatically, but you cannot schedule both daily and
+            weekly images for a server. When you schedule an image, a new resource is created at
+            /servers/{serverId}/rax-si-image-schedule. This resource, which contains the retention value and an optional day
+            of the week specification, indicates that this server will be monitored by the scheduled images service.</para>
+        <para>If you do not include a day of the week specification in your scheduled images request, the server's image will
+            be created daily.</para>
+        <para>If you include a day of the week specification in your scheduled images request, the server's image will be
+            created weekly on the day you indicate. Specify the optional day of the week using a string value from the
+            following enumeration: <code>SUNDAY</code>, <code>MONDAY</code>, <code>TUESDAY</code>, <code>WEDNESDAY</code>,
+                <code>THURSDAY</code>, <code>FRIDAY</code>, <code>SATURDAY</code>.</para>
+        <para>The scheduled images request for both daily and weekly images requires a retention value, a positive integer,
+            which indicates the number of images created by the scheduled images service that will be retained in your cloud
+            storage account. The scheduled images service will remove scheduled images in excess of that value, keeping the
+            most recently created scheduled images (and all manually created images) of that server. You may configure each
+            server's retention value independently.</para>
+        <para>Keep in mind:<itemizedlist>
+                <listitem>
+                    <para>Smaller snapshots tend to finish more quickly.</para>
+                </listitem>
+                <listitem>
+                    <para>A very large snapshot may take so long to finish that it may block the next day's scheduled
+                        snapshot from occurring.</para>
+                </listitem>
+                <listitem>
+                    <para>If you have a large amount of data to save, you may wish to explore other backup options.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <important>
+            <para> The scheduled images service is a "best effort service". Images are scheduled so that they will not
+                interfere with each other or with on-demand snapshots. You may not specify a particular time at which your
+                server snapshot will be taken, nor can we guarantee what time your scheduled image will become active, as the
+                time that an image becomes active depends upon the current network traffic load, and other factors. We do
+                guarantee that all users will receive the same best-effort service. </para>
+            <para>For weekly images, you specify the day of the week (determined by UTC) when you'd like your server image
+                created. As with daily scheduled images, we create a schedule for you and promise to satisfy it on a
+                best-effort basis. There's no guarantee that your server's schedule will stay the same from week to week: we
+                reserve the right to modify the time your image is made so that we can balance the the number of image
+                creations in flight throughout the cloud and throughout the day. Additionally, as some days of the week are
+                much more popular than others for scheduling images, in rare circumstances we may create your weekly
+                scheduled image in a window beginning 12:00 UTC the day before the day of the week you specify and ending at
+                12:00 UTC the day after the day of the week you specify. This is the time your image is scheduled to be
+                created. The time it will be available for you to use (that is, when its status is <code>ACTIVE</code>)
+                depends on factors such as the size of the image and overall network congestion in the cloud.</para>
+        </important>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#RaxSchedImage">
+                <wadl:method href="enableSchedImages"/>
+                <wadl:method href="showSchedImages"/>
+                <wadl:method href="disableSchedImages"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext_rescue">
+        <title>Rescue server extension</title>
+        <para>This extension is described in the section on server action - rescue server API operations.</para>
+    </section>
+    <section xml:id="ext-status">
+        <title>Extended status extension</title>
+        <para>The extended status extension displays the power state, virtual machine (VM) state, and task state for servers
+            in API operations: List servers with details and get a server's details.</para>
+        <para>The following API operation response parameters contain the state information: <note>
+                <para>The API does not regulate the VM and task status values so it is possible that these status values can
+                    be added, removed, or renamed. </para>
+            </note>
+            <variablelist>
+                <varlistentry>
+                    <term><emphasis role="bold">OS-EXT-STS:power_state</emphasis></term>
+                    <listitem>
+                        <para>The power status.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis role="bold">OS-EXT-STS:vm_state</emphasis></term>
+                    <listitem>
+                        <para>The virtual machine (VM) status.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term><emphasis role="bold">OS-EXT-STS:task_state</emphasis></term>
+                    <listitem>
+                        <para>The task status.</para>
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </para>
+    </section>
+    <section xml:id="ext-disk-config">
+        <title>Disk config extension</title>
+        <para>The disk configuration extension adds a <literal>OS-DCF:diskConfig</literal> attribute to images and servers.
+            This attribute controls how the disk is partitioned when servers are created, rebuilt, or resized.</para>
+        <para>A server inherits the <literal>OS-DCF:diskConfig</literal> value from the image used to create it, and an image
+            inherits the <literal>OS-DCF:diskConfig</literal> value of the server from which it was created. To override the
+            inherited setting, you can include the <literal>OS-DCF:diskConfig</literal> attribute in the request body of a
+            server create, rebuild, or resize request.</para>
+        <para>Valid <literal>OS-DCF:diskConfig</literal> values are:</para>
+        <itemizedlist>
+            <listitem>
+                <para><literal>AUTO</literal>. The server is built with a single partition the size of the target flavor
+                    disk. The file system is automatically adjusted to fit the entire partition. This keeps things simple and
+                    automated. <literal>AUTO</literal> is valid only for images and servers with a single partition that use
+                    the EXT3 file system. This is the default setting for applicable Rackspace base images. </para>
+            </listitem>
+            <listitem>
+                <para><literal>MANUAL</literal>. The server is built using whatever partition scheme and file system is in
+                    the source image. If the target flavor disk is larger, the remaining disk space is left
+                    unpartitioned. This enables images to have non-EXT3 file systems, multiple partitions, and so on, and
+                    enables you to manage the disk configuration.</para>
+            </listitem>
+        </itemizedlist>
+        <para>Resizing down requires the server to have a <literal>OS-DCF:diskConfig</literal> value of
+                <literal>AUTO</literal>.</para>
+
+        <para>With the disk config extension, submitting a GET request for <command>/servers/detail</command>,
+                <command>/servers/{server_id}</command>, <command>/images/detail</command>, or
+                <command>/images/{image_id}</command> returns the <literal>OS-DCF:diskConfig</literal> extended attribute in
+            the response body.</para>
+        <para>This section shows the create server operation with the <literal>OS-DCF:diskConfig</literal> attribute.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!-- create server with disk config-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#Servers">
+                <wadl:method href="createServerDiskConfig"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext-config-drive">
+        <title>Config-drive extension</title>
+        <para> Config-drive is a read-only configuration drive that is attached to server instances on boot. It is given the
+            label "config-2", and it shows up as a CDROM drive on the instance. It is especially useful in conjunction with
+            cloud-init (a server bootstrapping application) and for passing large files to be used by your server.</para>
+        <para>To use the config drive, once it is attached to a server, you need to mount it. Mounting instructions vary by
+            operating system. For some Linux operating systems, for example, you might issue the following two
+            instructions:</para>
+        <programlisting>
+           # mkdir -p /mnt/config
+           # mount /dev/disk/by-label/config-2 /mnt/config
+       </programlisting>
+        <para> When a config-drive is created, it is configured by data contained in one or both of the following arguments: </para>
+        <variablelist>
+            <varlistentry>
+                <term>
+                    <emphasis role="bold">user-data</emphasis>
+                </term>
+                <listitem>
+                    <para>contained in openstack/latest/user_data</para>
+                    <note>
+                        <para>If the content of the user_data file is not purely text, convert it by using base64 encoding to
+                            allow for proper transfer and storage. If your user_data needs to be encoded and isn't, you'll
+                            get an <errorcode>400</errorcode>
+                            <errortext>Userdata content cannot be decoded</errortext> message. </para>
+                    </note>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>
+                    <emphasis role="bold">personality</emphasis>
+                </term>
+                <listitem>
+                    <para>located in openstack/content/0000 with the path listed in the openstack/latest/meta_data.json
+                        file</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+    <section xml:id="ext-key-pair">
+        <title>Key pairs extension</title>
+        <para>This section describes the API operations for key pairs.</para>
+        <para>Users create a key pair, or choose an existing key pair, and associate that key pair when building a server.
+            This grants a user the ability to authenticate via key-based authentication instead of password-based
+            authentication. </para>
+        <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#Keypairs">
+                <wadl:method href="createKeyPair"/>
+                <wadl:method href="importKeyPair"/>
+                <wadl:method href="listKeyPairs"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#KeypairName">
+                <wadl:method href="deleteKeyPair"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext-network">
+        <title>Network extension</title>
+        <para>This section describes the nova-network API operations for networks.</para>
+        <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#Networks">
+                <wadl:method href="listNetworks"/>
+                <wadl:method href="createNetwork"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#NetworkID">
+                <wadl:method href="showNetwork"/>
+                <wadl:method href="deleteNetwork"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext-virtual-interface">
+        <title>Virtual interface extension</title>
+        <para>Use the virtual interface extension to create a virtual interface to a specified network and attach that
+            network to an existing server instance. You can attach either an isolated network that you have created or a
+            Rackspace network.</para>
+        <para>A virtual interface works in the same way as the network interface card (NIC) inside your laptop. Like a NIC, a
+            virtual interface is the medium through which you can attach a network to your server. You create a virtual
+            interface for a specified network, and the network, which is composed of logical switches, is attached to your
+            server instance through the virtual interface.</para>
+        <note>
+            <para>You can create a maximum of one virtual interface per instance per network. </para>
+        </note>
+        <para>You can also use the virtual interface extension to perform the following actions:</para>
+        <itemizedlist>
+            <listitem>
+                <para>List the virtual interfaces for a server instance.</para>
+            </listitem>
+            <listitem>
+                <para>Delete a virtual interface and detach it from a server instance.</para>
+            </listitem>
+        </itemizedlist>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#Interfaces">
+                <wadl:method href="listInterfaces"/>
+                <wadl:method href="createInterface"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#InterfaceID">
+                <wadl:method href="deleteInterface"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext-console">
+        <title>Console extension</title>
+        <para>Use the console extension to get a URL to allow a java client connection to your server.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#ActionC">
+                <wadl:method href="getConsole"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext-volumes">
+        <title>Volumes extension</title>
+        <para>Use the volumes extension to manage volumes for your server.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#Volumes">
+                <wadl:method href="listVolumes"/>
+                <wadl:method href="createVolume"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#VolumeID">
+                <wadl:method href="showVolume"/>
+                <wadl:method href="deleteVolume"/>
+            </wadl:resource>
+        </wadl:resources>
+
+
+    </section>
+    <section xml:id="ext-image-size">
+        <title>Image size extension</title>
+        <para>This extension adds the image size parameter (<literal>OS-EXT-IMG-SIZE</literal>) to image
+                <literal>GET</literal> operations. For examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Images-d1e4435.html">List Images</link>
+            and
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Get_Image_Details-d1e4848.html">Get Image Details</link>.</para>
+    </section>
+    <section xml:id="ext-flavor-extra">
+        <title>Flavor extra data extension</title>
+        <para>This extension adds extra data including <literal>rxtx_factor</literal>,
+                <literal>OS-FLV-EXT-DATA:ephemeral</literal>, and <literal>swap</literal> to flavor GET operations. For
+            examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Get_Flavor_Details-d1e4317.html">Get Flavor Details</link>.</para>
+    </section>
+    <section xml:id="ext-flavor-extra-specs">
+        <title>Flavor with extra specs extension</title>
+        <para>This operation shows extra specifications for the flavor, such as identifying the policy class, in the flavor
+            operations.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+            <wadl:resource
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#FlavorID">
+                <wadl:method href="showExtraSpecs"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="ext_flavor-rxtx">
+        <title>Flavor rxtx attribute extension</title>
+        <para>This extension adds <literal>rxtx_factor</literal>, which describes configured bandwidth cap values, to flavor
+            GET operations. For examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Get_Flavor_Details-d1e4317.html">Get Flavor Details</link>.</para>
+    </section>
+    <section xml:id="ext_rescue-image">
+        <title>Rescue server with image extension</title>
+        <para>This extension allows you to specify an image when rescuing a server. For examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/rescue_mode_extension.html">Rescue Mode Extension</link>.</para>
+    </section>
+    <section xml:id="ext_used-limits">
+        <title>Used limits extension</title>
+        <para>This extension expands the limits operation to show the project usage, including RAM and instance quotas usage.
+            For examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/GET_listRateAbsoluteLimits_limits_Limits.html">Retrieve list of rate and absolute limits</link>.</para>
+    </section>
+    <section xml:id="ext_public_ip">
+        <title>RAX Public IP Zone ID extension</title>
+        <para>This extension adds <literal>RAX-PUBLIC-IP-ZONE-ID:publicIPZoneId</literal> to server detail operation
+            responses. For examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Servers-d1e2078.html">List Servers</link>
+            and
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Get_Server_Details-d1e2623.html">Get Server Details</link>
+            .</para>
+    </section>
+    <section xml:id="ext_block_device_map">
+        <title>Block device mapping extension</title>
+        <para>This extension adds <literal>block_device_mapping_v2</literal> to server detail operation responses. For
+            examples, see
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/List_Servers-d1e2078.html">List Servers</link>
+            and
+            <link xlink:href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Get_Server_Details-d1e2623.html">Get Server Details</link>
+            .</para>
+    </section>
+    <section xml:id="ext-quota-sets">
+        <title>Quota sets extension</title>
+        <para>This operation shows current quotas for a tenant. For example, look at quotas to see how many instances (based
+            on how much available memory) that you can scale up or down. </para>
+        <para>The instances and ram settings define how many instances you can build and what flavors you can use. For
+            example, if the <literal>ram</literal> quota is 131072, you can only build 1 instance of 120 GB performance
+            flavor size, because building a second 120 GB performance flavor would exhaust the ram quota.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!--https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl-->
+            <wadl:resource 
+                href="https://raw.githubusercontent.com/rackerlabs/docs-cloud-servers/master/src/wadl/extensions.wadl#TenantID">
+                <wadl:method href="showQuotas"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>
