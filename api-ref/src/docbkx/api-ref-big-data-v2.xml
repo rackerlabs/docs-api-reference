@@ -8,7 +8,7 @@
     version="5.0-extension RackBook-2.0"
     xml:id="api.rackspace.com-big-data">
     <info>
-        <title>Cloud Big Data API v1.0</title>
+        <title>Cloud Big Data API v2</title>
         <copyright>
             <year>2010-2015</year>
         </copyright>
@@ -19,6 +19,6 @@
             <xi:include href="itemizedlist-service-list.xml"/>
         </annotation>
     </info>
-    <xi:include href="ch_big-data-v1.xml"/>
+    <xi:include href="ch_big-data-v2.xml"/>
 </book>
 
