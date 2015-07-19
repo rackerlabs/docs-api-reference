@@ -215,7 +215,7 @@
         </wadl:resources>
     </section>
     <section xml:id="ext_scheduled_images">
-        <title>Scheduled images operations</title>
+        <title>Scheduled images extension</title>
         <para>This section describes the API operations for scheduled images.</para>
         <para>Rather than manually capturing images, use this extension to schedule automatic images according to a schedule
             that you define.</para>
