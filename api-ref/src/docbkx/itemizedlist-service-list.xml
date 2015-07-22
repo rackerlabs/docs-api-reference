@@ -9,9 +9,11 @@
     <listitem>
         <para><link xlink:href="api-ref-backup.html">Cloud Backup API</link></para>
     </listitem>
+<!--    
     <listitem>
         <para><link xlink:href="api-ref-big-data.html">Cloud Big Data API v1.0</link></para>
     </listitem>
+-->    
     <listitem>
         <para><link xlink:href="api-ref-big-data-v2.html">Cloud Big Data API v2</link></para>
     </listitem>
